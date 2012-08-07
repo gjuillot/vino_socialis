@@ -7,6 +7,7 @@ class RegionsController < ApplicationController
   # GET /regions/1
   def show
     @region = Region.find(params[:id])
+    @areas = @region.areas
   end
 
   # GET /regions/new
@@ -24,6 +25,7 @@ class RegionsController < ApplicationController
   # POST /regions
   def create
     @region = Region.new(params[:region])
+    
     if @region.save
       redirect_to @region, notice: 'Region was successfully created.'
     else
@@ -34,7 +36,7 @@ class RegionsController < ApplicationController
   # PUT /regions/1
   def update
     @region = Region.find(params[:id])
-
+    
     if @region.update_attributes(params[:region])
       redirect_to @region, notice: 'Region was successfully updated.'
     else
