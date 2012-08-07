@@ -1,21 +1,23 @@
-<h2>Sign up</h2>
+<h1>Sign up</h1>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="span6 offset3">
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	  <%= devise_error_messages! %>
+	
+	  <%= f.label :name %>
+	  <%= f.text_field :name %>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+	  <%= f.label :email %>
+	  <%= f.email_field :email %>
+	
+	  <%= f.label :password %>
+	  <%= f.password_field :password %>
+	
+	  <%= f.label :password_confirmation %>
+	  <%= f.password_field :password_confirmation %>
+	
+	  <%= f.submit "Sign up", class: "btn btn-large btn-primary" %>
+	<% end %>
+  </div>
+</div>
