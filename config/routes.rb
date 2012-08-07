@@ -1,5 +1,7 @@
 VinoSocialis::Application.routes.draw do
+  
   resources :countries
+  resources :regions
   
   devise_for :users
   resources :users
