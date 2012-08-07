@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VinoSocialis</title>
+  <title><%= title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
   <header class="navbar navbar-fixed-top">
   	<div class="navbar-inner">
   	  <div class="container">
-  	  	<%= link_to "Vino Socialis", root_path, id: "logo" %>
+  	  	<%= link_to site_name, root_path, id: "logo" %>
   	  	<nav>
   	      <ul class="nav pull-left">
   	      	<%= render 'layouts/discover' %>
