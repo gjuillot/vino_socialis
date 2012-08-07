@@ -14,7 +14,15 @@
 	  <% end %>
 	
 	  <%= f.label :name %>
-	  <%= f.text_field :name %>
+	  <%= f.text_field :name, disabled: true %>
+	
+	  <%= f.label :email %>
+	  <%= f.text_field :email %>
+	  
+	  <% if can? :manage, @user %>
+	    <%= f.label :role %>
+	    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+	  <% end %>
 	    
 	  <%= f.submit class: "btn btn-large btn-primary" %>
 	<% end %>

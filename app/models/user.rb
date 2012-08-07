@@ -6,7 +6,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :role
   
   default_scope order: 'name ASC'
+  
+  ROLES = %w[admin moderator user]
+  
+  def admin?
+    role == "admin"
+  end
 end

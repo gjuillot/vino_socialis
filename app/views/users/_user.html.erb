@@ -1,2 +1,11 @@
-<li><%= link_to user.name, user %>
- - <%= link_to_edit(edit_user_path(user)) %> <%= link_to_destroy user %></li>
+<li>
+  <%= link_to user.name, user %>
+	
+  <% if can? :update, user %>
+    - <%= link_to_edit(edit_user_path(user)) %>
+  <% end %>
+	
+  <% if can? :destroy, user %>
+    - <%= link_to_destroy user %>
+  <% end %>
+</li>

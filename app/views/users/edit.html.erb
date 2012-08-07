@@ -1,11 +1,9 @@
-<% if current_user == @suer %>
+<% if current_user == @user %>
   <% provide(:title, 'My profile') %>
+  <h1>Edit my profile</h1>
 <% else %>
   <% provide(:title, "Edit #{@user.name}") %>
+  <h1><%= "Edit #{@user.name}" %></h1>
 <% end %>
-<h1>Editing user</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
