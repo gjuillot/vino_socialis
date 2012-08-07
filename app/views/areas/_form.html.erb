@@ -1,25 +1,26 @@
-<%= form_for(@area) do |f| %>
-  <% if @area.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@area.errors.count, "error") %> prohibited this area from being saved:</h2>
 
-      <ul>
-      <% @area.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="span6 offset3">
+  	<%= form_for(@area) do |f| %>
+	  <% if @area.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@area.errors.count, "error") %> prohibited this area from being saved:</h2>
+	
+	      <ul>
+	      <% @area.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	  <%= f.label :name %><br />
+	  <%= f.text_field :name %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+	  <%= f.label :region %><br />
+	  <%= collection_select :area, :region_id, @regions, :id, :name %>
+
+	  <%= f.submit class: "btn btn-large btn-primary" %>
+	<% end %>
   </div>
-  <div class="field">
-    <%= f.label :region %><br />
-    <%= collection_select :area, :region_id, @regions, :id, :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

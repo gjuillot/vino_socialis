@@ -1,21 +1,23 @@
-<%= form_for(@country) do |f| %>
-  <% if @country.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
 
-      <ul>
-      <% @country.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+<div class="row">
+  <div class="span6 offset3">
+	<%= form_for(@country) do |f| %>
+	  <% if @country.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
+	
+	      <ul>
+	      <% @country.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	  <%= f.label :name %>
+	  <%= f.text_field :name %>
+	  
+	  <%= f.submit class: "btn btn-large btn-primary" %>
+	<% end %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

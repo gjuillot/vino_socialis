@@ -1,25 +1,25 @@
-<%= form_for(@region) do |f| %>
-  <% if @region.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h2>
-
-      <ul>
-      <% @region.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+<div class="row">
+  <div class="span6 offset3">
+	<%= form_for(@region) do |f| %>
+	  <% if @region.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h2>
+	
+	      <ul>
+	      <% @region.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	  <%= f.label :name %>
+	  <%= f.text_field :name %>
+	   
+	  <%= f.label :country %>
+	  <%= collection_select :region, :country_id, @countries, :id, :name %>
+	    
+	  <%= f.submit class: "btn btn-large btn-primary" %>
+	<% end %>
   </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= collection_select :region, :country_id, @countries, :id, :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

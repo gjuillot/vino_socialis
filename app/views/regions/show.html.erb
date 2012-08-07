@@ -2,14 +2,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @region.name %>
-</p>
+<h1><%= @region.name %></h1>
 
 <p>
-  <b>Country:</b>
-  <%= @region.country.name %>
+  <%= link_to @region.country.name, @region.country %>
 </p>
 
 <% if @areas.any? %>

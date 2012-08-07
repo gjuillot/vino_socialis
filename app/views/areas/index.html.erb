@@ -1,28 +1,10 @@
 <% provide(:title, 'Areas') %>
 
-<h1>Listing areas</h1>
+<h1>Areas</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Region</th>
-    <th>Country</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @areas.each do |area| %>
-  <tr>
-    <td><%= area.name %></td>
-    <td><%= area.region.name %></td>
-    <td><%= area.region.country.name %></td>
-    <td><%= link_to 'Show', area %></td>
-    <td><%= link_to 'Edit', edit_area_path(area) %></td>
-    <td><%= link_to 'Destroy', area, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<ul>
+  <%= render @areas %>
+</ul>
 
 <br />
 

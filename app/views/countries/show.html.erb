@@ -2,10 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @country.name %>
-</p>
+<h1><%= @country.name %></h1>
 
 <% if @regions.any? %>
   <ul>
@@ -15,4 +12,4 @@
 
 
 <%= link_to 'Edit', edit_country_path(@country) %> |
-<%= link_to 'Back', countries_path %>
+<%= link_to 'Back to all countries', countries_path %>
