@@ -1,4 +1,6 @@
 VinoSocialis::Application.routes.draw do
+  resources :countries
+
   devise_for :users
 
   root :to => "home#index"
