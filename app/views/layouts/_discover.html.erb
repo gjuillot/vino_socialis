@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <li id="fat-menu" class="dropdown">
+  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+  	  Discover<b class="caret"></b>
+  	</a>
+  	<ul class="dropdown-menu">
+  	  <li><%= link_to "Countries, regions and areas", countries_path %></li>
+    </ul>
+  </li>
+<% else %>
+  <li><%= link_to "Discover", discover_path %></li>
+<% end %>
