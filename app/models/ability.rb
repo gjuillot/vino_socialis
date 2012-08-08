@@ -16,5 +16,11 @@ class Ability
     
     # Country, Region, Area
     can :read, [Country, Region, Area]
+    
+    # Estate
+    can [:create, :read], Estate
+    if user.moderator?
+      can :manage, Estate
+    end
   end
 end

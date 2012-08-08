@@ -1,5 +1,10 @@
 VinoSocialis::Application.routes.draw do
 
+  resources :estates do
+    post 'validate', on: :member
+    post 'unvalidate', on: :member
+  end
+
   resources :countries
   resources :regions
   resources :areas

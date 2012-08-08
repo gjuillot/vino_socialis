@@ -1,0 +1,9 @@
+<h1>Wine estates</h1>
+
+<ul>
+  <%= render @estates %>
+</ul>
+
+<% if can? :create, Estate %>
+	<%= link_to 'New Estate', new_estate_path %>
+<% end %>

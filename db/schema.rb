@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808114838) do
+ActiveRecord::Schema.define(:version => 20120808142109) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,25 @@ ActiveRecord::Schema.define(:version => 20120808114838) do
     t.string   "image_link"
     t.string   "image_source"
   end
+
+  create_table "estates", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "owner"
+    t.string   "address"
+    t.string   "zip_code"
+    t.string   "town"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.string   "www"
+    t.boolean  "validation", :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "estates", ["user_id"], :name => "index_estates_on_user_id"
 
   create_table "regions", :force => true do |t|
     t.string   "name"

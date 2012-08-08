@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="span6 offset3">
+  	<%= form_for(@estate) do |f| %>
+	  <% if @estate.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@estate.errors.count, "error") %> prohibited this estate from being saved:</h2>
+	
+	      <ul>
+	      <% @estate.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	    <%= f.label :name %>
+	    <%= f.text_field :name %>
+	
+	    <%= f.label :owner %>
+	    <%= f.text_field :owner %>
+	
+	    <%= f.label :address %>
+	    <%= f.text_field :address %>
+	
+	    <%= f.label :zip_code %>
+	    <%= f.text_field :zip_code %>
+	
+	    <%= f.label :town %>
+	    <%= f.text_field :town %>
+	
+	    <%= f.label :country %>
+	    <%= f.text_field :country %>
+	
+	    <%= f.label :phone %>
+	    <%= f.text_field :phone %>
+	
+	    <%= f.label :fax %>
+	    <%= f.text_field :fax %>
+	
+	    <%= f.label :email %>
+	    <%= f.text_field :email %>
+	
+	    <%= f.label :www %>
+	    <%= f.text_field :www %>
+	
+	    <%= f.submit class: "btn btn-large btn-primary" %>
+	<% end %>
+  </div>
+</div>

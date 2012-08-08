@@ -1,0 +1,13 @@
+<li>
+  <%= link_to estate.name, estate %> - <%= "#{estate.town} (#{estate.country})"%>
+	
+  <% if can? :manage, estate %>
+    - <%= link_to_edit(edit_estate_path(estate)) %>
+    <%= link_to_destroy estate %>
+    <% if estate.validated? %>
+      <%= link_to_unvalidate unvalidate_estate_path(estate) %>
+    <% else %>
+      <%= link_to_validate validate_estate_path(estate) %>
+    <% end %>
+  <% end %>
+</li>

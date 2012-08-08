@@ -19,4 +19,12 @@ module ApplicationHelper
   def link_to_destroy(model)
     link_to content_tag(:i, "", class: "icon-trash"), model, confirm: 'Are you sure?', method: :delete
   end
+  
+  def link_to_validate(path)
+    link_to content_tag(:i, "", class: "icon-thumbs-up"), path, confirm: 'Validate?', method: :post
+  end
+  
+  def link_to_unvalidate(path)
+    link_to content_tag(:i, "", class: "icon-thumbs-down"), path, confirm: 'Unvalidate?', method: :post
+  end
 end

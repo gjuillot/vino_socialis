@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @estate.name %></h2>
+
+<div class="row">
+  <div class="span6">
+	<p>
+	  <%= @estate.address %><br />
+	  <%= @estate.zip_code %> <%= @estate.town %><br />
+	  <%= @estate.country %><br />
+	  <i class="icon-headphones"></i>  <%= @estate.phone %><br />
+	  <i class="icon-print"></i>  <%= @estate.fax %><br />
+	  <i class="icon-envelope"></i>  <%= mail_to @estate.email %><br />
+	  <i class="icon-home"></i>  <%= link_to @estate.www, @estate.www, target: '_blank' %>
+	</p>
+	
+	<p>
+	  <b>Owner:</b>
+	  <%= @estate.owner %>
+	</p>
+	
+	<p>
+	  <b>Sheet status:</b>
+	  <% if @estate.validated? %>
+	    <i class="icon-ok-sign"></i> Validated
+	  <% else %>
+	    <i class="icon-question-sign"></i> Waiting for validation
+	  <% end %>
+	</p>
+	
+	<p>
+	  <b>Sheet created by:</b>
+	  <%= @estate.user.name %>
+	</p>
+  </div>
+  <div class="span6">
+  	No wines for that estate
+  </div>
+</div>
+
+  <% if can? :manage, @estate %>
+  <b>Moderation</b>
+    <%= link_to_edit(edit_estate_path(@estate)) %>
+    <%= link_to_destroy @estate %>
+    <% if @estate.validated? %>
+      <%= link_to_unvalidate unvalidate_estate_path(@estate) %>
+    <% else %>
+      <%= link_to_validate validate_estate_path(@estate) %>
+    <% end %>
+  <% end %>
