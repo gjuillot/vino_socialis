@@ -8,8 +8,8 @@
   <ul>
   	<%= render @regions %>
   </ul>
+<% else %>
+  No regions yet for this country.
 <% end %>
 
-
-<%= link_to 'Edit', edit_country_path(@country) %> |
 <%= link_to 'Back to all countries', countries_path %>

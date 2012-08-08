@@ -6,5 +6,7 @@
   <%= render @countries %>
 </ul>
 
-<br />
-<%= link_to 'New Country', new_country_path %>
+<% if can? :manage, Country %>
+	<br />
+	<%= link_to 'New Country', new_country_path %>
+<% end %>

@@ -1,2 +1,7 @@
-<li><%= link_to area.name, area %>
- - <%= link_to_edit(edit_area_path(area)) %> <%= link_to_destroy area %></li>
+<li>
+  <%= link_to area.name, area %>
+	
+  <% if can? :manage, area %>
+    - <%= link_to_edit(edit_area_path(area)) %> <%= link_to_destroy area %>
+  <% end %>
+</li>

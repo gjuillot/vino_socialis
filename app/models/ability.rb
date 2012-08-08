@@ -13,5 +13,8 @@ class Ability
     # User
     can :read, User
     can :update, User, :id => user.id
+    
+    # Country, Region, Area
+    can :read, [Country, Region, Area]
   end
 end

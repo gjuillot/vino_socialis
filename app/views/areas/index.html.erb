@@ -6,6 +6,7 @@
   <%= render @areas %>
 </ul>
 
-<br />
-
-<%= link_to 'New Area', new_area_path %>
+<% if can? :manage, Area %>
+  <br />
+  <%= link_to 'New Area', new_area_path %>
+<% end %>
