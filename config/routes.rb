@@ -1,8 +1,13 @@
 VinoSocialis::Application.routes.draw do
 
   resources :estates do
-    post 'validate', on: :member
-    post 'unvalidate', on: :member
+    member do
+      post 'validate'
+      post 'unvalidate'
+    end
+    collection do
+      get 'search'
+    end
   end
 
   resources :countries

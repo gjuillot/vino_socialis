@@ -39,12 +39,14 @@
 </div>
 
   <% if can? :manage, @estate %>
-  <b>Moderation</b>
-    <%= link_to_edit(edit_estate_path(@estate)) %>
-    <%= link_to_destroy @estate %>
-    <% if @estate.validated? %>
-      <%= link_to_unvalidate unvalidate_estate_path(@estate) %>
-    <% else %>
-      <%= link_to_validate validate_estate_path(@estate) %>
-    <% end %>
+    <p>
+      <b>Moderation:</b>
+      <%= link_to_edit(edit_estate_path(@estate)) %>
+      <%= link_to_destroy @estate %>
+      <% if @estate.validated? %>
+        <%= link_to_unvalidate unvalidate_estate_path(@estate) %>
+      <% else %>
+        <%= link_to_validate validate_estate_path(@estate) %>
+      <% end %>
+    </p>
   <% end %>
