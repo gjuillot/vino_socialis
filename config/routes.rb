@@ -1,5 +1,7 @@
 VinoSocialis::Application.routes.draw do
 
+  resources :wine_colors
+
   resources :estates do
     member do
       post 'validate'
