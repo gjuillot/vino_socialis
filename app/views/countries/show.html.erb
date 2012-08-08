@@ -8,10 +8,10 @@
       <%= image_tag @country.image_url, alt: @country.name %><br />
       <%= link_to @country.image_source, @country.image_link, target: "blank" %>
     </div>
-    <div class="span3">
+    <div class="span4">
 <% end %>
 
-<h1><%= @country.name %></h1>
+<h2><%= link_to 'Countries', countries_path %> &gt; <%= @country.name %></h2>
 
 <p>
   <% if @regions.any? %>
@@ -22,8 +22,6 @@
     No regions yet for this country.
   <% end %>
 </p>
-
-<%= link_to 'Back to all countries', countries_path %>
 
 <% if @country.has_image? %>
     </div>

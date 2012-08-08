@@ -2,8 +2,4 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @area.name %></h1>
-
-<p>
-  <%= link_to @area.region.country.name, @area.region.country %> - <%= link_to @area.region.name, @area.region %>
-</p>
+<h2><%= link_to 'Countries', countries_path %> &gt; <%= link_to @area.region.country.name, @area.region.country %> &gt; <%= link_to @area.region.name, @area.region %> &gt; <%= @area.name %></h2>

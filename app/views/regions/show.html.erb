@@ -2,11 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @region.name %></h1>
-
-<p>
-  <%= link_to @region.country.name, @region.country %>
-</p>
+<h2><%= link_to 'Countries', countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h2>
 
 <% if @areas.any? %>
   <ul>
