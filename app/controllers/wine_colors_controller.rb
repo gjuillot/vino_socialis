@@ -29,7 +29,7 @@ class WineColorsController < ApplicationController
 
   # PUT /wine_colors/1
   def update
-    if @wine_color.update_attributes(params[:wine_colors])
+    if @wine_color.update_attributes(params[:wine_color])
       redirect_to @wine_color, notice: 'WineColor was successfully updated.'
     else
       render action: "edit" 

@@ -36,7 +36,16 @@
 	</p>
   </div>
   <div class="span6">
-  	No wines for that estate
+  	<% if @estate.wines.any? %>
+  	  <ul>
+  	  	<%= render @estate.wines %>
+  	  </ul>
+  	<% else %>
+  	  <p>No wines for that estate</p>
+  	<% end %>
+  	<% if can? :create, Wine %>
+  	  <%= link_to "Suggest a new wine for that estate", new_wine_path(estate_id: @estate.id, estate_name: @estate.name) %>
+  	<% end %>
   </div>
 </div>
 

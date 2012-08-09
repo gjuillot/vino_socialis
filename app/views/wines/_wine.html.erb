@@ -1,0 +1,7 @@
+<li>
+  <%= link_to wine.name, wine %> - <i><%= link_to wine.area.name, wine.area %></i>
+	
+  <% if can? :manage, wine %>
+    - <%= link_to_edit(edit_wine_path(wine)) %> <%= link_to_destroy wine %>
+  <% end %>
+</li>

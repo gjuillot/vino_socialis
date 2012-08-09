@@ -1,0 +1,92 @@
+<% provide(:title, full_wine_name(@wine, false)) %>
+
+<p id="notice"><%= notice %></p>
+
+<h2><%= full_wine_name(@wine) %></h2>
+
+<div class="row">
+  <div class="span6">
+	<p>
+	  <%= @wine.estate.address %><br />
+	  <%= @wine.estate.zip_code %> <%= @wine.estate.town %><br />
+	  <%= @wine.estate.country %><br />
+	  <i class="icon-headphones"></i>  <%= @wine.estate.phone %><br />
+	  <i class="icon-print"></i>  <%= @wine.estate.fax %><br />
+	  <i class="icon-envelope"></i>  <%= mail_to @wine.estate.email %><br />
+	  <i class="icon-home"></i>  <%= link_to @wine.estate.www, @wine.estate.www, target: '_blank' %>
+	</p>
+	
+	<p>
+	  <b>Owner:</b>
+	  <%= @wine.estate.owner %>
+	</p>
+	
+	<p>
+	  <b>Sheet status:</b>
+	  <% if @wine.estate.validated? %>
+	    <i class="icon-ok-sign"></i> Validated
+	  <% else %>
+	    <i class="icon-question-sign"></i> Waiting for validation
+	  <% end %>
+	</p>
+	
+	<p>
+	  <b>Esate sheet created by:</b>
+	  <%= @wine.estate.user.name %>
+	</p>
+
+  <% if can? :manage, @wine.estate %>
+    <p>
+      <b>Moderation:</b>
+      <%= link_to_edit(edit_estate_path(@wine.estate)) %>
+      <%= link_to_destroy @wine.estate %>
+      <% if @wine.estate.validated? %>
+        <%= link_to_unvalidate unvalidate_estate_path(@wine.estate) %>
+      <% else %>
+        <%= link_to_validate validate_estate_path(@wine.estate) %>
+      <% end %>
+    </p>
+  <% end %>
+  </div>
+  <div class="span6">
+    <p>
+      <%= full_area_name @wine.area %>
+    </p>
+
+    <p>
+      <%= @wine.wine_color.name.capitalize %>
+    </p>
+
+    <% if !@wine.info.blank? %>
+      <blockquote>
+        <%= simple_format @wine.info %>
+      </blockquote>
+    <% end %>
+	
+	<p>
+	  <b>Sheet status:</b>
+	  <% if @wine.validated? %>
+	    <i class="icon-ok-sign"></i> Validated
+	  <% else %>
+	    <i class="icon-question-sign"></i> Waiting for validation
+	  <% end %>
+	</p>
+
+    <p>
+      <b>Wine sheet created by:</b>
+      <%= @wine.user.name %>
+    </p>
+
+  <% if can? :manage, @wine %>
+    <p>
+      <b>Moderation:</b>
+      <%= link_to_edit(edit_wine_path(@wine)) %>
+      <%= link_to_destroy @wine %>
+      <% if @wine.validated? %>
+        <%= link_to_unvalidate unvalidate_wine_path(@wine) %>
+      <% else %>
+        <%= link_to_validate validate_wine_path(@wine) %>
+      <% end %>
+    </p>
+  <% end %>
+</div>

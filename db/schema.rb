@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808204724) do
+ActiveRecord::Schema.define(:version => 20120808215222) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -85,5 +85,22 @@ ActiveRecord::Schema.define(:version => 20120808204724) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "wines", :force => true do |t|
+    t.string   "name"
+    t.integer  "estate_id"
+    t.integer  "area_id"
+    t.integer  "wine_color_id"
+    t.text     "info"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.boolean  "validation"
+  end
+
+  add_index "wines", ["area_id"], :name => "index_wines_on_area_id"
+  add_index "wines", ["estate_id"], :name => "index_wines_on_estate_id"
+  add_index "wines", ["user_id"], :name => "index_wines_on_user_id"
+  add_index "wines", ["wine_color_id"], :name => "index_wines_on_wine_color_id"
 
 end

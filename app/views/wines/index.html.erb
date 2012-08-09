@@ -1,0 +1,35 @@
+<% provide(:title, "Wines") %>
+
+<h1>Listing wines</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Estate</th>
+    <th>Area</th>
+    <th>Wine color</th>
+    <th>Info</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @wines.each do |wine| %>
+  <tr>
+    <td><%= wine.name %></td>
+    <td><%= wine.estate %></td>
+    <td><%= wine.area %></td>
+    <td><%= wine.wine_color %></td>
+    <td><%= wine.info %></td>
+    <td><%= wine.user %></td>
+    <td><%= link_to 'Show', wine %></td>
+    <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
+    <td><%= link_to 'Destroy', wine, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Wine', new_wine_path %>
