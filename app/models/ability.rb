@@ -4,7 +4,9 @@ class Ability
   # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
   def initialize(user)
-    user ||= User.new # guest user (not logged in)
+    if (user.nil?)
+      return
+    end
     
     if user.admin?
       can :manage, :all
@@ -17,10 +19,10 @@ class Ability
     # Country, Region, Area
     can :read, [Country, Region, Area]
     
-    # Estate
-    can [:create, :read], Estate
+    # Estate, Wine
+    can [:create, :read], [Estate, Wine]
     if user.moderator?
-      can :manage, Estate
+      can :manage, [Estate, Wine]
     end
   end
 end
