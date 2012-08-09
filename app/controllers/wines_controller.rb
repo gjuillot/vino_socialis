@@ -23,6 +23,9 @@ class WinesController < ApplicationController
 
   # GET /wines/new
   def new
+    if params[:estate_id].blank?
+      redirect_to estates_path, notice: 'Please use an existing estate or create a new one.'
+    end
     @estate_id = params[:estate_id]
     @estate_name = params[:estate_name]
     @areas = Area.all
