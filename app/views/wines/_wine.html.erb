@@ -6,6 +6,12 @@
   <%= link_to wine.name, wine %> - <i><%= link_to wine.area.name, wine.area %></i>
 	
   <% if can? :manage, wine %>
-    - <%= link_to_edit(edit_wine_path(wine)) %> <%= link_to_destroy wine %>
+    - <%= link_to_edit(edit_wine_path(wine)) %>
+    <%= link_to_destroy wine %>
+    <% if wine.validated? %>
+      <%= link_to_unvalidate unvalidate_wine_path(wine) %>
+    <% else %>
+      <%= link_to_validate validate_wine_path(wine) %>
+    <% end %>
   <% end %>
 </li>
