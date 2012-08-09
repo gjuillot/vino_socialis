@@ -3,6 +3,7 @@ class Wine < ActiveRecord::Base
   belongs_to :area
   belongs_to :wine_color
   belongs_to :user
+  has_many :tastings
   
   def validated?
     validation

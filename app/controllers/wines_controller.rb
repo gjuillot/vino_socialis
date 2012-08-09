@@ -25,11 +25,12 @@ class WinesController < ApplicationController
   def new
     if params[:estate_id].blank?
       redirect_to estates_path, notice: 'Please use an existing estate or create a new one.'
+    else
+      @estate_id = params[:estate_id]
+      @estate_name = params[:estate_name]
+      @areas = Area.all
+      @wine_colors = WineColor.all
     end
-    @estate_id = params[:estate_id]
-    @estate_name = params[:estate_name]
-    @areas = Area.all
-    @wine_colors = WineColor.all
   end
 
   # GET /wines/1/edit
@@ -84,5 +85,10 @@ class WinesController < ApplicationController
     else
       redirect_to @wine, error: 'Wine was not successfully unvalidated.'
     end
+  end
+  
+  # POST /wines/1/taste
+  def taste
+    redirect_to new_tasting_path(:wine => @wine)
   end
 end

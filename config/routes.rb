@@ -1,5 +1,7 @@
 VinoSocialis::Application.routes.draw do
 
+  resources :tastings
+
   resources :estates do
     member do
       post 'validate'
@@ -14,6 +16,7 @@ VinoSocialis::Application.routes.draw do
     member do
       post 'validate'
       post 'unvalidate'
+      post 'taste'
     end
     collection do
       get 'search'

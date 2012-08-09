@@ -24,5 +24,8 @@ class Ability
     if user.moderator?
       can :manage, [Estate, Wine]
     end
+    
+    # Tasting
+    can :manage, Tasting, :user => user
   end
 end

@@ -1,0 +1,32 @@
+<% provide(:title, "Show tasting") %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Wine:</b>
+  <%= full_wine_name @tasting.wine, true %>
+</p>
+
+<p>
+  <b>Vintage:</b>
+  <%= @tasting.vintage %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @tasting.date %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @tasting.note %>/5
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @tasting.user.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_tasting_path(@tasting) %> |
+<%= link_to 'Back', tastings_path %>

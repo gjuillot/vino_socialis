@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="span6 offset3">
+<%= form_for(@tasting) do |f| %>
+  <% if @tasting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tasting.errors.count, "error") %> prohibited this tasting from being saved:</h2>
+
+      <ul>
+      <% @tasting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :wine %>
+  <%= f.hidden_field :wine_id, value: @wine.id %>
+  <%= f.text_field :wine_name, value: full_wine_name(@wine, false), disabled: true %>
+
+  <%= f.label :vintage %>
+  <%= f.text_field :vintage %>
+
+  <%= f.label :date %>
+  <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
+
+  <%= f.label :note %>
+  <%= select_tag 'tasting[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.note) %>
+
+  <%= f.submit class: "btn btn-large btn-primary" %>
+<% end %>
+  </div>
+</div>
