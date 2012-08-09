@@ -1,4 +1,8 @@
+<% with_estate ||= false %>
 <li>
+  <% if with_estate %>
+    <%= link_to wine.estate.name, wine.estate %> -
+  <% end %>
   <%= link_to wine.name, wine %> - <i><%= link_to wine.area.name, wine.area %></i>
 	
   <% if can? :manage, wine %>

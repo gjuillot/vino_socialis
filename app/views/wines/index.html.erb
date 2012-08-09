@@ -1,35 +1,25 @@
 <% provide(:title, "Wines") %>
 
-<h1>Listing wines</h1>
+<h1>Wines</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Estate</th>
-    <th>Area</th>
-    <th>Wine color</th>
-    <th>Info</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @wines.each do |wine| %>
-  <tr>
-    <td><%= wine.name %></td>
-    <td><%= wine.estate %></td>
-    <td><%= wine.area %></td>
-    <td><%= wine.wine_color %></td>
-    <td><%= wine.info %></td>
-    <td><%= wine.user %></td>
-    <td><%= link_to 'Show', wine %></td>
-    <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-    <td><%= link_to 'Destroy', wine, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Wine', new_wine_path %>
+<div clas="row">
+  <div class="span8">
+  	<% if @searched.nil? %>
+  	  <h2>Random wines</h2>
+  	<% else %>
+  	  <h2>Matching wines</h2>
+  	<% end %>
+	<ul>
+	  <%= render partial: @wines, locals: {with_estate: true} %>
+	</ul>
+  </div>
+  <div class="span3">
+  	<%= form_tag search_wines_path, method: 'get' do %>
+  	  <%= text_field_tag :q, @searched %>
+  	  <%= submit_tag "Search", class: "btn btn-large btn-primary" %>
+  	<% end %>
+	<% if can? :create, Wine %>
+	  <%= link_to 'Suggest a new Wine', new_wine_path %>
+    <% end %>
+  </div>
+</div>

@@ -4,7 +4,7 @@ class WinesController < ApplicationController
   
   # GET /wines
   def index
-    @wines = Wine.order('random()').limit(10)
+    @wines = Wine.order('random()').limit(20)
   end
   
   def search

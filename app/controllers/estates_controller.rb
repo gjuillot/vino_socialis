@@ -4,7 +4,7 @@ class EstatesController < ApplicationController
   
   # GET /estates
   def index
-    @estates = Estate.order('random()').limit(10)
+    @estates = Estate.order('random()').limit(20)
   end
   
   def search
