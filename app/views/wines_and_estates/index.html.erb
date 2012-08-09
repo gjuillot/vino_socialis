@@ -2,44 +2,8 @@
 
 <h1>Wines and estates</h1>
 
-<div class="container">
-<div clas="row">
-  <div class="span8">
-  	<h3>Random wine estates</h3>
-	<ul>
-	  <%= render @estates %>
-	</ul>
-  </div>
-  <div class="span3">
-  	<%= form_tag search_estates_path, method: 'get' do %>
-  	  <%= text_field_tag :q, @searched %>
-  	  <%= submit_tag "Search estate", class: "btn btn-large btn-primary" %>
-  	<% end %>
-	<% if can? :create, Estate %>
-	  <%= link_to 'Suggest a new Estate', new_estate_path %>
-    <% end %>
-  </div>
-</div>
-</div>
+<%= render file: 'app/views/estates/_list' %>
 
 <br /><br /><br /><br />
 
-<div class="container">
-<div clas="row">
-  <div class="span8">
-  	<h3>Random wines</h3>
-	<ul>
-	  <%= render partial: @wines, locals: {with_estate: true} %>
-	</ul>
-  </div>
-  <div class="span3">
-  	<%= form_tag search_wines_path, method: 'get' do %>
-  	  <%= text_field_tag :q, @searched %>
-  	  <%= submit_tag "Search wine", class: "btn btn-large btn-primary" %>
-  	<% end %>
-	<% if can? :create, Wine %>
-	  <%= link_to 'Suggest a new Wine', new_wine_path %>
-    <% end %>
-  </div>
-</div>
-</div>
+<%= render file: 'app/views/wines/_list' %>

@@ -1,0 +1,21 @@
+<div clas="row">
+  <div class="span8">
+  	<% if @searched.nil? %>
+  	  <h2>Random wines</h2>
+  	<% else %>
+  	  <h2>Matching wines</h2>
+  	<% end %>
+	<ul>
+	  <%= render partial: @wines, locals: {with_estate: true} %>
+	</ul>
+  </div>
+  <div class="span3">
+  	<%= form_tag search_wines_path, method: 'get' do %>
+  	  <%= text_field_tag :q, @searched %>
+  	  <%= submit_tag "Search", class: "btn btn-large btn-primary" %>
+  	<% end %>
+	<% if can? :create, Wine %>
+	  <%= link_to 'Suggest a new Wine', new_wine_path %>
+    <% end %>
+  </div>
+</div>
