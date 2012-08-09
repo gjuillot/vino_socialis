@@ -1,9 +1,9 @@
 <div clas="row">
   <div class="span8">
   	<% if @searched.nil? %>
-  	  <h2>Random wines</h2>
+  	  <h3>Random wines</h3>
   	<% else %>
-  	  <h2>Matching wines</h2>
+  	  <h3>Matching wines</h3>
   	<% end %>
 	<ul>
 	  <%= render partial: @wines, locals: {with_estate: true} %>

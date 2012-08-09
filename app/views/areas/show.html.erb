@@ -3,3 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= link_to('Countries', countries_path) + ' > ' + full_area_name(@area) %></h2>
+
+<ul>
+  <%= render partial: @wines, locals: {with_estate: true} %>
+</ul>

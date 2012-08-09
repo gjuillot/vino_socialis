@@ -8,6 +8,7 @@ class AreasController < ApplicationController
 
   # GET /areas/1
   def show
+    @wines = Wine.find_all_by_area_id(@area.id)
   end
 
   # GET /areas/new
