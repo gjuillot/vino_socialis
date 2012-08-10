@@ -17,25 +17,12 @@
   	  	<nav>
   	      <ul class="nav pull-left">
   	      	<%= render 'layouts/discover' %>
-  	      	<li><%= link_to "Track", track_path %></li>
+  	      	<li><%= link_to t("menu.track.title"), track_path %></li>
   	      	<%= render 'layouts/share' %>
   	      </ul>
   	      <ul class="nav pull-right">
-  	      	<li><%= link_to "About", about_path %></li>
-  	      	<% if user_signed_in? %>
-  	      	  <li id="fat-menu" class="dropdown">
-  	      	  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-  	      	  	  <%= current_user.name %><b class="caret"></b>
-  	      	  	</a>
-  	      	  	<ul class="dropdown-menu">
-  	      	  	  <li><%= link_to "Profile", edit_user_path(current_user) %></li>
-  	      	      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-  	      	  	</ul>
-  	      	  </li>
-  	      	<% else %>
-  	      	  <li><%= link_to "Sign up", new_user_registration_path %></li>
-  	      	  <li><%= link_to "Sign in", new_user_session_path %></li>
-  	      	<% end %>
+  	      	<li><%= link_to t("menu.about.title"), about_path %></li>
+  	      	<%= render 'layouts/profile' %>
   	      </ul>
   	  	</nav>
   	  </div>

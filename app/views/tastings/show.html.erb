@@ -1,32 +1,28 @@
-<% provide(:title, "Show tasting") %>
+<% provide(:title, t("tasting.show")) %>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Wine:</b>
+  <b><%= t("helpers.label.tasting.wine") %>:</b>
   <%= full_wine_name @tasting.wine, true %>
 </p>
 
 <p>
-  <b>Vintage:</b>
+  <b><%= t("helpers.label.tasting.vintage") %>:</b>
   <%= @tasting.vintage %>
 </p>
 
 <p>
-  <b>Date:</b>
+  <b><%= t("helpers.label.tasting.date") %>:</b>
   <%= @tasting.date %>
 </p>
 
 <p>
-  <b>Note:</b>
+  <b><%= t("helpers.label.tasting.note") %>:</b>
   <%= @tasting.note %>/5
 </p>
 
 <p>
-  <b>User:</b>
+  <b><%= t("tasting.user") %>:</b>
   <%= @tasting.user.name %>
 </p>
-
-
-<%= link_to 'Edit', edit_tasting_path(@tasting) %> |
-<%= link_to 'Back', tastings_path %>

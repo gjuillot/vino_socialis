@@ -2,4 +2,115 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  menu:
+    discover:
+      title: "Discover"
+      countries_regions_areas: "Countries, regions and areas"
+      wines_estates: "Wines et estates"
+      latest_tastings: "Latest tastings"
+    track:
+      title: "Track"
+    share:
+      title: "Share"
+      users: "Users"
+      new_wine: "Suggest a new wine sheet"
+      taste: "Taste a wine"
+    about:
+      title: "About"
+    profile:
+      my: "My profile"
+      sign_out: "Log out"
+      sign_up: "Create an account"
+      sign_in: "Log in"
+  area:
+    areas: "Area"
+    new: "New area"
+    edit: "Edit %{area_name}"
+  country:
+    countries: "Countries"
+    new: "New country"
+    edit: "Edit %{country_name}"
+    no_regions: "No regions for that country."
+  estate:
+    estates: "Estates"
+    new: "New estate"
+    edit: "Edit %{estate_name}"
+    random: "Random estates"
+    matching: "Matching estates"
+    search: "Search"
+    suggest: "Suggest a new estate sheet"
+    status: "Sheet status"
+    validated: "Validated"
+    not_validated: "Waiting for validation"
+    user: "Sheet created by"
+    moderation: "Moderation"
+    no_wines: "No wine sheets for that estate"
+    suggest_wine: "Suggest a new wine sheet for that estate"
+  home:
+    discover:
+      content: "Here, info about wines, estates, grapes and hints according to your own tastes and meals."
+    index:
+      slogan: "Discover - Track - Share: Wine made easy"
+    share:
+      content: "Share your opinions on wines, estates, ..."
+    track:
+      content: "Keep track of your bottles"
+  region:
+    regions: "Regions"
+    new: "New region"
+    edit: "Edit %{region_name}"
+    no_regions: "No areas for that region."
+  tasting:
+    tastings: "Tastings"
+    latest: "Latest tastings"
+    show: "Show tasting"
+    user: "Tasted by"
+  user:
+    users: "Users"
+    my_profile: "My profile"
+    edit_my_profile: "Edit my profile"
+    edit_profile: "Edit %{user_name}"
+  wine:
+    wines: "Wines"
+    new: "New wine"
+    edit: "Edit %{wine_name}"
+    random: "Random wines"
+    matching: "Matching wines"
+    search: "Search"
+    suggest: "Suggest a new wine sheet"
+    edit: "Edit %{wine_name}"
+    status: "Sheet status"
+    validated: "Validated"
+    not_validated: "Waiting for validation"
+    user: "Sheet created by"
+    moderation: "Moderation"
+    
+  helpers:
+    label:
+      estate:
+        name: "Name"
+        owner: "Owner"
+        address: "Address"
+        zip_code: "ZIP code"
+        town: "Town"
+        country: "Country"
+        phone: "Phone"
+        fax: "Fax"
+        email: "Email"
+        www: "Web site"
+      tasting:
+        wine: "Wine"
+        vintage: "Vintage"
+        date: "Date of the tasting"
+        note: "Note"
+      user:
+        name: "Name"
+        email: "Email"
+        role: "Role"
+    submit:
+      create: "Create"
+      update: "Update"
+
+  date:
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+

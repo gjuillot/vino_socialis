@@ -14,10 +14,10 @@
 	    </div>
 	  <% end %>
 	
-	  <%= f.label :name %><br />
+	  <%= f.label :name %>
 	  <%= f.text_field :name %>
 
-	  <%= f.label :region %><br />
+	  <%= f.label :region %>
 	  <%= collection_select :area, :region_id, @regions, :id, :name %>
 
 	  <%= f.submit class: "btn btn-large btn-primary" %>

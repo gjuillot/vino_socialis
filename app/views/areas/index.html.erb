@@ -1,6 +1,6 @@
-<% provide(:title, 'Areas') %>
+<% provide(:title, t("area.areas")) %>
 
-<h1>Areas</h1>
+<h1><%= t("area.areas") %></h1>
 
 <ul>
   <%= render @areas %>
@@ -8,5 +8,5 @@
 
 <% if can? :manage, Area %>
   <br />
-  <%= link_to 'New Area', new_area_path %>
+  <%= link_to t("area.new"), new_area_path %>
 <% end %>

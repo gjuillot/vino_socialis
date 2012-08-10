@@ -1,5 +1,5 @@
-<% provide(:title, "Edit #{@estate.name}") %>
+<% provide(:title, t("estate.edit", :estate_name => @estate.name)) %>
 
-<h1>Editing estate</h1>
+<h1><%= t("estate.edit", :estate_name => @estate.name) %></h1>
 
 <%= render 'form' %>

@@ -1,9 +1,9 @@
 <div clas="row">
   <div class="span8">
   	<% if @searched.nil? %>
-  	  <h3>Random wines</h3>
+  	  <h3><%= t("wine.random") %></h3>
   	<% else %>
-  	  <h3>Matching wines</h3>
+  	  <h3><%= t("wine.matching") %></h3>
   	<% end %>
 	<ul>
 	  <%= render partial: @wines, locals: {with_estate: true} %>
@@ -12,10 +12,10 @@
   <div class="span3">
   	<%= form_tag search_wines_path, method: 'get' do %>
   	  <%= text_field_tag :q, @searched %>
-  	  <%= submit_tag "Search", class: "btn btn-large btn-primary" %>
+  	  <%= submit_tag t("wine.search"), class: "btn btn-large btn-primary" %>
   	<% end %>
 	<% if can? :create, Wine %>
-	  <%= link_to 'Suggest a new Wine', new_wine_path %>
+	  <%= link_to t("wine.suggest"), new_wine_path %>
     <% end %>
   </div>
 </div>

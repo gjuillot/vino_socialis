@@ -1,6 +1,6 @@
-<% provide(:title, 'Regions') %>
+<% provide(:title, t("region.regions")) %>
 
-<h1>Regions</h1>
+<h1><%= t("region.regions")) %></h1>
 
 <ul>
   <%= render @regions %>
@@ -9,5 +9,5 @@
 
 <% if can? :manage, Country %>
   <br />
-  <%= link_to 'New Region', new_region_path %>
+  <%= link_to t("region.new")), new_region_path %>
 <% end %>

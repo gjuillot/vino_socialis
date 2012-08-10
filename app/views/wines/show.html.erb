@@ -17,27 +17,27 @@
 	</p>
 	
 	<p>
-	  <b>Owner:</b>
+	  <b><%= t("helpers.label.estate.owner") %>:</b>
 	  <%= @wine.estate.owner %>
 	</p>
 	
 	<p>
-	  <b>Sheet status:</b>
+	  <b><%= t("estate.status") %>:</b>
 	  <% if @wine.estate.validated? %>
-	    <i class="icon-ok-sign"></i> Validated
+	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>
 	  <% else %>
-	    <i class="icon-question-sign"></i> Waiting for validation
+	    <i class="icon-question-sign"></i> <%= t("estate.not_validated") %>
 	  <% end %>
 	</p>
 	
 	<p>
-	  <b>Esate sheet created by:</b>
+	  <b><%= t("estate.user") %>:</b>
 	  <%= @wine.estate.user.name %>
 	</p>
 
   <% if can? :manage, @wine.estate %>
     <p>
-      <b>Moderation:</b>
+      <b><%= t("estate.moderation") %>:</b>
       <%= link_to_edit(edit_estate_path(@wine.estate)) %>
       <%= link_to_destroy @wine.estate %>
       <% if @wine.estate.validated? %>
@@ -64,22 +64,22 @@
     <% end %>
 	
 	<p>
-	  <b>Sheet status:</b>
+	  <b><%= t("wine.status") %>:</b>
 	  <% if @wine.validated? %>
-	    <i class="icon-ok-sign"></i> Validated
+	    <i class="icon-ok-sign"></i> <%= t("wine.validated") %>
 	  <% else %>
-	    <i class="icon-question-sign"></i> Waiting for validation
+	    <i class="icon-question-sign"></i> <%= t("wine.not_validated") %>
 	  <% end %>
 	</p>
 
     <p>
-      <b>Wine sheet created by:</b>
+      <b><%= t("wine.user") %>:</b>
       <%= @wine.user.name %>
     </p>
 
   <% if can? :manage, @wine %>
     <p>
-      <b>Moderation:</b>
+      <b><%= t("wine.moderation") %>:</b>
       <%= link_to_edit(edit_wine_path(@wine)) %>
       <%= link_to_destroy @wine %>
       <% if @wine.validated? %>

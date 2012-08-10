@@ -17,23 +17,35 @@
 	</p>
 	
 	<p>
-	  <b>Owner:</b>
+	  <b><%= t("helpers.label.estate.owner") %>:</b>
 	  <%= @estate.owner %>
 	</p>
 	
 	<p>
-	  <b>Sheet status:</b>
+	  <b><%= t("estate.status") %>:</b>
 	  <% if @estate.validated? %>
-	    <i class="icon-ok-sign"></i> Validated
+	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>
 	  <% else %>
-	    <i class="icon-question-sign"></i> Waiting for validation
+	    <i class="icon-question-sign"></i> <%= t("estate.not_validated") %>
 	  <% end %>
 	</p>
 	
 	<p>
-	  <b>Sheet created by:</b>
+	  <b><%= t("estate.user") %>:</b>
 	  <%= @estate.user.name %>
 	</p>
+	<% if can? :manage, @estate %>
+      <p>
+        <b><%= t("estate.moderation") %>:</b>
+        <%= link_to_edit(edit_estate_path(@estate)) %>
+        <%= link_to_destroy @estate %>
+        <% if @estate.validated? %>
+          <%= link_to_unvalidate unvalidate_estate_path(@estate) %>
+        <% else %>
+          <%= link_to_validate validate_estate_path(@estate) %>
+        <% end %>
+      </p>
+    <% end %>
   </div>
   <div class="span6">
   	<% if @estate.wines.any? %>
@@ -41,23 +53,10 @@
   	  	<%= render @estate.wines %>
   	  </ul>
   	<% else %>
-  	  <p>No wines for that estate</p>
+  	  <p><%= t("estate.no_wines") %></p>
   	<% end %>
   	<% if can? :create, Wine %>
-  	  <%= link_to "Suggest a new wine for that estate", new_wine_path(estate_id: @estate.id, estate_name: @estate.name) %>
+  	  <%= link_to t("estate.suggest_wine"), new_wine_path(estate_id: @estate.id, estate_name: @estate.name) %>
   	<% end %>
   </div>
 </div>
-
-  <% if can? :manage, @estate %>
-    <p>
-      <b>Moderation:</b>
-      <%= link_to_edit(edit_estate_path(@estate)) %>
-      <%= link_to_destroy @estate %>
-      <% if @estate.validated? %>
-        <%= link_to_unvalidate unvalidate_estate_path(@estate) %>
-      <% else %>
-        <%= link_to_validate validate_estate_path(@estate) %>
-      <% end %>
-    </p>
-  <% end %>

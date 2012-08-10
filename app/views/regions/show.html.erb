@@ -2,12 +2,12 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2><%= link_to 'Countries', countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h2>
+<h2><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h2>
 
 <% if @areas.any? %>
   <ul>
   	<%= render @areas %>
   </ul>
 <% else %>
-  No areas yet for this region.
+  <%= t("region.no_areas") %>
 <% end %>

@@ -1,14 +1,14 @@
 <% if user_signed_in? %>
   <li id="fat-menu" class="dropdown">
   	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-  	  Share<b class="caret"></b>
+  	  <%= t("menu.share.title") %><b class="caret"></b>
   	</a>
   	<ul class="dropdown-menu">
-  	  <li><%= link_to "Users", users_path %></li>
-  	  <li><%= link_to "Suggest a new wine", new_wine_path %></li>
-  	  <li><%= link_to "Taste a wine", new_tasting_path %></li>
+  	  <li><%= link_to t("menu.share.users"), users_path %></li>
+  	  <li><%= link_to t("menu.share.new_wine"), new_wine_path %></li>
+  	  <li><%= link_to t("menu.share.taste"), new_tasting_path %></li>
     </ul>
   </li>
 <% else %>
-  <li><%= link_to "Share", share_path %></li>
+  <li><%= link_to t("menu.share.title"), share_path %></li>
 <% end %>

@@ -1,5 +1,5 @@
-<% provide(:title, "Edit #{@country.name}") %>
+<% provide(:title, t("country.edit", :country_name => @country.name)) %>
 
-<h1>Editing country</h1>
+<h1><%= t("country.edit", :country_name => @country.name) %></h1>
 
 <%= render 'form' %>

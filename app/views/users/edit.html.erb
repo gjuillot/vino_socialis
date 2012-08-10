@@ -1,9 +1,9 @@
 <% if current_user == @user %>
-  <% provide(:title, 'My profile') %>
-  <h1>Edit my profile</h1>
+  <% provide(:title, t("user.my_profile")) %>
+  <h1><%= t("user.edit_my_profile") %></h1>
 <% else %>
-  <% provide(:title, "Edit #{@user.name}") %>
-  <h1><%= "Edit #{@user.name}" %></h1>
+  <% provide(:title, t("user.edit_profile", :user_name => @user.name)) %>
+  <h1><%= t("user.edit_profile", :user_name => @user.name) %></h1>
 <% end %>
 
 <%= render 'form' %>

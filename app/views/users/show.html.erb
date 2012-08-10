@@ -6,13 +6,13 @@
 
 <% if can? :update, @user %>
   <p>
-	<b>Email:</b>
+	<b><%= t("helpers.label.user.email") %>:</b>
 	<%= @user.email %>
   </p>
 <% end %>
 
 <p>
-  <b>Role:</b>
+  <b><%= t("helpers.label.user.role") %>:</b>
   <%= @user.role.capitalize %>
 </p>
 

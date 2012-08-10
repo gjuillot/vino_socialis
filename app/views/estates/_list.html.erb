@@ -1,7 +1,11 @@
 <div class="container">
 <div clas="row">
   <div class="span8">
-  	<h3>Random wine estates</h3>
+  	<% if @searched.nil? %>
+  	  <h3><%= t("estate.random") %></h3>
+  	<% else %>
+  	  <h3><%= t("estate.matching") %></h3>
+  	<% end %>
 	<ul>
 	  <%= render @estates %>
 	</ul>
@@ -9,10 +13,10 @@
   <div class="span3">
   	<%= form_tag search_estates_path, method: 'get' do %>
   	  <%= text_field_tag :q, @searched %>
-  	  <%= submit_tag "Search estate", class: "btn btn-large btn-primary" %>
+  	  <%= submit_tag t("estate.search"), class: "btn btn-large btn-primary" %>
   	<% end %>
 	<% if can? :create, Estate %>
-	  <%= link_to 'Suggest a new Estate', new_estate_path %>
+	  <%= link_to t("estate.suggest"), new_estate_path %>
     <% end %>
   </div>
 </div>

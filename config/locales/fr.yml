@@ -1,0 +1,123 @@
+# Sample localization file for French. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fr:
+  menu:
+    discover:
+      title: "Découvrir"
+      countries_regions_areas: "Pays, régions et appellations"
+      wines_estates: "Vins et producteurs"
+      latest_tastings: "Dernières dégustations"
+    track:
+      title: "Suivre"
+    share:
+      title: "Partager"
+      users: "Utilisateurs"
+      new_wine: "Proposer une nouvelle fiche de vin"
+      taste: "Déguster un vin"
+    about:
+      title: "A propos"
+    profile:
+      my: "Mon profil"
+      sign_out: "Déconnexion"
+      sign_up: "Créer un compte"
+      sign_in: "S'enregistrer"
+  area:
+    areas: "Appellations"
+    new: "Nouvelle appellation"
+    edit: "Modifier %{area_name}"
+  country:
+    countries: "Pays"
+    new: "Nouveau pays"
+    edit: "Modifier %{country_name}"
+    no_regions: "Pas de régions pour ce pays."
+  estate:
+    estates: "Producteurs"
+    new: "Nouveau producteur"
+    edit: "Modifier %{estate_name}"
+    random: "Producteurs au hasard"
+    matching: "Producteurs correspondants à la recherche"
+    search: "Rechercher"
+    suggest: "Proposer une nouvelle fiche producteur"
+    status: "Status de la fiche"
+    validated: "Validé"
+    not_validated: "En attente de validation"
+    user: "Fiche créée par"
+    moderation: "Modération"
+    no_wines: "Pas de fiches vin pour ce producteur"
+    suggest_wine: "Proposer une nouvelle fiche vin pour ce producteur"
+  home:
+    discover:
+      content: "Ici des infos sur les vins, producteurs, cépages et conseils selon votre goût et votre plat."
+    index:
+      slogan: "Découvrir - Suivre - Partager : le vin enfin facile"
+    share:
+      content: "Partager au sujet des vins, producteurs, ..."
+    track:
+      content: "Suivez vos bouteilles"
+  region:
+    regions: "Régions"
+    new: "Nouvelle région"
+    edit: "Modifier %{region_name}"
+    no_areas: "Pas d'appellations pour cette région."
+  tasting:
+    tastings: "Dégustations"
+    latest: "Dernières dégustations"
+    show: "Voir la dégustation"
+    user: "Dégusté par"
+  user:
+    users: "Utilisateurs"
+    my_profile: "Mon profil"
+    edit_my_profile: "Modifier mon profil"
+    edit_profile: "Modifier %{user_name}"
+  wine:
+    wines: "Vins"
+    new: "Nouveau vin"
+    edit: "Modifier %{wine_name}"
+    random: "Vins au hasard"
+    matching: "Vins correspondants à la recherche"
+    search: "Rechercher"
+    suggest: "Proposer une nouvelle fiche vin"
+    edit: "Modifier %{wine_name}"
+    status: "Status de la fiche"
+    validated: "Validé"
+    not_validated: "En attente de validation"
+    user: "Fiche créée par"
+    moderation: "Modération"
+      
+
+  helpers:
+    label:
+      estate:
+        name: "Nom"
+        owner: "Propriétaire"
+        address: "Addresse"
+        zip_code: "Code postal"
+        town: "Ville"
+        country: "Pays"
+        phone: "Téléphone"
+        fax: "Fax"
+        email: "Adresse email"
+        www: "Site internet"
+      tasting:
+        wine: "Vin"
+        vintage: "Millésime"
+        date: "Date de la dégustation"
+        note: "Note"
+      user:
+        name: "Nom"
+        email: "Adresse email"
+        role: "Rôle"
+      wine:
+        estate: "Producteur"
+        name: "Nom"
+        area: "Appellation"
+        wine_color: "Type de vin"
+        info: "Informations complémentaires"
+    submit:
+      create: "Créer"
+      update: "Mettre à jour"
+
+  date:
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    

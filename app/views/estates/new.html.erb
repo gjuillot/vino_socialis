@@ -1,7 +1,5 @@
-<% provide(:title, "New estate") %>
+<% provide(:title, t("estate.new")) %>
 
-<h1>New estate</h1>
+<h1><%= t("estate.new")%></h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', estates_path %>

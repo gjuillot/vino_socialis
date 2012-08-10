@@ -1,6 +1,6 @@
-<% provide(:title, 'Countries') %>
+<% provide(:title, t("country.countries")) %>
 
-<h1>Wine countries</h1>
+<h1><%= t("country.countries")%></h1>
 
 <ul>
   <%= render @countries %>
@@ -8,5 +8,5 @@
 
 <% if can? :manage, Country %>
 	<br />
-	<%= link_to 'New Country', new_country_path %>
+	<%= link_to t("country.new"), new_country_path %>
 <% end %>
