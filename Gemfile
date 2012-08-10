@@ -1,9 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
+gem 'heroku'
 
 group :development do
   gem 'sqlite3'
+end
+
+group :production do
+  
 end
 
 # Gems used only for assets and not required
