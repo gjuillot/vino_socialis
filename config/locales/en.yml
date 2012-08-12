@@ -106,6 +106,7 @@ en:
       user:
         name: "Name"
         email: "Email"
+        locale: "Language"
         role: "Role"
     submit:
       create: "Create"

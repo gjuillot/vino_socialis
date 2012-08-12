@@ -107,6 +107,7 @@ fr:
       user:
         name: "Nom"
         email: "Adresse email"
+        locale: "Langue"
         role: "Rôle"
       wine:
         estate: "Producteur"

@@ -19,6 +19,9 @@
 	  <%= f.label :email %>
 	  <%= f.text_field :email %>
 	  
+	  <%= f.label :locale %>
+	  <%= select_tag "user[locale]", options_for_select([['Français', 'fr'], ['English', 'en']], :selected => @user.locale) %>
+	  
 	  <% if can? :manage, @user %>
 	    <%= f.label :role %>
 	    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
