@@ -3,7 +3,7 @@
 {
   'France' => {
     'Alsace' => [
-      'Alsace Gewurztraminer',
+      'Alsace Gewürztraminer',
       'Alsace Grand Cru',
       'Alsace Klevner de Heiligenstein',
       'Alsace Klevner',
