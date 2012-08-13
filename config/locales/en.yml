@@ -10,6 +10,8 @@ en:
       latest_tastings: "Latest tastings"
     track:
       title: "Track"
+      my_bottles: "My bottles"
+      new_bottle: "Put new bottles into my cellar"
     share:
       title: "Share"
       users: "Users"
@@ -26,6 +28,13 @@ en:
     areas: "Area"
     new: "New area"
     edit: "Edit %{area_name}"
+  bottles:
+    edit: "Edit bottle(s)"
+    my: "My bottles"
+    new: "New bottle(s)"
+    channels:
+      gift: "Gift"
+      producer: "Producer"
   country:
     countries: "Countries"
     new: "New country"
@@ -87,6 +96,15 @@ en:
     
   helpers:
     label:
+      bottle:
+        wine: "Wine"
+        vintage: "Vintage"
+        volume: "Volume"
+        quantity: "Quantity"
+        date: "Date"
+        channel: "Channel"
+        price: "Price"
+        comments: "Comments"
       estate:
         name: "Name"
         owner: "Owner"

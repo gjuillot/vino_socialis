@@ -10,6 +10,8 @@ fr:
       latest_tastings: "Dernières dégustations"
     track:
       title: "Suivre"
+      my_bottles: "Mes bouteilles"
+      new_bottle: "Encaver de nouvelles bouteilles"
     share:
       title: "Partager"
       users: "Utilisateurs"
@@ -26,6 +28,13 @@ fr:
     areas: "Appellations"
     new: "Nouvelle appellation"
     edit: "Modifier %{area_name}"
+  bottles:
+    edit: "Modifier bouteille(s)"
+    my: "Mes bouteilles"
+    new: "Nouvelle(s) bouteille(s)"
+    channels:
+      gift: "Cadeau"
+      producer: "Producteur"
   country:
     countries: "Pays"
     new: "Nouveau pays"
@@ -88,6 +97,15 @@ fr:
 
   helpers:
     label:
+      bottle:
+        wine: "Vin"
+        vintage: "Millésime"
+        volume: "Volume"
+        quantity: "Quantité"
+        date: "Date"
+        channel: "Canal"
+        price: "Prix"
+        comments: "Commentaires"
       estate:
         name: "Nom"
         owner: "Propriétaire"

@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="span6 offset3">
+<%= form_for(@bottle) do |f| %>
+  <% if @bottle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bottle.errors.count, "error") %> prohibited this bottle from being saved:</h2>
+
+      <ul>
+      <% @bottle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :wine %>
+  <%= f.hidden_field :wine_id, value: @wine.id %>
+  <%= f.text_field :wine_name, value: full_wine_name(@wine, false), disabled: true %>
+
+  <%= f.label :vintage %>
+  <%= f.number_field :vintage %>
+
+  <% volumes = ['20 cl', '25 cl', '37.5 cl', '50 cl', '62 cl', '62.5 cl', '75 cl', '1 l', '1.5 l', '3 l', '4.5 l', '5 l', '6 l', '9 l', '12 l', '15 l', '18 l'] %>
+  <%= f.label :volume %>
+  <%= select_tag 'bottle[volume]', options_for_select(volumes, :selected => '75 cl') %>
+
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+
+  <%= f.label :date %>
+  <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
+ 
+  <% channels = ['gift', 'producer'].map {|c| [t(c, scope: 'bottles.channels'), c]}%>
+  <%= f.label :channel %>
+  <%= select_tag 'bottle[channel]', options_for_select(channels) %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price, value: '0' %>
+
+  <%= f.label :comments %>
+  <%= f.text_field :comments %>
+
+  <%= f.submit class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
+  </div>
+</div>

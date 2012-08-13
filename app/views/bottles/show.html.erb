@@ -1,0 +1,41 @@
+<%= debug(params) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t("helpers.label.bottle.wine")%>:</b>
+  <%= @bottle.wine.name %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.bottle.vintage")%>:</b>
+  <%= @bottle.vintage %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.bottle.volume")%>:</b>
+  <%= @bottle.volume %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.bottle.quantity")%>:</b>
+  <%= @bottle.quantity %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.bottle.date")%>:</b>
+  <%= @bottle.date %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.bottle.channel")%>:</b>
+  <%= t(@bottle.channel, scope: 'bottles.channels') %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.bottle.comments")%>:</b>
+  <%= @bottle.comments %>
+</p>
+
+
+<%= link_to t("bottles.edit"), edit_bottle_path(@bottle) %>

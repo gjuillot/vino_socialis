@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <li id="fat-menu" class="dropdown">
+  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+  	  <%= t("menu.track.title") %><b class="caret"></b>
+  	</a>
+  	<ul class="dropdown-menu">
+  	  <li><%= link_to t("menu.track.my_bottles"), bottles_path %></li>
+  	  <li><%= link_to t("menu.track.new_bottle"), new_bottle_path %></li>
+    </ul>
+  </li>
+<% else %>
+  <li><%= link_to t("menu.track.title"), track_path %></li>
+<% end %>

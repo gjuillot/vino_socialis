@@ -91,4 +91,9 @@ class WinesController < ApplicationController
   def taste
     redirect_to new_tasting_path(:wine => @wine)
   end
+  
+  # POST /wines/1/encave
+  def encave
+    redirect_to new_bottle_path(:wine => @wine)
+  end
 end

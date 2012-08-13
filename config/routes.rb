@@ -1,6 +1,8 @@
 VinoSocialis::Application.routes.draw do
-  
+
   scope "/:locale" do
+    
+    resources :bottles
     resources :tastings
 
     resources :estates do
@@ -18,6 +20,7 @@ VinoSocialis::Application.routes.draw do
         post 'validate'
         post 'unvalidate'
         post 'taste'
+        post 'encave'
       end
       collection do
         get 'search'

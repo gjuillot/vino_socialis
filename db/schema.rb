@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120812100155) do
+ActiveRecord::Schema.define(:version => 20120812113823) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(:version => 20120812100155) do
   end
 
   add_index "areas", ["region_id"], :name => "index_areas_on_region_id"
+
+  create_table "bottles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "wine_id"
+    t.integer  "vintage"
+    t.string   "volume"
+    t.integer  "quantity"
+    t.date     "date"
+    t.string   "channel"
+    t.decimal  "price",      :precision => 5, :scale => 2
+    t.string   "comments"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
+  add_index "bottles", ["wine_id"], :name => "index_bottles_on_wine_id"
 
   create_table "countries", :force => true do |t|
     t.string   "name"
