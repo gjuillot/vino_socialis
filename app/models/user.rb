@@ -13,11 +13,23 @@ class User < ActiveRecord::Base
   ROLES = %w[admin moderator user]
   
   def admin?
-    role == "admin"
+    role == 'admin'
   end
   
   def moderator?
-    admin? || (role == "admin")
+    admin? || (role == 'moderator')
+  end
+  
+  before_create :set_defaults
+  
+  private
+  def set_defaults
+    if self.role.nil?
+      self.role = 'user'
+    end
+    if self.locale.nil?
+      self.locale = I18n.locale
+    end
   end
 
 end
