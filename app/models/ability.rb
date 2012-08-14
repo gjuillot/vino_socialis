@@ -20,12 +20,17 @@ class Ability
     can :read, [Country, Region, Area]
     
     # Estate, Wine
-    can [:create, :read], [Estate, Wine]
+    can [:create, :read, :search, :taste, :encave], [Estate, Wine]
     if user.moderator?
       can :manage, [Estate, Wine]
     end
     
     # Tasting
+    can [:create, :read], Tasting
     can :manage, Tasting, :user => user
+    
+    # Bottle
+    can [:create], Bottle
+    can :manage, Bottle, :user => user
   end
 end
