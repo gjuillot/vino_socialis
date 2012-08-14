@@ -1,12 +1,13 @@
-<% provide(:title, full_wine_name(@wine, false)) %>
+<% provide(:title, wine_name(@wine, estate:true, area:true)) %>
 
 <p id="notice"><%= notice %></p>
 
-<h2><%= full_wine_name(@wine) %></h2>
+<h2><%= wine_name(@wine) %></h2>
 
 <div class="row">
   <div class="span6">
 	<p>
+	  <b><%= link_to @wine.estate.name, @wine.estate %></b><br />
 	  <%= @wine.estate.address %><br />
 	  <%= @wine.estate.zip_code %> <%= @wine.estate.town %><br />
 	  <%= @wine.estate.country %><br />

@@ -50,7 +50,9 @@
   <div class="span6">
   	<% if @estate.wines.any? %>
   	  <ul>
-  	  	<%= render @estate.wines %>
+  	  	<% @estate.wines.each do |wine| %>
+  	  	  <li><%= wine_name wine, area: true, html: true, links: true  %></li>
+  	  	<% end %>
   	  </ul>
   	<% else %>
   	  <p><%= t("estate.no_wines") %></p>

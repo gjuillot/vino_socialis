@@ -2,8 +2,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2><%= link_to('Countries', countries_path) + ' > ' + full_area_name(@area) %></h2>
+<h2><%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area) %></h2>
 
 <ul>
-  <%= render partial: @wines, locals: {with_estate: true} %>
+  <% @wines.each do |wine| %>
+  	<li><%= wine_name wine, estate: true, html: true, links: true %></li>
+  <% end %>
 </ul>

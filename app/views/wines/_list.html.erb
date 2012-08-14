@@ -6,7 +6,9 @@
   	  <h3><%= t("wine.matching") %></h3>
   	<% end %>
 	<ul>
-	  <%= render partial: @wines, locals: {with_estate: true} %>
+	  <% @wines.each do |wine| %>
+	    <li><%= wine_name wine, estate:true, area: true, html: true, links: true %></li>
+	  <% end %>
 	</ul>
   </div>
   <div class="span3">

@@ -15,7 +15,7 @@
 
   <%= f.label :wine %>
   <%= f.hidden_field :wine_id, value: @wine.id %>
-  <%= f.text_field :wine_name, value: full_wine_name(@wine, false), disabled: true %>
+  <%= f.text_field :wine_name, value: wine_name(@wine, estate: true, area: true), disabled: true %>
 
   <%= f.label :vintage %>
   <%= f.number_field :vintage %>

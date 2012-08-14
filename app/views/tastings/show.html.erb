@@ -3,8 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= t("helpers.label.tasting.wine") %>:</b>
-  <%= full_wine_name @tasting.wine, true %>
+  <%= wine_name @tasting.wine, estate: true, area: true, html: true %>
 </p>
 
 <p>

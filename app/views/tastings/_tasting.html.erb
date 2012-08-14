@@ -1,7 +1,8 @@
 <li>
-  <%= full_wine_name tasting.wine %>, rated <%= tasting.note %>/5 by <%= tasting.user.name %>
+  <%= wine_name tasting.wine, estate: true, area: true, html: true %>, rated <%= tasting.note %>/5 by <%= tasting.user.name %>
+  - <%= link_to_show tasting_path(tasting) %>
   <% if can? :manage, tasting %>
-    - <%= link_to_edit(edit_tasting_path(tasting)) %>
+    <%= link_to_edit(edit_tasting_path(tasting)) %>
     <%= link_to_destroy tasting %>
   <% end %>
 </li>

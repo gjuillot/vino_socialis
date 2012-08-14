@@ -1,6 +1,10 @@
 <h1><%= t("bottles.my")%></h1>
 
-<%= render @bottles %>
+<% if !@bottles.nil? %>
+  <%= render @bottles %>
+<% else %>
+  <%= t('bottles.none') %>
+<% end %>
 
-<br />
+<br /><br />
 <%= link_to t('bottles.new'), new_bottle_path %>

@@ -12,6 +12,10 @@ module ApplicationHelper
     end
   end
   
+  def link_to_show(path)
+    link_to content_tag(:i, "", class: "icon-eye-open"), path
+  end
+  
   def link_to_edit(path)
     link_to content_tag(:i, "", class: "icon-edit"), path
   end

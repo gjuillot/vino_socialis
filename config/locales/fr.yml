@@ -31,6 +31,7 @@ fr:
   bottles:
     edit: "Modifier bouteille(s)"
     my: "Mes bouteilles"
+    none: "Aucune bouteille enregistrée pour le moment"
     new: "Nouvelle(s) bouteille(s)"
     channels:
       gift: "Cadeau"

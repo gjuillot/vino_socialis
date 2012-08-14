@@ -1,5 +1,5 @@
-<% provide(:title, t("wine.edit", :wine_name => full_wine_name(@wine, false))) %>
+<% provide(:title, t("wine.edit", :wine_name => wine_name(@wine, estate: true, area: true))) %>
 
-<h1><%= t("wine.edit", :wine_name => full_wine_name(@wine, false)) %></h1>
+<h1><%= t("wine.edit", :wine_name => wine_name(@wine, estate: true, area: true)) %></h1>
 
 <%= render 'form' %>
