@@ -46,4 +46,6 @@ VinoSocialis::Application.routes.draw do
   match "/:locale" => "home#discover"
   root :to => "home#index"
   
+  match '/areas/for_region_id/:region_id' => 'areas#for_region_id'
+  
 end

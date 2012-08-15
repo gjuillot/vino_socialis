@@ -44,4 +44,11 @@ class AreasController < ApplicationController
     @area.destroy
     redirect_to areas_url
   end
+  
+  def for_region_id()
+    @areas = Area.find_all_by_region_id(params[:region_id])
+    respond_to do |format|
+      format.json { render :json => @areas }
+    end
+  end
 end

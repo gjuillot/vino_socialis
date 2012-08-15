@@ -18,6 +18,7 @@ class Ability
     
     # Country, Region, Area
     can :read, [Country, Region, Area]
+    can :for_region_id, Area
     
     # Estate, Wine
     can [:create, :read, :search, :taste, :encave], [Estate, Wine]

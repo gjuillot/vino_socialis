@@ -8,4 +8,8 @@ class Wine < ActiveRecord::Base
   def validated?
     validation
   end
+  
+  def region_id
+    area.region_id
+  end
 end

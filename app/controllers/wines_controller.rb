@@ -28,8 +28,9 @@ class WinesController < ApplicationController
     else
       @estate_id = params[:estate_id]
       @estate_name = params[:estate_name]
-      @areas = Area.all
       @wine_colors = WineColor.all
+      @countries = Country.all
+      @areas = Area.all
     end
   end
 
@@ -37,8 +38,10 @@ class WinesController < ApplicationController
   def edit
     @estate_id = @wine.estate.id
     @estate_name = @wine.estate.name
-    @areas = Area.all
     @wine_colors = WineColor.all
+    @countries = Country.all
+    @region = @wine.area.region
+    @areas = Area.all
   end
 
   # POST /wines

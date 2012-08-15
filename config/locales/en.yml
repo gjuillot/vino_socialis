@@ -127,6 +127,14 @@ en:
         email: "Email"
         locale: "Language"
         role: "Role"
+      wine:
+        estate: "Estate"
+        name: "Name"
+        area: "Area"
+        wine_color: "Wine color"
+        info: "More information"
+        select_country_and_region: "Select the coutnry and region ..."
+        select_area: "... then select the area"
     submit:
       create: "Create"
       update: "Update"
