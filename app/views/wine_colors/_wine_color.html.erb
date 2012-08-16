@@ -1,7 +1,0 @@
-<li>
-  <%= link_to wine_color.name, wine_color %>
-	
-  <% if can? :manage, wine_color %>
-    - <%= link_to_edit(edit_wine_color_path(wine_color)) %> <%= link_to_destroy wine_color %>
-  <% end %>
-</li>

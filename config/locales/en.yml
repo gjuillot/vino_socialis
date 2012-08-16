@@ -94,6 +94,22 @@ en:
     not_validated: "Waiting for validation"
     user: "Sheet created by"
     moderation: "Moderation"
+    color:
+      white: 'White'
+      red: 'Red'
+      rose: 'Rose'
+      sweet_white: 'Sweet white'
+      moelleux_white: 'Moelleux white'
+      white_port_type: 'White port-type'
+      sparkling_white: 'Sparkling white'
+      natural_sweet: 'Natural sweet'
+      red_port_type: 'Red port-type'
+      sparkling_red: 'Sparkling red'
+      sparkling_rose: 'Sparklig rose'
+      claret: 'Claret'
+      vin_jaune: 'Vin jaune'
+      vin_paille: 'Vin de paille'
+      amber: 'Amber'
     
   helpers:
     label:

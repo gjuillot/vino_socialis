@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120812113823) do
+ActiveRecord::Schema.define(:version => 20120816203826) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -110,27 +110,20 @@ ActiveRecord::Schema.define(:version => 20120812113823) do
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
-  create_table "wine_colors", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "wines", :force => true do |t|
     t.string   "name"
     t.integer  "estate_id"
     t.integer  "area_id"
-    t.integer  "wine_color_id"
     t.text     "info"
     t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.boolean  "validation"
+    t.string   "wine_color"
   end
 
   add_index "wines", ["area_id"], :name => "index_wines_on_area_id"
   add_index "wines", ["estate_id"], :name => "index_wines_on_estate_id"
   add_index "wines", ["user_id"], :name => "index_wines_on_user_id"
-  add_index "wines", ["wine_color_id"], :name => "index_wines_on_wine_color_id"
 
 end

@@ -94,6 +94,22 @@ fr:
     not_validated: "En attente de validation"
     user: "Fiche créée par"
     moderation: "Modération"
+    color:
+      white: 'Blanc'
+      red: 'Rouge'
+      rose: 'Rosé'
+      sweet_white: 'Blanc doux'
+      moelleux_white: 'Blanc moëlleux'
+      white_port_type: 'Blanc muté'
+      sparkling_white: 'Blanc effervescent'
+      natural_sweet: 'Vin Doux Naturel'
+      red_port_type: 'Rouge muté'
+      sparkling_red: 'Rouge effervescent'
+      sparkling_rose: 'Rosé effervescent'
+      claret: 'Claret'
+      vin_jaune: 'Vin jaune'
+      vin_paille: 'Vin de paille'
+      amber: 'Ambré'
       
 
   helpers:

@@ -63,7 +63,7 @@
       <%= collection_select :wine, :area_id, @areas, :id, :name, options = { prompt: t('helpers.label.wine.select_area')} %>
 
 	  <%= f.label :wine_color %>
-	  <%= collection_select :wine, :wine_color_id, @wine_colors, :id, :name %>
+	  <%= select_tag 'wine[wine_color]', options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => @wine.wine_color), options = { prompt: ''} %>
 
 	  <%= f.label :info %>
 	  <%= f.text_area :info %>

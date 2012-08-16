@@ -55,7 +55,7 @@
     </p>
 
     <p>
-      <%= @wine.wine_color.name.capitalize %>
+      <%= t("wine.color." + @wine.wine_color) %>
     </p>
 
     <% if !@wine.info.blank? %>
