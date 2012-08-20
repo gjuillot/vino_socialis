@@ -25,6 +25,10 @@ fr:
       sign_out: "Déconnexion"
       sign_up: "Créer un compte"
       sign_in: "S'enregistrer"
+  icon:
+    show: Voir
+    consume: "Consommer"
+    edit: "Modifier"
   area:
     areas: "Appellations"
     new: "Nouvelle appellation"
@@ -130,7 +134,8 @@ fr:
         wine: "Vin"
         vintage: "Millésime"
         volume: "Volume"
-        quantity: "Quantité"
+        initial_quantity: "Quantité initiale"
+        remaining_quantity: "Reste"
         date: "Date"
         channel: "Canal"
         price: "Prix"
@@ -166,7 +171,7 @@ fr:
         estate: "Producteur"
         name: "Nom"
         area: "Appellation"
-        wine_color: "Type de vin"
+        wine_color: "Couleur"
         info: "Informations complémentaires"
         select_country_and_region: "Choisir le pays et la région ..."
         select_area: "... puis choisir l'appellation"

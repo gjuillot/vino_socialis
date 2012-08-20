@@ -1,8 +1,33 @@
-<li>
-  <%= bottle.remaining_quantity %>x 
-  <%= wine_name bottle.wine, estate: true, area: true, html: true %> 
-  <%= bottle.vintage%> 
-  - <%= link_to_show bottle_path(bottle) %>
-  <%= link_to_consume consume_bottle_path(bottle) %>
-  <%= link_to_edit edit_bottle_path(bottle) %>
-</li>
+<tr>
+  <td>
+  	<%= wine_name bottle.wine, estate: true, area: false, html: true %> 
+  </td>
+  <td>
+  	<%= full_area_name bottle.wine.area, links: true %>
+  </td>
+  <td>
+    <a href="#" rel="tooltip" title="<%= t("wine.color.#{bottle.wine.wine_color}") %>"><%= image_tag "wine_colors/#{bottle.wine.wine_color}.png" %></a>
+  </td>
+  <td>
+    <%= bottle.vintage %>
+  </td>
+  <td>
+  	<%= bottle.remaining_quantity %> (<%= bottle.volume %>)
+  </td>
+  <td>
+  	<%= bottle.price %> €
+  </td>
+  <td>
+  	<div class="btn-group">
+      <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+      	Action
+      	<span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+    <%= link_to_show bottle_path(bottle) %>
+    <%= link_to_consume consume_bottle_path(bottle) %>
+    <%= link_to_edit edit_bottle_path(bottle) %>
+      </ul>
+  	</div>
+  </td>
+</tr>

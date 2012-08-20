@@ -6,7 +6,7 @@ VinoSocialis::Application.routes.draw do
     
     resources :bottles do
       member do
-        post 'consume'
+        get 'consume'
       end
     end
       

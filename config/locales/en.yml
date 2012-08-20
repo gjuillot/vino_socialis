@@ -25,6 +25,10 @@ en:
       sign_out: "Log out"
       sign_up: "Create an account"
       sign_in: "Log in"
+  icon:
+    show: Voir
+    consume: "Consume"
+    edit: "Edit"
   area:
     areas: "Area"
     new: "New area"
@@ -130,7 +134,8 @@ en:
         wine: "Wine"
         vintage: "Vintage"
         volume: "Volume"
-        quantity: "Quantity"
+        initial_quantity: "Initial quantity"
+        remaining_quantity: "Remaining quantity"
         date: "Date"
         channel: "Channel"
         price: "Price"

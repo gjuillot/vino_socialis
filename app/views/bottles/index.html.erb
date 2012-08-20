@@ -3,8 +3,46 @@
 <% if @bottles.nil? || @bottles.empty? %>
   <%= t('bottles.none') %>
 <% else %>
-  <%= render @bottles %>
+  <table class="table table-striped table-condensed">
+  	<thead>
+  	  <tr>
+  	  	<th>
+  	  	  <%= t('helpers.label.bottle.wine') %>
+          <%= link_to content_tag(:i, "", class: "icon-arrow-up"), bottles_path(:order_attribute => 'wine', :order_sens => 'ASC') %>
+  	  	  <%= link_to content_tag(:i, "", class: "icon-arrow-down"), bottles_path(:order_attribute => 'wine', :order_sens => 'DESC') %>
+        </th>
+  	  	<th>
+  	  	  <%= t('helpers.label.wine.area') %>
+          <%= link_to content_tag(:i, "", class: "icon-arrow-up"), bottles_path(:order_attribute => 'area', :order_sens => 'ASC') %>
+  	  	  <%= link_to content_tag(:i, "", class: "icon-arrow-down"), bottles_path(:order_attribute => 'area', :order_sens => 'DESC') %>
+        </th>
+  	  	<th>
+  	  	  <%= t('helpers.label.wine.wine_color') %>
+          <%= link_to content_tag(:i, "", class: "icon-arrow-up"), bottles_path(:order_attribute => 'color', :order_sens => 'ASC') %>
+  	  	  <%= link_to content_tag(:i, "", class: "icon-arrow-down"), bottles_path(:order_attribute => 'color', :order_sens => 'DESC') %>
+  	  	</th>
+  	  	<th>
+  	  	  <%= t('helpers.label.bottle.vintage') %>
+          <%= link_to content_tag(:i, "", class: "icon-arrow-up"), bottles_path(:order_attribute => 'vintage', :order_sens => 'ASC') %>
+  	  	  <%= link_to content_tag(:i, "", class: "icon-arrow-down"), bottles_path(:order_attribute => 'vintage', :order_sens => 'DESC') %>
+  	  	</th>
+  	  	<th>
+  	  	  <%= t('helpers.label.bottle.remaining_quantity') %>
+          <%= link_to content_tag(:i, "", class: "icon-arrow-up"), bottles_path(:order_attribute => 'remaining_quantity', :order_sens => 'ASC') %>
+  	  	  <%= link_to content_tag(:i, "", class: "icon-arrow-down"), bottles_path(:order_attribute => 'remaining_quantity', :order_sens => 'DESC') %>
+  	  	</th>
+  	  	<th>
+  	  	  <%= t('helpers.label.bottle.price') %>
+          <%= link_to content_tag(:i, "", class: "icon-arrow-up"), bottles_path(:order_attribute => 'price', :order_sens => 'ASC') %>
+  	  	  <%= link_to content_tag(:i, "", class: "icon-arrow-down"), bottles_path(:order_attribute => 'price', :order_sens => 'DESC') %>
+  	  	</th>
+  	  	<th></th>
+  	  </tr>
+  	</thead>
+  	<tbody>
+      <%= render @bottles %>
+    </tbody>
+  </table>
 <% end %>
 
-<br /><br />
 <%= link_to t('bottles.new'), new_bottle_path %>

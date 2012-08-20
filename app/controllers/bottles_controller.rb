@@ -4,7 +4,17 @@ class BottlesController < ApplicationController
   
   # GET /bottles
   def index
-    @bottles = Bottle.where('user_id = ? AND remaining_quantity > 0', current_user.id)
+    @bottles = Bottle.where('bottles.user_id = ? AND remaining_quantity > 0', current_user.id)
+    
+    if params[:order_attribute] == 'wine'
+      @bottles = @bottles.joins(:wine => :estate).order('"estates".name ' + params[:order_sens] + ', "wines".name ' + params[:order_sens])
+    elsif params[:order_attribute] == 'area'
+      @bottles = @bottles.joins(:wine => {:area => {:region => :country}} ).order('"countries".name ' + params[:order_sens] + ', "regions".name ' + params[:order_sens] + ', "areas".name ' + params[:order_sens])
+    elsif params[:order_attribute] == 'color'
+      @bottles = @bottles.joins(:wine).order('"wines".wine_color ' + params[:order_sens])
+    elsif params[:order_attribute]
+      @bottles = @bottles.order(params[:order_attribute] + ' ' + params[:order_sens])
+    end
   end
   
   # GET /bottles/1
