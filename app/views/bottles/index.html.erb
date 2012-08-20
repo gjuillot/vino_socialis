@@ -1,9 +1,9 @@
 <h1><%= t("bottles.my")%></h1>
 
-<% if !@bottles.nil? %>
-  <%= render @bottles %>
-<% else %>
+<% if @bottles.nil? || @bottles.empty? %>
   <%= t('bottles.none') %>
+<% else %>
+  <%= render @bottles %>
 <% end %>
 
 <br /><br />

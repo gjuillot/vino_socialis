@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t("helpers.label.consumption.bottle")%>:</b>
+  <%= bottle_name @consumption.bottle, html: true %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.consumption.date")%>:</b>
+  <%= @consumption.date %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.consumption.quantity")%>:</b>
+  <%= @consumption.quantity %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.consumption.reasons")%></b>
+  <%= @consumption.reasons %>
+</p>
+
+<p>
+  <b><%= t("helpers.label.consumption.comments")%></b>
+  <%= @consumption.comments %>
+</p>
+
+
+<%= link_to t("consumptions.edit"), edit_consumption_path(@consumption) %>

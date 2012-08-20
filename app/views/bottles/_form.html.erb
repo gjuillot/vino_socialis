@@ -24,8 +24,8 @@
   <%= f.label :volume %>
   <%= select_tag 'bottle[volume]', options_for_select(volumes, :selected => '75 cl') %>
 
-  <%= f.label :quantity %>
-  <%= f.number_field :quantity %>
+  <%= f.label :initial_quantity %>
+  <%= f.number_field :initial_quantity %>
 
   <%= f.label :date %>
   <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
@@ -41,7 +41,6 @@
   <%= f.text_field :comments %>
 
   <%= f.submit class: "btn btn-large btn-primary" %>
-  </div>
 <% end %>
   </div>
 </div>

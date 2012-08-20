@@ -12,6 +12,7 @@ en:
       title: "Track"
       my_bottles: "My bottles"
       new_bottle: "Put new bottles into my cellar"
+      my_consumptions: "My consumptions"
     share:
       title: "Share"
       users: "Users"
@@ -33,9 +34,21 @@ en:
     my: "My bottles"
     none: "No registered bottle yet"
     new: "New bottle(s)"
+    remaining_and_initial: "%{remaining} on %{initial}"
     channels:
       gift: "Gift"
       producer: "Producer"
+  consumptions:
+    edit: "Edit consumption"
+    my: "My consumptions"
+    none: "No registered consomption yet"
+    new: "New consumption"
+    quantity: "Quantity"
+    reasons:
+      drinked: "Drinked"
+      group: "Drinked during grouped tasting"
+      family_friend: "Drinked by family or friend"
+      corked: "Corked"
   country:
     countries: "Countries"
     new: "New country"
@@ -121,6 +134,12 @@ en:
         date: "Date"
         channel: "Channel"
         price: "Price"
+        comments: "Comments"
+      consumption:
+        bottle: "Bottle"
+        quantity: "Quantity"
+        date: "Date"
+        reasons: "Reason"
         comments: "Comments"
       estate:
         name: "Name"

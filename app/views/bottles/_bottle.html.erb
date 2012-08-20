@@ -1,7 +1,8 @@
 <li>
-  <%= bottle.quantity %>x 
+  <%= bottle.remaining_quantity %>x 
   <%= wine_name bottle.wine, estate: true, area: true, html: true %> 
   <%= bottle.vintage%> 
   - <%= link_to_show bottle_path(bottle) %>
+  <%= link_to_consume consume_bottle_path(bottle) %>
   <%= link_to_edit edit_bottle_path(bottle) %>
 </li>

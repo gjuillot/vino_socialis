@@ -17,7 +17,7 @@
 
 <p>
   <b><%= t("helpers.label.bottle.quantity")%>:</b>
-  <%= @bottle.quantity %>
+  <%= t("bottles.remaining_and_initial", :remaining => @bottle.remaining_quantity, :initial => @bottle.initial_quantity) %>
 </p>
 
 <p>

@@ -4,7 +4,7 @@ class BottlesController < ApplicationController
   
   # GET /bottles
   def index
-    @bottles = Bottle.find_by_user_id(current_user.id)
+    @bottles = Bottle.where('user_id = ? AND remaining_quantity > 0', current_user.id)
   end
   
   # GET /bottles/1
@@ -28,6 +28,7 @@ class BottlesController < ApplicationController
   # POST /bottles
   def create
     @bottle.user_id = current_user.id
+    @bottle.remaining_quantity = @bottle.initial_quantity
     if @bottle.save
       redirect_to @bottle, notice: 'Bottle was successfully created.'
     else
@@ -48,5 +49,10 @@ class BottlesController < ApplicationController
   def destroy
     @bottle.destroy
     redirect_to bottles_url
+  end
+  
+  # POST /bottles/1/consume
+  def consume
+    redirect_to new_consumption_path(:bottle => @bottle)
   end
 end

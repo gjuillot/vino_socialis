@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="span6 offset3">
+<%= form_for(@consumption) do |f| %>
+  <% if @consumption.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@consumption.errors.count, "error") %> prohibited this consumption from being saved:</h2>
+
+      <ul>
+      <% @consumption.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :bottle %>
+    <%= f.hidden_field :bottle_id, value: @bottle.id %>
+    <%= f.text_field :bottle_name, value: bottle_name(@bottle), disabled: true %>
+
+    <%= f.label :date %>
+    <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
+
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, :value => '1' %>
+
+    <% reasons = ['drinked', 'group', 'family_friend', 'gift', 'corked'].map {|c| [t(c, scope: 'consumptions.reasons'), c]}%>
+    <%= f.label :reasons %>
+    <%= select_tag 'consumption[reasons]', options_for_select(reasons) %>
+
+    <%= f.label :comments %>
+    <%= f.text_area :comments %>
+
+    <%= f.submit class: "btn btn-large btn-primary" %>
+<% end %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<h1><%= t("consumptions.my")%></h1>
+
+<% if @consumptions.nil? %>
+  <%= t('consumptions.none') %>
+<% else %>
+  <%= render @consumptions %>
+<% end %>
+
+<br /><br />

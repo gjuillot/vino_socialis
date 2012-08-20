@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816203826) do
+ActiveRecord::Schema.define(:version => 20120820092225) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -27,16 +27,31 @@ ActiveRecord::Schema.define(:version => 20120816203826) do
     t.integer  "wine_id"
     t.integer  "vintage"
     t.string   "volume"
-    t.integer  "quantity"
     t.date     "date"
     t.string   "channel"
-    t.decimal  "price",      :precision => 5, :scale => 2
+    t.decimal  "price",              :precision => 5, :scale => 2
     t.string   "comments"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.integer  "remaining_quantity"
+    t.integer  "initial_quantity"
   end
 
   add_index "bottles", ["wine_id"], :name => "index_bottles_on_wine_id"
+
+  create_table "consumptions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "bottle_id"
+    t.date     "date"
+    t.integer  "quantity"
+    t.string   "reasons"
+    t.text     "comments"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "consumptions", ["bottle_id"], :name => "index_consumptions_on_bottle_id"
+  add_index "consumptions", ["user_id"], :name => "index_consumptions_on_user_id"
 
   create_table "countries", :force => true do |t|
     t.string   "name"

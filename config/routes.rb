@@ -1,8 +1,15 @@
 VinoSocialis::Application.routes.draw do
 
   scope "/:locale" do
+
+    resources :consumptions
     
-    resources :bottles
+    resources :bottles do
+      member do
+        post 'consume'
+      end
+    end
+      
     resources :tastings
 
     resources :estates do
