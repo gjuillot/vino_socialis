@@ -1,7 +1,3 @@
 <li>
   <%= link_to region.name, region %>
-	
-  <% if can? :manage, region %>
-    - <%= link_to_edit(edit_region_path(region)) %> <%= link_to_destroy region %>
-  <% end %>
 </li>

@@ -5,9 +5,3 @@
 <ul>
   <%= render @regions %>
 </ul>
-
-
-<% if can? :manage, Country %>
-  <br />
-  <%= link_to t("region.new")), new_region_path %>
-<% end %>
