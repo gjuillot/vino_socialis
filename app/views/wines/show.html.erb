@@ -35,19 +35,12 @@
 	  <b><%= t("estate.user") %>:</b>
 	  <%= @wine.estate.user.name %>
 	</p>
-
-  <% if can? :manage, @wine.estate %>
-    <p>
-      <b><%= t("estate.moderation") %>:</b>
-      <%= link_to_edit(edit_estate_path(@wine.estate)) %>
-      <% if @wine.estate.validated? %>
-        <%= link_to_unvalidate unvalidate_estate_path(@wine.estate) %>
-      <% else %>
-        <%= link_to_validate validate_estate_path(@wine.estate) %>
-      <% end %>
-    </p>
-  <% end %>
+	
+	<p>
+	  <%= estate_action_button @wine.estate %>
+	</p>
   </div>
+  
   <div class="span6">
     <p>
       <%= full_area_name @wine.area, html: true %>

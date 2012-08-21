@@ -34,6 +34,8 @@ fr:
     encave: "Mettre en cave"
     consume: "Consommer"
     new_wine: "Nouvelle fiche vin"
+    destroy: "Détruire"
+    wine_tastings: "Voir les dégustations"
   area:
     areas: "Appellations"
     new: "Nouvelle appellation"

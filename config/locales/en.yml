@@ -34,6 +34,8 @@ en:
     encave: "Encave"
     consume: "Consume"
     new_wine: "New wine sheet"
+    destroy: "Destroy"
+    wine_tastings: "See tastings"
   area:
     areas: "Area"
     new: "New area"

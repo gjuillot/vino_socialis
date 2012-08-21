@@ -21,7 +21,7 @@ module ApplicationHelper
   end
   
   def link_to_destroy(model)
-    link_to content_tag(:i, "", class: "icon-trash"), model, confirm: 'Are you sure?', method: :delete
+    link_to content_tag(:i, "", class: "icon-trash") + ' ' + t('icon.destroy') , model, confirm: 'Are you sure?', method: :delete
   end
   
   def link_to_validate(path)
@@ -34,6 +34,10 @@ module ApplicationHelper
   
   def link_to_tasting(path)
     content_tag(:a, content_tag(:i, "", class: "icon-glass") + ' ' + t('icon.taste'), :href => path, :method => :post)
+  end
+  
+  def link_to_wine_tastings(wine)
+    content_tag(:a, content_tag(:i, "", class: "icon-list") + ' ' + t('icon.wine_tastings'), :href => tastings_path(:wine => wine), :method => :get)
   end
   
   def link_to_encave(path)
@@ -49,6 +53,6 @@ module ApplicationHelper
   end
   
   def star_rating(note, max)
-    raw "<i class='icon-star'></i>"*note + "<i class='icon-star-empty'></i>"*(max-note)
+    raw "<i class='icon-star'></i>"*note# + "<i class='icon-star-empty'></i>"*(max-note)
   end
 end

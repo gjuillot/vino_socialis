@@ -4,7 +4,11 @@ class TastingsController < ApplicationController
   
   # GET /tastings
   def index
-    @tastings = Tasting.order('id DESC').limit(10)
+    if params[:wine].blank?
+      @tastings = Tasting.order('id DESC').limit(10)
+    else
+      @tastings = Tasting.where('wine_id = ?', params[:wine]).order('id DESC')
+    end
   end
   
   # GET /tastings/1
