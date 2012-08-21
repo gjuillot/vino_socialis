@@ -26,8 +26,8 @@ VinoSocialis::Application.routes.draw do
       member do
         post 'validate'
         post 'unvalidate'
-        post 'taste'
-        post 'encave'
+        get 'taste'
+        get 'encave'
       end
       collection do
         get 'search'
