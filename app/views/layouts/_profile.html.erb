@@ -4,8 +4,8 @@
   	      	  	  <%= current_user.name %><b class="caret"></b>
   	      	  	</a>
   	      	  	<ul class="dropdown-menu">
-  	      	  	  <li><%= link_to t("menu.profile.my"), edit_user_path(current_user) %></li>
-  	      	      <li><%= link_to t("menu.profile.sign_out"), destroy_user_session_path, method: :delete %></li>
+  	      	  	  <li><%= link_to raw('<i class="icon-user"></i> ') + t("menu.profile.my"), edit_user_path(current_user) %></li>
+  	      	      <li><%= link_to raw('<i class="icon-off"></i> ') + t("menu.profile.sign_out"), destroy_user_session_path, method: :delete %></li>
   	      	  	</ul>
   	      	  </li>
   	      	<% else %>
