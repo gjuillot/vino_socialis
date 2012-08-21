@@ -11,6 +11,7 @@ VinoSocialis::Application.routes.draw do
     end
       
     resources :tastings
+    resources :wine_recommandations
 
     resources :estates do
       member do
@@ -28,6 +29,8 @@ VinoSocialis::Application.routes.draw do
         post 'unvalidate'
         get 'taste'
         get 'encave'
+        get 'recommand'
+        get 'unrecommand'
       end
       collection do
         get 'search'

@@ -8,6 +8,7 @@ fr:
       countries_regions_areas: "Pays, régions et appellations"
       wines_estates: "Vins et producteurs"
       latest_tastings: "Dernières dégustations"
+      latest_recommandations: "Dernières recommandations"
     track:
       title: "Suivre"
       my_bottles: "Mes bouteilles"
@@ -36,6 +37,8 @@ fr:
     new_wine: "Nouvelle fiche vin"
     destroy: "Détruire"
     wine_tastings: "Voir les dégustations"
+    recommand: "Recommander"
+    unrecommand: "Dé-recommander"
   area:
     areas: "Appellations"
     new: "Nouvelle appellation"
@@ -88,6 +91,9 @@ fr:
       content: "Partager au sujet des vins, producteurs, ..."
     track:
       content: "Suivez vos bouteilles"
+  recommandation:
+    recommandations: "Recommandations"
+    latest: "Dernières recommandations"
   region:
     regions: "Régions"
     new: "Nouvelle région"
@@ -118,6 +124,17 @@ fr:
     user: "Fiche créée par"
     moderation: "Modération"
     actions: "Actions"
+    tastings:
+      one: "1 dégustation disponible pour ce vin"
+      other: "%{count} dégustations disponible pour ce vin"
+    recommandations:
+      you:
+        zero: "Vous recommandez ce vin"
+        one: "Vous et 1 utilisateur recommandez ce vin"
+        other: "Vous et %{count} utilisateurs recommandez ce vin"
+      others:
+        one: "1 utilisateur recommande ce vin"
+        other: "%{count} utilisateurs recommandent ce vin"
     color:
       white: 'Blanc'
       red: 'Rouge'

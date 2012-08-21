@@ -74,5 +74,23 @@
     <p>
       <%= wine_action_button(@wine) %>
     </p>
-
+    
+    <br/></br/>
+    
+    <% unless @wine.tastings.empty? %>
+    <p>
+      <%= link_to t("wine.tastings", :count => @wine.tastings.count), tastings_path(:wine => @wine) %>
+    </p>
+    <% end %>
+    
+    <% unless @wine.recommandations.empty? %>
+    <p>
+      <% if @wine.recommanded_by?(current_user) %>
+        <%= link_to t("wine.recommandations.you", :count => @wine.tastings.count - 1), wine_recommandations_path(:wine => @wine) %>
+      <% else %>
+        <%= link_to t("wine.recommandations.others", :count => @wine.tastings.count), wine_recommandations_path(:wine => @wine) %>
+      <% end %>
+    </p>
+    <% end %>
+  </div>
 </div>

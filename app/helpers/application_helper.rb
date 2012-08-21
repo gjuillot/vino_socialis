@@ -52,6 +52,14 @@ module ApplicationHelper
     content_tag(:a, content_tag(:i, "", class: "icon-plus") + ' ' + t('icon.new_wine'), :href => new_wine_path(:estate_id => estate.id, :estate_name => estate.name))
   end
   
+  def link_to_recommand(wine)
+    content_tag(:a, content_tag(:i, "", class: "icon-heart") + ' ' + t('icon.recommand'), :href => recommand_wine_path(wine), :method => :get)
+  end
+  
+  def link_to_unrecommand(wine)
+    content_tag(:a, content_tag(:i, "", class: "icon-heart icon-white") + ' ' + t('icon.unrecommand'), :href => unrecommand_wine_path(wine), :method => :get)
+  end
+  
   def star_rating(note, max)
     raw "<i class='icon-star'></i>"*note# + "<i class='icon-star-empty'></i>"*(max-note)
   end

@@ -8,6 +8,7 @@ en:
       countries_regions_areas: "Countries, regions and areas"
       wines_estates: "Wines et estates"
       latest_tastings: "Latest tastings"
+      latest_recommandations: "Latest recommandations"
     track:
       title: "Track"
       my_bottles: "My bottles"
@@ -36,6 +37,8 @@ en:
     new_wine: "New wine sheet"
     destroy: "Destroy"
     wine_tastings: "See tastings"
+    recommand: "Recommand"
+    unrecommand: "Unrecommand"
   area:
     areas: "Area"
     new: "New area"
@@ -89,6 +92,9 @@ en:
       content: "Share your opinions on wines, estates, ..."
     track:
       content: "Keep track of your bottles"
+  recommandation:
+    recommandations: "Recommandations"
+    latest: "Latest recommandations"
   region:
     regions: "Regions"
     new: "New region"
@@ -119,6 +125,17 @@ en:
     user: "Sheet created by"
     moderation: "Moderation"
     actions: "Actions"
+    tastings:
+      one: "1 tasting available for this wine"
+      other: "%{count} tastings available for this wine"
+    recommandations:
+      you:
+        zero: "You recommand this wine"
+        one: "You and 1 user are recommanding this wine"
+        other: "You and %{count} users are recommanding this wine"
+      others:
+        one: "1 user is recommanding this wine"
+        other: "%{count} users are recommanding this wine"
     color:
       white: 'White'
       red: 'Red'

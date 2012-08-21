@@ -68,6 +68,28 @@ class WinesController < ApplicationController
     redirect_to wines_url
   end
   
+  # GET /wines/1/recommand
+  def recommand
+    recommandation = WineRecommandation.new
+    recommandation.wine = @wine
+    recommandation.user = current_user
+    if recommandation.save
+      redirect_to @wine, notice: 'Wine was successfully recommanded.'
+    else
+      redirect_to @wine, error: 'Wine was not successfully recommanded.'
+    end
+  end
+  
+  # GET /wines/1/unrecommand
+  def unrecommand
+    recommandation = WineRecommandation.where('user_id = ? AND wine_id = ?', current_user.id, @wine.id)
+    if recommandation.destroy_all
+      redirect_to @wine, notice: 'Wine was successfully unrecommanded.'
+    else
+      redirect_to @wine, error: 'Wine was not successfully unrecommanded.'
+    end
+  end
+  
   # POST /wines/1/validate
   def validate
     @wine.validation = true
