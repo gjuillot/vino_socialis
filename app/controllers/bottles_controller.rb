@@ -6,6 +6,12 @@ class BottlesController < ApplicationController
   def index
     @bottles = Bottle.where('bottles.user_id = ? AND remaining_quantity > 0', current_user.id)
     
+    if params[:search_attribute] == 'wine'
+      @bottles = @bottles.joins(:wine => :estate).where('"estates".name LIKE "%' + params[:search_value] + '%" OR "wines".name LIKE "%' + params[:search_value] + '%"')
+    elsif params[:search_attribute] == 'area'
+      @bottles = @bottles.joins(:wine => {:area => {:region => :country}} ).where('"countries".name LIKE "%' + params[:search_value] + '%" OR "regions".name LIKE "%' + params[:search_value] + '%" OR "areas".name LIKE "%' + params[:search_value] + '%"')
+    end
+    
     if params[:order_attribute] == 'wine'
       @bottles = @bottles.joins(:wine => :estate).order('"estates".name ' + params[:order_sens] + ', "wines".name ' + params[:order_sens])
     elsif params[:order_attribute] == 'area'

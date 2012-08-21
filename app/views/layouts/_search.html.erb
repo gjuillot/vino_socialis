@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <li class="dropdown">
+  	<a class="dropdown-toggle" href="#" data-toggle="dropdown">Quick search <b class="caret"></b></a>
+  	<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+      <form action="<%= bottles_path %>" method="get" class="span3">
+      	<select name="search_attribute">
+      	  <option value="wine">Estate or wine name</option>
+      	  <option value="area">Area, region or country</option>
+      	</select>
+        <input type="text" placeholder="Search my bottles" name="search_value" class="span3" />
+      </form>
+    </div>
+  </li>
+<% end %>
