@@ -9,6 +9,7 @@ fr:
       wines_estates: "Vins et producteurs"
       latest_tastings: "Dernières dégustations"
       latest_recommandations: "Dernières recommandations"
+      recommmandations_me: "Recommandés pour vous"
     track:
       title: "Suivre"
       my_bottles: "Mes bouteilles"
@@ -94,6 +95,7 @@ fr:
   recommandation:
     recommandations: "Recommandations"
     latest: "Dernières recommandations"
+    me: "Recommandés pour vous"
   region:
     regions: "Régions"
     new: "Nouvelle région"

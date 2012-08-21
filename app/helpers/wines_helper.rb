@@ -5,6 +5,7 @@ module WinesHelper
     area ||= options[:area]
     html ||= options[:html]
     links ||= options[:links]
+    recommandations ||= options[:recommandations]
     
     res = ""
 
@@ -45,6 +46,17 @@ module WinesHelper
       res += (html ? link_to(wine.area.name, wine.area) : wine.area.name)
     end
     
+    # RECOMMANDATIONS
+    if recommandations
+      if links
+        res += "</td><td>"
+      else
+        res += ' - '
+      end
+      res += '<i class="icon-heart"></i>' * wine.recommandations_but(current_user).count
+    end
+    
+    # ACTION BUTTON
     if links
       res += '</td><td>' + wine_action_button(wine) + '</td></tr>'
     end

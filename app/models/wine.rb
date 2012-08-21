@@ -17,6 +17,10 @@ class Wine < ActiveRecord::Base
     wine_recommandations
   end
   
+  def recommandations_but(user)
+    WineRecommandation.where('wine_id = ? AND user_id != ?', self.id, user.id)
+  end
+  
   def recommanded_by?(user)
     recommandations.each do |r|
       if (r.user_id == user.id) 

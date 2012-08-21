@@ -11,4 +11,8 @@ class WineRecommandationsController < ApplicationController
     end
   end
   
+  def me
+    @recommanded= WineRecommandation.select('wine_id, count(user_id) AS users').where('user_id != ?', current_user.id).group('wine_id').order("users DESC")
+  end
+  
 end

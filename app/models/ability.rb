@@ -21,10 +21,13 @@ class Ability
     can :for_region_id, Area
     
     # Estate, Wine
-    can [:create, :read, :search, :taste, :encave], [Estate, Wine]
+    can [:create, :read, :search, :taste, :encave, :recommand, :unrecommand], [Estate, Wine]
     if user.moderator?
       can :manage, [Estate, Wine]
     end
+    
+    # Wine Recommandation
+    can :read, WineRecommandation
     
     # Tasting
     can [:create, :read], Tasting

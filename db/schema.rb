@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120820092225) do
+ActiveRecord::Schema.define(:version => 20120821131716) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -124,6 +124,16 @@ ActiveRecord::Schema.define(:version => 20120820092225) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "wine_recommandations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "wine_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "wine_recommandations", ["user_id"], :name => "index_wine_recommandations_on_user_id"
+  add_index "wine_recommandations", ["wine_id"], :name => "index_wine_recommandations_on_wine_id"
 
   create_table "wines", :force => true do |t|
     t.string   "name"

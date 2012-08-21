@@ -86,9 +86,9 @@
     <% unless @wine.recommandations.empty? %>
     <p>
       <% if @wine.recommanded_by?(current_user) %>
-        <%= link_to t("wine.recommandations.you", :count => @wine.tastings.count - 1), wine_recommandations_path(:wine => @wine) %>
+        <%= link_to t("wine.recommandations.you", :count => (@wine.recommandations.count - 1)), wine_recommandations_path(:wine => @wine) %>
       <% else %>
-        <%= link_to t("wine.recommandations.others", :count => @wine.tastings.count), wine_recommandations_path(:wine => @wine) %>
+        <%= link_to t("wine.recommandations.others", :count => @wine.recommandations.count), wine_recommandations_path(:wine => @wine) %>
       <% end %>
     </p>
     <% end %>

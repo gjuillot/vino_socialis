@@ -1,0 +1,11 @@
+<% provide(:title, t("recommandation.me")) %>
+
+<p id="notice"><%= notice %></p>
+
+<h1><%= t("recommandation.me") %></h1>
+
+<table class="table table-striped table-condensed">
+  <% @recommanded.each do |r| %>
+    <%= wine_name r.wine, color: true, estate: true, area: true, html: true, links: true, recommandations: true %>
+  <% end %>
+</table>
