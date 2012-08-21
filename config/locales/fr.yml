@@ -27,8 +27,12 @@ fr:
       sign_in: "S'enregistrer"
   icon:
     show: Voir
-    consume: "Consommer"
     edit: "Modifier"
+    validate: "Valider"
+    unvalidate: "Dé-valider"
+    taste: "Déguster"
+    encave: "Mettre en cave"
+    consume: "Consommer"
   area:
     areas: "Appellations"
     new: "Nouvelle appellation"

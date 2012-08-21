@@ -27,8 +27,12 @@ en:
       sign_in: "Log in"
   icon:
     show: Voir
-    consume: "Consume"
     edit: "Edit"
+    validate: "Validate"
+    unvalidate: "Unvalidate"
+    taste: "Taste"
+    encave: "Encave"
+    consume: "Consume"
   area:
     areas: "Area"
     new: "New area"

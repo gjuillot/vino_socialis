@@ -6,7 +6,7 @@
   	<%= full_area_name bottle.wine.area, links: true %>
   </td>
   <td>
-    <a href="#" rel="tooltip" title="<%= t("wine.color.#{bottle.wine.wine_color}") %>"><%= image_tag "wine_colors/#{bottle.wine.wine_color}.png" %></a>
+    <%= wine_color_image bottle.wine %>
   </td>
   <td>
     <%= bottle.vintage %>
