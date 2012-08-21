@@ -33,6 +33,7 @@ fr:
     taste: "Déguster"
     encave: "Mettre en cave"
     consume: "Consommer"
+    new_wine: "Nouvelle fiche vin"
   area:
     areas: "Appellations"
     new: "Nouvelle appellation"
@@ -114,6 +115,7 @@ fr:
     not_validated: "En attente de validation"
     user: "Fiche créée par"
     moderation: "Modération"
+    actions: "Actions"
     color:
       white: 'Blanc'
       red: 'Rouge'

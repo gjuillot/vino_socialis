@@ -44,6 +44,10 @@ module ApplicationHelper
     content_tag(:a, content_tag(:i, "", class: "icon-hand-down") + ' ' + t('icon.consume'), :href => path, :method => :post)
   end
   
+  def link_to_new_wine(estate)
+    content_tag(:a, content_tag(:i, "", class: "icon-plus") + ' ' + t('icon.new_wine'), :href => new_wine_path(:estate_id => estate.id, :estate_name => estate.name))
+  end
+  
   def star_rating(note, max)
     raw "<i class='icon-star'></i>"*note + "<i class='icon-star-empty'></i>"*(max-note)
   end

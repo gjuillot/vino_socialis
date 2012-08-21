@@ -33,6 +33,7 @@ en:
     taste: "Taste"
     encave: "Encave"
     consume: "Consume"
+    new_wine: "New wine sheet"
   area:
     areas: "Area"
     new: "New area"
@@ -115,6 +116,7 @@ en:
     not_validated: "Waiting for validation"
     user: "Sheet created by"
     moderation: "Moderation"
+    actions: "Actions"
     color:
       white: 'White'
       red: 'Red'

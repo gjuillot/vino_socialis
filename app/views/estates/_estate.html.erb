@@ -6,22 +6,7 @@
     <%= "#{estate.town} (#{estate.country})"%>
   </td>
   
-  <% if can? :manage, estate %>
   <td>
-    <div class="btn-group">
-      <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
-      	Actions
-      	<span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        <%= link_to_edit(edit_estate_path(estate)) %>
-        <% if estate.validated? %>
-          <%= link_to_unvalidate unvalidate_estate_path(estate) %>
-        <% else %>
-          <%= link_to_validate validate_estate_path(estate) %>
-        <% end %>
-      </ul>
-  	</div>
+    <%= estate_action_button estate%>
   </td>
-  <% end %>
 </tr>

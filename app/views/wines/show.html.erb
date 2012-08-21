@@ -40,7 +40,6 @@
     <p>
       <b><%= t("estate.moderation") %>:</b>
       <%= link_to_edit(edit_estate_path(@wine.estate)) %>
-      <%= link_to_destroy @wine.estate %>
       <% if @wine.estate.validated? %>
         <%= link_to_unvalidate unvalidate_estate_path(@wine.estate) %>
       <% else %>
@@ -51,10 +50,11 @@
   </div>
   <div class="span6">
     <p>
-      <%= full_area_name @wine.area %>
+      <%= full_area_name @wine.area, html: true %>
     </p>
 
     <p>
+      <%= wine_color_image(@wine) %>
       <%= t("wine.color." + @wine.wine_color) %>
     </p>
 
@@ -77,17 +77,9 @@
       <b><%= t("wine.user") %>:</b>
       <%= @wine.user.name %>
     </p>
-
-  <% if can? :manage, @wine %>
+    
     <p>
-      <b><%= t("wine.moderation") %>:</b>
-      <%= link_to_edit(edit_wine_path(@wine)) %>
-      <%= link_to_destroy @wine %>
-      <% if @wine.validated? %>
-        <%= link_to_unvalidate unvalidate_wine_path(@wine) %>
-      <% else %>
-        <%= link_to_validate validate_wine_path(@wine) %>
-      <% end %>
+      <%= wine_action_button(@wine) %>
     </p>
-  <% end %>
+
 </div>

@@ -46,18 +46,21 @@ module WinesHelper
     end
     
     if links
-      res += '</td>'
+      res += '</td><td>' + wine_action_button(wine) + '</td></tr>'
     end
     
-    if (links)
+    return raw(res)
+  end
+  
+  def wine_action_button(wine)
       # ACTION LINKS
-      res += '<td>
-        <div class="btn-group">
-          <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-            Actions <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">'
+    res = '<div class="btn-group">
+              <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+                Actions <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">'
       
+      res += link_to_show(wine_path(wine))
       res += link_to_tasting(taste_wine_path(wine))
       res += link_to_encave(encave_wine_path(wine))
       
@@ -73,14 +76,9 @@ module WinesHelper
           res += link_to_validate(validate_wine_path(wine))
         end
       end
-      res += '</ul></div></td>'
-    end
-    
-    if links
-      res += '</tr>'
-    end
-    
-    return raw(res)
+      res += '</ul></div>'
+      
+      return raw res
   end
   
   def wine_color_image(wine)

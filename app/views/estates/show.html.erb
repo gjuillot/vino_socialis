@@ -34,19 +34,12 @@
 	  <b><%= t("estate.user") %>:</b>
 	  <%= @estate.user.name %>
 	</p>
-	<% if can? :manage, @estate %>
-      <p>
-        <b><%= t("estate.moderation") %>:</b>
-        <%= link_to_edit(edit_estate_path(@estate)) %>
-        <%= link_to_destroy @estate %>
-        <% if @estate.validated? %>
-          <%= link_to_unvalidate unvalidate_estate_path(@estate) %>
-        <% else %>
-          <%= link_to_validate validate_estate_path(@estate) %>
-        <% end %>
-      </p>
-    <% end %>
+	
+	<p>
+	  <%= estate_action_button @estate %>
+	</p>
   </div>
+
   <div class="span6">
   	<% if @estate.wines.any? %>
   	  <table class="table table-striped table-condensed">
