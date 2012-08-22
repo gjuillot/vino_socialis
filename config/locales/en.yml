@@ -96,7 +96,7 @@ en:
   recommandation:
     recommandations: "Recommandations"
     latest: "Latest recommandations"
-    me: "Recommanded for you"
+    most: "Most recommanded"
   region:
     regions: "Regions"
     new: "New region"

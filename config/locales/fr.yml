@@ -95,7 +95,7 @@ fr:
   recommandation:
     recommandations: "Recommandations"
     latest: "Dernières recommandations"
-    me: "Recommandés pour vous"
+    most: "Les plus recommandés"
   region:
     regions: "Régions"
     new: "Nouvelle région"

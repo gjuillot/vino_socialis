@@ -14,7 +14,7 @@ VinoSocialis::Application.routes.draw do
     
     resources :wine_recommandations do
       collection do
-        get 'me'
+        get 'most'
       end
     end
 
