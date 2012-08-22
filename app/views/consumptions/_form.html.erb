@@ -21,7 +21,7 @@
     <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
 
     <%= f.label :quantity %>
-    <%= f.number_field :quantity, :value => '1' %>
+    <%= f.number_field :quantity, :value => '1', :disabled => @quantity_field_disabled %>
 
     <% reasons = ['drinked', 'group', 'family_friend', 'gift', 'corked'].map {|c| [t(c, scope: 'consumptions.reasons'), c]}%>
     <%= f.label :reasons %>

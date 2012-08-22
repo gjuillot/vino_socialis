@@ -17,12 +17,14 @@ class ConsumptionsController < ApplicationController
       redirect_to bottles_path, notice: 'Please use an existing bottle.'
     else
       @bottle = Bottle.find(params[:bottle])
+      @quantity_field_disabled = false
     end
   end
 
   # GET /consumptions/1/edit
   def edit
     @bottle = @consumption.bottle
+    @quantity_field_disabled = true
   end
 
   # POST /consumptions
