@@ -1,4 +1,26 @@
-<li>
-  <%= consumption.quantity %>x 
-  <%= bottle_name consumption.bottle, html: true %> 
-</li>
+<tr>
+  <td>
+  	<%= consumption.date %>
+  </td>
+  <td>
+    <%= consumption.quantity %>
+  </td>
+  <td>
+  	<%= wine_name consumption.bottle.wine, estate: true, area: false, html: true %> 
+  </td>
+  <td>
+  	<%= full_area_name consumption.bottle.wine.area, html: true %>
+  </td>
+  <td>
+    <%= wine_color_image consumption.bottle.wine %>
+  </td>
+  <td>
+    <%= consumption.bottle.vintage %>
+  </td>
+  <td>
+  	<%= t(consumption.reasons, scope: 'consumptions.reasons')%>
+  </td>
+  <td>
+  	<%= consumption_action_button(consumption) %>
+  </td>
+</tr>
