@@ -1,1 +1,60 @@
-<p><%= t("home.index.slogan") %></p>
+
+<div class="row-fluid">
+  <div class="span4">
+  	<div class="alert alert-info center">
+  	  <p><%= raw t('home.index.discover.p1') %></p>
+  	  <p><%= raw t('home.index.discover.p2') %></p>
+  	  <p><%= raw t('home.index.discover.p3') %></p>
+  	  <p><%= raw t('home.index.discover.p4') %></p>
+  	  <br/>
+  	  <p><%= link_to t('home.index.learn_more'), discover_path, :class => 'btn btn-primary' %></p>
+  	</div>
+  </div>
+  <div class="span4">
+  	<div class="alert alert-info center">
+      <p><%= raw t('home.index.track.p1') %></p>
+      <p><%= raw t('home.index.track.p2') %></p>
+      <p><%= raw t('home.index.track.p3') %></p>
+  	  <br/>
+  	  <p><%= link_to t('home.index.learn_more'), track_path, :class => 'btn btn-primary' %></p>
+  	</div>
+  </div>
+  <div class="span4">
+  	<div class="alert alert-info center">
+  	  <p><%= raw t('home.index.share.p1') %></p>
+  	  <p><%= raw t('home.index.share.p2') %></p>
+  	  <p><%= raw t('home.index.share.p3') %></p>
+  	  <p><%= raw t('home.index.share.p4') %></p>
+  	  <br/>
+  	  <p><%= link_to t('home.index.learn_more'), share_path, :class => 'btn btn-primary' %></p>
+  	</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span4">
+    <div class="alert alert-success">
+      <ul>
+      	<li><%= t('home.index.discover.l1', :c => Area.all.count) %></li>
+      	<li><%= t('home.index.discover.l2', :c => estate_count_validated) %></li>
+      	<li><%= t('home.index.discover.l3', :c => wine_count_validated) %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="alert alert-success">
+      <ul>
+      	<li><%= t('home.index.track.l1', :c => bottles_count_remaining) %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="alert alert-success">
+      <ul>
+      	<li><%= t('home.index.share.l1', :c => User.all.count) %></li>
+      	<li><%= t('home.index.share.l2', :c => Tasting.all.count) %></li>
+      	<li><%= t('home.index.share.l3', :c => WineRecommandation.all.count) %></li>
+      </ul>
+    </div>
+  </div>
+</div>

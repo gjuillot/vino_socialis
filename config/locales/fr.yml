@@ -20,6 +20,11 @@ fr:
       users: "Utilisateurs"
       new_wine: "Proposer une nouvelle fiche de vin"
       taste: "Déguster un vin"
+    search:
+      title: "Recherche rapide"
+      estate_wine: "Producteur ou vin"
+      area: "Appelation, région ou pays"
+      my_bottles: "Rechercher dans mes bouteilles"
     about:
       title: "A propos"
     profile:
@@ -88,7 +93,28 @@ fr:
     discover:
       content: "Ici des infos sur les vins, producteurs, cépages et conseils selon votre goût et votre plat."
     index:
-      slogan: "Découvrir - Suivre - Partager : le vin enfin facile"
+      learn_more: "En savoir plus"
+      discover:
+        p1: "Le monde du vin est vaste et semé d'embûches."
+        p2: "Avec <strong>Vino Socialis</strong>, découvrez le en toute quiétude."
+        p3: "Voyagez à travers les appelations du monde entier."
+        p4: "Découvrez les vins recommandés <strong>pour vous</strong> selon vos goûts."
+        l1: "%{c} appelations recensées"
+        l2: "%{c} producteurs validés"
+        l3: "%{c} vins validés"
+      track:
+        p1: "Que vous soyez un consommateur modéré ou un fan de vins, <strong>Vino Socialis</strong> est là pour vous."
+        p2: "Enregistrez les bouteilles que vous possédez pour trouvez à tout le moment le vin que vous allez déguster."
+        p3: "Gardez une trace des bouteilles que vous ouvrez tous les jours ou lors des grands évènements."
+        l1: "%{c} bouteilles suivies"
+      share:
+        p1: "Le vin a un incroyable aspect social, alors partagez avec <strong>Vino Socialis</strong>."
+        p2: "Découvrez les autres amateurs de vins."
+        p3: "Partagez avec tous vos impressions sur les vins que vous dégustez."
+        p4: "Participez au recensement des producteurs et vins du monde entier."
+        l1: "%{c} utilisateurs"
+        l2: "%{c} dégustations"
+        l3: "%{c} coups de coeur"
     share:
       content: "Partager au sujet des vins, producteurs, ..."
     track:

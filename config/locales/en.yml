@@ -20,6 +20,11 @@ en:
       users: "Users"
       new_wine: "Suggest a new wine sheet"
       taste: "Taste a wine"
+    search:
+      title: "Quick search"
+      estate_wine: "Estate or wine"
+      area: "Area, region or country"
+      my_bottles: "Search my bottles"
     about:
       title: "About"
     profile:
@@ -89,7 +94,28 @@ en:
     discover:
       content: "Here, info about wines, estates, grapes and hints according to your own tastes and meals."
     index:
-      slogan: "Discover - Track - Share: Wine made easy"
+      learn_more: "Learn more"
+      discover:
+        p1: "The world of wine is vast and full of obstacles."
+        p2: "With <strong>Vino Socialis</strong>, discover this world quietly."
+        p3: "Travel around the areas of the world."
+        p4: "Discover wines recommanded <strong>for you</strong> according to your taste."
+        l1: "%{c} areas"
+        l2: "%{c} validated estates"
+        l3: "%{c} validated wines"
+      track:
+        p1: "Whether you are a consumer or a moderate fan of wine, <strong>Vino Socialis</strong> is there for you."
+        p2: "Registered the bottles that you have and find anytime the wine you'll taste."
+        p3: "Keep track of bottles you open every day or during major events."
+        l1: "%{c} bottles followed"
+      share:
+        p1: "The wine has an incredible social aspect, then share with <strong>Vino Socialis</strong>."
+        p2: "Meet other wine lovers"
+        p3: "Share with all your impressions of the wines you taste."
+        p4: "Participate in the identification of producers and wines from around the world."
+        l1: "%{c} users"
+        l2: "%{c} tastings"
+        l3: "%{c} favorite wines"
     share:
       content: "Share your opinions on wines, estates, ..."
     track:
