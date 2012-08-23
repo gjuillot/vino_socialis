@@ -84,6 +84,7 @@ en:
     moderation: "Moderation"
     no_wines: "No wine sheets for that estate"
     suggest_wine: "Suggest a new wine sheet for that estate"
+    db_count: "%{total} estate sheets registered, %{validated} being validated"
   home:
     discover:
       content: "Here, info about wines, estates, grapes and hints according to your own tastes and meals."
@@ -127,6 +128,7 @@ en:
     user: "Sheet created by"
     moderation: "Moderation"
     actions: "Actions"
+    db_count: "%{total} wine sheets registered, %{validated} being validated"
     tastings:
       one: "1 tasting available for this wine"
       other: "%{count} tastings available for this wine"

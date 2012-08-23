@@ -99,4 +99,12 @@ module WinesHelper
   def wine_color_image(wine)
     raw '<a href="#" rel="tooltip" title="' + t("wine.color.#{wine.wine_color}") + '">' + image_tag("wine_colors/#{wine.wine_color}.png", :size => "12x12") + '</a>'
   end
+  
+  def wine_count_total
+    Wine.all.count
+  end
+  
+  def wine_count_validated
+    Wine.where('validation = ?', true).count
+  end
 end

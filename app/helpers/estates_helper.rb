@@ -25,4 +25,12 @@ module EstatesHelper
     </div>'
     return raw res
   end
+  
+  def estate_count_total
+    Estate.all.count
+  end
+  
+  def estate_count_validated
+    Estate.where('validation = ?', true).count
+  end
 end

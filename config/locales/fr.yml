@@ -83,6 +83,7 @@ fr:
     moderation: "Modération"
     no_wines: "Pas de fiches vin pour ce producteur"
     suggest_wine: "Proposer une nouvelle fiche vin pour ce producteur"
+    db_count: "%{total} fiches producteur enregistrées dont %{validated} validées"
   home:
     discover:
       content: "Ici des infos sur les vins, producteurs, cépages et conseils selon votre goût et votre plat."
@@ -126,6 +127,7 @@ fr:
     user: "Fiche créée par"
     moderation: "Modération"
     actions: "Actions"
+    db_count: "%{total} fiches vins enregistrées dont %{validated} validées"
     tastings:
       one: "1 dégustation disponible pour ce vin"
       other: "%{count} dégustations disponible pour ce vin"

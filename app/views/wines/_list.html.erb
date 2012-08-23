@@ -14,8 +14,12 @@
   	  <%= text_field_tag :q, @searched %>
   	  <%= submit_tag t("wine.search"), class: "btn btn-primary" %>
   	<% end %>
+  	
 	<% if can? :create, Wine %>
 	  <%= link_to t("wine.suggest"), new_wine_path %>
+  	  <br/></br/>
     <% end %>
+    
+    <%= t('wine.db_count', :total => wine_count_total, :validated => wine_count_validated) %>
   </div>
 </div>

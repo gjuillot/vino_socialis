@@ -13,9 +13,13 @@
   	  <%= text_field_tag :q, @searched %>
   	  <%= submit_tag t("estate.search"), class: "btn btn-primary" %>
   	<% end %>
+  	
 	<% if can? :create, Estate %>
 	  <%= link_to t("estate.suggest"), new_estate_path %>
+  	  <br/></br/>
     <% end %>
+    
+    <%= t('estate.db_count', :total => estate_count_total, :validated => estate_count_validated) %>
   </div>
 </div>
 </div>
