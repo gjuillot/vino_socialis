@@ -1,0 +1,12 @@
+<td>
+  <%= pairing.dish %>
+</td>
+<td>
+  <%= star_rating(pairing.note, 5) %>
+</td>
+<td>
+  <%= wine_name pairing.tasting.wine, estate: true, area: true, html: true %>
+</td>
+<td>
+  <%= pairing.tasting.user.name %>
+</td>

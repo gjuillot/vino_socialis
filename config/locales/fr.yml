@@ -10,6 +10,7 @@ fr:
       latest_tastings: "Dernières dégustations"
       latest_recommandations: "Dernières recommandations"
       recommmandations_me: "Recommandés pour vous"
+      pairings: "Accords mets-vin"
     track:
       title: "Suivre"
       my_bottles: "Mes bouteilles"
@@ -119,6 +120,10 @@ fr:
       content: "Partager au sujet des vins, producteurs, ..."
     track:
       content: "Suivez vos bouteilles"
+  pairing:
+    pairings: 'Accords mets-vin'
+    latest: 'Derniers accords mets-vin'
+    search: 'Rechercher'
   recommandation:
     recommandations: "Recommandations"
     latest: "Dernières recommandations"
@@ -212,6 +217,9 @@ fr:
         fax: "Fax"
         email: "Adresse email"
         www: "Site internet"
+      pairing:
+        dish: 'Mets'
+        note: "Note de l'accord"
       tasting:
         wine: "Vin"
         vintage: "Millésime"

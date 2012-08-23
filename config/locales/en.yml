@@ -10,6 +10,7 @@ en:
       latest_tastings: "Latest tastings"
       latest_recommandations: "Latest recommandations"
       recommmandations_me: "Recommanded for you"
+      pairings: "Wine pairings"
     track:
       title: "Track"
       my_bottles: "My bottles"
@@ -120,6 +121,10 @@ en:
       content: "Share your opinions on wines, estates, ..."
     track:
       content: "Keep track of your bottles"
+  pairing:
+    pairings: 'Wine pairings'
+    latest: 'Latest wine pairings'
+    search: 'Search'
   recommandation:
     recommandations: "Recommandations"
     latest: "Latest recommandations"
@@ -212,6 +217,9 @@ en:
         fax: "Fax"
         email: "Email"
         www: "Web site"
+      pairing:
+        dish: 'Dish'
+        note: 'Pairing note'
       tasting:
         wine: "Wine"
         vintage: "Vintage"

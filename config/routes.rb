@@ -4,6 +4,12 @@ VinoSocialis::Application.routes.draw do
 
     resources :consumptions
     
+    resources :pairings do
+      collection do
+        get 'search'
+      end
+    end
+    
     resources :bottles do
       member do
         get 'consume'

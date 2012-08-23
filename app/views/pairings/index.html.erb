@@ -1,0 +1,21 @@
+<% provide(:title, t("pairing.pairings")) %>
+
+<div class="container">
+<div clas="row">
+  <div class="span8">
+  	<h3><%= @searched.nil? ? t("pairing.latest") : @searched %></h3>
+  	<br/>
+	<table class="table table-striped table-condensed">
+	  <%= render @pairings %>
+	</table>
+  </div>
+  <div class="span3">
+  	<br/></br/>
+  	<%= form_tag search_pairings_path, method: 'get' do %>
+  	  <input id="q" name="q" type="text" value="<%= @searched %>" data-provide="typeahead" data-items="10" data-source='<%= raw @dishes %>' />
+  	  <%= submit_tag t('pairing.search'), class: "btn btn-primary" %>
+  	<% end %>
+  	
+  </div>
+</div>
+</div>
