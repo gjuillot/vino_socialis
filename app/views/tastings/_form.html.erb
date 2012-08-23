@@ -25,6 +25,12 @@
 
   <%= f.label :note %>
   <%= select_tag 'tasting[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.note) %>
+  
+  <label for="pairing_dish"><%= t('helpers.label.pairing.dish') %></label>
+  <input id="pairing_dish" name="pairing[dish]" size="30" type="text" value="<%= (@pairing ? @pairing.dish : '') %>"/>
+
+  <label for="pairing_note"><%= t('helpers.label.pairing.note') %></label>
+  <%= select_tag 'pairing[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => (@pairing ? @pairing.note : '')) %>
 
   <%= f.submit class: "btn btn-large btn-primary" %>
 <% end %>

@@ -25,3 +25,9 @@
   <b><%= t("tasting.user") %>:</b>
   <%= @tasting.user.name %>
 </p>
+
+<% if @pairing %>
+  <p>
+    <b>Accord avec</b> <%= @pairing.dish %> <b>noté</b> <%= @pairing.note %>/5
+  </p>
+<% end %>

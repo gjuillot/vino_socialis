@@ -13,6 +13,7 @@ class TastingsController < ApplicationController
   
   # GET /tastings/1
   def show
+    @pairing = Pairing.find_by_tasting_id(@tasting.id)
   end
 
   # GET /tastings/new
@@ -27,13 +28,24 @@ class TastingsController < ApplicationController
   # GET /tastings/1/edit
   def edit
     @wine = @tasting.wine
+    @pairing = Pairing.find_by_tasting_id(@tasting.id)
   end
 
   # POST /tastings
   def create
     @tasting.user_id = current_user.id
     if @tasting.save
-      redirect_to @tasting, notice: 'Tasting was successfully created.'
+      if params[:pairing][:dish].blank?
+        redirect_to @tasting, notice: 'Tasting was successfully created.'
+      else
+        @pairing = Pairing.new(params[:pairing])
+        @pairing.tasting_id = @tasting.id
+        if @pairing.save
+          redirect_to @tasting, notice: 'Tasting and pairing were successfully created.'
+        else
+          redirect_to @tasting, warning: 'Tasting was successfully created but not the pairing.'
+        end
+      end
     else
       render action: "new"
     end
@@ -41,6 +53,21 @@ class TastingsController < ApplicationController
   
   # PUT /tastings/1
   def update
+    existing_pairing = Pairing.find_by_tasting_id(@tasting.id)
+    if existing_pairing
+      if params[:pairing][:dish].blank?
+        existing_pairing.destroy
+      else
+        existing_pairing.dish = params[:pairing][:dish]
+        existing_pairing.note = params[:pairing][:note]
+        existing_pairing.save
+      end
+    elsif !params[:pairing][:dish].blank?
+      pairing = Pairing.new(params[:pairing])
+      pairing.tasting_id = @tasting.id
+      pairing.save
+    end
+    
     if @tasting.update_attributes(params[:tasting])
       redirect_to @tasting, notice: 'Tasting was successfully updated.'
     else
@@ -53,4 +80,5 @@ class TastingsController < ApplicationController
     @tasting.destroy
     redirect_to tastings_url
   end
+  
 end

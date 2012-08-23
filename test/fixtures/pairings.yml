@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tasting: 
+  dish: MyString
+  note: 1
+
+two:
+  tasting: 
+  dish: MyString
+  note: 1
