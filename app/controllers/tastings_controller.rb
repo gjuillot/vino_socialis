@@ -21,6 +21,7 @@ class TastingsController < ApplicationController
     if params[:wine].blank?
       redirect_to wines_path, notice: 'Please use an existing wine or create a new one.'
     else
+      @dishes = Pairing.select(:dish).map { |p| p.dish }
       @wine = Wine.find(params[:wine])
     end
   end
@@ -29,6 +30,7 @@ class TastingsController < ApplicationController
   def edit
     @wine = @tasting.wine
     @pairing = Pairing.find_by_tasting_id(@tasting.id)
+    @dishes = Pairing.select(:dish).map { |p| p.dish }
   end
 
   # POST /tastings
