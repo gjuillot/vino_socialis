@@ -50,6 +50,8 @@ VinoSocialis::Application.routes.draw do
   
     devise_for :users
     resources :users
+    
+    root :to => "home#index"
 
     match '/discover', :to => "home#discover"
     match '/track', :to => "home#track"
@@ -57,9 +59,8 @@ VinoSocialis::Application.routes.draw do
     match '/about', :to => "home#about"
     match '/wines_and_estates', :to => "wines_and_estates#index"
   end
-  
-  match "/:locale" => "home#discover"
-  root :to => "home#index"
+
+  root :to => redirect('/fr/')
   
   match '/areas/for_region_id/:region_id' => 'areas#for_region_id'
   
