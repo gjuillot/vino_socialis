@@ -245,3 +245,11 @@ en:
   date:
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
 
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "..."
+      
