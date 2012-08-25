@@ -1,6 +1,6 @@
 <div class="row">
   <div class="span6 offset3">
-  	<%= form_for(@estate) do |f| %>
+  	<%= form_for(@estate, html: { class:'form-horizontal'}) do |f| %>
 	  <% if @estate.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@estate.errors.count, "error") %> prohibited this estate from being saved:</h2>
@@ -13,37 +13,81 @@
 	    </div>
 	  <% end %>
 	
-	    <%= f.label :name %>
+	  <div class="control-group">
+	    <%= f.label :name, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :name %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :owner %>
+	  <div class="control-group">
+	    <%= f.label :owner, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :owner %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :address %>
+	  <div class="control-group">
+	    <%= f.label :address, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :address %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :zip_code %>
+	  <div class="control-group">
+	    <%= f.label :zip_code, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :zip_code %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :town %>
+	  <div class="control-group">
+	    <%= f.label :town, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :town %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :country %>
+	  <div class="control-group">
+	    <%= f.label :country, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :country %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :phone %>
+	  <div class="control-group">
+	    <%= f.label :phone, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :phone %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :fax %>
+	  <div class="control-group">
+	    <%= f.label :fax, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :fax %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :email %>
+	  <div class="control-group">
+	    <%= f.label :email, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :email %>
+	    </div>
+	  </div>
 	
-	    <%= f.label :www %>
+	  <div class="control-group">
+	    <%= f.label :www, :class => 'control-label' %>
+	    <div class="controls">
 	    <%= f.text_field :www %>
+	    </div>
+	  </div>
 	
-	    <%= f.submit class: "btn btn-large btn-primary" %>
+	  <div class="control-group">
+	    <div class="controls">
+	    <%= f.submit class: "btn btn-primary" %>
+	    </div>
+	  </div>
 	<% end %>
   </div>
 </div>

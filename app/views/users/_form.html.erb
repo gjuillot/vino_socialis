@@ -1,6 +1,6 @@
 <div class="row">
   <div class="span6 offset3">
-	<%= form_for(@user) do |f| %>
+	<%= form_for(@user, html: { class:'form-horizontal'}) do |f| %>
 	  <% if @user.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,22 +12,42 @@
 	      </ul>
 	    </div>
 	  <% end %>
+
+	  <div class="control-group">	
+	    <%= f.label :name, :class => 'control-label' %>
+	    <div class="controls">
+	    <%= f.text_field :name, disabled: true %>
+	    </div>
+	  </div>
 	
-	  <%= f.label :name %>
-	  <%= f.text_field :name, disabled: true %>
+	  <div class="control-group">
+        <%= f.label :email, :class => 'control-label' %>
+	    <div class="controls">
+        <%= f.text_field :email %>
+	    </div>
+	  </div>
 	
-	  <%= f.label :email %>
-	  <%= f.text_field :email %>
-	  
-	  <%= f.label :locale %>
-	  <%= select_tag "user[locale]", options_for_select([['Français', 'fr'], ['English', 'en']], :selected => @user.locale) %>
-	  
+	  <div class="control-group">
+	    <%= f.label :locale, :class => 'control-label' %>
+	    <div class="controls">
+	    <%= select_tag "user[locale]", options_for_select([['Français', 'fr'], ['English', 'en']], :selected => @user.locale) %>
+	    </div>
+	  </div>
+	
 	  <% if can? :manage, @user %>
-	    <%= f.label :role %>
-	    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+	    <div class="control-group">
+	      <%= f.label :role, :class => 'control-label' %>
+	      <div class="controls">
+	      <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+	      </div>
+        </div>
 	  <% end %>
 	    
-	  <%= f.submit class: "btn btn-large btn-primary" %>
+	  <div class="control-group">
+	    <div class="controls">
+	    <%= f.submit class: "btn btn-primary" %>
+	    </div>
+	  </div>
 	<% end %>
   </div>
 </div>

@@ -36,39 +36,47 @@
     });
 </script>
 
+<h2><%= @estate_name %></h2>
 <div class="row">
   <div class="span6 offset3">
-  	<%= form_for(@wine) do |f| %>
-	  <% if @wine.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@wine.errors.count, "error") %> prohibited this wine from being saved:</h2>
-	
-	      <ul>
-	      <% @wine.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
+  	<%= form_for(@wine, html: { class:'form-horizontal'}) do |f| %>
 
-	  <%= f.label :estate %>
 	  <%= f.hidden_field :estate_id, value: @estate_id %>
-	  <%= f.text_field :estate_name, value: @estate_name, disabled: true %>
 	
-	  <%= f.label :name %>
-	  <%= f.text_field :name %>
-
-	  <%= f.label :area %>
-	  <%= grouped_collection_select :region, :id, @countries, :regions, :name, :id, :name, options = { prompt: t('helpers.label.wine.select_country_and_region')} %>
-      <%= collection_select :wine, :area_id, @areas, :id, :name, options = { prompt: t('helpers.label.wine.select_area')} %>
-
-	  <%= f.label :wine_color %>
-	  <%= select_tag 'wine[wine_color]', options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => @wine.wine_color), options = { prompt: ''} %>
-
-	  <%= f.label :info %>
-	  <%= f.text_area :info %>
-
-	  <%= f.submit class: "btn btn-large btn-primary" %>
+	  <div class="control-group">
+	    <%= f.label :name, :class => 'control-label' %>
+	    <div class="controls">
+	      <%= f.text_field :name %>
+	    </div>
+	  </div>
+	
+	  <div class="control-group">
+	    <%= f.label :area, :class => 'control-label' %>
+	    <div class="controls">
+	      <%= grouped_collection_select :region, :id, @countries, :regions, :name, :id, :name, options = { prompt: t('helpers.label.wine.select_country_and_region')} %>
+          <%= collection_select :wine, :area_id, @areas, :id, :name, options = { prompt: t('helpers.label.wine.select_area')} %>
+	    </div>
+	  </div>
+	
+	  <div class="control-group">
+	    <%= f.label :wine_color, :class => 'control-label' %>
+	    <div class="controls">
+	      <%= select_tag 'wine[wine_color]', options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => @wine.wine_color), options = { prompt: ''} %>
+	    </div>
+	  </div>
+	
+	  <div class="control-group">
+        <%= f.label :info, :class => 'control-label' %>
+	    <div class="controls">
+	      <%= f.text_area :info, rows: 3 %>
+	    </div>
+	  </div>
+	
+	  <div class="control-group">
+	    <div class="controls">
+	    <%= f.submit class: "btn btn-primary" %>
+	    </div>
+	  </div>
 	<% end %>
   </div>
 </div>

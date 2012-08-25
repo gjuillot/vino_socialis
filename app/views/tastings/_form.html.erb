@@ -1,38 +1,54 @@
+<h2><%= wine_name(@wine, estate: true, area: true) %></h2>
+
+<%= form_for(@tasting, html: { class:'form-horizontal'}) do |f| %>
+
 <div class="row">
-  <div class="span6 offset3">
-<%= form_for(@tasting) do |f| %>
-  <% if @tasting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tasting.errors.count, "error") %> prohibited this tasting from being saved:</h2>
+  <div class="span6">
+  	
+    <%= f.hidden_field :wine_id, value: @wine.id %>
 
-      <ul>
-      <% @tasting.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="control-group">
+      <%= f.label :vintage, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_vintage f %>
+      </div>
     </div>
-  <% end %>
 
-  <%= f.label :wine %>
-  <%= f.hidden_field :wine_id, value: @wine.id %>
-  <%= f.text_field :wine_name, value: wine_name(@wine, estate: true, area: true), disabled: true %>
+    <div class="control-group">
+      <%= f.label :date, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
+      </div>
+    </div>
 
-  <%= f.label :vintage %>
-  <%= f.text_field :vintage %>
+    <div class="control-group">
+      <%= f.label :note, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.note) %>
+      </div>
+    </div>
+  </div>
 
-  <%= f.label :date %>
-  <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
+  <div class="span6">
+    <div class="control-group">
+      <label for="pairing_dish" class="control-label"><%= t('helpers.label.pairing.dish') %></label>
+      <div class="controls">
+        <input id="pairing_dish" name="pairing[dish]" size="30" type="text" value="<%= (@pairing ? @pairing.dish : '') %>" data-provide="typeahead" data-items="10" data-source='<%= raw @dishes %>' />
+      </div>
+    </div>
 
-  <%= f.label :note %>
-  <%= select_tag 'tasting[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.note) %>
-  
-  <label for="pairing_dish"><%= t('helpers.label.pairing.dish') %></label>
-  <input id="pairing_dish" name="pairing[dish]" size="30" type="text" value="<%= (@pairing ? @pairing.dish : '') %>" data-provide="typeahead" data-items="10" data-source='<%= raw @dishes %>' />
-
-  <label for="pairing_note"><%= t('helpers.label.pairing.note') %></label>
-  <%= select_tag 'pairing[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => (@pairing ? @pairing.note : '')) %>
-
-  <%= f.submit class: "btn btn-large btn-primary" %>
-<% end %>
+    <div class="control-group">
+      <label for="pairing_note" class="control-label"><%= t('helpers.label.pairing.note') %></label>
+      <div class="controls">
+        <%= select_tag 'pairing[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => (@pairing ? @pairing.note : '')) %>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class = "row">
+  <div class="span12 center">
+      <%= f.submit class: "btn btn-primary span4" %>
+  </div>
+</div>
+<% end %>
