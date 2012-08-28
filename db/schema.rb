@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120823134218) do
+ActiveRecord::Schema.define(:version => 20120828105106) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -134,6 +134,29 @@ ActiveRecord::Schema.define(:version => 20120823134218) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "wine_rack_positions", :force => true do |t|
+    t.integer  "wine_rack_id"
+    t.integer  "bottle_id"
+    t.integer  "row"
+    t.integer  "column"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "wine_rack_positions", ["bottle_id"], :name => "index_wine_rack_bottles_on_bottle_id"
+  add_index "wine_rack_positions", ["wine_rack_id"], :name => "index_wine_rack_bottles_on_wine_rack_id"
+
+  create_table "wine_racks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "rows"
+    t.integer  "columns"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "wine_racks", ["user_id"], :name => "index_wine_racks_on_user_id"
 
   create_table "wine_recommandations", :force => true do |t|
     t.integer  "user_id"

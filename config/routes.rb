@@ -1,6 +1,13 @@
 VinoSocialis::Application.routes.draw do
 
   scope "/:locale" do
+    
+    resources :wine_racks do
+      member do
+        get 'place'
+        get 'apply_place'
+      end
+    end
 
     resources :consumptions
     
@@ -13,6 +20,7 @@ VinoSocialis::Application.routes.draw do
     resources :bottles do
       member do
         get 'consume'
+        get 'place'
       end
     end
       

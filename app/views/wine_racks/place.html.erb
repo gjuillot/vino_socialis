@@ -1,0 +1,18 @@
+<% provide(:title, t('wine_rack.place', name: @wine_rack.name)) %>
+
+<h1><%= t 'wine_rack.place', name: @wine_rack.name %></h1>
+<h2><%= bottle_name @bottle, html: false %></h2>
+
+<p>
+  <%= t 'wine_rack.place_instruction' %>
+</p>
+
+<div>
+  <% (0..(@wine_rack.rows - 1)).each do |row| %>
+    <% (0..(@wine_rack.columns - 1)).each do |column| %>
+      <% position = @positions[row][column] %>
+      <%= position ? wine_color_image(position.bottle.wine, false) : link_to(no_wine_color_image, apply_place_wine_rack_path(@wine_rack, :bottle => @bottle, :row => row, :column => column)) %> 
+    <% end %>
+    <br />
+  <% end %>
+</div>

@@ -1,0 +1,38 @@
+<% provide(:title, t("wine_rack.new")) %>
+
+<h1><%= t("wine_rack.new") %></h1>
+
+<%= form_for(@wine_rack, html: { class:'form-horizontal'}) do |f| %>
+  <div class="row">
+    <div class="span6 offset3">
+
+	  <div class="control-group">
+        <%= f.label :name, :class => 'control-label' %>
+	    <div class="controls">
+          <%= f.text_field :name %>
+	    </div>
+	  </div>
+
+	  <div class="control-group">
+        <%= f.label :rows, :class => 'control-label' %>
+	    <div class="controls">
+          <%= f.number_field :rows %>
+	    </div>
+	  </div>
+
+	  <div class="control-group">
+        <%= f.label :columns, :class => 'control-label' %>
+	    <div class="controls">
+          <%= f.number_field :columns %>
+	    </div>
+	  </div>
+  
+	</div>
+  </div>
+	  
+  <div class="row">	
+    <div class="span6 offset3 center">
+      <%= f.submit class: "btn btn-primary span6" %>
+    </div>
+  </div>
+<% end %>

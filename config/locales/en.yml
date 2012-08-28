@@ -14,6 +14,7 @@ en:
     track:
       title: "Track"
       my_bottles: "My bottles"
+      my_racks: "My racks"
       new_bottle: "Put new bottles into my cellar"
       my_consumptions: "My consumptions"
     share:
@@ -56,6 +57,15 @@ en:
     none: "No registered bottle yet"
     new: "New bottle(s)"
     remaining_and_initial: "%{remaining} on %{initial}"
+    place: "Place"
+    placed:
+      zero: "No bottle"
+      one: "1 bottle"
+      other: "%{count} bottles"
+    unplaced:
+      zero: "All bottles ares placed"
+      one: "1 bottle not placed"
+      other: "%{count} bottles not placed"
     channels:
       gift: "Gift"
       producer: "Producer"
@@ -238,6 +248,10 @@ en:
         info: "More information"
         select_country_and_region: "Select the coutnry and region ..."
         select_area: "... then select the area"
+      wine_rack:
+        name: "Name"
+        rows: "Number of rows"
+        columns: "Number of columns"
     submit:
       create: "Create"
       update: "Update"

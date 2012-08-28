@@ -25,6 +25,8 @@ class BottlesController < ApplicationController
   
   # GET /bottles/1
   def show
+    @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_racks".id, name, count("wine_rack_positions".id) AS positions').where('"wine_rack_positions".bottle_id = ?', @bottle.id).group('"wine_racks".id')
+    @all_wine_racks = WineRack.where('user_id = ?', current_user.id)
   end
 
   # GET /bottles/new
@@ -69,6 +71,14 @@ class BottlesController < ApplicationController
   
   # POST /bottles/1/consume
   def consume
-    redirect_to new_consumption_path(:bottle => @bottle)
+    if params[:wine_rack_position_id].blank?
+      redirect_to new_consumption_path(:bottle => @bottle)
+    else
+      redirect_to new_consumption_path(:bottle => @bottle, :wine_rack_position_id => params[:wine_rack_position_id])
+    end
+  end
+  
+  def place
+    redirect_to place_wine_rack_path(WineRack.find(params[:wine_rack_id]), :bottle => @bottle)
   end
 end

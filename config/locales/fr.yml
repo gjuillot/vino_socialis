@@ -14,6 +14,7 @@ fr:
     track:
       title: "Suivre"
       my_bottles: "Mes bouteilles"
+      my_racks: "Mes casiers"
       new_bottle: "Encaver de nouvelles bouteilles"
       my_consumptions: "Mes sorties"
     share:
@@ -55,6 +56,16 @@ fr:
     my: "Mes bouteilles"
     none: "Aucune bouteille enregistrée pour le moment"
     new: "Nouvelle(s) bouteille(s)"
+    remaining_and_initial: "%{remaining} sur %{initial}"
+    place: "Placer"
+    placed:
+      zero: "Aucune bouteille"
+      one: "1 bouteille"
+      other: "%{count} bouteilles"
+    unplaced:
+      zero: "Toutes les bouteilles sont placées"
+      one: "1 bouteille non placée"
+      other: "%{count} bouteilles non placées"
     channels:
       gift: "Cadeau"
       producer: "Producteur"
@@ -186,6 +197,14 @@ fr:
       vin_jaune: 'Vin jaune'
       vin_paille: 'Vin de paille'
       amber: 'Ambré'
+  wine_rack:
+    content_and_capacity: "%{content} bouteilles sur %{capacity}"
+    new: "Créer un nouveau casier"
+    row: "Ligne"
+    column: "Colonne"
+    bottle: "Bouteille"
+    place: "Placer une bouteille dans %{name}"
+    place_instruction: "Cliquer sur un emplacement libre"
       
 
   helpers:
@@ -238,6 +257,10 @@ fr:
         info: "Informations complémentaires"
         select_country_and_region: "Choisir le pays et la région ..."
         select_area: "... puis choisir l'appellation"
+      wine_rack:
+        name: "Nom"
+        rows: "Nombre de lignes"
+        columns: "Nombre de colonnes"
     submit:
       create: "Créer"
       update: "Mettre à jour"

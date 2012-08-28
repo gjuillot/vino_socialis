@@ -18,6 +18,8 @@ class ConsumptionsController < ApplicationController
     else
       @bottle = Bottle.find(params[:bottle])
       @quantity_field_disabled = false
+      @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_rack_positions".id AS position_id, name, "wine_rack_positions".row AS row, "wine_rack_positions".column AS column').where('"wine_rack_positions".bottle_id = ?', @bottle.id)
+      @position_id_to_check = Integer(params[:wine_rack_position_id])
     end
   end
 
@@ -26,16 +28,28 @@ class ConsumptionsController < ApplicationController
     @bottle = @consumption.bottle
     @quantity_field_disabled = true
   end
-
-  # POST /consumptions
+  
   def create
     bottle = @consumption.bottle
-    bottle.remaining_quantity -= @consumption.quantity
+    
+    quantity = 0
+    if params[:rack]
+      params[:rack].each do |wine_rack_position_id, on|
+        quantity += 1
+        WineRackPosition.find(wine_rack_position_id).destroy
+      end
+    end
+    if params[:unracked]
+      quantity += params[:unracked].size
+    end
+    
+    bottle.remaining_quantity -= quantity
     if !bottle.save
       render action: "new"
     end
     
     @consumption.user_id = current_user.id
+    @consumption.quantity = quantity
     if @consumption.save
       redirect_to @consumption, notice: 'Consumption was successfully created.'
     else
