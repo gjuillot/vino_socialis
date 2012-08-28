@@ -7,12 +7,15 @@
   <%= t 'wine_rack.place_instruction' %>
 </p>
 
-<div>
-  <% (0..(@wine_rack.rows - 1)).each do |row| %>
-    <% (0..(@wine_rack.columns - 1)).each do |column| %>
-      <% position = @positions[row][column] %>
-      <%= position ? wine_color_image(position.bottle.wine, false) : link_to(no_wine_color_image, apply_place_wine_rack_path(@wine_rack, :bottle => @bottle, :row => row, :column => column)) %> 
-    <% end %>
-    <br />
+<table>
+  <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
+    <tr>
+      <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
+        <td>
+          <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
+          <%= render :partial => 'compartment_place', :locals =>  { :compartment => @positions[total_row][total_column], :letter => letter, :total_row => total_row, :total_column => total_column, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
+        </td>
+      <% end %>
+    </tr>
   <% end %>
-</div>
+</table>

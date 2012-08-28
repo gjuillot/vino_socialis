@@ -197,6 +197,15 @@ en:
       vin_jaune: 'Vin jaune'
       vin_paille: 'Vin de paille'
       amber: 'Amber'
+  wine_rack:
+    content_and_capacity: "%{content} bottles on %{capacity}"
+    new: "Create a new rack"
+    compartment: "Compartment"
+    row: "Row"
+    column: "Column"
+    bottle: "Bottle"
+    place: "Place a bottle into %{name}"
+    place_instruction: "Click on a free position"
     
   helpers:
     label:
@@ -250,8 +259,10 @@ en:
         select_area: "... then select the area"
       wine_rack:
         name: "Name"
-        rows: "Number of rows"
-        columns: "Number of columns"
+        total_rows: "Number of rows"
+        total_columns: "Number of columns"
+        rows: "Number of rows per compartment"
+        columns: "Number of columns per compartment"
     submit:
       create: "Create"
       update: "Update"

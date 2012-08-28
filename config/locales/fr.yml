@@ -200,6 +200,7 @@ fr:
   wine_rack:
     content_and_capacity: "%{content} bouteilles sur %{capacity}"
     new: "Créer un nouveau casier"
+    compartment: "Compartiment"
     row: "Ligne"
     column: "Colonne"
     bottle: "Bouteille"
@@ -259,8 +260,10 @@ fr:
         select_area: "... puis choisir l'appellation"
       wine_rack:
         name: "Nom"
-        rows: "Nombre de lignes"
-        columns: "Nombre de colonnes"
+        total_rows: "Nombre de lignes"
+        total_columns: "Nombre de colonnes"
+        rows: "Nombre de lignes par compartiment"
+        columns: "Nombre de colonnes par compartiment"
     submit:
       create: "Créer"
       update: "Mettre à jour"

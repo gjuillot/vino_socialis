@@ -29,17 +29,21 @@ class WineRacksController < ApplicationController
   
   def apply_place
     bottle = Bottle.find(params[:bottle])
+    total_row = params[:total_row]
+    total_column = params[:total_column]
     row = params[:row]
     column = params[:column]
-    WineRackPosition.create(:wine_rack => @wine_rack, :bottle => bottle, :row => row, :column => column)
+    WineRackPosition.create(:wine_rack => @wine_rack, :bottle => bottle, :total_row => total_row, :total_column => total_column, :row => row, :column => column)
     redirect_to @wine_rack, notice: 'Bottle was successfully placed.'
   end
   
   private
   def init_wine_rack_positions
-    @positions = Array.new(@wine_rack.rows) { |i| [nil]*@wine_rack.columns }
-    WineRackPosition.where('wine_rack_id = ?', @wine_rack.id).each do |a|
-      @positions[a.row][a.column] = a
+    one_compartment = Array.new(@wine_rack.rows) { |i| [nil]*@wine_rack.columns }
+    one_row = Array.new(@wine_rack.total_columns) { |i| one_compartment }
+    @positions = Array.new(@wine_rack.total_rows) { |i| one_row }
+    WineRackPosition.where('wine_rack_id = ?', @wine_rack.id).each do |p|
+      @positions[p.total_row][p.total_column][p.row][p.column] = p
     end
   end
 end

@@ -1,0 +1,30 @@
+
+<table>
+  <tr>
+    <td>
+      <%= letter %>
+    </td>
+    <% (0..(columns - 1)).each do |column| %>
+      <td>
+      	<%= column %>
+      </td>
+    <% end %>
+  </tr>
+  <% (0..(rows - 1)).each do |row| %>
+    <tr align="middle">
+      <td>
+        <%= row %>
+      </td>
+      <% (0..(columns - 1)).each do |column| %>
+        <td>
+          <% position = compartment[row][column] %>
+          <% if position %>
+            <%= wine_color_image(position.bottle.wine, false) %>
+          <% else %>
+            <%= link_to no_wine_color_image, apply_place_wine_rack_path(@wine_rack, :bottle => @bottle, :total_row => total_row, :total_column => total_column, :row => row, :column => column) %>
+          <% end %> 
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

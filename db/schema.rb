@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828105106) do
+ActiveRecord::Schema.define(:version => 20120828112010) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -140,8 +140,10 @@ ActiveRecord::Schema.define(:version => 20120828105106) do
     t.integer  "bottle_id"
     t.integer  "row"
     t.integer  "column"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "total_row",    :default => 1
+    t.integer  "total_column", :default => 1
   end
 
   add_index "wine_rack_positions", ["bottle_id"], :name => "index_wine_rack_bottles_on_bottle_id"
@@ -152,8 +154,10 @@ ActiveRecord::Schema.define(:version => 20120828105106) do
     t.string   "name"
     t.integer  "rows"
     t.integer  "columns"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "total_rows",    :default => 1
+    t.integer  "total_columns", :default => 1
   end
 
   add_index "wine_racks", ["user_id"], :name => "index_wine_racks_on_user_id"
