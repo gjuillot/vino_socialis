@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828112010) do
+ActiveRecord::Schema.define(:version => 20120828150609) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -154,10 +154,11 @@ ActiveRecord::Schema.define(:version => 20120828112010) do
     t.string   "name"
     t.integer  "rows"
     t.integer  "columns"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "total_rows",    :default => 1
     t.integer  "total_columns", :default => 1
+    t.string   "layout",        :default => "simple"
   end
 
   add_index "wine_racks", ["user_id"], :name => "index_wine_racks_on_user_id"
