@@ -39,9 +39,7 @@ class WineRacksController < ApplicationController
   
   private
   def init_wine_rack_positions
-    one_compartment = Array.new(@wine_rack.rows) { |i| [nil]*@wine_rack.columns }
-    one_row = Array.new(@wine_rack.total_columns) { |i| one_compartment }
-    @positions = Array.new(@wine_rack.total_rows) { |i| one_row }
+    @positions = Array.new(@wine_rack.total_rows) { Array.new(@wine_rack.total_columns) { Array.new(@wine_rack.rows) { [nil]*@wine_rack.columns } } }
     WineRackPosition.where('wine_rack_id = ?', @wine_rack.id).each do |p|
       @positions[p.total_row][p.total_column][p.row][p.column] = p
     end
