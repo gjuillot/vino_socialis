@@ -206,6 +206,10 @@ fr:
     bottle: "Bouteille"
     place: "Placer une bouteille dans %{name}"
     place_instruction: "Cliquer sur un emplacement libre"
+    layout:
+      simple: Simple
+      cabinet: Clayette
+      alternated_cabinet: Clayette alternée
       
 
   helpers:
@@ -260,6 +264,7 @@ fr:
         select_area: "... puis choisir l'appellation"
       wine_rack:
         name: "Nom"
+        layout: "Disposition"
         total_rows: "Nombre de lignes"
         total_columns: "Nombre de colonnes"
         rows: "Nombre de lignes par compartiment"

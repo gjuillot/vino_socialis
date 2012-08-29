@@ -7,7 +7,7 @@
   <%= t 'wine_rack.place_instruction' %>
 </p>
 
-<table>
+<table border="solid">
   <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
     <tr>
       <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>

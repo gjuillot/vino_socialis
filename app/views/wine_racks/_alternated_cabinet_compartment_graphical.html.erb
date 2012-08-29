@@ -1,0 +1,20 @@
+<table>
+  <% (0..(rows - 1)).each do |row| %>
+    <% shorten_row = (total_row + rows - row).even? %> 
+    <tr>
+      <td>
+        <%= "#{letter}.#{row}" %>&nbsp;
+      </td>
+      <% (0..(columns - (shorten_row ? 2 : 1))).each do |column| %>
+        <td>
+          <% position = compartment[row][column] %>
+          <% if position %>
+            <%= link_to wine_color_image(position.bottle.wine, false), bottle_path(position.bottle) %>
+          <% else %>
+            <%= no_wine_color_image (shorten_row ? '7' : '0') %>
+          <% end %> 
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

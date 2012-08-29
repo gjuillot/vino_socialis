@@ -103,8 +103,8 @@ module WinesHelper
     raw '<a href="#" rel="tooltip" title="' + t("wine.color.#{wine.wine_color}") + '">' + wine_color_image(wine, false) + '</a>'
   end
   
-  def no_wine_color_image()
-    return image_tag("wine_colors/nil.png", :size => "12x12")
+  def no_wine_color_image(move_left = 0)
+    return image_tag("wine_colors/nil.png", :size => "12x12", :style => "position:relative;left:#{move_left}px")
   end
   
   def wine_count_total

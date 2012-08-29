@@ -206,6 +206,10 @@ en:
     bottle: "Bottle"
     place: "Place a bottle into %{name}"
     place_instruction: "Click on a free position"
+    layout:
+      simple: Simple
+      cabinet: Wine cabinet
+      alternated_cabinet: Alternated wine cabinet
     
   helpers:
     label:
@@ -259,6 +263,7 @@ en:
         select_area: "... then select the area"
       wine_rack:
         name: "Name"
+        layout: "Layout"
         total_rows: "Number of rows"
         total_columns: "Number of columns"
         rows: "Number of rows per compartment"

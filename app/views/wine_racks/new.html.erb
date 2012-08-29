@@ -14,6 +14,14 @@
 	  </div>
 
 	  <div class="control-group">
+        <%= f.label :layout, :class => 'control-label' %>
+	    <div class="controls">
+	      <% layouts = [[t('wine_rack.layout.simple'), 'simple'], [t('wine_rack.layout.cabinet'), 'cabinet'], [t('wine_rack.layout.alternated_cabinet'), 'alternated_cabinet']] %>
+          <%= select_tag "wine_rack[layout]", options_for_select(layouts) %>
+	    </div>
+	  </div>
+
+	  <div class="control-group">
         <%= f.label :total_rows, :class => 'control-label' %>
 	    <div class="controls">
           <%= f.number_field :total_rows %>
