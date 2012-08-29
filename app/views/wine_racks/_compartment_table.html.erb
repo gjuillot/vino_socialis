@@ -4,7 +4,7 @@
         <% (0..(columns - 1)).each do |column| %>
           <% position = compartment[row][column] %>
           <% if position %>
-            <tr>
+            <tr id="<%= "bottle_row_#{letter}_#{row}_#{column}" %>" value="<% letter %>">
               <td><%= letter %></td>
           	  <td><%= row %></td>
           	  <td><%= column %></td>

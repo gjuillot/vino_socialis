@@ -16,13 +16,14 @@
         <%= row %>
       </td>
       <% (0..(columns - 1)).each do |column| %>
-        <td>
-          <% position = compartment[row][column] %>
-          <% if position %>
-            <%= link_to wine_color_image(position.bottle.wine, false), bottle_path(position.bottle) %>
-          <% else %>
-            <%= no_wine_color_image %>
-          <% end %> 
+        <% position = compartment[row][column] %>
+        <% if position %>
+          <td id="<%= "bottle_img_#{letter}_#{row}_#{column}" %>">
+          <%= link_to wine_color_image(position.bottle.wine, false), bottle_path(position.bottle) %>
+        <% else %>
+          <td>
+          <%= no_wine_color_image %>
+        <% end %> 
         </td>
       <% end %>
     </tr>

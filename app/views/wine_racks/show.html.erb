@@ -1,3 +1,45 @@
+
+<script type="text/javascript">
+	function highlight(id) {
+		border(id, 'solid');
+	}
+	
+	function unhighlight(id) {
+		border(id, 'none');
+	}
+
+	function border(id, border) {
+		var row = $("tr[id*=bottle_row_" + id + "]");
+		row.css('border', border)
+	    var img = $("td[id*=bottle_img_" + id + "]");
+	    img.css('border', border);
+	}
+	
+    $(document).ready(function(){
+    	$("tr[id*=bottle_row_]").hover(
+    		function(){
+	    		var id = $(this).attr('id').substring('bottle_row_'.length);
+	    		highlight(id);
+    		},
+    		function(){
+	    		var id = $(this).attr('id').substring('bottle_row_'.length);
+	    		unhighlight(id);
+    		});
+    });
+    $(document).ready(function(){
+    	$("td[id*=bottle_img_]").hover(
+    		function(){
+	    		var id = $(this).attr('id').substring('bottle_img_'.length);
+	    		highlight(id);
+    		},
+    		function(){
+	    		var id = $(this).attr('id').substring('bottle_img_'.length);
+	    		unhighlight(id);
+    		});
+    });
+</script>
+
+
 <% provide(:title, @wine_rack.name) %>
 
 <h1><%= @wine_rack.name %></h1>
@@ -36,7 +78,7 @@
         <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
             <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
                 <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
-                <%= render :partial => "#{@wine_rack.layout}_compartment_table", :locals =>  { :compartment => @positions[total_row][total_column], :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
+                <%= render :partial => "compartment_table", :locals =>  { :compartment => @positions[total_row][total_column], :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
             <% end %>
         <% end %>
       </tbody>
