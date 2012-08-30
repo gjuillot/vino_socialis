@@ -27,14 +27,16 @@ fr:
       estate_wine: "Producteur ou vin"
       area: "Appelation, région ou pays"
       my_bottles: "Rechercher dans mes bouteilles"
-    about:
-      title: "A propos"
     profile:
       my: "Mon profil"
       sign_out: "Déconnexion"
       sign_up: "Créer un compte"
       sign_in: "S'enregistrer"
       inbox: "Messagerie"
+  footer:
+    about: "A propos"
+    contact_admins: "Contacter les administrateurs"
+    bug: "Signaler un bug"
   icon:
     show: Voir
     edit: "Modifier"

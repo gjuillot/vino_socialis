@@ -1,6 +1,6 @@
-$navbar_color: #a4121d;
-$navbar_color_2: #260d15;
-$navbar_submenu_color: lighten($navbar_color, 60%);
+$navbar_color_2: #7E2217;
+$navbar_color: #c24641;
+$navbar_submenu_color: #fff;
 
 $navbar_link_color: #fdcd2c;
 $navbar_link_color_hover: #fdfdec;
@@ -159,4 +159,29 @@ input[type="color"]:focus,
   background-image: -o-linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
   background-image: linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$navbar_link_color', endColorstr='$navbar_link_color_hover', GradientType=0);
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
 }

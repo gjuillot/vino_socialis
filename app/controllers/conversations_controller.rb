@@ -13,13 +13,37 @@ class ConversationsController < ApplicationController
   end
   
   def new
-    @user = User.find(params[:user])
+    @users = [User.find(params[:user])]
+    @admin_tag = ""
+    @bug_page = ""
+  end
+  
+  def admins
+    @users = User.where('role = "admin"').all
+    @admin_tag = "[Admin] "
+    @bug_page = ""
+    render :action => :new
+  end
+  
+  def bug
+    @users = User.where('role = "admin"').all
+    @admin_tag = "[Bug] "
+    @bug_page = params[:url]
+    render :action => :new
   end
   
   def create
-    @user = User.find(params[:user])
-    current_user.send_message(@user, params[:body], params[:subject])
-    redirect_to @conversation, notice: "Message was successfully sent to #{@user.name}."
+    @users = User.find(params[:users])
+    
+    if params[:admin_tag]
+      params[:subject] = params[:admin_tag] + params[:subject]
+    end
+    if params[:page]
+      params[:body] = params[:page] + '<br />' + params[:body]
+    end
+    
+    current_user.send_message(@users, params[:body], params[:subject])
+    redirect_to @conversation, notice: "Message was successfully sent."
   end
 
   def update

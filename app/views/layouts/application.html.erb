@@ -24,7 +24,6 @@
   	      </ul>
   	      <ul class="nav pull-right">
   	      	<%= render 'layouts/search' %>
-  	      	<li><%= link_to t("menu.about.title"), about_path %></li>
   	      	<%= render 'layouts/profile' %>
   	      </ul>
   	  	</nav>
@@ -33,6 +32,16 @@
   </header>
   <div class="container">
     <%= yield %>
+    
+    <footer class="footer">
+      <nav>
+        <ul>
+          <li><%= link_to t("footer.bug"), bug_conversations_path(:url => url_for(only_path: false)) %></li>
+          <li><%= link_to t("footer.contact_admins"), admins_conversations_path %></li>
+          <li><%= link_to t("footer.about"), about_path %></li>
+        </ul>
+      </nav>
+    </footer>
   </div>
 </body>
 </html>

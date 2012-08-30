@@ -1,5 +1,5 @@
 
 <h4><%= link_to message.sender.name, user_path(message.sender) %> - <%= message.updated_at %></h4>
 <div class="well well-small">
-  <%= message.body %>
+  <%= raw message.body %>
 </div>

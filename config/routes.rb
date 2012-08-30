@@ -65,7 +65,12 @@ VinoSocialis::Application.routes.draw do
     devise_for :users
     resources :users
     
-    resources :conversations
+    resources :conversations do
+      collection do
+        get 'admins'
+        get 'bug'
+      end
+    end
     
     root :to => "home#index"
 

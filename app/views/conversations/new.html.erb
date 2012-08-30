@@ -1,8 +1,11 @@
-<h1><%= t('conversation.new', :user => @user.name) %></h1>
+<h1><%= t('conversation.new', :user => @users.map{|u| u.name}.join(', ')) %></h1>
 
 <%= form_tag({:action => 'create'}, :class => 'form-horizontal') do %>
 
-<%= hidden_field_tag :user, @user.id %>
+<% @users.each do |u| %>
+    <%= hidden_field_tag 'users[]', u.id %>
+<% end %>
+<%= hidden_field_tag 'admin_tag', @admin_tag %>
 
 <div class="row">
   <div class="span6 offset3">
@@ -10,9 +13,24 @@
     <div class="control-group">
       <%= label_tag 'subject', t('conversation.subject'), class: 'control-label' %>
       <div class="controls">
-        <%= text_field_tag 'subject' %>
+      	<% if @admin_tag.blank? %>
+      	  <%= text_field_tag 'subject' %>
+        <% else %>
+      	  <div class="input-prepend">
+            <span class="add-on"><%= @admin_tag %></span><%= text_field_tag 'subject' %>
+          </div>
+        <% end %>
       </div>
     </div>
+    
+    <% unless @bug_page.blank? %>
+    <div class="control-group">
+      <%= label_tag 'page', t('conversation.page'), class: 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag 'page', @bug_page, :class => 'uneditable-input' %>
+      </div>
+    </div>
+    <% end %>
 
     <div class="control-group">
       <%= label_tag 'body', t('conversation.body'), class: 'control-label' %>
