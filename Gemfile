@@ -28,3 +28,5 @@ gem 'cancan'
 gem 'kaminari'
 
 gem 'mailboxer'
+
+gem 'gravatar_image_tag'

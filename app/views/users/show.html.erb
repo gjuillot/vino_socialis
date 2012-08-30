@@ -4,18 +4,29 @@
 
 <h1><%= @user.name %></h1>
 
-<% if can? :update, @user %>
-  <p>
-	<b><%= t("helpers.label.user.email") %>:</b>
-	<%= @user.email %>
-  </p>
-<% end %>
+<div class="row">
 
-<p>
-  <b><%= t("helpers.label.user.role") %>:</b>
-  <%= @user.role.capitalize %>
-</p>
+  <div class="span3 offset3">
+    <a href="https://en.gravatar.com/" target="_blank"><%= gravatar_for @user %></a>
+  </div>
+  
+  <div class="span6">
 
-<% if can? :update, @user %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
-<% end %>
+    <% if can? :update, @user %>
+      <p>
+	    <b><%= t("helpers.label.user.email") %>:</b>
+	    <%= @user.email %>
+      </p>
+    <% end %>
+
+    <p>
+      <b><%= t("helpers.label.user.role") %>:</b>
+      <%= @user.role.capitalize %>
+    </p>
+
+    <% if can? :update, @user %>
+      <%= link_to 'Edit', edit_user_path(@user) %>
+    <% end %>
+  
+  </div>
+</div>
