@@ -1,0 +1,33 @@
+<h1><%= t('conversation.new', :user => @user.name) %></h1>
+
+<%= form_tag({:action => 'create'}, :class => 'form-horizontal') do %>
+
+<%= hidden_field_tag :user, @user.id %>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <div class="control-group">
+      <%= label_tag 'subject', t('conversation.subject'), class: 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag 'subject' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= label_tag 'body', t('conversation.body'), class: 'control-label' %>
+      <div class="controls">
+        <%= text_area_tag 'body'%>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <div class="controls">
+        <%= submit_tag t('conversation.send'), :class => "btn btn-primary" %>
+      </div>
+    </div>
+  	
+  </div>
+</div>
+
+<% end %>

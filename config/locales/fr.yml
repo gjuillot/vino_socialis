@@ -34,6 +34,7 @@ fr:
       sign_out: "Déconnexion"
       sign_up: "Créer un compte"
       sign_in: "S'enregistrer"
+      inbox: "Messagerie"
   icon:
     show: Voir
     edit: "Modifier"
@@ -47,6 +48,7 @@ fr:
     wine_tastings: "Voir les dégustations"
     recommand: "Recommander"
     unrecommand: "Dé-recommander"
+    converse: "Converser"
   area:
     areas: "Appellations"
     new: "Nouvelle appellation"
@@ -80,6 +82,14 @@ fr:
       group: "Bue(s) lors d'une dégustation de groupe"
       family_friend: "Bue(s) en famille ou chez des amis"
       corked: "Bouchonnée(s)"
+  conversation:
+    new: "Nouvelle conversation avec %{user}"
+    subject: "Sujet"
+    body: "Message"
+    send: "Envoyer"
+    last_sender: "Dernier émetteur"
+    date: "Date"
+    reply: "Répondre"
   country:
     countries: "Pays"
     new: "Nouveau pays"

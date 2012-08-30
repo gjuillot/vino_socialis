@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  acts_as_messageable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :locale, :role
@@ -32,4 +34,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def mailboxer_name
+    name
+  end
+
+  def mailboxer_email
+    email
+  end
+  
+  public
+  def unread_messages
+    mailbox.inbox(:read => false).count(:id, :distinct => true)
+  end
 end

@@ -1,10 +1,14 @@
+  	      	
   	      	<% if user_signed_in? %>
+  	      	  <% unread = current_user.unread_messages %>
   	      	  <li id="fat-menu" class="dropdown">
   	      	  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+  	      	      <%= raw '<i class="icon-envelope icon-white"></i> ' if unread > 0 %>
   	      	  	  <%= current_user.name %><b class="caret"></b>
   	      	  	</a>
   	      	  	<ul class="dropdown-menu">
   	      	  	  <li><%= link_to raw('<i class="icon-user"></i> ') + t("menu.profile.my"), edit_user_path(current_user) %></li>
+  	      	  	  <li><%= link_to raw('<i class="icon-envelope"></i> ') + t("menu.profile.inbox") + (unread == 0 ? '' : " (#{unread})"), conversations_path() %></li>
   	      	      <li><%= link_to raw('<i class="icon-off"></i> ') + t("menu.profile.sign_out"), destroy_user_session_path, method: :delete %></li>
   	      	  	</ul>
   	      	  </li>

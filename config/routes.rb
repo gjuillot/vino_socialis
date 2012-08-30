@@ -65,6 +65,8 @@ VinoSocialis::Application.routes.draw do
     devise_for :users
     resources :users
     
+    resources :conversations
+    
     root :to => "home#index"
 
     match '/discover', :to => "home#discover"

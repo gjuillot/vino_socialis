@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828150609) do
+ActiveRecord::Schema.define(:version => 20120829140034) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20120828150609) do
   add_index "consumptions", ["bottle_id"], :name => "index_consumptions_on_bottle_id"
   add_index "consumptions", ["user_id"], :name => "index_consumptions_on_user_id"
 
+  create_table "conversations", :force => true do |t|
+    t.string   "subject",    :default => ""
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
   create_table "countries", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",   :null => false
@@ -81,6 +87,24 @@ ActiveRecord::Schema.define(:version => 20120828150609) do
 
   add_index "estates", ["user_id"], :name => "index_estates_on_user_id"
 
+  create_table "notifications", :force => true do |t|
+    t.string   "type"
+    t.text     "body"
+    t.string   "subject",              :default => ""
+    t.integer  "sender_id"
+    t.string   "sender_type"
+    t.integer  "conversation_id"
+    t.boolean  "draft",                :default => false
+    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                              :null => false
+    t.integer  "notified_object_id"
+    t.string   "notified_object_type"
+    t.string   "notification_code"
+    t.string   "attachment"
+  end
+
+  add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
+
   create_table "pairings", :force => true do |t|
     t.integer  "tasting_id"
     t.string   "dish"
@@ -90,6 +114,20 @@ ActiveRecord::Schema.define(:version => 20120828150609) do
   end
 
   add_index "pairings", ["tasting_id"], :name => "index_pairings_on_tasting_id"
+
+  create_table "receipts", :force => true do |t|
+    t.integer  "receiver_id"
+    t.string   "receiver_type"
+    t.integer  "notification_id",                                  :null => false
+    t.boolean  "is_read",                       :default => false
+    t.boolean  "trashed",                       :default => false
+    t.boolean  "deleted",                       :default => false
+    t.string   "mailbox_type",    :limit => 25
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
+
+  add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
 
   create_table "regions", :force => true do |t|
     t.string   "name"

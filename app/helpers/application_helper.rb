@@ -24,6 +24,10 @@ module ApplicationHelper
     link_to content_tag(:i, "", class: "icon-trash") + ' ' + t('icon.destroy') , model, confirm: 'Are you sure?', method: :delete
   end
   
+  def button_to_destroy(model)
+    link_to content_tag(:i, "", class: "icon-trash icon-white") + ' ' + t('icon.destroy') , model, confirm: 'Are you sure?', method: :delete, class: 'btn btn-primary'
+  end
+  
   def link_to_validate(path)
     content_tag(:a, content_tag(:i, "", class: "icon-thumbs-up") + ' ' + t('icon.validate'), :href => path, 'data-confirm' => 'Validate?', 'data-method' => :post, :rel => 'nofollow')
   end
@@ -58,6 +62,10 @@ module ApplicationHelper
   
   def link_to_unrecommand(wine)
     content_tag(:a, content_tag(:i, "", class: "icon-heart icon-white") + ' ' + t('icon.unrecommand'), :href => unrecommand_wine_path(wine), :method => :get)
+  end
+  
+  def link_to_message(user)
+    content_tag(:a, content_tag(:i, "", class: "icon-envelope") + ' ' + t('icon.converse'), :href => new_conversation_path(:user => user), :method => :get)
   end
   
   def star_rating(note, max)

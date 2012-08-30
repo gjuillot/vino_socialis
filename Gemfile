@@ -26,3 +26,5 @@ gem 'devise'
 gem 'cancan'
 
 gem 'kaminari'
+
+gem 'mailboxer'

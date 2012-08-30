@@ -1,0 +1,37 @@
+<h2><%= @conversation.subject %></h2>
+
+<div class="row">
+  <div class="span6 offset3">
+  	<strong><%= t('conversation.participants') %>:</strong>
+  	<%= raw (@conversation.recipients.map {|user| link_to user.name, user}).join(', ') %>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="span6 offset3">
+    <% @receipts.each do |receipt| %>
+      <%= render :partial => "message", :locals => {:message => receipt.message} %>
+    <% end %>
+  </div>
+</div>
+
+<%= form_tag conversation_path(@conversation), :method => :put do %>
+<div class="row">
+  <div class="span6 offset3">
+  	<div class="well center">
+      <%= text_area_tag :body, nil, :rows => 5, :class => 'span5' %><br/>
+      <%= submit_tag t('conversation.reply'), :name => :reply_all, :class => 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="span6 offset3">
+    <div class="well center">
+      <%= button_to_destroy @conversation %>
+    </div>
+  </div>
+</div>
