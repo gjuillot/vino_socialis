@@ -494,7 +494,6 @@
       area = Area.find_or_create_by_name(s_area)
       area.region = region
       area.save
-      puts "#{country.name}(#{country.id}) - #{region.name}(#{region.id}) - #{area.name}(#{area.id})"
     end
   end
 end

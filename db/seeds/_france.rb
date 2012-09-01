@@ -75,7 +75,7 @@
       'Blagny',
       'Bonnes-Mares',
       'Bourgogne',
-      'Bourgone Aligoté',
+      'Bourgogne Aligoté',
       'Bourgogne Chitry',
       'Bourgogne Côte Chalonnaise',
       "Bourgogne Côtes d'Auxerre",
