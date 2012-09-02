@@ -73,6 +73,8 @@ fr:
     channels:
       gift: "Cadeau"
       producer: "Producteur"
+      exchange: "Echange"
+      fair: "Salon vigneron"
   consumptions:
     edit: "Modifier consommation"
     my: "Mes consommations"

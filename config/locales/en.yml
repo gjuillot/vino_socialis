@@ -73,6 +73,8 @@ en:
     channels:
       gift: "Gift"
       producer: "Producer"
+      exchange: "Exchange"
+      fair: 'Wine fair'
   consumptions:
     edit: "Edit consumption"
     my: "My consumptions"
