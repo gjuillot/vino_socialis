@@ -17,7 +17,7 @@
         <% volumes = ['20 cl', '25 cl', '37.5 cl', '50 cl', '62 cl', '62.5 cl', '75 cl', '1 l', '1.5 l', '3 l', '4.5 l', '5 l', '6 l', '9 l', '12 l', '15 l', '18 l'] %>
         <%= f.label :volume, :class => 'control-label' %>
 	    <div class="controls">
-          <%= select_tag 'bottle[volume]', options_for_select(volumes, :selected => '75 cl') %>
+          <%= select_tag 'bottle[volume]', options_for_select(volumes, :selected => (@bottle.volume ? @bottle.volume : '75 cl')) %>
 	    </div>
 	  </div>
 	
@@ -39,14 +39,14 @@
         <% channels = ['gift', 'producer'].map {|c| [t(c, scope: 'bottles.channels'), c]}%>
         <%= f.label :channel, :class => 'control-label' %>
 	    <div class="controls">
-          <%= select_tag 'bottle[channel]', options_for_select(channels) %>
+          <%= select_tag 'bottle[channel]', options_for_select(channels, :selected => (@bottle.channel ? @bottle.channel : 'producer')) %>
 	    </div>
 	  </div>
 	
 	  <div class="control-group">
         <%= f.label :price, :class => 'control-label' %>
 	    <div class="controls">
-          <%= f.text_field :price, value: '0' %>
+          <%= f.text_field :price, value: (@bottle.price ? @bottle.price : '0') %>
 	    </div>
 	  </div>
 	
