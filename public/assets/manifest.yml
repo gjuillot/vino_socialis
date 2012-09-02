@@ -1,14 +1,20 @@
 ---
-!binary "ZGlzY292ZXIvZXN0YXRlLmpwZw==": discover/estate-9b27acdf48a1458dab0909625af4bb74.jpg
-!binary "ZGlzY292ZXIvcmVjb21tYW5kZWQuanBn": discover/recommanded-6b655311753bbbc19609c1cdc8ddcc14.jpg
-!binary "ZGlzY292ZXIvcmVnaW9uLmpwZw==": discover/region-f729298275b5bb1956d339310be70344.jpg
+!binary "d2luZV9jb2xvcnMvYW1iZXIucG5n": wine_colors/amber-8d0dacd5ba63aa0556f979da3a3dd6b3.png
+!binary "d2luZV9jb2xvcnMvY2xhcmV0LnBuZw==": wine_colors/claret-b8201970b37fbf9bb90315473e8c4570.png
 !binary "d2luZV9jb2xvcnMvbW9lbGxldXhfd2hpdGUucG5n": wine_colors/moelleux_white-9dabbfe783392f48ea334205a1b75d36.png
+!binary "d2luZV9jb2xvcnMvbmF0dXJhbF9zd2VldC5wbmc=": wine_colors/natural_sweet-9058180f8337e3598d74f127e26ab2fe.png
 !binary "d2luZV9jb2xvcnMvbmlsLnBuZw==": wine_colors/nil-3ba9a56926013a7e78816be065748ce9.png
 !binary "d2luZV9jb2xvcnMvcmVkLnBuZw==": wine_colors/red-7219a2a527f265eaf2cf2bbf5d560553.png
+!binary "d2luZV9jb2xvcnMvcmVkX3BvcnRfdHlwZS5wbmc=": wine_colors/red_port_type-42a8f6124895d2fdc067310e4883831c.png
 !binary "d2luZV9jb2xvcnMvcm9zZS5wbmc=": wine_colors/rose-c173cf3c341e90ada055bb09750d11ff.png
+!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3JlZC5wbmc=": wine_colors/sparkling_red-4757d683a3414e5d5eac0902e8015c96.png
+!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3Jvc2UucG5n": wine_colors/sparkling_rose-ba9afa893b46d106e52e317532d481be.png
 !binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3doaXRlLnBuZw==": wine_colors/sparkling_white-830af480ebcb191a6cf71495b44f9e23.png
 !binary "d2luZV9jb2xvcnMvc3dlZXRfd2hpdGUucG5n": wine_colors/sweet_white-9398ad78e4618e8b6c413ada754b5bc9.png
+!binary "d2luZV9jb2xvcnMvdmluX2phdW5lLnBuZw==": wine_colors/vin_jaune-8428a2e721c8a8daaa559d488a5c27be.png
+!binary "d2luZV9jb2xvcnMvdmluX3BhaWxsZS5wbmc=": wine_colors/vin_paille-8428a2e721c8a8daaa559d488a5c27be.png
 !binary "d2luZV9jb2xvcnMvd2hpdGUucG5n": wine_colors/white-8c4c080c25d3ecf1ab59ea5adc398b68.png
+!binary "d2luZV9jb2xvcnMvd2hpdGVfcG9ydF90eXBlLnBuZw==": wine_colors/white_port_type-48c4cb831d0a30298531ad0d8878440a.png
 !binary "YXBwbGljYXRpb24uanM=": application-05d4cca18cde12f5ef9cf5fbb278e47e.js
 !binary "YXBwbGljYXRpb24uY3Nz": application-a8f4c423861f1b9cd70277c308059de4.css
 !binary "Z2x5cGhpY29ucy1oYWxmbGluZ3Mtd2hpdGUucG5n": glyphicons-halflings-white-13553a5bf21ae3cc374006592488ec64.png
