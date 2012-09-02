@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if params[:suggest_tasting] %>
+  <p class="well">
+    La consommation de cette bouteille a été créée avec succès.<br />
+    <%= link_to 'Vous pouvez également créer une fiche dégustation pour ce vin.', new_tasting_path(wine: params[:wine], vintage: params[:vintage]) %>
+  </p>
+<% end %>
 
 <p>
   <b><%= t("helpers.label.consumption.bottle")%>:</b>
@@ -17,7 +22,7 @@
 
 <p>
   <b><%= t("helpers.label.consumption.reasons")%></b>
-  <%= @consumption.reasons %>
+  <%= t @consumption.reasons, scope: 'consumptions.reasons' %>
 </p>
 
 <p>

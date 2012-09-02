@@ -19,7 +19,9 @@ class ConsumptionsController < ApplicationController
       @bottle = Bottle.find(params[:bottle])
       @quantity_field_disabled = false
       @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_rack_positions".id AS position_id, name, "wine_rack_positions".row AS row, "wine_rack_positions".column AS column').where('"wine_rack_positions".bottle_id = ?', @bottle.id)
-      @position_id_to_check = Integer(params[:wine_rack_position_id])
+      if params[:wine_rack_position_id]
+        @position_id_to_check = Integer(params[:wine_rack_position_id])
+      end
     end
   end
 
@@ -51,7 +53,7 @@ class ConsumptionsController < ApplicationController
     @consumption.user_id = current_user.id
     @consumption.quantity = quantity
     if @consumption.save
-      redirect_to @consumption, notice: 'Consumption was successfully created.'
+      redirect_to consumption_path(@consumption, suggest_tasting: true, wine: bottle.wine, vintage: bottle.vintage)
     else
       render action: "new"
     end

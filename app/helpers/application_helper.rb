@@ -72,8 +72,8 @@ module ApplicationHelper
     raw "<i class='icon-star'></i>"*note# + "<i class='icon-star-empty'></i>"*(max-note)
   end
   
-  def select_vintage(f)
+  def select_vintage(f, selected = '')
     years = (1900..(Time.now.year)).to_a.reverse
-    f.select :vintage, years
+    f.select :vintage, years, selected: selected
   end
 end
