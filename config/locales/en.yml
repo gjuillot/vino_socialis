@@ -74,7 +74,9 @@ en:
       gift: "Gift"
       producer: "Producer"
       exchange: "Exchange"
-      fair: 'Wine fair'
+      fair: "Wine fair"
+      store: "Wine store"
+      supermarket: "Supermarket"
   consumptions:
     edit: "Edit consumption"
     my: "My consumptions"
@@ -86,6 +88,8 @@ en:
       group: "Drinked during grouped tasting"
       family_friend: "Drinked by family or friend"
       corked: "Corked"
+      gift: "Given as a gift"
+      exchanged: "Exchanged"
   country:
     countries: "Countries"
     new: "New country"

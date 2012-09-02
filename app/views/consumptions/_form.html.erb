@@ -15,7 +15,7 @@
 	  </div>
 	
 	  <div class="control-group">
-        <% reasons = ['drinked', 'group', 'family_friend', 'gift', 'corked'].map {|c| [t(c, scope: 'consumptions.reasons'), c]}%>
+        <% reasons = ['drinked', 'group', 'family_friend', 'gift', 'corked', 'exchanged'].map {|c| [t(c, scope: 'consumptions.reasons'), c]}%>
         <%= f.label :reasons, :class => 'control-label' %>
 	    <div class="controls">
           <%= select_tag 'consumption[reasons]', options_for_select(reasons) %>
