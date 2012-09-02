@@ -12,19 +12,19 @@ end
 estate = Estate.find_by_name(estate_name)
 if estate
   [
-    {name: 'Sylvaner', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Sylvaner').id, wine_color: 'white', validation: true, info: ''},
+    {name: 'Cave de la Vallis Praenobilis', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Sylvaner').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Z', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Sylvaner').id, wine_color: 'sweet_white', validation: true, info: ''},
-    {name: 'Riesling', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Riesling').id, wine_color: 'white', validation: true, info: ''},
+    {name: 'Cave de la Vallis Praenobilis', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Riesling').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Cuvée Sophie Marceau', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Riesling').id, wine_color: 'white', validation: true, info: ''},
-    {name: 'Pinot Blanc', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Blanc').id, wine_color: 'white', validation: true, info: ''},
-    {name: 'Pinot Gris', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Gris').id, wine_color: 'white', validation: true, info: ''},
+    {name: 'Cave de la Vallis Praenobilis', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Blanc').id, wine_color: 'white', validation: true, info: ''},
+    {name: 'Cave de la Vallis Praenobilis', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Gris').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Cuvée Sophie Marceau', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Gris').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Bollenberg', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Gris').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Cuvée Caméléon', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Pinot Noir rosé', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Noir').id, wine_color: 'rose', validation: true, info: ''},
     {name: 'Ronces sans Epines', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Noir').id, wine_color: 'red', validation: true, info: ''},
-    {name: 'Muscat', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Muscat').id, wine_color: 'white', validation: true, info: ''},
-    {name: 'Gewürztraminer', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Gewürztraminer').id, wine_color: 'white', validation: true, info: ''},
+    {name: 'Cave de la Vallis Praenobilis', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Muscat').id, wine_color: 'white', validation: true, info: ''},
+    {name: 'Cave de la Vallis Praenobilis', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Gewürztraminer').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Cuvée Sophie Marceau', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Gewürztraminer').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Hospices de Strasbourg', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Riesling').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Hospices de Strasbourg', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Gris').id, wine_color: 'white', validation: true, info: ''},
@@ -52,7 +52,7 @@ if estate
     {name: 'Vin de glace', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Riesling').id, wine_color: 'moelleux_white', validation: true, info: ''},
     {name: 'Vin de glace', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Alsace Gewürztraminer').id, wine_color: 'moelleux_white', validation: true, info: ''}
   ].each do |wine|
-    if Wine.where('name = ? AND area_id = ? AND wine_color = ?', wine[:name], wine[:area_id], wine[:wine_color]).count == 0
+    if Wine.where('name = ? AND estate_id = ? AND area_id = ? AND wine_color = ?', wine[:name], estate.id, wine[:area_id], wine[:wine_color]).count == 0
       if Wine.create(wine)
         puts "Wine #{estate_name} - " + wine[:name] + " created"
       else

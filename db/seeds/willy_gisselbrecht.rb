@@ -38,7 +38,7 @@ if estate
     {name: 'Blanc de Noirs', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name("Crémant d'Alsace").id, wine_color: 'sparkling_white', validation: true, info: ''},
     {name: 'Brut Prestige', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name("Crémant d'Alsace").id, wine_color: 'sparkling_rose', validation: true, info: ''}
   ].each do |wine|
-    if Wine.where('name = ? AND area_id = ? AND wine_color = ?', wine[:name], wine[:area_id], wine[:wine_color]).count == 0
+    if Wine.where('name = ? AND estate_id = ? AND area_id = ? AND wine_color = ?', wine[:name], estate.id, wine[:area_id], wine[:wine_color]).count == 0
       if Wine.create(wine)
         puts "Wine #{estate_name} - " + wine[:name] + " created"
       else

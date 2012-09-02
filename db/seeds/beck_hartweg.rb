@@ -32,11 +32,11 @@ if beck
     {name: 'Pinot Blanc', estate_id: beck.id, user_id: 1, area_id: Area.find_by_name('Alsace Pinot Blanc').id, wine_color: 'white', validation: true, info: ''},
     {name: 'Sylvaner', estate_id: beck.id, user_id: 1, area_id: Area.find_by_name('Alsace Sylvaner').id, wine_color: 'white', validation: true, info: ''}
   ].each do |wine|
-    if Wine.where('name = ? AND area_id = ? AND wine_color = ?', wine[:name], wine[:area_id], wine[:wine_color]).count == 0
+    if Wine.where('name = ? AND estate_id = ? AND area_id = ? AND wine_color = ?', wine[:name], beck.id, wine[:area_id], wine[:wine_color]).count == 0
       if Wine.create(wine)
-        puts "Wine Beck-Hartweb - " + wine[:name] + " created"
+        puts "Wine #{estate_name} - " + wine[:name] + " created"
       else
-        puts "COULD NOT CREATE Wine Beck-Hartweb - " + wine[:name] + " created"
+        puts "COULD NOT CREATE #{estate_name} - " + wine[:name] + " created"
       end
     end
   end
