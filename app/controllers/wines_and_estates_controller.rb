@@ -11,7 +11,7 @@ class WinesAndEstatesController < ApplicationController
       redirect_to action: 'index'
     else
       @searched = params[:q]
-      @estates = Estate.where("name LIKE ?", "%#{@searched}%").order('name')
+      @estates = Estate.where("name ILIKE ?", "%#{@searched}%").order('name')
       render action: 'index'
     end
   end

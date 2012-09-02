@@ -12,7 +12,7 @@ class WinesController < ApplicationController
       redirect_to action: 'index'
     else
       @searched = params[:q]
-      @wines = Wine.where("name LIKE ?", "%#{@searched}%").order('name').page(params[:page]).per(10)
+      @wines = Wine.where("name ILIKE ?", "%#{@searched}%").order('name').page(params[:page]).per(10)
       render action: 'index'
     end
   end
