@@ -1,25 +1,27 @@
 <div class="container">
-<div clas="row">
-  <div class="span8">
-  	<h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
-  	<br/>
-	<table class="table table-striped table-condensed">
-	  <%= render @estates %>
-	</table>
+  <div clas="row">
+    <div class="span8">
+      <h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
+      <br />
+      <table class="table table-striped table-condensed">
+        <%= render @estates %>
+      </table>
+    </div>
+    <div class="span3">
+      <br />
+      <br />
+      <%= form_tag search_estates_path, method: 'get' do %>
+      <%= text_field_tag :q, @searched %>
+      <%= submit_tag t("estate.search"), class: "btn btn-primary" %>
+      <% end %>
+
+      <% if can? :create, Estate %>
+      <%= link_to t("estate.suggest"), new_estate_path %>
+      <br />
+      <br />
+      <% end %>
+
+      <%= t('estate.db_count', :total => estate_count_total, :validated => estate_count_validated) %>
+    </div>
   </div>
-  <div class="span3">
-  	<br/></br/>
-  	<%= form_tag search_estates_path, method: 'get' do %>
-  	  <%= text_field_tag :q, @searched %>
-  	  <%= submit_tag t("estate.search"), class: "btn btn-primary" %>
-  	<% end %>
-  	
-	<% if can? :create, Estate %>
-	  <%= link_to t("estate.suggest"), new_estate_path %>
-  	  <br/></br/>
-    <% end %>
-    
-    <%= t('estate.db_count', :total => estate_count_total, :validated => estate_count_validated) %>
-  </div>
-</div>
 </div>
