@@ -15,6 +15,10 @@ class WineRacksController < ApplicationController
   
   def create
     @wine_rack.user_id = current_user.id
+    if @wine_rack.layout == 'front_back_cellar'
+      @wine_rack.total_rows = 1
+      @wine_rack.total_columns = 2
+    end
     if @wine_rack.save
       redirect_to @wine_rack, notice: 'Rack was successfully created.'
     else

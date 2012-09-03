@@ -220,6 +220,7 @@ en:
       simple: Simple
       cabinet: Wine cabinet
       alternated_cabinet: Alternated wine cabinet
+      front_back_cellar: Cellar with front and back
     
   helpers:
     label:

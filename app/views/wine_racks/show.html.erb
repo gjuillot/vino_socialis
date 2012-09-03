@@ -55,7 +55,7 @@
       <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
         <td>
           <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
-          <%= render :partial => "#{@wine_rack.layout}_compartment_graphical", :locals =>  { :compartment => @positions[total_row][total_column], :total_row => total_row, :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
+          <%= render :partial => "#{@wine_rack.layout}_compartment_graphical", :locals =>  { :compartment => @positions[total_row][total_column], :total_row => total_row, :total_column => total_column, :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
         </td>
       <% end %>
     </tr>
@@ -78,7 +78,7 @@
         <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
             <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
                 <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
-                <%= render :partial => "compartment_table", :locals =>  { :compartment => @positions[total_row][total_column], :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
+                <%= render :partial => "compartment_table", :locals =>  { :compartment => @positions[total_row][total_column], :letter => letter, :total_column => total_column, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
             <% end %>
         <% end %>
       </tbody>

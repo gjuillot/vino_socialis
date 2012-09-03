@@ -5,7 +5,7 @@
           <% position = compartment[row][column] %>
           <% if position %>
             <tr id="<%= "bottle_row_#{letter}_#{row}_#{column}" %>" value="<% letter %>">
-              <td><%= letter %></td>
+              <td><%= @wine_rack.layout == 'front_back_cellar' ? (['Avant', 'Arrière'][total_column]) : letter %></td>
           	  <td><%= row %></td>
           	  <td><%= column %></td>
           	  <td><%= bottle_name position.bottle, html: true %></td>
