@@ -227,6 +227,7 @@ en:
       bottle:
         wine: "Wine"
         vintage: "Vintage"
+        no_vintage: "No vintage"
         volume: "Volume"
         initial_quantity: "Initial quantity"
         remaining_quantity: "Remaining quantity"

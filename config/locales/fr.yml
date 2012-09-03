@@ -236,6 +236,7 @@ fr:
       bottle:
         wine: "Vin"
         vintage: "Millésime"
+        no_vintage: "Non millésimé"
         volume: "Volume"
         initial_quantity: "Quantité initiale"
         remaining_quantity: "Reste"
