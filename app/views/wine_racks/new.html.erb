@@ -3,76 +3,81 @@
 <h1><%= t("wine_rack.new") %></h1>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("select#wine_rack_layout").change(function(){
-            var id_value_string = $(this).val();
-            if (id_value_string == "front_back_cellar") {
-                $("input#wine_rack_total_rows").val('1');
-                $("input#wine_rack_total_rows").attr("disabled", true)
-                $("input#wine_rack_total_columns").val('2');
-                $("input#wine_rack_total_columns").attr("disabled", true)
-            }
-            else {
-                $("input#wine_rack_total_rows").attr("disabled", false)
-                $("input#wine_rack_total_columns").attr("disabled", false)
-            };
-        });
+  $(document).ready(function() {
+    $("select#wine_rack_layout").change(function() {
+      var layout = $(this).val();
+      if (layout == "front_back_cellar") {
+        $("input#wine_rack_total_rows").val('1');
+        $("input#wine_rack_total_rows").attr("disabled", true)
+        $("input#wine_rack_total_columns").val('2');
+        $("input#wine_rack_total_columns").attr("disabled", true)
+      } else {
+        $("input#wine_rack_total_rows").attr("disabled", false)
+        $("input#wine_rack_total_columns").attr("disabled", false)
+      };
+      
+      $("img#example").attr("src", "/assets/wine_racks/example/<%= I18n.locale %>/" + layout + ".jpg");
     });
+  }); 
 </script>
 
 <%= form_for(@wine_rack, html: { class:'form-horizontal'}) do |f| %>
-  <div class="row">
-    <div class="span6 offset3">
+<div class="row">
+  <div class="span6">
 
-	  <div class="control-group">
-        <%= f.label :name, :class => 'control-label' %>
-	    <div class="controls">
-          <%= f.text_field :name %>
-	    </div>
-	  </div>
-
-	  <div class="control-group">
-        <%= f.label :layout, :class => 'control-label' %>
-	    <div class="controls">
-	      <% layouts = ['simple', 'cabinet', 'alternated_cabinet', 'front_back_cellar'].map {|l| [t(l, scope: 'wine_rack.layout'), l] }%>
-         <%= select_tag "wine_rack[layout]", options_for_select(layouts) %>
-	    </div>
-	  </div>
-
-	  <div class="control-group">
-        <%= f.label :total_rows, :class => 'control-label' %>
-	    <div class="controls">
-          <%= f.number_field :total_rows %>
-	    </div>
-	  </div>
-
-	  <div class="control-group">
-        <%= f.label :total_columns, :class => 'control-label' %>
-	    <div class="controls">
-          <%= f.number_field :total_columns %>
-	    </div>
-	  </div>
-
-	  <div class="control-group">
-        <%= f.label :rows, :class => 'control-label' %>
-	    <div class="controls">
-          <%= f.number_field :rows %>
-	    </div>
-	  </div>
-
-	  <div class="control-group">
-        <%= f.label :columns, :class => 'control-label' %>
-	    <div class="controls">
-          <%= f.number_field :columns %>
-	    </div>
-	  </div>
-  
-	</div>
-  </div>
-	  
-  <div class="row">	
-    <div class="span6 offset3 center">
-      <%= f.submit class: "btn btn-primary span6" %>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
     </div>
+
+    <div class="control-group">
+      <%= f.label :layout, :class => 'control-label' %>
+      <div class="controls">
+        <% layouts = ['simple', 'cabinet', 'alternated_cabinet', 'front_back_cellar'].map {|l| [t(l, scope: 'wine_rack.layout'), l] }%>
+        <%= select_tag "wine_rack[layout]", options_for_select(layouts) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :total_rows, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :total_rows %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :total_columns, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :total_columns %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :rows, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :rows %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :columns, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :columns %>
+      </div>
+    </div>
+
   </div>
+  
+  <div class="span6">
+    <%= image_tag "wine_racks/example/#{I18n.locale}/simple.jpg", id: 'example', alt: 'No example yet' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6 offset3 center">
+    <%= f.submit class: "btn btn-primary span6" %>
+  </div>
+</div>
 <% end %>
