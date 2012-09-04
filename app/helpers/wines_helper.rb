@@ -6,6 +6,7 @@ module WinesHelper
     html ||= options[:html]
     links ||= options[:links]
     recommandations ||= options[:recommandations]
+    separator = options[:separator] || ' - '
     
     res = ""
 
@@ -29,7 +30,7 @@ module WinesHelper
       if links
         res += "</td><td>"
       else
-        res += ' - '
+        res += separator
       end
     end
     
@@ -41,7 +42,7 @@ module WinesHelper
       if links
         res += "</td><td>"
       else
-        res += ' - '
+        res += separator
       end
       res += (html ? link_to(wine.area.name, wine.area) : wine.area.name)
     end
@@ -51,7 +52,7 @@ module WinesHelper
       if links
         res += "</td><td>"
       else
-        res += ' - '
+        res += separator
       end
       res += '<i class="icon-heart"></i>' * wine.recommandations_but(current_user).count
     end

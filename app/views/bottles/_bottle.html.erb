@@ -1,21 +1,21 @@
 <tr>
-  <td>
-  	<%= wine_name bottle.wine, estate: true, area: false, html: true %> 
+  <td id="wine_<%= bottle.id %>">
+  	<%= wine_name bottle.wine, estate: true, area: false, html: true, separator: raw('<br />') %> 
   </td>
-  <td>
-  	<%= full_area_name bottle.wine.area, html: true %>
+  <td id="area_<%= bottle.id %>">
+  	<%= full_area_name bottle.wine.area, html: true, separator2: raw('<br />') %>
   </td>
-  <td>
+  <td id="color_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
     <%= wine_color_image bottle.wine %>
   </td>
-  <td>
-    <%= bottle.vintage %>
+  <td id="vintage_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+    <span><%= bottle.vintage %></span>
   </td>
-  <td>
-  	<%= bottle.remaining_quantity %> (<%= bottle.volume %>)
+  <td id="remaining_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+  	<span><%= bottle.remaining_quantity %></span> (<%= bottle.volume %>)
   </td>
-  <td>
-  	<%= bottle.price %> €
+  <td id="price_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+  	<span><%= bottle.price %></span> €
   </td>
   <td>
   	<div class="btn-group">
