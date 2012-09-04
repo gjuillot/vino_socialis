@@ -27,14 +27,14 @@ class Ability
     end
     
     # Wine Recommandation
-    can :read, WineRecommandation
+    can [:read, :most], WineRecommandation
     
     # Tasting
     can [:create, :read], Tasting
     can :manage, Tasting, :user => user
     
-    # Bottle
-    can [:create], Bottle
-    can :manage, Bottle, :user => user
+    # Bottles and Racks and Consumptions
+    can [:create], [Bottle, WineRack, Consumption]
+    can :manage, [Bottle, WineRack, Consumption], :user => user
   end
 end
