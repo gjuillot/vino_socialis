@@ -60,7 +60,7 @@
               $(this).parent().parent().hide();
             }
           }
-        } else {
+        } else if (vintage.length == 4) {
           if (!($(this).html() == vintage)) {
             $(this).parent().parent().hide();
           }
@@ -128,6 +128,9 @@
     $("input#vintage").keyup(filter);
     $("input#remaining").keyup(filter);
     $("input#price").keyup(filter);
+    $("tr").click(function() {
+      window.location = $(this).find("ul").find("a:first").attr("href");
+    });
   }); 
 </script>
 
@@ -219,4 +222,7 @@
       <%= render @bottles %>
     </tbody>
   </table>
+  
+  <br />
+  <i>Astuce: cliquez sur une ligne pour voir la bouteille correspondante</i>
 <% end %>

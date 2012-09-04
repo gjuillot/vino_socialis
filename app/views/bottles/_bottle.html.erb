@@ -1,8 +1,8 @@
 <tr>
-  <td id="wine_<%= bottle.id %>">
+  <td id="wine_<%= bottle.id %>" style="vertical-align:middle;">
   	<%= wine_name bottle.wine, estate: true, area: false, html: true, separator: raw('<br />') %> 
   </td>
-  <td id="area_<%= bottle.id %>">
+  <td id="area_<%= bottle.id %>" style="vertical-align:middle;">
   	<%= full_area_name bottle.wine.area, html: true, separator2: raw('<br />') %>
   </td>
   <td id="color_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
@@ -17,7 +17,7 @@
   <td id="price_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
   	<span><%= bottle.price %></span> €
   </td>
-  <td>
+  <td style="vertical-align:middle;">
   	<div class="btn-group">
       <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
       	Action
