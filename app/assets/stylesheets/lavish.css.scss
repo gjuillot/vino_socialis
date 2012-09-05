@@ -1,5 +1,5 @@
-$navbar_color_2: #7E2217;
 $navbar_color: #c24641;
+$navbar_color_2: #7E2217;
 $navbar_submenu_color: #fff;
 
 $navbar_link_color: #fdcd2c;
@@ -53,7 +53,7 @@ h2 {
   background-image: -webkit-linear-gradient(top, $navbar_color, $navbar_color_2);
   background-image: -o-linear-gradient(top, $navbar_color, $navbar_color_2);
   background-image: linear-gradient(top, $navbar_color, $navbar_color_2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$navbar_color', endColorstr='$navbar_color_2', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc24641', endColorstr='#ff7E2217', GradientType=0);
 }
 
 .navbar .nav > li > a {
@@ -113,7 +113,7 @@ input[type="color"]:focus,
   background-image: -o-linear-gradient(top, $btn_primary_color, $btn_primary_color_2);
   background-image: linear-gradient(top, $btn_primary_color, $btn_primary_color_2);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$btn_primary_color', endColorstr='$btn_primary_color', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc24641', endColorstr='#ff7E2217', GradientType=0);
   border-color: #f9fd2c #f9fd2c #d6da02;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: $btn_primary_color;
@@ -146,7 +146,7 @@ input[type="color"]:focus,
   background-image: -webkit-linear-gradient(left, $navbar_color, $navbar_color_2);
   background-image: -o-linear-gradient(left, $navbar_color, $navbar_color_2);
   background-image: linear-gradient(left, $navbar_color, $navbar_color_2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$navbar_color', endColorstr='$navbar_color_2', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc24641', endColorstr='#ff7E2217', GradientType=0);
 }
 
 .alert-success {
@@ -158,7 +158,7 @@ input[type="color"]:focus,
   background-image: -webkit-linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
   background-image: -o-linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
   background-image: linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$navbar_link_color', endColorstr='$navbar_link_color_hover', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffdcd2c', endColorstr='#fffdfdec', GradientType=0);
 }
 
 footer {
