@@ -19,14 +19,14 @@ class ConversationsController < ApplicationController
   end
   
   def admins
-    @users = User.where('role = "admin"').all
+    @users = User.where("role = 'admin'").all
     @admin_tag = "[Admin] "
     @bug_page = ""
     render :action => :new
   end
   
   def bug
-    @users = User.where('role = "admin"').all
+    @users = User.where("role = 'admin'").all
     @admin_tag = "[Bug] "
     @bug_page = params[:url]
     render :action => :new
