@@ -219,6 +219,7 @@ fr:
       cabinet: Clayette
       alternated_cabinet: Clayette alternée
       front_back_cellar: Armoire avec avant/arrière
+      front_back_cellar_2: Autre armoire avec avant/arrière
       
 
   helpers:

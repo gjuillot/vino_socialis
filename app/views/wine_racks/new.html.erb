@@ -6,7 +6,7 @@
   $(document).ready(function() {
     $("select#wine_rack_layout").change(function() {
       var layout = $(this).val();
-      if (layout == "front_back_cellar") {
+      if ((layout == "front_back_cellar") || (layout == "front_back_cellar_2")) {
         $("input#wine_rack_total_rows").val('1');
         $("input#wine_rack_total_rows").attr("disabled", true)
         $("input#wine_rack_total_columns").val('2');
@@ -35,7 +35,7 @@
     <div class="control-group">
       <%= f.label :layout, :class => 'control-label' %>
       <div class="controls">
-        <% layouts = ['simple', 'cabinet', 'alternated_cabinet', 'front_back_cellar'].map {|l| [t(l, scope: 'wine_rack.layout'), l] }%>
+        <% layouts = ['simple', 'cabinet', 'alternated_cabinet', 'front_back_cellar', 'front_back_cellar_2'].map {|l| [t(l, scope: 'wine_rack.layout'), l] }%>
         <%= select_tag "wine_rack[layout]", options_for_select(layouts) %>
       </div>
     </div>

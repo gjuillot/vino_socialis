@@ -15,7 +15,7 @@ class WineRacksController < ApplicationController
   
   def create
     @wine_rack.user_id = current_user.id
-    if @wine_rack.layout == 'front_back_cellar'
+    if (@wine_rack.layout == 'front_back_cellar') || (@wine_rack.layout == 'front_back_cellar_2')
       @wine_rack.total_rows = 1
       @wine_rack.total_columns = 2
     end

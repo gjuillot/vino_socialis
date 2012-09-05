@@ -221,6 +221,7 @@ en:
       cabinet: Wine cabinet
       alternated_cabinet: Alternated wine cabinet
       front_back_cellar: Cellar with front and back
+      front_back_cellar_2: Other cellar with front and back
     
   helpers:
     label:
