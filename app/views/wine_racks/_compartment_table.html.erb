@@ -5,17 +5,18 @@
           <% position = compartment[row][column] %>
           <% if position %>
             <tr id="<%= "bottle_row_#{letter}_#{row}_#{column}" %>" value="<% letter %>">
-              <td><%= @wine_rack.layout == 'front_back_cellar' ? (['Avant', 'Arrière'][total_column]) : letter %></td>
-          	  <td><%= row %></td>
-          	  <td><%= column %></td>
-          	  <td><%= bottle_name position.bottle, html: true %></td>
-              <td>
+          	  <td><%= wine_name position.bottle.wine, estate: true, html: true, separator: '<br/>' %></td>
+              <td><%= full_area_name position.bottle.wine.area, html: true, separator2: raw('<br/>') %></td>
+              <td style="text-align:center;vertical-align:middle;"><%= wine_color_image position.bottle.wine %></td>
+              <td style="text-align:center;vertical-align:middle;"><%= position.bottle.vintage %></td>
+              <td style="text-align:center;vertical-align:middle;"><%= position.bottle.price %> €</td>
+              <td style="text-align:center;vertical-align:middle;">
               	<div class="btn-group">
                   <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
                   	Action
                   	<span class="caret"></span>
                   </a>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu" style="text-align:left;">
                     <%= link_to_show bottle_path(position.bottle) %>
                     <%= link_to_consume consume_bottle_path(position.bottle, wine_rack_position_id: position.id) %>
                     <%= link_to_edit edit_bottle_path(position.bottle) %>
