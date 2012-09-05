@@ -69,7 +69,7 @@ module ApplicationHelper
   end
   
   def star_rating(note, max)
-    raw "<i class='icon-star'></i>"*note# + "<i class='icon-star-empty'></i>"*(max-note)
+    raw "<i class='icon-star'></i>"*(note.round)# + "<i class='icon-star-empty'></i>"*(max-note)
   end
   
   def select_vintage(f, selected = '')

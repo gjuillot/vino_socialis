@@ -31,4 +31,15 @@ class Wine < ActiveRecord::Base
   end
   
   COLORS = %w[white red rose sweet_white moelleux_white white_port_type sparkling_white natural_sweet red_port_type sparkling_red sparkling_rose claret vin_jaune vin_paille amber]
+
+  def dist_euclide(other)
+    return 0 if self.id == other.id
+
+    dist = 0
+    dist += 0.1 if (self.estate.id != other.estate.id)
+    dist += 0.1 if (self.area.id != other.area.id)
+    dist += 0.2 if (self.area.region.id != other.area.region.id)
+    dist += 0.5 if (self.wine_color != other.wine_color)
+    return dist
+  end
 end

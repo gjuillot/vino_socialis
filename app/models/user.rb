@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   
   default_scope order: 'name ASC'
   
+  has_many :bottles
+  
   ROLES = %w[admin moderator user]
   
   def admin?
@@ -43,7 +45,29 @@ class User < ActiveRecord::Base
   end
   
   public
+  def remaining_bottles
+    bottles.where('remaining_quantity > 0')
+  end
+  
+  public
   def unread_messages
     mailbox.inbox(:read => false).count(:id, :distinct => true)
+  end
+  
+  def sim_euclide_bottles(other)
+    if self.remaining_bottles.empty? || other.remaining_bottles.empty?
+      return 0
+    end
+    
+    sum_of_squares = 0
+    self.remaining_bottles.each do |self_b|
+      distances = other.remaining_bottles.map {|other_b| self_b.dist_euclide(other_b)}
+      sum_of_squares += distances.min**2
+    end
+    other.remaining_bottles.each do |other_b|
+      distances = self.remaining_bottles.map {|self_b| other_b.dist_euclide(self_b)}
+      sum_of_squares += distances.min**2
+    end
+    (5 / (1 + Math.sqrt(sum_of_squares))).round(2)
   end
 end

@@ -9,4 +9,8 @@ class Bottle < ActiveRecord::Base
   def not_placed
     remaining_quantity - placed
   end
+  
+  def dist_euclide(other)
+    self.wine.dist_euclide(other.wine) + (self.vintage == other.vintage ? 0 : 0.05)
+  end
 end

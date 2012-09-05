@@ -3,5 +3,14 @@
 <h1><%= t("user.users") %></h1>
 
 <table class="table table-condensed table-striped">
-  <%= render @users %>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Correspondance cave</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
 </table>
