@@ -1,0 +1,15 @@
+
+<table>
+  <% (0..(rows - 1)).each do |row| %>
+    <% shorten_row = (rows - row).even? %> 
+    <tr>
+      <td>
+        <%= "#{letter}.#{row}" %>&nbsp;
+      </td>
+      <% (0..(columns - (shorten_row ? 2 : 1))).each do |column| %>
+        <% position = compartment[row][column] %>
+        <%= render :partial => 'wine_racks/show/img', :locals => {:position => position, :move => (shorten_row ? '7' : '0')} %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

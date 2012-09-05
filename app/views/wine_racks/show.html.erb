@@ -11,7 +11,7 @@
 	function border(id, border) {
 		var row = $("tr[id*=bottle_row_" + id + "]");
 		row.css('border', border)
-	    var img = $("td[id*=bottle_img_" + id + "]");
+	    var img = $("td[id*=bottle_img_" + id + "] img");
 	    img.css('border', border);
 	}
 	
@@ -55,7 +55,7 @@
       <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
         <td>
           <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
-          <%= render :partial => "#{@wine_rack.layout}_compartment_graphical", :locals =>  { :compartment => @positions[total_row][total_column], :total_row => total_row, :total_column => total_column, :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
+          <%= render :partial => "wine_racks/show/#{@wine_rack.layout}", :locals =>  { :compartment => @positions[total_row][total_column], :total_row => total_row, :total_column => total_column, :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
         </td>
       <% end %>
     </tr>
@@ -66,20 +66,9 @@
 
   <div class="span8">
     <table class="table table-condensed table-striped">
-      <!--thead>
-      	<tr>
-      	  <th><%= t 'wine_rack.compartment' %></th>
-      	  <th><%= t 'wine_rack.row' %></th>
-      	  <th><%= t 'wine_rack.column' %></th>
-      	  <th><%= t 'wine_rack.bottle' %></th>
-      	</tr>
-      </thead-->
       <tbody>
-        <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
-            <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
-                <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
-                <%= render :partial => "compartment_table", :locals =>  { :compartment => @positions[total_row][total_column], :letter => letter, :total_column => total_column, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
-            <% end %>
+        <% @bottles.each do |p| %>
+          <%= render :partial => "table_row", :locals =>  { :bottle => p.bottle, :quantity => p.quantity} %>
         <% end %>
       </tbody>
     </table>

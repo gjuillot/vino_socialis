@@ -1,0 +1,9 @@
+<% if position %>
+  <td id="<%= "bottle_img_#{position.bottle.id}" %>">
+    <%= link_to wine_color_image(position.bottle.wine, false, move), bottle_path(position.bottle) %>
+  </td>
+<% else %>
+  <td>
+    <%= no_wine_color_image move %>
+  </td>
+<% end %>

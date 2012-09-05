@@ -1,0 +1,7 @@
+<td>
+  <% if position %>
+    <%= wine_color_image(position.bottle.wine, false, move) %>
+  <% else %>
+    <%= link_to no_wine_color_image(move), apply_place_wine_rack_path(@wine_rack, :bottle => @bottle, :total_row => total_row, :total_column => total_column, :row => row, :column => column) %>
+  <% end %>
+</td>

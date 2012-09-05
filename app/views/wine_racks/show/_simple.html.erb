@@ -17,14 +17,7 @@
       </td>
       <% (0..(columns - 1)).each do |column| %>
         <% position = compartment[row][column] %>
-        <% if position %>
-          <td id="<%= "bottle_img_#{letter}_#{row}_#{column}" %>">
-          <%= link_to wine_color_image(position.bottle.wine, false), bottle_path(position.bottle) %>
-        <% else %>
-          <td>
-          <%= no_wine_color_image %>
-        <% end %> 
-        </td>
+        <%= render :partial => 'wine_racks/show/img', :locals => {:position => position, :move => (shorten_row ? '7' : '0')} %>
       <% end %>
     </tr>
   <% end %>

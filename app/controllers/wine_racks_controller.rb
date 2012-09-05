@@ -47,5 +47,6 @@ class WineRacksController < ApplicationController
     WineRackPosition.where('wine_rack_id = ?', @wine_rack.id).each do |p|
       @positions[p.total_row][p.total_column][p.row][p.column] = p
     end
+    @bottles = WineRackPosition.select('count(id) AS quantity, bottle_id').where('wine_rack_id = ?', @wine_rack.id).group('bottle_id')
   end
 end
