@@ -76,4 +76,9 @@ module ApplicationHelper
     years = (1900..(Time.now.year)).to_a.reverse.insert(0, t('helpers.label.bottle.no_vintage'))
     f.select :vintage, years, selected: selected
   end
+
+  def compartment_letter(wine_rack, total_row, total_column)
+    letters = ('A'..'Z').to_a  + ('AA'..'ZZ').to_a
+    letters[total_row * wine_rack.total_columns + total_column]
+  end
 end

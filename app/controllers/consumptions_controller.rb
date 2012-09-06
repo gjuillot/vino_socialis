@@ -18,7 +18,7 @@ class ConsumptionsController < ApplicationController
     else
       @bottle = Bottle.find(params[:bottle])
       @quantity_field_disabled = false
-      @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_rack_positions".id AS position_id, name, "wine_rack_positions".row AS row, "wine_rack_positions".column AS column').where('"wine_rack_positions".bottle_id = ?', @bottle.id)
+      @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_rack_positions".id AS position_id, name').where('"wine_rack_positions".bottle_id = ?', @bottle.id)
       if params[:wine_rack_position_id]
         @position_id_to_check = Integer(params[:wine_rack_position_id])
       end

@@ -32,7 +32,8 @@
 	</div>
     <div class="span6">
       <% @wine_racks.each do |rack| %>
-        <input type="checkbox" name="rack[<%= rack.position_id %>]" <%= rack.position_id == @position_id_to_check ? 'checked="checked"' : '' %>> <%= "#{rack.name} - #{rack.row}, #{rack.column}" %></input><br />
+        <% position = WineRackPosition.find(rack.position_id )%>
+        <input type="checkbox" name="rack[<%= position.id %>]" <%= position.id == @position_id_to_check ? 'checked="checked"' : '' %>> <%= "#{rack.name} - #{position.coord}" %></input><br />
       <% end %>     	
       <% @bottle.not_placed.times do |i| %>
         <input type="checkbox" name="unracked[<%= i %>]"> Non placée</input><br />

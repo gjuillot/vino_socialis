@@ -10,6 +10,10 @@ class Bottle < ActiveRecord::Base
     remaining_quantity - placed
   end
   
+  def positions_in(rack)
+    WineRackPosition.where('bottle_id = ? AND wine_rack_id = ?', id, rack.id)
+  end
+  
   def dist_euclide(other)
     self.wine.dist_euclide(other.wine) + (self.vintage == other.vintage ? 0 : 0.05)
   end

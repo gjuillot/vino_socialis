@@ -1,7 +1,7 @@
 
 <table>
   <tr>
-    <%= total_column == 0 ? 'Avant' : 'Arrière' %>
+    <%= @wine_rack.compartment_letter(0, total_column) %>
   </tr>
   <% (0..(rows - 1)).each do |row| %>
     <% shorten_row = (rows - row + total_column).even? %> 

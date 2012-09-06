@@ -1,0 +1,10 @@
+<div class="well" id="<%= bottle.id %>">
+  <%= link_to_show bottle_path(bottle) %>
+  <br />
+  <% bottle.positions_in(@wine_rack).each do |p| %>
+    <% href = new_consumption_path(:bottle => p.bottle, :wine_rack_position_id => p.id) %>
+    <%= content_tag(:a, content_tag(:i, "", class: "icon-hand-down") + ' ' + t('icon.consume') + ' ' + p.coord, :href => href, :method => :post) %>
+    <br />
+  <% end %>
+</div>
+

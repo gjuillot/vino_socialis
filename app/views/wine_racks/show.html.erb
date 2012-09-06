@@ -1,38 +1,103 @@
-
 <script type="text/javascript">
-	function highlight(id) {
-		border(id, 'solid');
-	}
-	
-	function unhighlight(id) {
-		border(id, 'none');
-	}
+  function highlight_img(id) {
+    if (!id) { return; }
+    
+    var img = $("table#graphical td#" + id + " img");
+    img.css('border', 'solid');
+  }
+  
+  function highlight_all(id) {
+    if (!id) { return; }
+    
+    highlight_img(id);
+    
+    $("table#list tr").each(function() {
+      if ($(this).attr('id') == id) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+  }
 
-	function border(id, border) {
-		var row = $("tr#" + id);
-		row.css('border', border)
-	    var img = $("td#" + id + " img");
-	    img.css('border', border);
-	}
-	
-    $(document).ready(function(){
-    	$("tr").hover(
-    		function(){
-	    		highlight($(this).attr('id'));
-    		},
-    		function(){
-	    		unhighlight($(this).attr('id'));
-    		});
+  function unhighlight(id) {
+    if (!id) { return; }
+    
+    var img = $("table#graphical td#" + id + " img");
+    img.css('border', 'none');
+    
+    $("table#list tr").each(function() {
+      $(this).show();
     });
-    $(document).ready(function(){
-    	$("td").hover(
-    		function(){
-	    		highlight($(this).attr('id'));
-    		},
-    		function(){
-	    		unhighlight($(this).attr('id'));
-    		});
+  }
+  
+  function tr_hover_in() {
+    if (one_bottle_selected()) { return; }
+    highlight_img($(this).attr('id'));
+  }
+  
+  function tr_hover_out() {
+    if (one_bottle_selected()) { return; }
+    unhighlight($(this).attr('id'));
+  }
+  
+  function img_hover_in() {
+    if (one_bottle_selected()) { return; }
+    highlight_all($(this).attr('id'));
+  }
+  
+  function img_hover_out() {
+    if (one_bottle_selected()) { return; }
+    unhighlight($(this).attr('id'));
+  }
+  
+  function actions_show(id)
+  $("div[class=well]").each(function() {
+      if ($(this).attr('id') == id) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
     });
+  
+  function bottle_click() {
+    if (selected_bottle == '') {
+      // no bottle was previous selected, so selected this one
+      selected_bottle = $(this).attr('id');
+      highlight_all(selected_bottle);
+      actions_show(selected_bottle);
+    } else {
+      // one bottle was previsous selected, unselect only if same has been clicked
+      if (selected_bottle == $(this).attr('id')) {
+        unhighlight(selected_bottle);
+        $("div[class=well]").hide();
+        selected_bottle = '';
+      }
+    }
+  }
+  
+  selected_bottle = '';
+  
+  function one_bottle_selected() {
+    return selected_bottle != '';
+  }
+
+  $(document).ready(function() {
+    // hover table row
+    $("table#list tr").hover(tr_hover_in, tr_hover_out);
+    
+    // hover bottle image
+    $("table#graphical td").hover(img_hover_in, img_hover_out);
+    
+    // click bottle image
+    $("table#graphical table td").click(bottle_click);
+    
+    // click table row
+    $("table#list tr").click(bottle_click);
+    
+    $("div[class=well]").hide();
+  });
+
 </script>
 
 
@@ -42,32 +107,37 @@
 
 <p id="notice"><%= notice %></p>
 
+<p>
+  Cliquez sur une bouteille dans la vue graphique ou le tableau pour la sélectionner.<br />
+  Cliquez à nouveau sur la même bouteille pour revenir à l'affichage complet.
+</p>
+
 <div class="row">
+  
   <div class="span4">
-
-<table border="solid">
-  <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
-    <tr>
-      <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
-        <td>
+    <table border="solid" id="graphical">
+      <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
+        <tr>
+          <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
           <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
-          <%= render :partial => "wine_racks/show/#{@wine_rack.layout}", :locals =>  { :compartment => @positions[total_row][total_column], :total_row => total_row, :total_column => total_column, :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
-        </td>
+          <td><%= render :partial => "wine_racks/show/#{@wine_rack.layout}", :locals =>  { :compartment => @positions[total_row][total_column], :total_row => total_row, :total_column => total_column, :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %></td>
+          <% end %>
+        </tr>
       <% end %>
-    </tr>
-  <% end %>
-</table>
-
+    </table>
   </div>
 
   <div class="span8">
-    <table class="table table-condensed table-striped">
+    <table class="table table-condensed table-striped" id="list">
       <tbody>
         <% @bottles.each do |p| %>
           <%= render :partial => "table_row", :locals =>  { :bottle => p.bottle, :quantity => p.quantity} %>
         <% end %>
       </tbody>
     </table>
+    <% @bottles.each do |p| %>
+      <%= render :partial => "actions", :locals =>  { :bottle => p.bottle} %>
+    <% end %>
   </div>
   
 </div>
