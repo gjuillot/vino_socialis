@@ -1,6 +1,7 @@
 class Bottle < ActiveRecord::Base
   belongs_to :wine
   belongs_to :user
+  has_many :wine_rack_positions
   
   def placed
     WineRackPosition.where('bottle_id = ?', id).count

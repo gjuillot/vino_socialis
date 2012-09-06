@@ -22,6 +22,9 @@ VinoSocialis::Application.routes.draw do
         get 'consume'
         get 'place'
       end
+      collection do
+        get 'not_placed'
+      end
     end
       
     resources :tastings

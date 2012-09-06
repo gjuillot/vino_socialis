@@ -58,7 +58,7 @@ en:
   bottles:
     edit: "Edit bottle(s)"
     my: "My bottles"
-    none: "No registered bottle yet"
+    none: "No bottle found"
     new: "New bottle(s)"
     remaining_and_initial: "%{remaining} on %{initial}"
     place: "Place"

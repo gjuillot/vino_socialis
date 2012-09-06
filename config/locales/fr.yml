@@ -56,7 +56,7 @@ fr:
   bottles:
     edit: "Modifier bouteille(s)"
     my: "Mes bouteilles"
-    none: "Aucune bouteille enregistrée pour le moment"
+    none: "Aucune bouteille trouvée"
     new: "Nouvelle(s) bouteille(s)"
     remaining_and_initial: "%{remaining} sur %{initial}"
     place: "Placer"

@@ -6,6 +6,13 @@ class BottlesController < ApplicationController
   def index
     @bottles = Bottle.where('bottles.user_id = ? AND remaining_quantity > 0', current_user.id)
     
+    if params[:wine_rack_id] && (params[:wine_rack_id] != '0')
+      @bottles = @bottles.joins(:wine_rack_positions).where('"wine_rack_positions".wine_rack_id = ?', Integer(params[:wine_rack_id])).group('"bottles".id')
+      @bottles = @bottles.select('bottles.*, count("wine_rack_positions".id) AS quantity')
+    else
+      @bottles = @bottles.select('*, remaining_quantity AS quantity')
+    end
+    
     if params[:search_attribute] == 'wine'
       @bottles = @bottles.joins(:wine => :estate).where('"estates".name ILIKE "%' + params[:search_value] + '%" OR "wines".name ILIKE "%' + params[:search_value] + '%"')
     elsif params[:search_attribute] == 'area'
@@ -21,6 +28,17 @@ class BottlesController < ApplicationController
     elsif params[:order_attribute]
       @bottles = @bottles.order(params[:order_attribute] + ' ' + params[:order_sens])
     end
+    
+    @racks = WineRack.where('user_id = ?', current_user.id)
+  end
+  
+  def not_placed
+    @bottles = Bottle.select('*, remaining_quantity AS quantity').where('bottles.user_id = ? AND remaining_quantity > 0', current_user.id)
+    @bottles.each {|b| b.quantity = b.not_placed}
+    @bottles = @bottles.find_all {|b| b.quantity > 0}
+    @racks = WineRack.where('user_id = ?', current_user.id)
+    @not_placed = true
+    render action: 'index'
   end
   
   # GET /bottles/1
