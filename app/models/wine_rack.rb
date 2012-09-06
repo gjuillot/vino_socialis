@@ -7,7 +7,17 @@ class WineRack < ActiveRecord::Base
   end
   
   def capacity
-    rows * columns
+    if (layout == 'simple')
+      rows * columns * total_rows * total_columns
+    elsif ((layout == 'front_back_cellar') || (layout == 'front_back_cellar_2'))
+      (2 * columns - 1) * rows
+    elsif layout == 'cabinet'
+      total_rows * total_columns * ( (2*columns-1)*(rows/2) + (rows.even? ? 0 : columns) )
+    elsif layout == 'cabinet'
+      total_rows * total_columns
+    else
+      total_columns * ( (2*columns-1) * ((rows * total_rows) / 2) + ((rows * total_rows).even? ? 0 : columns))
+    end
   end
   
   def compartment_letter(total_row, total_column)
