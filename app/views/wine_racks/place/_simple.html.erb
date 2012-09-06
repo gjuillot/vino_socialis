@@ -16,10 +16,8 @@
         <%= row %>
       </td>
       <% (0..(columns - 1)).each do |column| %>
-        <td>
-          <% position = compartment[row][column] %>
-          <%= render :partial => 'wine_racks/place/img', :locals => {:position => position, :move => (shorten_row ? '7' : '0'), :total_row => total_row, :total_column => total_column, :row => row, :column => column} %>
-        </td>
+        <% position = compartment[row][column] %>
+        <%= render :partial => 'wine_racks/place/img', :locals => {:position => position, :move => '0', :total_row => total_row, :total_column => total_column, :row => row, :column => column} %>
       <% end %>
     </tr>
   <% end %>

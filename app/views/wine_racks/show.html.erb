@@ -9,32 +9,28 @@
 	}
 
 	function border(id, border) {
-		var row = $("tr[id*=bottle_row_" + id + "]");
+		var row = $("tr#" + id);
 		row.css('border', border)
-	    var img = $("td[id*=bottle_img_" + id + "] img");
+	    var img = $("td#" + id + " img");
 	    img.css('border', border);
 	}
 	
     $(document).ready(function(){
-    	$("tr[id*=bottle_row_]").hover(
+    	$("tr").hover(
     		function(){
-	    		var id = $(this).attr('id').substring('bottle_row_'.length);
-	    		highlight(id);
+	    		highlight($(this).attr('id'));
     		},
     		function(){
-	    		var id = $(this).attr('id').substring('bottle_row_'.length);
-	    		unhighlight(id);
+	    		unhighlight($(this).attr('id'));
     		});
     });
     $(document).ready(function(){
-    	$("td[id*=bottle_img_]").hover(
+    	$("td").hover(
     		function(){
-	    		var id = $(this).attr('id').substring('bottle_img_'.length);
-	    		highlight(id);
+	    		highlight($(this).attr('id'));
     		},
     		function(){
-	    		var id = $(this).attr('id').substring('bottle_img_'.length);
-	    		unhighlight(id);
+	    		unhighlight($(this).attr('id'));
     		});
     });
 </script>

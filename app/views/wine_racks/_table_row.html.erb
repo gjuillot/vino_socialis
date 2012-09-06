@@ -1,4 +1,4 @@
-<tr id="<%= "bottle_row_#{bottle.id}" %>">
+<tr id="<%= bottle.id %>">
   <td style="text-align:center;vertical-align:middle;"><%= quantity %></td>
   <td><%= wine_name bottle.wine, estate: true, html: true, separator: '<br/>' %></td>
   <td><%= full_area_name bottle.wine.area, html: true, separator2: raw('<br/>') %></td>
