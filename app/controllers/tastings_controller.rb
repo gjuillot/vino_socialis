@@ -18,12 +18,19 @@ class TastingsController < ApplicationController
 
   # GET /tastings/new
   def new
-    if params[:wine].blank?
+    if params[:wine].blank? && params[:consumption].blank?
       redirect_to wines_path, notice: 'Please use an existing wine or create a new one.'
-    else
-      @dishes = Pairing.select(:dish).map { |p| p.dish }
-      @wine = Wine.find(params[:wine])
+      return
     end
+    if params[:consumption].blank?
+      @wine = Wine.find(params[:wine])
+    else
+      consumption = Consumption.find(params[:consumption])
+      @wine = consumption.bottle.wine
+      @vintage = consumption.bottle.vintage
+      @date = consumption.date
+    end
+    @dishes = Pairing.select(:dish).map { |p| p.dish }
   end
   
   # GET /tastings/1/edit

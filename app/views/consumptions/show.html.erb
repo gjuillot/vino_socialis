@@ -1,7 +1,7 @@
-<% if params[:suggest_tasting] %>
+<% if params[:new] %>
   <p class="well">
     La consommation de cette bouteille a été créée avec succès.<br />
-    <%= link_to 'Vous pouvez également créer une fiche dégustation pour ce vin.', new_tasting_path(wine: params[:wine], vintage: params[:vintage]) %>
+    <%= link_to t("consumptions.new_tasting"), new_tasting_path(consumption: @consumption), class: 'btn btn-primary' %>
   </p>
 <% end %>
 
@@ -31,4 +31,4 @@
 </p>
 
 
-<%= link_to t("consumptions.edit"), edit_consumption_path(@consumption) %>
+<%= link_to t("consumptions.edit"), edit_consumption_path(@consumption), class: 'btn btn-primary' %>

@@ -53,7 +53,7 @@ class ConsumptionsController < ApplicationController
     @consumption.user_id = current_user.id
     @consumption.quantity = quantity
     if @consumption.save
-      redirect_to consumption_path(@consumption, suggest_tasting: true, wine: bottle.wine, vintage: bottle.vintage)
+      redirect_to consumption_path(@consumption, :new => true)
     else
       render action: "new"
     end

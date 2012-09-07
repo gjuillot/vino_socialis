@@ -78,6 +78,7 @@ fr:
     none: "Aucune consommation enregistrée pour le moment"
     new: "Nouvelle(s) consommation(s)"
     quantity: "Quantité"
+    new_tasting: "Créer une fiche dégustation"
     reasons:
       drinked: "Bue(s)"
       group: "Bue(s) lors d'une dégustation de groupe"
@@ -151,6 +152,7 @@ fr:
     no_areas: "Pas d'appellations pour cette région."
   tasting:
     tastings: "Dégustations"
+    new: "Nouvelle dégustation"
     latest: "Dernières dégustations"
     show: "Voir la dégustation"
     user: "Dégusté par"

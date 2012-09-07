@@ -10,14 +10,14 @@
     <div class="control-group">
       <%= f.label :vintage, :class => 'control-label' %>
       <div class="controls">
-        <%= select_vintage f, params[:vintage] %>
+        <%= select_vintage f, @vintage %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :date, :class => 'control-label' %>
       <div class="controls">
-        <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
+        <%= f.date_select :date, {:order => [:day, :month, :year], :default => @date}, {class: "date"} %>
       </div>
     </div>
 

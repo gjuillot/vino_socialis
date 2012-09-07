@@ -80,6 +80,7 @@ en:
     none: "No registered consomption yet"
     new: "New consumption"
     quantity: "Quantity"
+    new_tasting: "Create a tasting sheet"
     reasons:
       drinked: "Drinked"
       group: "Drinked during grouped tasting"
@@ -153,6 +154,7 @@ en:
     no_regions: "No areas for that region."
   tasting:
     tastings: "Tastings"
+    new: "New tasting"
     latest: "Latest tastings"
     show: "Show tasting"
     user: "Tasted by"
