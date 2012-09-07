@@ -1,9 +1,11 @@
 <script type="text/javascript">
+
+  blinkId = '';
+
   function highlight_img(id) {
     if (!id) { return; }
-    
-    var img = $("table#graphical td#" + id + " img");
-    img.css('border', 'solid');
+    window.clearInterval(blinkId);
+    blinkId = window.setInterval("$('table#graphical td#" + id + " img').toggle();", 500);
   }
   
   function highlight_all(id) {
@@ -23,8 +25,8 @@
   function unhighlight(id) {
     if (!id) { return; }
     
-    var img = $("table#graphical td#" + id + " img");
-    img.css('border', 'none');
+    window.clearInterval(blinkId);
+    $("table#graphical td#" + id + " img").show();
     
     $("table#list tr").each(function() {
       $(this).show();
