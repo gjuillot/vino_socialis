@@ -25,25 +25,36 @@
 	
 	  <dt><%= t("helpers.label.bottle.comments")%></dt>
 	  <dd><%= @bottle.comments %></dd>
+	  
+	  <br />
+	  
+	  <dd><%= button_to_edit edit_bottle_path(@bottle) %></dd>
 	</dl>
   </div>
   
   
   <div class="span6">
-	<dl class="dl-horizontal">
-  	  <!--                                         PLACED BOTTLES                                         -->
-  	  <% @wine_racks.each do |rack| %>
-  	    <% unless rack.positions == 0 %>
-  	      <dt><%= link_to rack.name, rack %></dt>
-  	      <dd><%= t('bottles.placed', count: rack.positions) %></dd>
-  	    <% end %>
-  	  <% end %>
-    </dl>
+    <!--                                         PLACED BOTTLES                                         -->
+    <table class="table table-condensed table-striped">
+      <% @wine_racks.each do |rack| %>
+        <% unless rack.positions == 0 %>
+          <tr>
+      	    <td><%= link_to rack.name, rack %></td>
+      	    <td><%= t('bottles.placed', count: rack.positions) %></td>
+      	  </tr>
+    	  <% end %>
+    	<% end %>
   	
   	<!--                                        UNPLACED BOTTLES                                        -->
   	<% not_placed = @bottle.not_placed %>
-  	<% if not_placed > 0 %>
-  	  <%= t 'bottles.unplaced', count: not_placed %>
+  	<% if not_placed == 0 %>
+      </table>
+    <% else %>
+        <tr>
+      	  <td><%= link_to t('bottles.unplaced'), not_placed_bottles_path %></td>
+      	  <td><%= t('bottles.placed', count: not_placed) %></td>
+      	</tr>
+    	</table>
   	  <% if @all_wine_racks.empty? %>
   	    <br /><%= link_to t('wine_rack.new'), new_wine_rack_path %>
   	  <% else %>
@@ -53,6 +64,8 @@
     	  <% end %>
     	<% end %>
   	<% end %>
+  	
+  	<%= button_to_consume consume_bottle_path(@bottle) %>
   </div>
 </div>
 

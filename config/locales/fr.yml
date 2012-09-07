@@ -64,10 +64,7 @@ fr:
       zero: "Aucune bouteille"
       one: "1 bouteille"
       other: "%{count} bouteilles"
-    unplaced:
-      zero: "Toutes les bouteilles sont placées"
-      one: "1 bouteille non placée"
-      other: "%{count} bouteilles non placées"
+    unplaced: "Non placées"
     channels:
       gift: "Cadeau"
       producer: "Producteur"

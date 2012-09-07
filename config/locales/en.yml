@@ -66,10 +66,7 @@ en:
       zero: "No bottle"
       one: "1 bottle"
       other: "%{count} bottles"
-    unplaced:
-      zero: "All bottles ares placed"
-      one: "1 bottle not placed"
-      other: "%{count} bottles not placed"
+    unplaced: "Not placed"
     channels:
       gift: "Gift"
       producer: "Producer"

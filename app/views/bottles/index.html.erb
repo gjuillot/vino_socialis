@@ -130,7 +130,7 @@
     $("input#remaining").keyup(filter);
     $("input#price").keyup(filter);
     $("tr#bottle").click(function() {
-      window.location = $(this).find("ul").find("a:first").attr("href");
+      window.location = $(this).find("input").val();
     });
     $("select#racks").change(function(){
       var rack = $(this).val();

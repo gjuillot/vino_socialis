@@ -20,6 +20,10 @@ module ApplicationHelper
     content_tag(:a, content_tag(:i, "", class: "icon-edit") + ' ' + t('icon.edit'), :href => path)
   end
   
+  def button_to_edit(path)
+    content_tag(:a, content_tag(:i, "", class: "icon-edit icon-white") + ' ' + t('icon.edit'), :href => path, :class => 'btn btn-primary')
+  end
+  
   def link_to_destroy(model)
     link_to content_tag(:i, "", class: "icon-trash") + ' ' + t('icon.destroy') , model, confirm: 'Are you sure?', method: :delete
   end
@@ -50,6 +54,10 @@ module ApplicationHelper
   
   def link_to_consume(path)
     content_tag(:a, content_tag(:i, "", class: "icon-hand-down") + ' ' + t('icon.consume'), :href => path, :method => :post)
+  end
+  
+  def button_to_consume(path)
+    content_tag(:a, content_tag(:i, "", class: "icon-hand-down icon-white") + ' ' + t('icon.consume'), :href => path, :method => :post, :class => 'btn btn-primary')
   end
   
   def link_to_new_wine(estate)
