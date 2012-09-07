@@ -8,6 +8,9 @@ class WineRacksController < ApplicationController
   
   def show
     init_wine_rack_positions
+    if params[:bottle]
+      @highlight = params[:bottle]
+    end
   end
 
   def new

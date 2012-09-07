@@ -98,6 +98,14 @@
     $("div[class=well]").hide();
   });
 
+<% if @highlight %>
+  $(document).ready(function() {
+      selected_bottle = '<%= @highlight %>';
+      highlight_all(selected_bottle);
+      actions_show(selected_bottle);
+  });
+<% end %>
+
 </script>
 
 

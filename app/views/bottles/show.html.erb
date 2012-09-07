@@ -39,7 +39,7 @@
       <% @wine_racks.each do |rack| %>
         <% unless rack.positions == 0 %>
           <tr>
-      	    <td><%= link_to rack.name, rack %></td>
+      	    <td><%= link_to rack.name, wine_rack_path(rack, :bottle => @bottle) %></td>
       	    <td><%= t('bottles.placed', count: rack.positions) %></td>
       	  </tr>
     	  <% end %>
