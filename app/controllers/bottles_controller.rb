@@ -99,4 +99,9 @@ class BottlesController < ApplicationController
   def place
     redirect_to place_wine_rack_path(WineRack.find(params[:wine_rack_id]), :bottle => @bottle)
   end
+  
+  def unplace
+    WineRackPosition.find(params[:wine_rack_position_id]).destroy()
+    redirect_to @bottle , :notice => 'Bottle was successfully unplaced.'
+  end
 end

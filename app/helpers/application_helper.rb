@@ -60,6 +60,10 @@ module ApplicationHelper
     content_tag(:a, content_tag(:i, "", class: "icon-hand-down icon-white") + ' ' + t('icon.consume'), :href => path, :method => :post, :class => 'btn btn-primary')
   end
   
+  def link_to_unplace(bottle, position)
+    content_tag(:a, content_tag(:i, "", class: "icon-share") + ' ' + t('icon.unplace'), :href => unplace_bottle_path(bottle, :wine_rack_position_id => position), :method => :get)
+  end
+  
   def link_to_new_wine(estate)
     content_tag(:a, content_tag(:i, "", class: "icon-plus") + ' ' + t('icon.new_wine'), :href => new_wine_path(:estate_id => estate.id, :estate_name => estate.name))
   end

@@ -21,6 +21,7 @@ VinoSocialis::Application.routes.draw do
       member do
         get 'consume'
         get 'place'
+        get 'unplace'
       end
       collection do
         get 'not_placed'
