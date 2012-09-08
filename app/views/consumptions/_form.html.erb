@@ -18,7 +18,7 @@
         <% reasons = ['drinked', 'group', 'family_friend', 'gift', 'kitchen', 'corked', 'exchanged'].map {|c| [t(c, scope: 'consumptions.reasons'), c]}%>
         <%= f.label :reasons, :class => 'control-label' %>
 	    <div class="controls">
-          <%= select_tag 'consumption[reasons]', options_for_select(reasons) %>
+          <%= select_tag 'consumption[reasons]', options_for_select(reasons, selected: @consumption.reasons) %>
 	    </div>
 	  </div>
 	  
@@ -31,14 +31,16 @@
 	
 	</div>
     <div class="span6">
-      <% @wine_racks.each do |rack| %>
-        <% position = WineRackPosition.find(rack.position_id )%>
-        <input type="checkbox" name="rack[<%= position.id %>]" <%= position.id == @position_id_to_check ? 'checked="checked"' : '' %>> <%= "#{rack.name} - #{position.coord}" %></input><br />
-      <% end %>     	
-      <% @bottle.not_placed.times do |i| %>
-        <input type="checkbox" name="unracked[<%= i %>]"> Non placée</input><br />
+      <% if @new %>
+        <% @wine_racks.each do |rack| %>
+          <% position = WineRackPosition.find(rack.position_id )%>
+          <input type="checkbox" name="rack[<%= position.id %>]" <%= position.id == @position_id_to_check ? 'checked="checked"' : '' %>> <%= "#{rack.name} - #{position.coord}" %></input><br />
+        <% end %>     	
+        <% @bottle.not_placed.times do |i| %>
+          <input type="checkbox" name="unracked[<%= i %>]"> Non placée</input><br />
+        <% end %>
+        <br />
       <% end %>
-      <br />
       
 	  <div class="control-group">
 	    <%= f.submit class: "btn btn-primary" %>

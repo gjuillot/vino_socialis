@@ -17,7 +17,7 @@ class ConsumptionsController < ApplicationController
       redirect_to bottles_path, notice: 'Please use an existing bottle.'
     else
       @bottle = Bottle.find(params[:bottle])
-      @quantity_field_disabled = false
+      @new = true
       @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_rack_positions".id AS position_id, name').where('"wine_rack_positions".bottle_id = ?', @bottle.id)
       if params[:wine_rack_position_id]
         @position_id_to_check = Integer(params[:wine_rack_position_id])
@@ -28,7 +28,7 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions/1/edit
   def edit
     @bottle = @consumption.bottle
-    @quantity_field_disabled = true
+    @new = false
   end
   
   def create
