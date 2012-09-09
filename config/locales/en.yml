@@ -74,6 +74,7 @@ en:
       fair: "Wine fair"
       store: "Wine store"
       supermarket: "Supermarket"
+      bulk_order: "Bulk order"
   consumptions:
     edit: "Edit consumption"
     my: "My consumptions"
@@ -89,6 +90,7 @@ en:
       corked: "Corked"
       gift: "Given as a gift"
       exchanged: "Exchanged"
+      sold: "Sold"
   country:
     countries: "Countries"
     new: "New country"

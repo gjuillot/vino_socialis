@@ -72,6 +72,7 @@ fr:
       fair: "Salon vigneron"
       store: "Caviste"
       supermarket: "Supermarché"
+      bulk_order: "Commande groupée"
   consumptions:
     edit: "Modifier consommation"
     my: "Mes consommations"
@@ -83,10 +84,11 @@ fr:
       drinked: "Bue(s)"
       group: "Bue(s) lors d'une dégustation de groupe"
       family_friend: "Bue(s) en famille ou chez des amis"
-      kitchen: "Utilisé en cuisine"
+      kitchen: "Utilisée(s) en cuisine"
       corked: "Bouchonnée(s)"
       gift: "Offerte(s)"
       exchanged: "Echangée(s)"
+      sold: "Vendue(s)"
   conversation:
     new: "Nouvelle conversation avec %{user}"
     subject: "Sujet"
