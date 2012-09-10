@@ -78,9 +78,7 @@ VinoSocialis::Application.routes.draw do
     
     root :to => "home#index"
 
-    match '/discover', :to => "home#discover"
-    match '/track', :to => "home#track"
-    match '/share', :to => "home#share"
+    match '/why', :to => "home#why"
     match '/about', :to => "home#about"
     match '/wines_and_estates', :to => "wines_and_estates#index"
   end
