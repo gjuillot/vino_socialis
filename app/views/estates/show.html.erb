@@ -44,7 +44,7 @@
   	<% if @estate.wines.any? %>
   	  <table class="table table-striped table-condensed">
   	  	<% @estate.wines.each do |wine| %>
-  	  	  <%= wine_name wine, color: true, area: true, html: true, links: true  %>
+  	  	  <%= wine_name wine, color: true, area: true, html: true, links: true unless wine.nil? %>
   	  	<% end %>
   	  </table>
   	<% else %>
