@@ -16,5 +16,13 @@ class GlossariesController < ApplicationController
   def index
     @glossaries = Glossary.where('lang = ?', I18n.locale)
   end
+  
+  def update
+    if @glossary.update_attributes(params[:glossary])
+      redirect_to glossaries_path, notice: 'Definition was successfully updated.'
+    else
+      render action: "edit"
+    end
+  end
 
 end
