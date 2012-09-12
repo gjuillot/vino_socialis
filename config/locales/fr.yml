@@ -11,6 +11,7 @@ fr:
       latest_recommandations: "Dernières recommandations"
       recommmandations_me: "Recommandés pour vous"
       pairings: "Accords mets-vin"
+      glossaries: "Glossaire"
     track:
       title: "Suivre"
       my_bottles: "Mes bouteilles"
@@ -116,6 +117,9 @@ fr:
     no_wines: "Pas de fiches vin pour ce producteur"
     suggest_wine: "Proposer une nouvelle fiche vin pour ce producteur"
     db_count: "%{total} fiches producteur enregistrées dont %{validated} validées"
+  glossary:
+    glossary: "Glossaire"
+    new: "Nouvelle définition"
   home:
     index:
       learn_more: "En savoir plus"
@@ -140,6 +144,9 @@ fr:
         l1: "%{c} utilisateurs"
         l2: "%{c} dégustations"
         l3: "%{c} coups de coeur"
+  languages:
+    fr: "Français"
+    en: "Anglais"
   pairing:
     pairings: 'Accords mets-vin'
     latest: 'Derniers accords mets-vin'
@@ -254,6 +261,10 @@ fr:
         fax: "Fax"
         email: "Adresse email"
         www: "Site internet"
+      glossary:
+        lang: "Langue"
+        word: "Mot"
+        definition: "Définition"
       pairing:
         dish: 'Mets'
         note: "Note de l'accord"

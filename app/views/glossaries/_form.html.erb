@@ -1,0 +1,37 @@
+
+<%= form_for(@glossary, html: { class:'form-horizontal'}) do |f| %>
+
+  <div class="row">
+    <div class="span6 offset3">
+
+  	  <div class="control-group">
+        <%= f.label :lang, :class => 'control-label' %>
+  	    <div class="controls">
+          <% locales = ['fr', 'en'].map {|c| [t(c, scope: 'languages'), c]}%>
+          <%= select_tag 'glossary[lang]', options_for_select(locales, selected: @glossary.lang) %>
+  	    </div>
+  	  </div>
+      
+      <div class="control-group">
+        <%= f.label :word, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :word %>
+        </div>
+      </div>
+  	  
+  	  <div class="control-group">
+        <%= f.label :definition, :class => 'control-label' %>
+  	    <div class="controls">
+          <%= f.text_area :definition, rows: 4 %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <div class="controls">
+           <%= f.submit class: "btn btn-primary" %>
+        </div>
+      </div>
+  	
+    </div>
+  </div>
+<% end %>

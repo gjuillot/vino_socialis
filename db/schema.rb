@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829140034) do
+ActiveRecord::Schema.define(:version => 20120910140533) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -86,6 +86,14 @@ ActiveRecord::Schema.define(:version => 20120829140034) do
   end
 
   add_index "estates", ["user_id"], :name => "index_estates_on_user_id"
+
+  create_table "glossaries", :force => true do |t|
+    t.string   "lang"
+    t.string   "word"
+    t.text     "definition"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "notifications", :force => true do |t|
     t.string   "type"

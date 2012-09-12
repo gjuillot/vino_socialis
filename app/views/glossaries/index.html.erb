@@ -1,0 +1,9 @@
+<h1><%= t("glossary.glossary")%></h1>
+
+<dl>
+  <%= render @glossaries %>
+</dl>
+
+<% if can? :create, Glossary %>
+    <%= content_tag(:a, content_tag(:i, "", class: "icon-plus") + ' ' + t('glossary.new'), :href => new_glossary_path) %>
+  <% end %>

@@ -20,6 +20,12 @@ class Ability
     can :read, [Country, Region, Area]
     can :for_region_id, Area
     
+    # Glossary
+    can :read, Glossary
+    if user.moderator?
+      can :manage, Glossary
+    end
+    
     # Estate, Wine
     can [:create, :read, :search, :taste, :encave, :recommand, :unrecommand], [Estate, Wine]
     if user.moderator?

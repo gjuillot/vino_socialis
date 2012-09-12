@@ -76,6 +76,8 @@ VinoSocialis::Application.routes.draw do
       end
     end
     
+    resources :glossaries
+    
     root :to => "home#index"
 
     match '/why', :to => "home#why"

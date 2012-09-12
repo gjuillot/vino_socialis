@@ -11,6 +11,7 @@ en:
       latest_recommandations: "Latest recommandations"
       recommmandations_me: "Recommanded for you"
       pairings: "Wine pairings"
+      glossaries: "Glossary"
     track:
       title: "Track"
       my_bottles: "My bottles"
@@ -112,6 +113,9 @@ en:
     no_wines: "No wine sheets for that estate"
     suggest_wine: "Suggest a new wine sheet for that estate"
     db_count: "%{total} estate sheets registered, %{validated} being validated"
+  glossary:
+    glossary: "Glossary"
+    new: "New definition"
   home:
     discover:
       content: "Here, info about wines, estates, grapes and hints according to your own tastes and meals."
@@ -142,6 +146,9 @@ en:
       content: "Share your opinions on wines, estates, ..."
     track:
       content: "Keep track of your bottles"
+  languages:
+    fr: "French"
+    en: "English"
   pairing:
     pairings: 'Wine pairings'
     latest: 'Latest wine pairings'
@@ -255,6 +262,10 @@ en:
         fax: "Fax"
         email: "Email"
         www: "Web site"
+      glossary:
+        lang: "Language"
+        word: "Word"
+        definition: "Definition"
       pairing:
         dish: 'Dish'
         note: 'Pairing note'
