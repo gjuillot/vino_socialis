@@ -19,6 +19,20 @@
       'Alsace Chasselas',
       'Alsace Auxerrois'
     ],
+    'Beaujolais' => [
+      'Beaujolais',
+      'Beaujolais-Villages',
+      'Juliénas',
+      'Saint-Amour',
+      'Chénas',
+      'Moulin-à-Vent',
+      'Fleurie',
+      'Chiroubles',
+      'Morgon',
+      'Régnié',
+      'Côte de Brouilly',
+      'Brouilly'
+    ],
     'Bordeaux' => [
       'Barsac',
       'Blaye',
