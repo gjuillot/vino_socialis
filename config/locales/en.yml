@@ -116,6 +116,8 @@ en:
   glossary:
     glossary: "Glossary"
     new: "New definition"
+    search: "Search"
+    all: "Display all"
   home:
     discover:
       content: "Here, info about wines, estates, grapes and hints according to your own tastes and meals."

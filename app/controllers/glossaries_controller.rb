@@ -14,7 +14,19 @@ class GlossariesController < ApplicationController
   end
   
   def index
-    @glossaries = Glossary.where('lang = ?', I18n.locale)
+    if params[:q]
+      q = "%#{params[:q]}%"
+      @glossaries = Glossary.where("word LIKE ? OR definition LIKE ?", q, q)
+      @searched = params[:q]
+    else
+      if params[:l]
+        l = params[:l]
+      else
+        l = 'A'
+      end
+      @glossaries = Glossary.where("word LIKE ?", "#{l}%")
+      @letters = Glossary.all.map {|g| g.word[0].chr}
+    end
   end
   
   def update

@@ -1,7 +1,9 @@
-<dt>
-  <%= glossary.word %>
-  <% if can? :manage, glossary %>
-    &nbsp;<%= content_tag(:a, content_tag(:i, "", class: "icon-edit"), :href => edit_glossary_path(glossary)) %>
-  <% end %>
-</dt>
-<dd><%= glossary.definition %></dd>
+<dl>
+  <dt>
+    <%= glossary.word %>
+    <% if can? :manage, glossary %>
+      &nbsp;<%= content_tag(:a, content_tag(:i, "", class: "icon-edit"), :href => edit_glossary_path(glossary)) %>
+    <% end %>
+  </dt>
+  <dd><%= glossary.definition %></dd>
+</dl>

@@ -120,6 +120,8 @@ fr:
   glossary:
     glossary: "Glossaire"
     new: "Nouvelle définition"
+    search: "Rechercher"
+    all: "Afficher tout"
   home:
     index:
       learn_more: "En savoir plus"
@@ -202,15 +204,15 @@ fr:
       white: 'Blanc'
       red: 'Rouge'
       rose: 'Rosé'
-      sweet_white: 'Blanc doux'
-      moelleux_white: 'Blanc moëlleux'
+      sweet_white: 'Blanc moëlleux'
+      moelleux_white: 'Blanc liquoreux'
       white_port_type: 'Blanc muté'
       sparkling_white: 'Blanc effervescent'
       natural_sweet: 'Vin Doux Naturel'
       red_port_type: 'Rouge muté'
       sparkling_red: 'Rouge effervescent'
       sparkling_rose: 'Rosé effervescent'
-      claret: 'Claret'
+      claret: 'Clairet'
       vin_jaune: 'Vin jaune'
       vin_paille: 'Vin de paille'
       amber: 'Ambré'
