@@ -115,4 +115,8 @@ module WinesHelper
   def wine_count_validated
     Wine.where('validation = ?', true).count
   end
+  
+  def wine_count_unvalidated
+    Wine.where('validation = ?', false).count
+  end
 end

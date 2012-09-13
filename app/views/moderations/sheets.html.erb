@@ -1,0 +1,18 @@
+
+<h2><%= t('estate.estates') %></h2>
+<table class="table table-condensed table-striped">
+  <theader>
+    <tr>
+      <th>Nom</th>
+      <th>Ville (Pays)</th>
+      <th>Site</th>
+      <th>Fiche de</th>
+      <th>Edition</th>
+      <th>Validation</th>
+      <th>Remplacement</th>
+    </tr>
+  </theader>
+  <tbody>
+    <%= render :collection => @estates, :partial => 'estate' %>
+  </tbody>
+</table>

@@ -12,6 +12,10 @@ class Ability
       can :manage, :all
     end
     
+    if user.moderator?
+      can :manage, Moderation
+    end
+    
     # User
     can :read, User
     can :update, User, :id => user.id

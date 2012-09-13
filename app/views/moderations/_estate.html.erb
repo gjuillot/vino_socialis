@@ -1,0 +1,9 @@
+<tr>
+  <td><%= estate.name %></td>
+  <td><%= estate.town %> (<%= estate.country %>)</td>
+  <td><%= link_to estate.www %></td>
+  <td><%= estate.user.name %></td>
+  <td><%= link_to_edit edit_estate_path(estate) %></td>
+  <td><%= link_to_validate validate_estate_path(estate) %></td>
+  <td><%= content_tag(:a, content_tag(:i, "", class: "icon-refresh") + ' Remplacer', :href => estates_path(replaced: estate.id)) %></td>
+</tr>

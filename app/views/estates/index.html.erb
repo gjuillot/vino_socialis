@@ -2,6 +2,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= t("estate.estates") %></h1>
+<% if @replaced %>
+  <h1>Remplacer "<%= @replaced.name %>"</h1>
+<% else %>
+  <h1><%= t("estate.estates") %></h1>
+<% end %>
 
 <%= render file: 'app/views/estates/_list' %>

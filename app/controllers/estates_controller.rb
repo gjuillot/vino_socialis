@@ -4,7 +4,12 @@ class EstatesController < ApplicationController
   
   # GET /estates
   def index
-    @estates = Estate.order('random()').limit(20)
+    if params[:replaced]
+      @replaced = Estate.find(params[:replaced])
+      @estates = Estate.where('id != ?', @replaced.id).order('random()').limit(20)
+    else
+      @estates = Estate.order('random()').limit(20)
+    end
   end
   
   def search
@@ -12,7 +17,12 @@ class EstatesController < ApplicationController
       redirect_to action: 'index'
     else
       @searched = params[:q]
-      @estates = Estate.where("name ILIKE ?", "%#{@searched}%").order('name')
+      if params[:replaced]
+        @replaced = Estate.find(params[:replaced])
+        @estates = Estate.where("name ILIKE ? AND id != ?", "%#{@searched}%", @replaced.id).order('name')
+      else
+        @estates = Estate.where("name ILIKE ?", "%#{@searched}%").order('name')
+      end
       render action: 'index'
     end
   end
@@ -77,5 +87,15 @@ class EstatesController < ApplicationController
     else
       redirect_to @estate, error: 'estate was not successfully unvalidated.'
     end
+  end
+  
+  def replace
+    @replaced = Estate.find(params[:replaced])
+    @replaced.wines.each do |w|
+      w.estate_id = @estate.id
+      w.save
+    end
+    @replaced.destroy
+    redirect_to :controller => 'moderation', :action => 'sheets'
   end
 end

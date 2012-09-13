@@ -3,10 +3,14 @@
     <%= link_to estate.name, estate %>
   </td>
   <td>
-    <%= "#{estate.town} (#{estate.country})"%>
+    <%= "#{estate.town} (#{estate.country})" %>
   </td>
   
   <td>
-    <%= estate_action_button estate%>
+    <% if can? :replace, Estate and @replaced %>
+      <%= estate_action_button estate, @replaced %>
+    <% else %>
+      <%= estate_action_button estate %>
+    <% end %>
   </td>
 </tr>

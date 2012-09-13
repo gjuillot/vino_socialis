@@ -40,6 +40,7 @@ VinoSocialis::Application.routes.draw do
       member do
         post 'validate'
         post 'unvalidate'
+        get 'replace'
       end
       collection do
         get 'search'
@@ -77,6 +78,12 @@ VinoSocialis::Application.routes.draw do
     end
     
     resources :glossaries
+    
+    resources :moderations do
+      collection do
+        get 'sheets'
+      end
+    end
     
     root :to => "home#index"
 
