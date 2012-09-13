@@ -85,7 +85,7 @@ module ApplicationHelper
   end
   
   def select_vintage(f, selected = '')
-    years = (1900..(Time.now.year)).to_a.reverse.insert(0, t('helpers.label.bottle.no_vintage'))
+    years = (1900..(Time.now.year)).to_a.reverse.insert(0, [t('helpers.label.bottle.no_vintage'), 0])
     f.select :vintage, years, selected: selected
   end
 

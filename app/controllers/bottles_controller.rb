@@ -68,6 +68,7 @@ class BottlesController < ApplicationController
     if @bottle.save
       redirect_to @bottle, notice: 'Bottle was successfully created.'
     else
+      @wine = @bottle.wine
       render action: "new"
     end
   end

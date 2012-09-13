@@ -311,3 +311,13 @@ en:
       next: "Next &rsaquo;"
       truncate: "..."
       
+  activerecord:
+    errors:
+      messages:
+        too_short: "Too short (%{count} caracters minimum)"
+        blank: "Must not be blank"
+        not_a_number: "Must be a number"
+        greater_than: "Must be greater than %{count}"
+        greater_than_or_equal_to: "Must be greater than or equal to %{count}"
+        select_at_least_one_bottle: "Select at least one bottle"
+      

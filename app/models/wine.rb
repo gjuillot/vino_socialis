@@ -5,6 +5,11 @@ class Wine < ActiveRecord::Base
   has_many :tastings
   has_many :wine_recommandations
   
+  validates :name, :presence => true
+  validates :area_id, :presence => true
+  validates :wine_color, :presence => true
+  
+  
   def validated?
     validation
   end

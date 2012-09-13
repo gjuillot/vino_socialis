@@ -23,6 +23,9 @@ class EstatesController < ApplicationController
 
   # GET /estates/new
   def new
+    if @estate.www = "http://"
+      @estate.www = ""
+    end
   end
 
   # GET /estates/1/edit
@@ -31,7 +34,7 @@ class EstatesController < ApplicationController
 
   # POST /estates
   def create
-    @estate.www = 'http://' + @estate.www unless @estate.www.starts_with? 'http://'
+    @estate.www = 'http://' + @estate.www unless @estate.www.blank? or @estate.www.starts_with? 'http://'
     @estate.user_id = current_user.id
     @estate.validation = false
     if @estate.save

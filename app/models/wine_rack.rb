@@ -2,6 +2,12 @@ class WineRack < ActiveRecord::Base
   belongs_to :user
   has_many :wine_rack_positions
   
+  validates :name, :presence => true
+  validates :total_rows, :numericality => { :only_integer => true, :greater_than => 0 }
+  validates :total_columns, :numericality => { :only_integer => true, :greater_than => 0 }
+  validates :rows, :numericality => { :only_integer => true, :greater_than => 0 }
+  validates :columns, :numericality => { :only_integer => true, :greater_than => 0 }
+  
   def content
     WineRackPosition.where('wine_rack_id = ?', id).count
   end

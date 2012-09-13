@@ -45,6 +45,16 @@ class ConsumptionsController < ApplicationController
       quantity += params[:unracked].size
     end
     
+    if quantity == 0
+      @bottle = @consumption.bottle
+      @new = true
+      @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_rack_positions".id AS position_id, name').where('"wine_rack_positions".bottle_id = ?', @bottle.id)
+      @position_id_to_check = Integer(params[:wine_rack_position_id]) if params[:wine_rack_position_id]
+      flash[:alert] = 'select_at_least_one_bottle'
+      render action: "new"
+      return
+    end
+    
     bottle.remaining_quantity -= quantity
     if !bottle.save
       render action: "new"

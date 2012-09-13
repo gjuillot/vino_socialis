@@ -1,17 +1,6 @@
 <div class="row">
   <div class="span6 offset3">
   	<%= form_for(@estate, html: { class:'form-horizontal'}) do |f| %>
-	  <% if @estate.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@estate.errors.count, "error") %> prohibited this estate from being saved:</h2>
-	
-	      <ul>
-	      <% @estate.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
 	
 	  <div class="control-group">
 	    <%= f.label :name, :class => 'control-label' %>

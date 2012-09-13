@@ -314,3 +314,13 @@ fr:
       previous: "&lsaquo; Précédent"
       next: "Suivant &rsaquo;"
       truncate: "..."
+      
+  activerecord:
+    errors:
+      messages:
+        too_short: "Trop court (%{count} caractères minimum)"
+        blank: "Ne doit pas être vide"
+        not_a_number: "Doit être un nombre"
+        greater_than: "Doit être supérieur à %{count}"
+        greater_than_or_equal_to: "Doit être supérieur ou égal à %{count}"
+        select_at_least_one_bottle: "Sélectioner au minimum une bouteille"

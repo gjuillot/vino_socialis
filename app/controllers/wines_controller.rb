@@ -29,7 +29,7 @@ class WinesController < ApplicationController
       @estate_id = params[:estate_id]
       @estate_name = params[:estate_name]
       @countries = Country.all
-      @areas = Area.all
+      @areas = []
     end
   end
 
@@ -49,6 +49,11 @@ class WinesController < ApplicationController
     if @wine.save
       redirect_to @wine, notice: 'Wine was successfully created.'
     else
+      @estate_id = @wine.estate_id
+      @estate_name = Estate.find(@estate_id).name
+      @countries = Country.all
+      @region = Region.find(params[:region][:id]) unless params[:region][:id].blank?
+      @areas = @region ? @region.areas : []
       render action: "new"
     end
   end

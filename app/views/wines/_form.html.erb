@@ -22,17 +22,17 @@
                         // Clear all options from sub category select
                         $("select#wine_area_id option").remove();
                         //put in a empty default line
-                        var row = "<option value=\"" + "" + "\">" + "" + "</option>";
+                        var row = "<option value=\"\"><%= t('helpers.label.wine.select_area') %></option>";
                         $(row).appendTo("select#wine_area_id");                        
                         // Fill sub category select
                         $.each(data, function(i, j){
                             row = "<option value=\"" + j.id + "\">" + j.name + "</option>";  
                             $(row).appendTo("select#wine_area_id");                    
-                        });            
+                        });
                      }
                 });
             };
-                });
+        });
     });
 </script>
 
@@ -54,14 +54,14 @@
 	    <%= f.label :area, :class => 'control-label' %>
 	    <div class="controls">
 	      <%= grouped_collection_select :region, :id, @countries, :regions, :name, :id, :name, options = { prompt: t('helpers.label.wine.select_country_and_region')} %>
-          <%= collection_select :wine, :area_id, @areas, :id, :name, options = { prompt: t('helpers.label.wine.select_area')} %>
+	      <%= f.select :area_id, options_for_select(@areas.map{|a| [a.name, a.id]}, :selected => @wine.area_id), options = { prompt: t('helpers.label.wine.select_area') } %>
 	    </div>
 	  </div>
 	
 	  <div class="control-group">
 	    <%= f.label :wine_color, :class => 'control-label' %>
 	    <div class="controls">
-	      <%= select_tag 'wine[wine_color]', options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => @wine.wine_color), options = { prompt: ''} %>
+	      <%= f.select :wine_color, options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => @wine.wine_color), options = { prompt: ''} %>
 	    </div>
 	  </div>
 	
