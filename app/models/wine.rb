@@ -2,6 +2,8 @@ class Wine < ActiveRecord::Base
   belongs_to :estate
   belongs_to :area
   belongs_to :user
+  
+  has_many :bottles
   has_many :tastings
   has_many :wine_recommandations
   

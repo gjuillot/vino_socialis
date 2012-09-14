@@ -16,3 +16,24 @@
     <%= render :collection => @estates, :partial => 'estate' %>
   </tbody>
 </table>
+
+<br />
+
+<h2><%= t('wine.wines') %></h2>
+<table class="table table-condensed table-striped">
+  <theader>
+    <tr>
+      <th>Producteur</th>
+      <th>Nom</th>
+      <th>Appellation</th>
+      <th>Couleur</th>
+      <th>Fiche de</th>
+      <th>Edition</th>
+      <th>Validation</th>
+      <th>Remplacement</th>
+    </tr>
+  </theader>
+  <tbody>
+    <%= render :collection => @wines, :partial => 'wine' %>
+  </tbody>
+</table>

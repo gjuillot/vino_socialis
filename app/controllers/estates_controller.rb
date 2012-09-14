@@ -96,6 +96,6 @@ class EstatesController < ApplicationController
       w.save
     end
     @replaced.destroy
-    redirect_to :controller => 'moderation', :action => 'sheets'
+    redirect_to :controller => 'moderations', :action => 'sheets'
   end
 end

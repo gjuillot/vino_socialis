@@ -4,5 +4,6 @@ class ModerationsController < ApplicationController
   
   def sheets
     @estates = Estate.where('validation = ?', false)
+    @wines = Wine.where('validation = ?', false)
   end
 end

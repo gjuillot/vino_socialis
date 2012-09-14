@@ -4,7 +4,12 @@ class WinesController < ApplicationController
   
   # GET /wines
   def index
-    @wines = Wine.order('random()').limit(10)
+    if params[:replaced]
+      @replaced = Wine.find(params[:replaced])
+      @wines = Wine.where('id != ?', @replaced.id).order('random()').limit(20)
+    else
+      @wines = Wine.order('random()').limit(10)
+    end
   end
   
   def search
@@ -12,7 +17,12 @@ class WinesController < ApplicationController
       redirect_to action: 'index'
     else
       @searched = params[:q]
-      @wines = Wine.where("name ILIKE ?", "%#{@searched}%").order('name').page(params[:page]).per(10)
+      if params[:replaced]
+        @replaced = Wine.find(params[:replaced])
+        @wines = Wine.where("name ILIKE ? AND id != ?", "%#{@searched}%", @replaced.id).order('name')
+      else
+        @wines = Wine.where("name ILIKE ?", "%#{@searched}%").order('name').page(params[:page]).per(10)
+      end
       render action: 'index'
     end
   end
@@ -123,5 +133,22 @@ class WinesController < ApplicationController
   # POST /wines/1/encave
   def encave
     redirect_to new_bottle_path(:wine => @wine)
+  end
+  
+  def replace
+    @replaced = Wine.find(params[:replaced])
+    
+    @replaced.bottles.each do |b|
+      b.wine_id = @wine.id
+      b.save
+    end
+    
+    @replaced.wine_recommandations.each do |b|
+      b.wine_id = @wine.id
+      b.save
+    end
+    
+    @replaced.destroy
+    redirect_to :controller => 'moderations', :action => 'sheets'
   end
 end

@@ -55,6 +55,7 @@ VinoSocialis::Application.routes.draw do
         get 'encave'
         get 'recommand'
         get 'unrecommand'
+        get 'replace'
       end
       collection do
         get 'search'
