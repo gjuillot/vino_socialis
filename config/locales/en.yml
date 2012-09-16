@@ -103,6 +103,7 @@ en:
     edit: "Edit %{estate_name}"
     random: "Random estates"
     matching: "Matching estates"
+    no_matching: "No estate found"
     search: "Search"
     suggest: "Suggest a new estate sheet"
     status: "Sheet status"
@@ -181,6 +182,7 @@ en:
     edit: "Edit %{wine_name}"
     random: "Random wines"
     matching: "Matching wines"
+    no_matching: "No wine found"
     search: "Search"
     suggest: "Suggest a new wine sheet"
     edit: "Edit %{wine_name}"
@@ -233,6 +235,8 @@ en:
       alternated_cabinet: Alternated wine cabinet
       front_back_cellar: Cellar with front and back
       front_back_cellar_2: Other cellar with front and back
+  wines_and_estates:
+    search: "Search"
     
   helpers:
     label:

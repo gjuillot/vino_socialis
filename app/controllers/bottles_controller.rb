@@ -50,7 +50,7 @@ class BottlesController < ApplicationController
   # GET /bottles/new
   def new
     if params[:wine].blank?
-      redirect_to wines_path, notice: 'Please use an existing wine or create a new one.'
+      redirect_to wines_and_estates_path, notice: 'Please use an existing wine or create a new one.'
     else
       @wine = Wine.find(params[:wine])
     end

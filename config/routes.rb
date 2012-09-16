@@ -42,9 +42,6 @@ VinoSocialis::Application.routes.draw do
         post 'unvalidate'
         get 'replace'
       end
-      collection do
-        get 'search'
-      end
     end
 
     resources :wines do
@@ -56,9 +53,6 @@ VinoSocialis::Application.routes.draw do
         get 'recommand'
         get 'unrecommand'
         get 'replace'
-      end
-      collection do
-        get 'search'
       end
     end
 
@@ -86,11 +80,16 @@ VinoSocialis::Application.routes.draw do
       end
     end
     
+    resources :wines_and_estates do
+      collection do
+        get 'search'
+      end
+    end
+    
     root :to => "home#index"
 
     match '/why', :to => "home#why"
     match '/about', :to => "home#about"
-    match '/wines_and_estates', :to => "wines_and_estates#index"
   end
 
   root :to => redirect('/fr/')

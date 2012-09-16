@@ -6,5 +6,5 @@
   <td><%= wine.user.name %></td>
   <td><%= link_to_edit edit_wine_path(wine) %></td>
   <td><%= link_to_validate validate_wine_path(wine) %></td>
-  <td><%= content_tag(:a, content_tag(:i, "", class: "icon-refresh") + ' Remplacer', :href => wines_path(replaced: wine.id)) %></td>
+  <td><%= content_tag(:a, content_tag(:i, "", class: "icon-refresh") + ' Remplacer', :href => wines_and_estates_path(replaced_wine: wine.id)) %></td>
 </tr>

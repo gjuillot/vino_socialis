@@ -92,8 +92,8 @@ module WinesHelper
           res += link_to_validate(validate_wine_path(wine))
         end
         
-        if can? :replace, Wine and @replaced
-          res += content_tag(:a, content_tag(:i, "", class: "icon-refresh") + ' Remplacer "' + @replaced.name + '"', :href => replace_wine_path(wine, replaced: @replaced.id))
+        if can? :replace, Wine and @replaced_wine
+          res += content_tag(:a, content_tag(:i, "", class: "icon-refresh") + ' Remplacer "' + @replaced_wine.name + '"', :href => replace_wine_path(wine, replaced: @replaced_wine.id))
         end
       end
       res += '</ul></div>'

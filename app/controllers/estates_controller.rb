@@ -2,31 +2,6 @@ class EstatesController < ApplicationController
   
   load_and_authorize_resource
   
-  # GET /estates
-  def index
-    if params[:replaced]
-      @replaced = Estate.find(params[:replaced])
-      @estates = Estate.where('id != ?', @replaced.id).order('random()').limit(20)
-    else
-      @estates = Estate.order('random()').limit(20)
-    end
-  end
-  
-  def search
-    if params[:q].empty?
-      redirect_to action: 'index'
-    else
-      @searched = params[:q]
-      if params[:replaced]
-        @replaced = Estate.find(params[:replaced])
-        @estates = Estate.where("name ILIKE ? AND id != ?", "%#{@searched}%", @replaced.id).order('name')
-      else
-        @estates = Estate.where("name ILIKE ?", "%#{@searched}%").order('name')
-      end
-      render action: 'index'
-    end
-  end
-
   # GET /estates/1
   def show
   end

@@ -19,7 +19,7 @@ class TastingsController < ApplicationController
   # GET /tastings/new
   def new
     if params[:wine].blank? && params[:consumption].blank?
-      redirect_to wines_path, notice: 'Please use an existing wine or create a new one.'
+      redirect_to wines_and_estates_path, notice: 'Please use an existing wine or create a new one.'
       return
     end
     if params[:consumption].blank?

@@ -1,9 +1,40 @@
 <% provide(:title, t("menu.discover.wines_estates")) %>
 
-<h1><%= t("menu.discover.wines_estates") %></h1>
+<% if notice %>
+  <div class="well well-small"><%= notice %></div>
+<% end %>
 
-<%= render file: 'app/views/estates/_list' %>
+<% if @replaced_estate %>
+  <div class="alert alert-error center"><strong>Replacement du producteur <%= "'#{@replaced_estate.name}' (id:#{@replaced_estate.id})" %></strong></div>
+<% end %>
+<% if @replaced_wine %>
+  <div class="alert alert-error center"><strong>Replacement du vin <%= "'#{@replaced_wine.estate.name} - #{@replaced_wine.name}' (id:#{@replaced_wine.id})" %></strong></div>
+<% end %>
 
-<br /><br />
+<%= form_tag search_wines_and_estates_path, method: 'get', class: 'form-search form-inline center' do %>
+  <%= hidden_field_tag 'replaced_estate', @replaced_estate.id if @replaced_estate %>
+  <%= hidden_field_tag 'replaced_wine', @replaced_wine.id if @replaced_wine %>
+  <%= text_field_tag :q, @searched, class: 'search-query' %>
+  <%= submit_tag t("wines_and_estates.search"), class: "btn btn-primary" %>
+<% end %>
 
-<%= render file: 'app/views/wines/_list' %>
+<br />
+
+<h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
+<p>
+  <% if @estates.empty? %>
+    <%= t("estate.no_matching") %><br />
+  <% else %>
+    <table class="table table-striped table-condensed">
+      <%= render @estates %>
+    </table>
+  <% end %>
+  <%= link_to t("estate.suggest"), new_estate_path %>
+</p>
+
+<br />
+
+<h3><%= @searched.nil? ? t("wine.random") : t("wine.matching") %></h3>
+<table class="table table-striped table-condensed">
+  <%= render @wines %>
+</table>

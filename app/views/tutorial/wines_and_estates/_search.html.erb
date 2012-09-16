@@ -3,22 +3,22 @@
     ×
   </button>
   <p>
-    <strong>Vins</strong>
+    <strong>Producteurs et vins</strong>
   </p>
   <p>
     <ul>
       <li>
-        Voilà la liste des vins correspondants à votre recherche.
+        Voilà la liste des producteurs et vins correspondants à votre recherche.
       </li>
       <li>
         Cliquez sur le vin de votre choix, par exemple <strong><%= @wines.first.name %></strong> pour avoir plus d'informations.
       </li>
       <li>
-        Le bouton Je vous invite également à tester le bouton
+        Le bouton
         <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
           Actions <span class="caret"></span>
         </button>
-        vous permet de faire les actions suivantes :
+        sur un vin vous permet de faire les actions suivantes :
         <ul>
           <li>
             <strong><%= content_tag(:i, "", class: "icon-eye-open") + t('icon.show') %></strong> vous permet d'avoir plus d'informations sur le vin.
@@ -35,7 +35,7 @@
         </ul>
       </li>
       <li>
-        Vous ne trouvez pas le vin que vous cherchez ? <strong><%= t("wine.suggest") %></strong>, qui sera par la suite contrôlée par nos modérateurs.
+        Vous ne trouvez pas le producteur recherché ? <strong><%= t("estate.suggest") %></strong> !
       </li>
     </ul>
   </p>

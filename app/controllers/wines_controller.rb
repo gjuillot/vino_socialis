@@ -2,31 +2,6 @@ class WinesController < ApplicationController
   
   load_and_authorize_resource
   
-  # GET /wines
-  def index
-    if params[:replaced]
-      @replaced = Wine.find(params[:replaced])
-      @wines = Wine.where('id != ?', @replaced.id).order('random()').limit(20)
-    else
-      @wines = Wine.order('random()').limit(10)
-    end
-  end
-  
-  def search
-    if params[:q].empty?
-      redirect_to action: 'index'
-    else
-      @searched = params[:q]
-      if params[:replaced]
-        @replaced = Wine.find(params[:replaced])
-        @wines = Wine.where("name ILIKE ? AND id != ?", "%#{@searched}%", @replaced.id).order('name')
-      else
-        @wines = Wine.where("name ILIKE ?", "%#{@searched}%").order('name').page(params[:page]).per(10)
-      end
-      render action: 'index'
-    end
-  end
-
   # GET /wines/1
   def show
   end
@@ -34,7 +9,7 @@ class WinesController < ApplicationController
   # GET /wines/new
   def new
     if params[:estate_id].blank?
-      redirect_to estates_path, notice: 'Please use an existing estate or create a new one.'
+      redirect_to wines_and_estates_path, notice: 'Please use an existing estate or create a new one.'
     else
       @estate_id = params[:estate_id]
       @estate_name = params[:estate_name]

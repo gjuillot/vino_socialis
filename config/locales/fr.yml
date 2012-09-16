@@ -107,6 +107,7 @@ fr:
     edit: "Modifier %{estate_name}"
     random: "Producteurs au hasard"
     matching: "Producteurs correspondants à la recherche"
+    no_matching: "Aucun producteur trouvé"
     search: "Rechercher"
     suggest: "Proposer une nouvelle fiche producteur"
     status: "Status de la fiche"
@@ -179,6 +180,7 @@ fr:
     edit: "Modifier %{wine_name}"
     random: "Vins au hasard"
     matching: "Vins correspondants à la recherche"
+    no_matching: "Aucun vin trouvé"
     search: "Rechercher"
     suggest: "Proposer une nouvelle fiche vin"
     edit: "Modifier %{wine_name}"
@@ -231,7 +233,8 @@ fr:
       alternated_cabinet: Clayette alternée
       front_back_cellar: Armoire avec avant/arrière
       front_back_cellar_2: Autre armoire avec avant/arrière
-      
+  wines_and_estates:
+    search: "Rechercher"
 
   helpers:
     label:
