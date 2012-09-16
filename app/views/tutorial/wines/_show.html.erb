@@ -1,0 +1,45 @@
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">
+    ×
+  </button>
+  <p>
+    <strong>Fiche vin</strong>
+  </p>
+  <p>
+    <ul>
+      <li>
+        Voilà la fiche pour le vin <strong><%= wine_name @wine, estate: true, area: true %></strong>
+      </li>
+      <li>
+        A gauche des informations sur le producteur (adresse, site internet, contacts)
+      </li>
+      <li>
+        A droite, des informations sur ce vin.
+      </li>
+      <li>
+        Le bouton Je vous invite également à tester le bouton
+        <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+          Actions <span class="caret"></span>
+        </button>
+        vous permet de faire les actions suivantes :
+        <ul>
+          <li>
+            <strong><%= content_tag(:i, "", class: "icon-eye-open") + t('icon.show') %></strong> vous permet d'avoir plus d'informations sur le vin.
+          </li>
+          <li>
+            <strong><%= content_tag(:i, "", class: "icon-list") + t('icon.wine_tastings') %></strong> vous permet de voir ce que pensent les autres utilisateurs de ce vin.
+          </li>
+          <li>
+            <strong><%= content_tag(:i, "", class: "icon-glass") + t('icon.taste') %></strong> vous permet de donner vos impressions après avoir goûter un vin.
+          </li>
+          <li>
+            <strong><%= content_tag(:i, "", class: "icon-shopping-cart") + t('icon.encave') %></strong> vous permet d'enregistrez sur Vino Socialis un vin que vous possédez. Vous
+          </li>
+        </ul>
+      </li>
+      <li>
+        Retrouvez les vins que vous possédez ou que vous avez dégusté dans le menu <strong><%= t('menu.track.title') %></strong>
+      </li>
+    </ul>
+  </p>
+</div>

@@ -22,6 +22,7 @@
 	</p>
 	
 	<p>
+    <%= render 'tutorial/validation' %>
 	  <b><%= t("estate.status") %>:</b>
 	  <% if @estate.validated? %>
 	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>

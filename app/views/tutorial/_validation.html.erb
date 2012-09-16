@@ -1,0 +1,15 @@
+<% if user_signed_in? and current_user.tutorial %>
+  <div class="alert">
+    <button type="button" class="close" data-dismiss="alert">
+      ×
+    </button>
+    <p>
+      <strong>Validation</strong>
+    </p>
+    <p>
+      Les fiches producteur et vin entrées par les utilisateurs sont ensuite contrôlées par des modérateurs.
+      <br />
+      Ce contrôle vise à éviter que plusieurs fiches n'existent pour le même producteur/vin, ou que des données erronées soient entrées.
+    </p>
+  </div>
+<% end %>

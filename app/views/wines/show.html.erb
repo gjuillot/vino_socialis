@@ -58,6 +58,7 @@
     <% end %>
 	
 	<p>
+	  <%= render 'tutorial/validation' %>
 	  <b><%= t("wine.status") %>:</b>
 	  <% if @wine.validated? %>
 	    <i class="icon-ok-sign"></i> <%= t("wine.validated") %>

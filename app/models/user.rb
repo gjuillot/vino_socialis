@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   acts_as_messageable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :locale, :role
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :locale, :role, :tutorial
   
   default_scope order: 'name ASC'
   

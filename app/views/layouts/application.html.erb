@@ -33,6 +33,10 @@
   	</div>
   </header>
   <div class="container">
+    <% if user_signed_in? and current_user.tutorial %>
+      <%= render "tutorial/#{params[:controller]}/#{params[:action]}" rescue nil %>
+    <% end %>
+    
     <%= yield %>
     
     <footer class="footer">
