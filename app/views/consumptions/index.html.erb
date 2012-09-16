@@ -3,6 +3,7 @@
 <% if @consumptions.nil? %>
   <%= t('consumptions.none') %>
 <% else %>
+  <%= paginate @consumptions %>
   <table class="table table-striped table-condensed">
     <%= render @consumptions %>
   </table>

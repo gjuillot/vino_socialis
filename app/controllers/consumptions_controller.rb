@@ -4,7 +4,7 @@ class ConsumptionsController < ApplicationController
   
   # GET /consumptions
   def index
-    @consumptions = Consumption.where('user_id = ?', current_user.id)
+    @consumptions = Consumption.where('user_id = ?', current_user.id).page(params[:page]).per(10)
   end
 
   # GET /consumptions/1
