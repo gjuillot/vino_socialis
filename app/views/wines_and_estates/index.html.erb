@@ -1,5 +1,76 @@
 <% provide(:title, t("menu.discover.wines_estates")) %>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("select#region_id").change(function(){
+            var id_value_string = $(this).val();
+            if (id_value_string == "") {
+                // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
+                //$("select#area_id option").remove();
+                //var row = "<option value=\"" + "" + "\">" + "" + "</option>";
+                //$(row).appendTo("select#area_id");
+                $("select#area_id").hide();
+            }
+            else {
+                // Send the request and update sub category dropdown
+                $.ajax({
+                    dataType: "json",
+                    cache: false,
+                    url: '/areas/for_region_id/' + id_value_string,
+                    timeout: 2000,
+                    error: function(XMLHttpRequest, errorTextStatus, error){
+                        alert("Failed to submit : "+ errorTextStatus+" ;"+error);
+                    },
+                    success: function(data){                    
+                        // Clear all options from sub category select
+                        $("select#area_id option").remove();
+                        //put in a empty default line
+                        var row = "<option value=\"\"><%= t('helpers.label.wine.select_area') %></option>";
+                        $(row).appendTo("select#area_id");                        
+                        // Fill sub category select
+                        $.each(data, function(i, j){
+                            row = "<option value=\"" + j.id + "\">" + j.name + "</option>";  
+                            $(row).appendTo("select#area_id");                    
+                        });
+                        $("select#area_id").show();
+                     }
+                });
+            };
+        });
+        
+      $("input#q").keyup(function(){
+        if ($(this).val().length > 0) {
+          $("select#scope").show();
+        } else {
+          $("select#scope").hide();
+        }
+      });
+      
+      $("select#scope").change(function(){
+        if($(this).val() == 'wine') {
+          $("select#region_id").show();
+          if ($("select#region_id").val() != '') {
+            $("select#area_id").show();
+          }
+        } else {
+          $("select#region_id").hide();
+          $("select#area_id").hide();
+        }
+      });
+      
+      <% unless @searched %>
+        $("select#scope").hide();
+      <% end %>
+      <% unless params[:scope] == 'wine' %>
+        $("select#region_id").hide();
+      <% end %>
+      <% unless @region %>
+        $("select#area_id").hide();
+      <% end %>
+    });
+</script>
+
+
 <% if notice %>
   <div class="well well-small"><%= notice %></div>
 <% end %>
@@ -15,26 +86,37 @@
   <%= hidden_field_tag 'replaced_estate', @replaced_estate.id if @replaced_estate %>
   <%= hidden_field_tag 'replaced_wine', @replaced_wine.id if @replaced_wine %>
   <%= text_field_tag :q, @searched, class: 'search-query' %>
+  <%= select_tag "scope", options_for_select([['Producteurs et vins', 'both'], ['Vins uniquement', 'wine'], ['Producteurs uniquement', 'estate']], :selected => params[:scope]) %>
+  <%= grouped_collection_select :region, :id, @countries, :regions, :name, :id, :name, options = { prompt: t('helpers.label.wine.select_country_and_region')}, html_options = {selected: @region_name} %>
+  <%= select_tag :area_id, options_for_select(@areas.map{|a| [a.name, a.id]}, :selected => @area_id), options = { prompt: t('helpers.label.wine.select_area') } %>
   <%= submit_tag t("wines_and_estates.search"), class: "btn btn-primary" %>
 <% end %>
 
 <br />
 
-<h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
-<p>
-  <% if @estates.empty? %>
-    <%= t("estate.no_matching") %><br />
-  <% else %>
+<% if @display_estate %>
+  <h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
+  <p>
+    <% if @estates.empty? %>
+      <%= t("estate.no_matching") %><br />
+    <% else %>
+      <table class="table table-striped table-condensed">
+        <%= render @estates %>
+      </table>
+    <% end %>
+    <%= link_to t("estate.suggest"), new_estate_path %>
+  </p>
+  
+  <br />
+<% end %>
+
+<% if @display_wine %>
+  <h3><%= @searched.nil? ? t("wine.random") : t("wine.matching") %></h3>
+    <% if @wines.empty? %>
+      <%= t("wine.no_matching") %><br />
+    <% else %>
     <table class="table table-striped table-condensed">
-      <%= render @estates %>
+      <%= render @wines %>
     </table>
   <% end %>
-  <%= link_to t("estate.suggest"), new_estate_path %>
-</p>
-
-<br />
-
-<h3><%= @searched.nil? ? t("wine.random") : t("wine.matching") %></h3>
-<table class="table table-striped table-condensed">
-  <%= render @wines %>
-</table>
+<% end %>
