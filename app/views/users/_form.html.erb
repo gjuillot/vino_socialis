@@ -35,6 +35,14 @@
     </div>
   
     <div class="control-group">
+      <%= f.label :date_format, :class => 'control-label' %>
+      <div class="controls">
+        <% dates = [:default, :short, :long].map {|f| [l(Date.today, format: f), f.inspect]} %>
+        <%= select_tag "user[date_format]", options_for_select(dates, :selected => @user.date_format) %>
+      </div>
+    </div>
+  
+    <div class="control-group">
       <%= f.label :tutorial, :class => 'control-label' %>
       <div class="controls">
       <%= select_tag "user[tutorial]", options_for_select([['Activé', 'true'], ['Désactivé', 'false']], :selected => @user.tutorial) %>

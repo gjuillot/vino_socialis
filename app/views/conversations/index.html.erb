@@ -12,7 +12,7 @@
     <tr>
       <td><%= link_to conversation.last_sender.name, user_path(conversation.last_sender) %></td>
       <td><%= link_to conversation.subject, conversation_path(conversation) %></td>
-      <td><%= conversation.updated_at %></td>
+      <td><%= formated_date(conversation.updated_at) %></td>
       <td><%= link_to_destroy conversation %></td>
     </tr>
   <% end %>

@@ -15,7 +15,7 @@
 	  <dd><%= t("bottles.remaining_and_initial", :remaining => @bottle.remaining_quantity, :initial => @bottle.initial_quantity) %></dd>
 	
 	  <dt><%= t("helpers.label.bottle.date")%></dt>
-	  <dd><%= @bottle.date %></dd>
+	  <dd><%= formated_date(@bottle.date) %></dd>
   
     <dt><%= t("helpers.label.bottle.channel")%></dt>
     <dd><%= t(@bottle.channel, scope: 'bottles.channels') %></dd>

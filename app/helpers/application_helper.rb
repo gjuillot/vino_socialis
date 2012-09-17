@@ -93,4 +93,10 @@ module ApplicationHelper
     letters = ('A'..'Z').to_a  + ('AA'..'ZZ').to_a
     letters[total_row * wine_rack.total_columns + total_column]
   end
+  
+  def formated_date(date)
+    return l(date, format: :short) if user_signed_in? && current_user.date_format == ':short'
+    return l(date, format: :long) if user_signed_in? && current_user.date_format == ':long'
+    return l(date)
+  end
 end

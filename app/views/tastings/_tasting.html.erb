@@ -9,7 +9,7 @@
     <%= star_rating tasting.note, 5 %>
   </td>
   <td>
-  	<%= tasting.date %>
+  	<%= formated_date(tasting.date) %>
   </td>
   <td>
   	<%= tasting.user.name %>
