@@ -3,7 +3,7 @@
     <%= wine_name tasting.wine, color: true, estate: true, area: true, html: true %>
   </td>
   <td>
-    <%= tasting.vintage %>
+    <%= formated_vintage(tasting.vintage) %>
   </td>
   <td>
     <%= star_rating tasting.note, 5 %>

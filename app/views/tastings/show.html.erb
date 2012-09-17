@@ -8,7 +8,7 @@
 
 <p>
   <b><%= t("helpers.label.tasting.vintage") %>:</b>
-  <%= @tasting.vintage %>
+  <%= formated_vintage(@tasting.vintage, short = false) %>
 </p>
 
 <p>

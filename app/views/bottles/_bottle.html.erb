@@ -10,7 +10,7 @@
     <%= wine_color_image bottle.wine %>
   </td>
   <td id="vintage_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
-    <span><%= bottle.vintage %></span>
+    <span><%= formated_vintage(bottle.vintage) %></span>
   </td>
   <td id="remaining_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
   	<span><%= bottle.quantity %></span> (<%= bottle.volume %>)

@@ -6,7 +6,7 @@
   <div class="span6">
 	<dl class="dl-horizontal">
 	  <dt><%= t("helpers.label.bottle.vintage")%></dt>
-	  <dd><%= @bottle.vintage %></dd>
+	  <dd><%= formated_vintage(@bottle.vintage, false) %></dd>
 	
 	  <dt><%= t("helpers.label.bottle.volume")%></dt>
 	  <dd><%= @bottle.volume %></dd>

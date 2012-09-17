@@ -15,7 +15,7 @@
     <%= wine_color_image consumption.bottle.wine %>
   </td>
   <td>
-    <%= consumption.bottle.vintage %>
+    <%= formated_vintage(consumption.bottle.vintage) %>
   </td>
   <td>
   	<%= t(consumption.reasons, scope: 'consumptions.reasons')%>

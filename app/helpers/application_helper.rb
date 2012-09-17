@@ -103,4 +103,8 @@ module ApplicationHelper
   def formated_price(price, form = false)
     form ? number_with_precision(price, :precision => 2, :separator => '.') : number_to_currency(price, :unit => current_user.currency)
   end
+  
+  def formated_vintage(vintage, short = true)
+    vintage > 0 ? vintage : (short ? '-' : t('helpers.label.bottle.no_vintage'))
+  end
 end
