@@ -1,14 +1,22 @@
 <% provide(:title, t("menu.track.my_racks")) %>
 
+<script type="text/javascript">
+$(document).ready(function() {
+  $('tr').click(function() {
+    window.location = $(this).find("input").val();
+  });
+});
+</script>
+
 <h1><%= t("menu.track.my_racks") %></h1>
 
 <table class="table table-condensed table-striped">
   <% @wine_racks.each do |r| %>
     <tr>
-      <td><%= link_to r.name, r %></td>
-      <td><%= t 'wine_rack.content_and_capacity', content: r.content, capacity: r.capacity %></td>
+      <td style="vertical-align:middle;"><%= r.name %><input type="hidden" value="<%= wine_rack_path(r) %>" /></td>
+      <td style="vertical-align:middle;"><%= t 'wine_rack.content_and_capacity', content: r.content, capacity: r.capacity %></td>
       <td class="span5">
-      	<div class="progress progress-info">
+      	<div class="progress" style="margin-bottom: 0px;">
           <div class="bar" style="width: <%= 100*r.content/r.capacity %>%;"></div>
       	</div>
       </td>
