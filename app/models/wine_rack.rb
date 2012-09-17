@@ -8,6 +8,8 @@ class WineRack < ActiveRecord::Base
   validates :rows, :numericality => { :only_integer => true, :greater_than => 0 }
   validates :columns, :numericality => { :only_integer => true, :greater_than => 0 }
   
+  default_scope order: 'name ASC'
+  
   def content
     WineRackPosition.where('wine_rack_id = ?', id).count
   end
