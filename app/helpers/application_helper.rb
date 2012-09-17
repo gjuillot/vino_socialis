@@ -99,4 +99,8 @@ module ApplicationHelper
     return l(date, format: :long) if user_signed_in? && current_user.date_format == ':long'
     return l(date)
   end
+  
+  def formated_price(price, form = false)
+    form ? number_with_precision(price, :precision => 2, :separator => '.') : number_to_currency(price, :unit => current_user.currency)
+  end
 end

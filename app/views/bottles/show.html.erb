@@ -21,7 +21,7 @@
     <dd><%= t(@bottle.channel, scope: 'bottles.channels') %></dd>
   
     <dt><%= t("helpers.label.bottle.price")%></dt>
-    <dd><%= @bottle.price %> €</dd>
+    <dd><%= formated_price(@bottle.price) %></dd>
 	
 	  <dt><%= t("helpers.label.bottle.comments")%></dt>
 	  <dd><%= @bottle.comments %></dd>

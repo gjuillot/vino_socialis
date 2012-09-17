@@ -96,7 +96,7 @@
     
     var price = $("input#price").val();
     if (price.length > 0) {
-      $("td[id*=price] span").each(function() {
+      $("td[id*=price] span#raw").each(function() {
         var wine_price = parseFloat($(this).html());
         if (price.charAt(0) == '<') {
           if (price.length > 1) {

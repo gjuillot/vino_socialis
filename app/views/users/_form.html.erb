@@ -43,6 +43,14 @@
     </div>
   
     <div class="control-group">
+      <%= f.label :currency, :class => 'control-label' %>
+      <div class="controls">
+        <% currencies = ['€', '$', '£'].map {|c| [c, c]} %>
+        <%= select_tag "user[currency]", options_for_select(currencies, :selected => @user.currency) %>
+      </div>
+    </div>
+  
+    <div class="control-group">
       <%= f.label :tutorial, :class => 'control-label' %>
       <div class="controls">
       <%= select_tag "user[tutorial]", options_for_select([['Activé', 'true'], ['Désactivé', 'false']], :selected => @user.tutorial) %>

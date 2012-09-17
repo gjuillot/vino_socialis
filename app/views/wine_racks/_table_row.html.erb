@@ -4,5 +4,5 @@
   <td><%= full_area_name bottle.wine.area, html: true, separator2: raw('<br/>') %></td>
   <td style="text-align:center;vertical-align:middle;"><%= wine_color_image bottle.wine %></td>
   <td style="text-align:center;vertical-align:middle;"><%= bottle.vintage %></td>
-  <td style="text-align:center;vertical-align:middle;"><%= bottle.price %> €</td>
+  <td style="text-align:center;vertical-align:middle;"><%= formated_price(bottle.price) %></td>
 </tr>

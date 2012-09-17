@@ -46,7 +46,9 @@
 	  <div class="control-group">
         <%= f.label :price, :class => 'control-label' %>
 	    <div class="controls">
-          <%= f.text_field :price, value: (@bottle.price ? @bottle.price : '0') %>
+	      <div class="input-prepend">
+          <span class="add-on"><%= current_user.currency %></span><%= f.text_field :price, value: formated_price(@bottle.price ? @bottle.price : '0', form = true) %>
+        </div>
 	    </div>
 	  </div>
 	

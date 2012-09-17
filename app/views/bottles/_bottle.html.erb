@@ -16,6 +16,6 @@
   	<span><%= bottle.quantity %></span> (<%= bottle.volume %>)
   </td>
   <td id="price_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
-  	<span><%= bottle.price %></span> €
+  	<span id="raw" style="visibility: hidden;position: absolute;"><%= bottle.price%></span><span><%= formated_price(bottle.price) %></span>
   </td>
 </tr>

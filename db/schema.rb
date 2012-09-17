@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120917130729) do
+ActiveRecord::Schema.define(:version => 20120917140450) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -177,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20120917130729) do
     t.string   "locale"
     t.boolean  "tutorial",               :default => true
     t.string   "date_format",            :default => "default"
+    t.string   "currency",               :default => "€"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
