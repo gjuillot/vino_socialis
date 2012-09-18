@@ -309,6 +309,10 @@
       "Vin de Pays d'Oc",
       'Côtes du Roussillon - Les Aspres'
     ],
+    'Lorraine' => [
+      'Côtes-de-Toul',
+      'Moselle'
+    ],
     'Provence' => [
       'Bandol',
       'Bellet',
