@@ -31,6 +31,15 @@
       </div>
     </div>
     <% end %>
+    
+    <% unless user_signed_in? %>
+    <div class="control-group">
+      <%= label_tag 'mail', t('conversation.mail'), class: 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag 'mail' %>
+      </div>
+    </div>
+    <% end %>
 
     <div class="control-group">
       <%= label_tag 'body', t('conversation.body'), class: 'control-label' %>

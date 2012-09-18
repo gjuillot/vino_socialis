@@ -39,11 +39,22 @@ class ConversationsController < ApplicationController
       params[:subject] = params[:admin_tag] + params[:subject]
     end
     if params[:page]
-      params[:body] = params[:page] + '<br />' + params[:body]
+      if params[:mail]
+        params[:body] = params[:page] + '<br />' + params[:mail] + '<br />' + params[:body]
+      else
+        params[:body] = params[:page] + '<br />' + params[:body]
+      end
     end
     
-    current_user.send_message(@users, params[:body], params[:subject])
-    redirect_to @conversation, notice: "Message was successfully sent."
+    if user_signed_in?
+      current_user.send_message(@users, params[:body], params[:subject])
+      flash[:notice] = "Message was successfully sent."
+      redirect_to @conversation
+    else
+      User.find(1).send_message(@users, params[:body], params[:subject])
+      flash[:notice] = "Message was successfully sent."
+      redirect_to action: 'index', controller: 'home'
+    end
   end
 
   def update
