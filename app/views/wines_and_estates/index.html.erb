@@ -97,6 +97,7 @@
 <% if @display_estate %>
   <h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
   <p>
+    <%= paginate @estates, :param_name => "estate_page" unless @searched.nil? %>
     <% if @estates.empty? %>
       <%= t("estate.no_matching") %><br />
     <% else %>
@@ -112,6 +113,7 @@
 
 <% if @display_wine %>
   <h3><%= @searched.nil? ? t("wine.random") : t("wine.matching") %></h3>
+    <%= paginate @wines, :param_name => "wine_page" unless @searched.nil? %>
     <% if @wines.empty? %>
       <%= t("wine.no_matching") %><br />
     <% else %>

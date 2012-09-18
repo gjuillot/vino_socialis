@@ -31,15 +31,16 @@ class WinesAndEstatesController < ApplicationController
     @searched = params[:q]
     
     if @display_estate
-      @estates = Estate.where("name ILIKE ?", "%#{@searched}%").order('name')
+      @estates = Estate.where("name LIKE ?", "%#{@searched}%").order('name')
       if params[:replaced_estate]
         @replaced_estate = Estate.find(params[:replaced_estate])
         @estates = @estates.where('"wines".id != ?', @replaced_estate.id).where('"wines".validation = ?' , true)
       end
+      @estates = @estates.order('name ASC').page(params[:estate_page]).per(10)
     end
     
     if @display_wine
-      @wines = Wine.joins(:estate).where('"wines".name ILIKE ? OR "estates".name ILIKE ?', "%#{@searched}%", "%#{@searched}%").order('"estates".name, "wines".name')
+      @wines = Wine.joins(:estate).where('"wines".name LIKE ? OR "estates".name LIKE ?', "%#{@searched}%", "%#{@searched}%").order('"estates".name, "wines".name')
       if params[:replaced_wine]
         @replaced_wine = Wine.find(params[:replaced_wine])
         @wines = @wines.where('"wines".id != ?', @replaced_wine.id).where('"wines".validation = ?' , true)
@@ -57,6 +58,7 @@ class WinesAndEstatesController < ApplicationController
           @wines = @wines.joins(:area).where('"areas".region_id = ?', @region_id)
         end
       end
+      @wines = @wines.order('"estates".name ASC, "wines".name ASC').page(params[:wine_page]).per(10)
     end
 
     @countries = Country.all
