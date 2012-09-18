@@ -14,9 +14,11 @@ class BottlesController < ApplicationController
     end
     
     if params[:search_attribute] == 'wine'
-      @bottles = @bottles.joins(:wine => :estate).where('"estates".name ILIKE "%' + params[:search_value] + '%" OR "wines".name ILIKE "%' + params[:search_value] + '%"')
+      searched = "%" + params[:search_value] + "%"
+      @bottles = @bottles.joins(:wine => :estate).where('"estates".name ILIKE ? OR "wines".name ILIKE ?', searched, searched)
     elsif params[:search_attribute] == 'area'
-      @bottles = @bottles.joins(:wine => {:area => {:region => :country}} ).where('"countries".name ILIKE "%' + params[:search_value] + '%" OR "regions".name ILIKE "%' + params[:search_value] + '%" OR "areas".name ILIKE "%' + params[:search_value] + '%"')
+      searched = "%" + params[:search_value] + "%"
+      @bottles = @bottles.joins(:wine => {:area => {:region => :country}} ).where('"countries".name ILIKE ? OR "regions".name ILIKE ? OR "areas".name ILIKE ?', searched, searched, searched)
     end
     
     if params[:order_attribute] == 'wine'
