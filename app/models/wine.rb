@@ -11,6 +11,14 @@ class Wine < ActiveRecord::Base
   validates :area_id, :presence => true
   validates :wine_color, :presence => true
   
+  scope :random, order('random()').limit(5)
+  scope :not, lambda{|id| where('id != ?', id)}
+  scope :validated, where('validation = ?' , true)
+  scope :like, lambda {|name| joins(:estate).where('"wines".name ILIKE ? OR "estates".name ILIKE ?', "%#{name}%", "%#{name}%")}
+  scope :on_page, lambda {|page| order('"estates".name ASC, "wines".name ASC').page(page).per(10)}
+  scope :area, lambda {|id| where('"wines".area_id == ?', id)}
+  scope :region, lambda {|id| joins(:area).where('"areas".region_id = ?', id)}
+  
   
   def validated?
     validation

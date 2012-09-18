@@ -4,31 +4,28 @@ class BottlesController < ApplicationController
   
   # GET /bottles
   def index
-    @bottles = Bottle.where('bottles.user_id = ? AND remaining_quantity > 0', current_user.id)
+    @bottles = Bottle.remain(current_user)
     
     if params[:wine_rack_id] && (params[:wine_rack_id] != '0')
-      @bottles = @bottles.joins(:wine_rack_positions).where('"wine_rack_positions".wine_rack_id = ?', Integer(params[:wine_rack_id])).group('"bottles".id')
-      @bottles = @bottles.select('bottles.*, count("wine_rack_positions".id) AS quantity')
+      @bottles = @bottles.rack(Integer(params[:wine_rack_id])).in_rack_as_quantity
     else
-      @bottles = @bottles.select('*, remaining_quantity AS quantity')
+      @bottles = @bottles.remaining_as_quantity
     end
     
     if params[:search_attribute] == 'wine'
-      searched = "%" + params[:search_value] + "%"
-      @bottles = @bottles.joins(:wine => :estate).where('"estates".name ILIKE ? OR "wines".name ILIKE ?', searched, searched)
+      @bottles = @bottles.name_like(params[:search_value])
     elsif params[:search_attribute] == 'area'
-      searched = "%" + params[:search_value] + "%"
-      @bottles = @bottles.joins(:wine => {:area => {:region => :country}} ).where('"countries".name ILIKE ? OR "regions".name ILIKE ? OR "areas".name ILIKE ?', searched, searched, searched)
+      @bottles = @bottles.area_like(params[:search_value])
     end
     
     if params[:order_attribute] == 'wine'
-      @bottles = @bottles.joins(:wine => :estate).order('"estates".name ' + params[:order_sens] + ', "wines".name ' + params[:order_sens])
+      @bottles = @bottles.wine_order(params[:order_sens])
     elsif params[:order_attribute] == 'area'
-      @bottles = @bottles.joins(:wine => {:area => {:region => :country}} ).order('"countries".name ' + params[:order_sens] + ', "regions".name ' + params[:order_sens] + ', "areas".name ' + params[:order_sens])
+      @bottles = @bottles.area_order(params[:order_sens])
     elsif params[:order_attribute] == 'color'
-      @bottles = @bottles.joins(:wine).order('"wines".wine_color ' + params[:order_sens])
+      @bottles = @bottles.color_order(params[:order_sens])
     elsif params[:order_attribute]
-      @bottles = @bottles.order(params[:order_attribute] + ' ' + params[:order_sens])
+      @bottles = @bottles.other_order(params[:order_attribute], params[:order_sens])
     end
     
     @racks = WineRack.where('user_id = ?', current_user.id)

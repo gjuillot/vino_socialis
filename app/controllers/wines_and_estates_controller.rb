@@ -4,15 +4,15 @@ class WinesAndEstatesController < ApplicationController
   def index
     if params[:replaced_estate]
       @replaced_estate = Estate.find(params[:replaced_estate])
-      @estates = Estate.where('id != ?', @replaced_estate.id).where('validation = ?' , true).order('random()').limit(5)
+      @estates = Estate.random.not(params[:replaced_estate]).validated
     else
-      @estates = Estate.order('random()').limit(5)
+      @estates = Estate.random
     end
     if params[:replaced_wine]
       @replaced_wine = Wine.find(params[:replaced_wine])
-      @wines = Wine.where('id != ?', @replaced_wine.id).where('validation = ?' , true).order('random()').limit(5)
+      @wines = Wine.random.not(params[:replaced_wine]).validated
     else
-      @wines = Wine.order('random()').limit(5)
+      @wines = Wine.random
     end
     @countries = Country.all
     @areas = []
@@ -31,19 +31,19 @@ class WinesAndEstatesController < ApplicationController
     @searched = params[:q]
     
     if @display_estate
-      @estates = Estate.where("name LIKE ?", "%#{@searched}%").order('name')
+      @estates = Estate.like(@searched)
       if params[:replaced_estate]
         @replaced_estate = Estate.find(params[:replaced_estate])
-        @estates = @estates.where('"wines".id != ?', @replaced_estate.id).where('"wines".validation = ?' , true)
+        @estates = @estates.not(params[:replaced_estate]).validated
       end
-      @estates = @estates.order('name ASC').page(params[:estate_page]).per(10)
+      @estates = @estates.on_page(params[:estate_page])
     end
     
     if @display_wine
-      @wines = Wine.joins(:estate).where('"wines".name LIKE ? OR "estates".name LIKE ?', "%#{@searched}%", "%#{@searched}%").order('"estates".name, "wines".name')
+      @wines = Wine.like(@searched)
       if params[:replaced_wine]
         @replaced_wine = Wine.find(params[:replaced_wine])
-        @wines = @wines.where('"wines".id != ?', @replaced_wine.id).where('"wines".validation = ?' , true)
+        @wines = @wines.not(params[:replaced_wine]).validated
       end
       
       if params[:scope] == 'wine'
@@ -51,14 +51,14 @@ class WinesAndEstatesController < ApplicationController
           @region_id = params[:region][:id]
           @area_id = params[:area_id]
           @region = Region.find(@region_id)
-          @wines = @wines.where('"wines".area_id = ?', @area_id)
+          @wines = @wines.area(@area_id)
         elsif !params[:region][:id].blank?
           @region_id = params[:region][:id]
           @region = Region.find(@region_id)
-          @wines = @wines.joins(:area).where('"areas".region_id = ?', @region_id)
+          @wines = @wines.region(@region_id)
         end
       end
-      @wines = @wines.order('"estates".name ASC, "wines".name ASC').page(params[:wine_page]).per(10)
+      @wines = @wines.on_page(params[:wine_page])
     end
 
     @countries = Country.all
