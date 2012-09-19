@@ -92,7 +92,7 @@ VinoSocialis::Application.routes.draw do
     match '/about', :to => "home#about"
   end
 
-  root :to => redirect('/fr/')
+  match '', :to => redirect { |p, r| p[:locale] ? "/#{p[:locale]}/" : '/fr/' }
   
   match '/areas/for_region_id/:region_id' => 'areas#for_region_id'
   
