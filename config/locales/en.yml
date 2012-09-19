@@ -249,8 +249,9 @@ en:
         remaining_quantity: "Remaining quantity"
         date: "Date"
         channel: "Channel"
+        channel_comments: "Channel comments"
         price: "Price"
-        comments: "Comments"
+        comments: "Comments / suggestions"
       consumption:
         bottle: "Bottle"
         quantity: "Quantity"

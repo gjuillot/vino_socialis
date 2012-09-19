@@ -42,6 +42,13 @@
           <%= select_tag 'bottle[channel]', options_for_select(channels, :selected => (@bottle.channel ? @bottle.channel : 'producer')) %>
 	    </div>
 	  </div>
+  
+    <div class="control-group">
+        <%= f.label :channel_comments, :class => 'control-label' %>
+      <div class="controls">
+          <%= f.text_field :channel_comments %>
+      </div>
+    </div>
 	
 	  <div class="control-group">
         <%= f.label :price, :class => 'control-label' %>
@@ -55,7 +62,7 @@
 	  <div class="control-group">
         <%= f.label :comments, :class => 'control-label' %>
 	    <div class="controls">
-          <%= f.text_field :comments %>
+          <%= f.text_area :comments, :rows => 3 %>
 	    </div>
 	  </div>
     </div>

@@ -247,8 +247,9 @@ fr:
         remaining_quantity: "Reste"
         date: "Date"
         channel: "Canal"
+        channel_comments: "Précision canal"
         price: "Prix"
-        comments: "Commentaires"
+        comments: "Commentaires / suggestions"
       consumption:
         bottle: "Bouteille"
         quantity: "Quantité"

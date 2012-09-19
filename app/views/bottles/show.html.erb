@@ -20,6 +20,9 @@
     <dt><%= t("helpers.label.bottle.channel")%></dt>
     <dd><%= t(@bottle.channel, scope: 'bottles.channels') %></dd>
   
+    <dt><%= t("helpers.label.bottle.channel_comments")%></dt>
+    <dd><%= @bottle.channel_comments %></dd>
+  
     <dt><%= t("helpers.label.bottle.price")%></dt>
     <dd><%= formated_price(@bottle.price) %></dd>
 	
