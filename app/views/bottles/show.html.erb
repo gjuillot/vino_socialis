@@ -25,6 +25,9 @@
   
     <dt><%= t("helpers.label.bottle.price")%></dt>
     <dd><%= formated_price(@bottle.price) %></dd>
+  
+    <dt><%= t("helpers.label.bottle.current_value")%></dt>
+    <dd><%= formated_price(@bottle.current_value) %></dd>
 	
 	  <dt><%= t("helpers.label.bottle.comments")%></dt>
 	  <dd><%= @bottle.comments %></dd>

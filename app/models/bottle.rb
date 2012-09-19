@@ -5,6 +5,7 @@ class Bottle < ActiveRecord::Base
   
   validates :initial_quantity, :numericality => { :only_integer => true, :greater_than => 0 }
   validates :price, :numericality => { :greater_than_or_equal_to => 0 }
+  validates :current_value, :numericality => { :greater_than_or_equal_to => 0 }
   
   scope :remain, lambda {|user| where('bottles.user_id = ? AND remaining_quantity > 0', user.id)}
   scope :rack, lambda {|rack| joins(:wine_rack_positions).where('"wine_rack_positions".wine_rack_id = ?', rack).group('"bottles".id')}

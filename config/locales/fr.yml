@@ -249,6 +249,7 @@ fr:
         channel: "Canal"
         channel_comments: "Précision canal"
         price: "Prix"
+        current_value: "Cote"
         comments: "Commentaires / suggestions"
       consumption:
         bottle: "Bouteille"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919091644) do
+ActiveRecord::Schema.define(:version => 20120919092841) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120919091644) do
     t.integer  "remaining_quantity"
     t.integer  "initial_quantity"
     t.string   "comments"
+    t.decimal  "current_value",      :precision => 5, :scale => 2
   end
 
   add_index "bottles", ["wine_id"], :name => "index_bottles_on_wine_id"
