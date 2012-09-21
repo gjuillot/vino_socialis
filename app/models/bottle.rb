@@ -11,8 +11,10 @@ class Bottle < ActiveRecord::Base
   scope :rack, lambda {|rack| joins(:wine_rack_positions).where('"wine_rack_positions".wine_rack_id = ?', rack).group('"bottles".id')}
   scope :remaining_as_quantity, select('*, remaining_quantity AS quantity')
   scope :in_rack_as_quantity, select('bottles.*, count("wine_rack_positions".id) AS quantity')
-  scope :name_like, lambda {|name| joins(:wine => :estate).where('"estates".name ILIKE ? OR "wines".name ILIKE ?', "%#{name}%", "%#{name}%")}
-  scope :area_like, lambda {|name| joins(:wine => {:area => {:region => :country}}).where('"countries".name ILIKE ? OR "regions".name ILIKE ? OR "areas".name ILIKE ?', "%#{name}%", "%#{name}%", "%#{name}%")}
+  
+  scope :name_like, lambda {|name| joins(:wine => :estate).select('"bottles".*').where('"estates".name ILIKE ? OR "wines".name ILIKE ?', "%#{name}%", "%#{name}%")}
+  scope :area_like, lambda {|name| joins(:wine => {:area => {:region => :country}}).select('"bottles".*').where('"countries".name ILIKE ? OR "regions".name ILIKE ? OR "areas".name ILIKE ?', "%#{name}%", "%#{name}%", "%#{name}%")}
+  
   scope :wine_order, lambda {|sens| joins(:wine => :estate).order('"estates".name ' + sens + ', "wines".name ' + sens)}
   scope :area_order, lambda {|sens| joins(:wine => {:area => {:region => :country}} ).order('"countries".name ' + sens + ', "regions".name ' + sens + ', "areas".name ' + sens)}
   scope :color_order, lambda {|sens| joins(:wine).order('"wines".wine_color ' + sens)}
