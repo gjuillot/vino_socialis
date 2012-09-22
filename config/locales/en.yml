@@ -250,6 +250,7 @@ en:
         date: "Date"
         channel: "Channel"
         channel_comments: "Channel comments"
+        chancomm: "Channel comments"
         price: "Price"
         current_value: "Current value"
         comments: "Comments / suggestions"

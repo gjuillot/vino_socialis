@@ -18,11 +18,11 @@ class BottlesController < ApplicationController
       @bottles = @bottles.area_like(params[:search_value])
     end
     
-    if params[:order_attribute] == 'wine'
+    if params[:order_attribute] == 'name'
       @bottles = @bottles.wine_order(params[:order_sens])
     elsif params[:order_attribute] == 'area'
       @bottles = @bottles.area_order(params[:order_sens])
-    elsif params[:order_attribute] == 'color'
+    elsif params[:order_attribute] == 'wine_color'
       @bottles = @bottles.color_order(params[:order_sens])
     elsif params[:order_attribute]
       @bottles = @bottles.other_order(params[:order_attribute], params[:order_sens])

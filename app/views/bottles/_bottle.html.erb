@@ -1,21 +1,36 @@
 <tr id="bottle">
   <input type="hidden" value="<%= bottle_path(bottle) %>" />
-  <td id="wine_<%= bottle.id %>" style="vertical-align:middle;">
+  <td id="name_<%= bottle.id %>" style="vertical-align:middle;">
   	<%= wine_name bottle.wine, estate: true, area: false, html: true, separator: raw('<br />') %> 
   </td>
   <td id="area_<%= bottle.id %>" style="vertical-align:middle;">
   	<%= full_area_name bottle.wine.area, html: true, separator2: raw('<br />') %>
   </td>
-  <td id="color_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+  <td id="wine_color_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
     <%= wine_color_image bottle.wine %>
   </td>
   <td id="vintage_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
     <span><%= formated_vintage(bottle.vintage) %></span>
   </td>
-  <td id="remaining_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
-  	<span><%= bottle.quantity %></span> (<%= bottle.volume %>)
+  <td id="remaining_quantity<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+  	<span id="raw"><%= bottle.quantity %></span> (<%= bottle.volume %>)
   </td>
   <td id="price_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
-  	<span id="raw" style="visibility: hidden;position: absolute;"><%= bottle.price%></span><span><%= formated_price(bottle.price) %></span>
+    <span id="raw" style="visibility: hidden;position: absolute;"><%= bottle.price%></span><span><%= formated_price(bottle.price) %></span>
+  </td>
+  <td id="current_value_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+    <span id="raw" style="visibility: hidden;position: absolute;"><%= bottle.current_value%></span><span><%= formated_price(bottle.current_value) %></span>
+  </td>
+  <td id="date_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+    <%= formated_date(bottle.date) %>
+  </td>
+  <td id="channel_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+    <%= t(bottle.channel, scope: 'bottles.channels') %>
+  </td>
+  <td id="chancomm_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+    <%= bottle.channel_comments %>
+  </td>
+  <td id="comments_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+    <%= bottle.comments %>
   </td>
 </tr>

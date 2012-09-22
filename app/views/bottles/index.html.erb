@@ -1,47 +1,74 @@
 <h1><%= t("bottles.my")%></h1>
 
+<% columns = [
+  { att: 'name',                displayed: true,  search_class: 'input-medium', filter: 'text_with_link' },
+  { att: 'area',                displayed: true,  search_class: 'input-medium', filter: 'text_with_link' },
+  { att: 'wine_color',          displayed: true,  filter: 'color'},
+  { att: 'vintage',             displayed: true,  search_class: 'input-mini', filter: 'vintage' },
+  { att: 'remaining_quantity',  displayed: true,  search_class: 'input-mini', filter: 'compare' },
+  { att: 'price',               displayed: true,  search_class: 'input-mini', filter: 'compare' },
+  { att: 'current_value',       displayed: false, search_class: 'input-mini', filter: 'compare' },
+  { att: 'date',                displayed: false, search_class: 'input-mini', filter: 'text' },
+  { att: 'channel',             displayed: false, search_class: 'input-mini', filter: 'text' },
+  { att: 'chancomm',            displayed: false, search_class: 'input-mini', filter: 'text' },
+  { att: 'comments',            displayed: false, search_class: 'input-mini', filter: 'text' }
+]
+%>
+
 <script type="text/javascript">
   function filter() {
     $("tr").each(function() {
       $(this).show();
     });
     
-    var wine = $("input#wine").val();
-    if (wine.length > 0) {
-      var pattern1 = new RegExp("<a.*>.*"+wine+".*</a>.*<a.*>.*</a>", 'i');
-      var pattern2 = new RegExp("<a.*>.*</a>.*<a.*>.*"+wine+".*</a>", 'i');
-      $("td[id*=wine]").each(function() {
-        var wine_name = $(this).html();
-        if (!(pattern1.test(wine_name) || pattern2.test(wine_name))) {
+    <% columns.each do |c| %>
+      <% if c[:filter] %>
+        filter_<%= c[:filter] %>("<%= c[:att] %>");
+      <% end %>
+    <% end %>
+    
+  }
+  
+  function filter_text(input) {
+    var searched = $("input#" + input).val();
+    if (searched.length > 0) {
+      var pattern = new RegExp(".*" + searched + ".*", 'i');
+      $("td[id*=" + input + "]").each(function() {
+        var wine_value = $(this).html();
+        if (!(pattern.test(wine_value))) {
           $(this).parent().hide();
         }
       });
     }
-    
-    var area = $("input#area").val();
-    if (area.length > 0) {
-      var pattern3 = new RegExp('<a.*>.*'+area+'.*</a>.*<a.*>.*</a>.*<a.*>.*</a>', 'i');
-      var pattern4 = new RegExp('<a.*>.*</a>.*<a.*>.*'+area+'.*</a>.*<a.*>.*</a>', 'i');
-      var pattern5 = new RegExp('<a.*>.*</a>.*<a.*>.*</a>.*<a.*>.*'+area+'.*</a>', 'i');
-      $("td[id*=area]").each(function() {
-        var area_name = $(this).html();
-        if (!(pattern3.test(area_name) || pattern4.test(area_name) || pattern5.test(area_name))) {
+  }
+  
+  function filter_text_with_link(input) {
+    var searched = $("input#" + input).val();
+    if (searched.length > 0) {
+      var pattern = new RegExp(".*<a.*>[^<]*" + searched + "[^<]*</a>.*", 'i');
+      $("td[id*=" + input + "]").each(function() {
+        var wine_value = $(this).html();
+        if (!(pattern.test(wine_value))) {
           $(this).parent().hide();
         }
       });
     }
-    
-    var color = $("select#color").val();
+  }
+  
+  function filter_color(select) {
+    var color = $("select#wine_color").val();
     if (color.length > 0) {
       var pattern6 = new RegExp('.*\/'+color+'\.png');
-      $("td[id*=color] a img").each(function() {
+      $("td[id*=wine_color] a img").each(function() {
         var color_src = $(this).attr('src');
         if (!(pattern6.test(color_src))) {
           $(this).parent().parent().parent().hide();
         }
       });
     }
-    
+  }
+  
+  function filter_vintage(input) {
     var vintage = $("input#vintage").val();
     if (vintage.length > 0) {
       $("td[id*=vintage] span").each(function() {
@@ -71,53 +98,29 @@
         }
       });
     }
-    
-    var remaining = $("input#remaining").val();
-    if (remaining.length > 0) {
-      $("td[id*=remaining] span").each(function() {
-        var wine_remaining = parseInt($(this).html());
-        if (remaining.charAt(0) == '<') {
-          if (remaining.length > 1) {
-            remainingInt = parseInt(remaining.substring(1));
-            if (!(wine_remaining < remainingInt)) {
+  }
+  
+  function filter_compare(input) {
+    var searched = $("input#" + input).val();
+    if (searched.length > 0) {
+      $("td[id*=" + input + "] span#raw").each(function() {
+        var wine_searched_value = parseFloat($(this).html());
+        if (searched.charAt(0) == '<') {
+          if (searched.length > 1) {
+            searchedFloat = parseFloat(searched.substring(1));
+            if (!(wine_searched_value < searchedFloat)) {
               $(this).parent().parent().hide();
             }
           }
-        } else if (remaining.charAt(0) == '>') {
-          if (remaining.length > 1) {
-            remainingInt = parseInt(remaining.substring(1));
-            if (!(wine_remaining > remainingInt)) {
-              $(this).parent().parent().hide();
-            }
-          }
-        } else {
-          if (!($(this).html() == remaining)) {
-            $(this).parent().parent().hide();
-          }
-        }
-      });
-    }
-    
-    var price = $("input#price").val();
-    if (price.length > 0) {
-      $("td[id*=price] span#raw").each(function() {
-        var wine_price = parseFloat($(this).html());
-        if (price.charAt(0) == '<') {
-          if (price.length > 1) {
-            priceFloat = parseFloat(price.substring(1));
-            if (!(wine_price < priceFloat)) {
-              $(this).parent().parent().hide();
-            }
-          }
-        } else if (price.charAt(0) == '>') {
-          if (price.length > 1) {
-            priceFloat = parseFloat(price.substring(1));
-            if (!(wine_price > priceFloat)) {
+        } else if (searched.charAt(0) == '>') {
+          if (searched.length > 1) {
+            searchedFloat = parseFloat(searched.substring(1));
+            if (!(wine_searched_value > searchedFloat)) {
               $(this).parent().parent().hide();
             }
           }
         } else {
-          if (!($(this).html() == price)) {
+          if (!($(this).html() == searched)) {
             $(this).parent().parent().hide();
           }
         }
@@ -125,17 +128,26 @@
     }
   }
   
-
+  function column(att) {
+    if ($("input#"+att+"_column").is(':checked')) {
+      $("td[id*="+att+"]").show();
+      $("th#"+att).show();
+    } else {
+      $("th#"+att).hide();
+      $("td[id*="+att+"]").hide();
+    }
+  }
+  
   $(document).ready(function() {
-    $("input#wine").keyup(filter);
-    $("input#area").keyup(filter);
-    $("select#color").change(filter);
-    $("input#vintage").keyup(filter);
-    $("input#remaining").keyup(filter);
-    $("input#price").keyup(filter);
+<% columns.each do |c| %>
+    $("input#<%= c[:att] %>").keyup(filter);
+<% end %>
+    $("select#wine_color").change(filter);
+    
     $("tr#bottle").click(function() {
       window.location = $(this).find("input").val();
     });
+    
     $("select#racks").change(function(){
       var rack = $(this).val();
       if (rack == 0) {
@@ -146,6 +158,12 @@
         window.location = '<%= bottles_path %>?wine_rack_id=' + rack;
       }
     });
+    
+<% columns.each do |c| %>
+    column("<%= c[:att] %>");
+    $("input#<%= c[:att] %>_column").change(function() {column("<%= c[:att] %>");});
+<% end %>
+
   });
 </script>
 
@@ -156,10 +174,18 @@
   <%= options_for_select(@racks.map {|r| [r.name, r.id]}, :selected => params[:wine_rack_id]) %>
   <option value="-1"<%= @not_placed ? ' selected="selected"' : '' %>>Non placées</option>
 </select>
+<div class="btn-group pull-right">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> Colonnes <span class="caret"></span> </a>
+  <ul class="dropdown-menu">
+    <% columns.each do |c| %>
+      <label class="checkbox"><input type="checkbox" id="<%= c[:att] %>_column" <%= c[:displayed] ? 'checked="checked"' : '' %>> <%= t(c[:att], scope: 'helpers.label.bottle') %></label>
+    <% end %>
+  </ul>
+</div>
      
 <div id="help" class="collapse">
   <div class="well well-small">
-    Exemples de recherche pour les champs 'Millésime', 'Reste' et 'Prix':<br />
+    Exemples de recherche pour les champs 'Millésime', 'Reste', 'Prix' et 'Cote':<br />
     <ul>
       <li>1981</li>
       <li>&lt;1981</li>
@@ -173,63 +199,26 @@
 <table class="table table-striped table-condensed">
 	<thead>
 	  <tr>
-	  	<th style="text-align:center;">
-        <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => 'wine', :order_sens => 'ASC') %>
-        <%= t('helpers.label.bottle.wine') %>
-        <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => 'wine', :order_sens => 'DESC') %>
+	    
+<% columns.each do |c| %>
+      <th style="text-align:center;" id="<%= c[:att] %>">
+        <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => c[:att], :order_sens => 'ASC') %>
+        <%= t(c[:att], scope: 'helpers.label.bottle') %>
+        <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => c[:att], :order_sens => 'DESC') %>
         <br />
-  	  	<div class="input-prepend">
-  	  	  <span class="add-on"><i class="icon-search"></i></span><input type="text" id="wine" autocomplete='off' id="prependedInput" class="input-medium"/>
-  	  	</div>
+        <div class="input-prepend">
+          <% if c[:att] == 'wine_color' %>
+            <select id="wine_color" class="input-prepend span2">
+              <option value="">Tous</option>
+              <%= options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
+            </select>
+          <% else %>
+            <span class="add-on"><i class="icon-search"></i></span><input type="text" id="<%= c[:att] %>" autocomplete='off' id="prependedInput" class="<%= c[:search_class] %>"/>
+          <% end %>
+        </div>
       </th>
-	  	<th style="text-align:center;">
-        <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => 'area', :order_sens => 'ASC') %>
-	  	  <%= t('helpers.label.wine.area') %>&nbsp;&nbsp;
-        <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => 'area', :order_sens => 'DESC') %>
-	  	  <br />
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-search"></i></span><input type="text" id="area" autocomplete='off' id="prependedInput" class="input-medium"/>
-        </div>
-      </th>
-	  	<th style="text-align:center;">
-        <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => 'color', :order_sens => 'ASC') %>
-	  	  <%= t('helpers.label.wine.wine_color') %>
-        <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => 'color', :order_sens => 'DESC') %>
-        <br/>
-        <div class="input-prepend">
-          <select id="color" class="input-prepend span2">
-            <option value="">Tous</option>
-            <%= options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
-          </select>
-        </div>
-	  	</th>
-	  	<th style="text-align:center;">
-        <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => 'vintage', :order_sens => 'ASC') %>
-        <%= t('helpers.label.bottle.vintage') %>
-        <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => 'vintage', :order_sens => 'DESC') %>
-        <br />
-	  	  <div class="input-prepend">
-          <span class="add-on"><i class="icon-search"></i></span><input type="text" id="vintage" autocomplete='off' id="prependedInput" class="input-mini"/>
-        </div>
-	  	</th>
-	  	<th style="text-align:center;">
-        <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => 'remaining_quantity', :order_sens => 'ASC') %>
-	  	  <%= t('helpers.label.bottle.remaining_quantity') %>
-        <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => 'remaining_quantity', :order_sens => 'DESC') %>
-        <br />
-	  	  <div class="input-prepend">
-          <span class="add-on"><i class="icon-search"></i></span><input type="text" id="remaining" autocomplete='off' id="prependedInput" class="input-mini"/>
-        </div>
-	  	</th>
-	  	<th style="text-align:center;">
-	  	  <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => 'price', :order_sens => 'ASC') %>
-	  	  <%= t('helpers.label.bottle.price') %>
-	  	  <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => 'price', :order_sens => 'DESC') %>
-	  	  <br />
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-search"></i></span><input type="text" id="price" autocomplete='off' id="prependedInput" class="input-mini"/>
-        </div>
-	  	</th>
+<% end %>
+	    
 	  </tr>
 	</thead>
 	<tbody>
