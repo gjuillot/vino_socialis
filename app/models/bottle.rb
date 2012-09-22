@@ -14,6 +14,7 @@ class Bottle < ActiveRecord::Base
   
   scope :name_like, lambda {|name| joins(:wine => :estate).select('"bottles".*').where('"estates".name ILIKE ? OR "wines".name ILIKE ?', "%#{name}%", "%#{name}%")}
   scope :area_like, lambda {|name| joins(:wine => {:area => {:region => :country}}).select('"bottles".*').where('"countries".name ILIKE ? OR "regions".name ILIKE ? OR "areas".name ILIKE ?', "%#{name}%", "%#{name}%", "%#{name}%")}
+  scope :comments_like, lambda {|name| where('comments ILIKE ? OR channel_comments ILIKE ?', "%#{name}%", "%#{name}%")}
   
   scope :wine_order, lambda {|sens| joins(:wine => :estate).order('"estates".name ' + sens + ', "wines".name ' + sens)}
   scope :area_order, lambda {|sens| joins(:wine => {:area => {:region => :country}} ).order('"countries".name ' + sens + ', "regions".name ' + sens + ', "areas".name ' + sens)}

@@ -5,7 +5,8 @@
       <form action="<%= bottles_path %>" method="get" class="span3">
       	<select name="search_attribute">
       	  <option value="wine"><%= t('menu.search.estate_wine') %></option>
-      	  <option value="area"><%= t('menu.search.area') %></option>
+          <option value="area"><%= t('menu.search.area') %></option>
+          <option value="comments"><%= t('menu.search.comments') %></option>
       	</select>
         <input type="text" placeholder="<%= t('menu.search.my_bottles') %>" name="search_value" class="span3" />
       </form>

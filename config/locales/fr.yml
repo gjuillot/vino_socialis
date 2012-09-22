@@ -28,6 +28,7 @@ fr:
       estate_wine: "Producteur ou vin"
       area: "Appelation, région ou pays"
       my_bottles: "Rechercher dans mes bouteilles"
+      comments: "Mes commentaires / mes suggestions"
     profile:
       my: "Mon profil"
       sign_out: "Déconnexion"

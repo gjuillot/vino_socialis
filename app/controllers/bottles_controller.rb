@@ -16,6 +16,8 @@ class BottlesController < ApplicationController
       @bottles = @bottles.name_like(params[:search_value])
     elsif params[:search_attribute] == 'area'
       @bottles = @bottles.area_like(params[:search_value])
+    elsif params[:search_attribute] == 'comments'
+      @bottles = @bottles.comments_like(params[:search_value])
     end
     
     if params[:order_attribute] == 'name'
