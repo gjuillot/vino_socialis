@@ -3,7 +3,7 @@ class ModerationsController < ApplicationController
   authorize_resource
   
   def sheets
-    @estates = Estate.where('validation = ?', false)
-    @wines = Wine.where('validation = ?', false)
+    @estates = Estate.not_validated
+    @wines = Wine.not_validated
   end
 end

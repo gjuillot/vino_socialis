@@ -7,7 +7,8 @@ class Estate < ActiveRecord::Base
   scope :random, order('random()').limit(5)
   scope :not, lambda {|id| where('id != ?', id)}
   scope :validated, where('validation = ?' , true)
-  scope :like, lambda {|name| where("name ILIKE ?", "%#{name}%")}
+  scope :not_validated, where('validation = ?' , false)
+  scope :like, lambda {|name| where("name LIKE ?", "%#{name}%")}
   scope :on_page, lambda {|page| order('name ASC').page(page).per(10)}
   
   def validated?
