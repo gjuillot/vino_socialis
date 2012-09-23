@@ -38,19 +38,19 @@ class Bottle < ActiveRecord::Base
   end
   
   def drink_min_year
-    vintage == 0 ? '-' : vintage + drink_min
+    vintage.to_i == 0 ? '-' : vintage.to_i + drink_min.to_i
   end
   
   def drink_max_year
-    vintage == 0 ? '-' : vintage + drink_max
+    vintage.to_i == 0 ? '-' : vintage.to_i + drink_max.to_i
   end
   
   def drink_best_year
-    vintage == 0 ? '-' : vintage + drink_best
+    vintage.to_i == 0 ? '-' : vintage.to_i + drink_best.to_i
   end
   
   def drink
-    return 'ready' if vintage == 0
+    return 'ready' if vintage.to_i == 0
     year = Time.now.year
     return 'best' if year == drink_best_year
     return 'too_soon' if year < drink_min_year
