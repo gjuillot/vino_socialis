@@ -77,6 +77,11 @@ en:
       store: "Wine store"
       supermarket: "Supermarket"
       bulk_order: "Bulk order"
+    drink:
+      ready: "Ready"
+      best: "Best year"
+      too_soon: "Too soon"
+      too_late: "Too late"
   consumptions:
     edit: "Edit consumption"
     my: "My consumptions"
@@ -255,6 +260,11 @@ en:
         price: "Price"
         current_value: "Current value"
         comments: "Comments / suggestions"
+        drink: "Drinkability"
+        drink_inputs: "between %{min} and %{max} years"
+        drink_years: "between %{min} and %{max}"
+        drink_best: "Best in"
+        years: "years"
       consumption:
         bottle: "Bottle"
         quantity: "Quantity"

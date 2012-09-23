@@ -36,4 +36,25 @@ class Bottle < ActiveRecord::Base
   def dist_euclide(other)
     self.wine.dist_euclide(other.wine) + (self.vintage == other.vintage ? 0 : 0.05)
   end
+  
+  def drink_min_year
+    vintage == 0 ? '-' : vintage + drink_min
+  end
+  
+  def drink_max_year
+    vintage == 0 ? '-' : vintage + drink_max
+  end
+  
+  def drink_best_year
+    vintage == 0 ? '-' : vintage + drink_best
+  end
+  
+  def drink
+    return 'ready' if vintage == 0
+    year = Time.now.year
+    return 'best' if year == drink_best_year
+    return 'too_soon' if year < drink_min_year
+    return 'too_late' if year > drink_max_year
+    return 'ready'
+  end
 end

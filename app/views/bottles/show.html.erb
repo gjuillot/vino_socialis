@@ -8,12 +8,17 @@
 	  <dt><%= t("helpers.label.bottle.vintage")%></dt>
 	  <dd><%= formated_vintage(@bottle.vintage, false) %></dd>
 	
-	  <dt><%= t("helpers.label.bottle.volume")%></dt>
-	  <dd><%= @bottle.volume %></dd>
-	
 	  <dt><%= t("helpers.label.bottle.quantity")%></dt>
-	  <dd><%= t("bottles.remaining_and_initial", :remaining => @bottle.remaining_quantity, :initial => @bottle.initial_quantity) %></dd>
+	  <dd><%= t("bottles.remaining_and_initial", :remaining => @bottle.remaining_quantity, :initial => @bottle.initial_quantity) %> (<%= @bottle.volume %>)</dd>
 	
+    <% min = @bottle.drink_min_year %>
+    <% max = @bottle.drink_max_year %>
+    <dt><%= t("helpers.label.bottle.drink")%></dt>
+    <dd><%= t("helpers.label.bottle.drink_years", min: min, max: max) %></dd>
+    
+    <dt><%= t("helpers.label.bottle.drink_best")%></dt>
+    <dd><%= formated_vintage(@bottle.drink_best_year, false) %></dd>
+    
 	  <dt><%= t("helpers.label.bottle.date")%></dt>
 	  <dd><%= formated_date(@bottle.date) %></dd>
   
@@ -21,7 +26,7 @@
     <dd><%= t(@bottle.channel, scope: 'bottles.channels') %></dd>
   
     <dt><%= t("helpers.label.bottle.channel_comments")%></dt>
-    <dd><%= @bottle.channel_comments %></dd>
+    <dd><%= @bottle.channel_comments %>&nbsp;</dd>
   
     <dt><%= t("helpers.label.bottle.price")%></dt>
     <dd><%= formated_price(@bottle.price) %></dd>

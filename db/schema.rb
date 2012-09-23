@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919092841) do
+ActiveRecord::Schema.define(:version => 20120923091745) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(:version => 20120919092841) do
     t.integer  "initial_quantity"
     t.string   "comments"
     t.decimal  "current_value",      :precision => 5, :scale => 2
+    t.integer  "drink_min"
+    t.integer  "drink_max"
+    t.integer  "drink_best"
   end
 
   add_index "bottles", ["wine_id"], :name => "index_bottles_on_wine_id"

@@ -30,79 +30,99 @@ $(document).ready(function() {
 </script>
 
 <%= form_for(@bottle, html: { class:'form-horizontal'}) do |f| %>
+  <%= f.hidden_field :wine_id, value: @wine.id %>
   <div class="row">
-    <div class="span6 offset3">
-
-      <%= f.hidden_field :wine_id, value: @wine.id %>
-	
-	  <div class="control-group">
+    
+    <div class="span6">
+      <div class="control-group">
         <%= f.label :vintage, :class => 'control-label' %>
-	    <div class="controls">
+        <div class="controls">
           <%= select_vintage f, @bottle.vintage %>
-	    </div>
-	  </div>
-	
-	  <div class="control-group">
+        </div>
+      </div>
+      
+      <div class="control-group">
         <% volumes = ['20 cl', '25 cl', '37.5 cl', '50 cl', '62 cl', '62.5 cl', '75 cl', '1 l', '1.5 l', '3 l', '4.5 l', '5 l', '6 l', '9 l', '12 l', '15 l', '18 l'] %>
         <%= f.label :volume, :class => 'control-label' %>
-	    <div class="controls">
+        <div class="controls">
           <%= select_tag 'bottle[volume]', options_for_select(volumes, :selected => (@bottle.volume ? @bottle.volume : '75 cl')) %>
-	    </div>
-	  </div>
-	
-	  <div class="control-group">
+        </div>
+      </div>
+      
+      <div class="control-group">
         <%= f.label :initial_quantity, :class => 'control-label' %>
-	    <div class="controls">
+        <div class="controls">
           <%= f.number_field :initial_quantity, autocomplete: 'off' %>
-	    </div>
-	  </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label t('helpers.label.bottle.drink'), :class => 'control-label' %>
+        <div class="controls">
+          <% min = '&nbsp;' + f.number_field(:drink_min, autocomplete: 'off', class: 'input-micro') + '&nbsp;' %>
+          <% max = '&nbsp;' + f.number_field(:drink_max, autocomplete: 'off', class: 'input-micro') + '&nbsp;' %>
+          <%= raw t('helpers.label.bottle.drink_inputs', min: min, max: max) %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :drink_best, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.number_field :drink_best, autocomplete: 'off', class: 'input-micro' %>&nbsp;&nbsp;<%= t('helpers.label.bottle.years') %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :comments, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :comments, :rows => 3 %>
+        </div>
+      </div>
+    
+    </div>
+    
+    <div class="span6">
 	
-	  <div class="control-group">
+  	  <div class="control-group">
         <%= f.label :date, :class => 'control-label' %>
-	    <div class="controls">
+  	    <div class="controls">
           <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
-	    </div>
-	  </div>
-	
-	  <div class="control-group">
+  	    </div>
+  	  </div>
+  	
+  	  <div class="control-group">
         <% channels = ['producer', 'gift', 'fair', 'exchange', 'store', 'supermarket', 'bulk_order'].map {|c| [t(c, scope: 'bottles.channels'), c]}%>
         <%= f.label :channel, :class => 'control-label' %>
-	    <div class="controls">
+  	    <div class="controls">
           <%= select_tag 'bottle[channel]', options_for_select(channels, :selected => (@bottle.channel ? @bottle.channel : 'producer')) %>
-	    </div>
-	  </div>
-  
-    <div class="control-group">
+  	    </div>
+  	  </div>
+    
+      <div class="control-group">
         <%= f.label :channel_comments, :class => 'control-label' %>
-      <div class="controls">
+        <div class="controls">
           <%= f.text_field :channel_comments %>
+        </div>
       </div>
-    </div>
-	
-	  <div class="control-group">
+  	
+  	  <div class="control-group">
         <%= f.label :price, :class => 'control-label' %>
-	    <div class="controls">
-	      <div class="input-prepend">
-          <span class="add-on"><%= current_user.currency %></span><%= f.text_field :price, value: formated_price(@bottle.price ? @bottle.price : '0', form = true), autocomplete: 'off' %>
-        </div>
-	    </div>
-	  </div>
-  
-    <div class="control-group">
+  	    <div class="controls">
+  	      <div class="input-prepend">
+            <span class="add-on"><%= current_user.currency %></span><%= f.text_field :price, value: formated_price(@bottle.price ? @bottle.price : '0', form = true), autocomplete: 'off' %>
+          </div>
+  	    </div>
+  	  </div>
+    
+      <div class="control-group">
         <%= f.label :current_value, :class => 'control-label' %>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><%= current_user.currency %></span><%= f.text_field :current_value, value: formated_price(@bottle.current_value ? @bottle.current_value : '0', form = true), autocomplete: 'off' %>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><%= current_user.currency %></span><%= f.text_field :current_value, value: formated_price(@bottle.current_value ? @bottle.current_value : '0', form = true), autocomplete: 'off' %>
+          </div>
         </div>
       </div>
-    </div>
 	
-	  <div class="control-group">
-        <%= f.label :comments, :class => 'control-label' %>
-	    <div class="controls">
-          <%= f.text_area :comments, :rows => 3 %>
-	    </div>
-	  </div>
     </div>
   </div>
   <div class="row">	

@@ -75,6 +75,11 @@ fr:
       store: "Caviste"
       supermarket: "Supermarché"
       bulk_order: "Commande groupée"
+    drink:
+      ready: "Prêt à boire"
+      best: "Apogée"
+      too_soon: "Attendre"
+      too_late: "Dépassé"
   consumptions:
     edit: "Modifier consommation"
     my: "Mes consommations"
@@ -256,6 +261,11 @@ fr:
         price: "Prix"
         current_value: "Cote"
         comments: "Commentaires / suggestions"
+        drink: "Garde"
+        drink_inputs: "entre %{min} et %{max} ans"
+        drink_years: "entre %{min} et %{max}"
+        drink_best: "Garde optimale"
+        years: "ans"
       consumption:
         bottle: "Bouteille"
         quantity: "Quantité"

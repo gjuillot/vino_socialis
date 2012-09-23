@@ -12,6 +12,9 @@
   <td id="vintage_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
     <span><%= formated_vintage(bottle.vintage) %></span>
   </td>
+  <td id="drink_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+    <%= t(bottle.drink, scope: 'bottles.drink') %>
+  </td>
   <td id="remaining_quantity<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
   	<span id="raw"><%= bottle.quantity %></span> (<%= bottle.volume %>)
   </td>
