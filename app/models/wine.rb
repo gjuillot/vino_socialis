@@ -11,7 +11,7 @@ class Wine < ActiveRecord::Base
   validates :area_id, :presence => true
   validates :wine_color, :presence => true
   
-  default_scope joins(:estate).order('"estates".name ASC, "wines".name ASC')
+  default_scope readonly(false).joins(:estate).order('"estates".name ASC, "wines".name ASC')
   scope :random, reorder('random()').limit(5)
   scope :not, lambda{|id| where('"wines".id != ?', id)}
   scope :validated, where('"wines".validation = ?' , true)
@@ -20,6 +20,7 @@ class Wine < ActiveRecord::Base
   scope :on_page, lambda {|page| page(page).per(10)}
   scope :area, lambda {|id| where('"wines".area_id == ?', id)}
   scope :region, lambda {|id| joins(:area).where('"areas".region_id = ?', id)}
+  
   
   
   def validated?
