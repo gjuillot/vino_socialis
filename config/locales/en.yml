@@ -262,9 +262,13 @@ en:
         comments: "Comments / suggestions"
         drink: "Drinkability"
         drink_inputs: "between %{min} and %{max} years"
-        drink_years: "between %{min} and %{max}"
+        drink_years: "so between %{min} and %{max}"
         drink_best: "Best in"
-        years: "years"
+        years: "%{input}&nbsp;&nbsp;years, so %{result}"
+        years_only: "%{best} years"
+        hint_title:
+          one: "Hint based on 1 entry"
+          other: "Hint based on %{count} entries"
       consumption:
         bottle: "Bottle"
         quantity: "Quantity"

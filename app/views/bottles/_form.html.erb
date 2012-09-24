@@ -7,6 +7,32 @@ String.prototype.startsWith = function(needle)
     return(this.indexOf(needle) == 0);
 };
 
+function drink_results() {
+  var vintage = $("select#bottle_vintage").val();
+  if (vintage == 0) {
+    $("span#drink_best_result").html('-');
+  } else {
+    var drink_min = $("input#bottle_drink_min").val();
+    if (drink_best == '') {
+      $("span#drink_min_result").html('-');
+    } else {
+      $("span#drink_min_result").html(parseInt(vintage) + parseInt(drink_min));
+    }
+    var drink_max = $("input#bottle_drink_max").val();
+    if (drink_max == '') {
+      $("span#drink_max_result").html('-');
+    } else {
+      $("span#drink_max_result").html(parseInt(vintage) + parseInt(drink_max));
+    }
+    var drink_best = $("input#bottle_drink_best").val();
+    if (drink_best == '') {
+      $("span#drink_best_result").html('-');
+    } else {
+      $("span#drink_best_result").html(parseInt(vintage) + parseInt(drink_best));
+    }
+  }
+}
+
 $(document).ready(function() {
   $("input#bottle_price").focus(function() {
     if ($(this).val() == '0.00') {
@@ -26,6 +52,13 @@ $(document).ready(function() {
       current_value_input.val(price);
     }
   });
+  $("select#bottle_vintage").change(drink_results);
+  $("input#bottle_drink_min").keyup(drink_results);
+  $("input#bottle_drink_max").keyup(drink_results);
+  $("input#bottle_drink_best").keyup(drink_results);
+  
+  $('#drink_min_max_hint').popover();
+  $('#drink_best_hint').popover();
 });
 </script>
 
@@ -56,19 +89,36 @@ $(document).ready(function() {
         </div>
       </div>
       
+      <% drink_hints = @wine.drink_hint %>
       <div class="control-group">
         <%= f.label t('helpers.label.bottle.drink'), :class => 'control-label' %>
         <div class="controls">
-          <% min = '&nbsp;' + f.number_field(:drink_min, autocomplete: 'off', class: 'input-micro') + '&nbsp;' %>
-          <% max = '&nbsp;' + f.number_field(:drink_max, autocomplete: 'off', class: 'input-micro') + '&nbsp;' %>
+          <% min = f.number_field(:drink_min, autocomplete: 'off', class: 'input-micro') %>
+          <% max = f.number_field(:drink_max, autocomplete: 'off', class: 'input-micro') %>
           <%= raw t('helpers.label.bottle.drink_inputs', min: min, max: max) %>
+          <% if drink_hints[:based_on] > 0 %>
+            <% title = t('helpers.label.bottle.hint_title', count: drink_hints[:based_on]) %>
+            <% hint = t('helpers.label.bottle.drink_inputs', min: drink_hints[:min], max: drink_hints[:max]) %>
+            <a href="#" id="drink_min_max_hint" rel="popover" title="<%= title %>" data-content="<%= hint %>"><i class="icon-flag"></i></a>
+          <% end %>
+          <br />
+          <% min = '<span id="drink_min_result">-</span>' %>
+          <% max = '<span id="drink_max_result">-</span>' %>
+          <%= raw t('helpers.label.bottle.drink_years', min: min, max: max) %>
         </div>
       </div>
       
       <div class="control-group">
         <%= f.label :drink_best, :class => 'control-label' %>
         <div class="controls">
-          <%= f.number_field :drink_best, autocomplete: 'off', class: 'input-micro' %>&nbsp;&nbsp;<%= t('helpers.label.bottle.years') %>
+          <% input = f.number_field(:drink_best, autocomplete: 'off', class: 'input-micro') %>
+          <% result = '<span id="drink_best_result">-</span>' %>
+          <%= raw t('helpers.label.bottle.years', input: input, result: result) %>
+          <% if drink_hints[:based_on] > 0 %>
+            <% title = t('helpers.label.bottle.hint_title', count: drink_hints[:based_on]) %>
+            <% hint = t('helpers.label.bottle.years_only', best: drink_hints[:best]) %>
+            <a href="#" id="drink_best_hint" rel="popover" title="<%= title %>" data-content="<%= hint %>"><i class="icon-flag"></i></a>
+          <% end %>
         </div>
       </div>
       

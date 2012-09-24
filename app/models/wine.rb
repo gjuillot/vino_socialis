@@ -22,7 +22,6 @@ class Wine < ActiveRecord::Base
   scope :region, lambda {|id| joins(:area).where('"areas".region_id = ?', id)}
   
   
-  
   def validated?
     validation
   end
@@ -59,5 +58,25 @@ class Wine < ActiveRecord::Base
     dist += 0.2 if (self.area.region.id != other.area.region.id)
     dist += 0.5 if (self.wine_color != other.wine_color)
     return dist
+  end
+  
+  def drink_hint
+    hint = {min: 0, max: 0, best: 0, based_on: 0}
+    similar = Bottle.joins(:wine => :area).where('"wines".wine_color = ? AND "areas".region_id = ? AND "bottles".drink_min > 0 AND "bottles".drink_max > 0 AND "bottles".drink_best > 0', self.wine_color, self.area.region_id)
+    if similar.count > 0
+      hint[:based_on] = similar.count
+      coeffs = 0
+      similar.each do |b|
+        coeff = 1 - self.dist_euclide(b.wine)
+        coeffs += coeff
+        hint[:min] += coeff * b.drink_min
+        hint[:max] += coeff * b.drink_max
+        hint[:best] += coeff * b.drink_best
+      end
+      hint[:min] = (hint[:min]/coeffs).round
+      hint[:max] = (hint[:max]/coeffs).round
+      hint[:best] = (hint[:best]/coeffs).round
+    end
+    return hint
   end
 end

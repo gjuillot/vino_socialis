@@ -263,9 +263,13 @@ fr:
         comments: "Commentaires / suggestions"
         drink: "Garde"
         drink_inputs: "entre %{min} et %{max} ans"
-        drink_years: "entre %{min} et %{max}"
+        drink_years: "soit entre %{min} et %{max}"
         drink_best: "Garde optimale"
-        years: "ans"
+        years: "%{input}&nbsp;&nbsp;ans, soit %{result}"
+        years_only: "%{best} ans"
+        hint_title:
+          one: "Conseil basé sur 1 entrée"
+          other: "Conseil basé sur %{count} entrées"
       consumption:
         bottle: "Bouteille"
         quantity: "Quantité"
