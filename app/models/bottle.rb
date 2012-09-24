@@ -7,7 +7,7 @@ class Bottle < ActiveRecord::Base
   validates :price, :numericality => { :greater_than_or_equal_to => 0 }
   validates :current_value, :numericality => { :greater_than_or_equal_to => 0 }
   validates :drink_min, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
-  validates :drink_maw, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
+  validates :drink_max, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
   validates :drink_best, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
   
   scope :remain, lambda {|user| where('bottles.user_id = ? AND remaining_quantity > 0', user.id)}
