@@ -96,8 +96,4 @@ VinoSocialis::Application.routes.draw do
   
   match '/areas/for_region_id/:region_id' => 'areas#for_region_id'
   
-  # Blitz load-testing
-  get '/mu-9e2dc7de-e9d3d5b2-791c1432-269e3812' do
-    '42'
-  end
 end
