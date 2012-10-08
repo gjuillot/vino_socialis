@@ -6,6 +6,7 @@ en:
     discover:
       title: "Discover"
       countries_regions_areas: "Countries, regions and areas"
+      grape_varieties: "Grape varieties"
       wines_estates: "Wines et estates"
       latest_tastings: "Latest tastings"
       latest_recommandations: "Latest recommandations"
@@ -312,6 +313,7 @@ en:
         info: "More information"
         select_country_and_region: "Select the coutnry and region ..."
         select_area: "... then select the area"
+        grape_varieties: "Grape varieties"
       wine_rack:
         name: "Name"
         layout: "Layout"

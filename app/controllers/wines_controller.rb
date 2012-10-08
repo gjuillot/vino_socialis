@@ -32,6 +32,7 @@ class WinesController < ApplicationController
     @wine.user_id = current_user.id
     @wine.validation = false
     if @wine.save
+      @wine.grape_varieties = params[:wine_grape_varieties].reject!(&:blank?).map {|n| GrapeVariety.find_or_create_by_name(n)}
       redirect_to @wine, notice: 'Wine was successfully created.'
     else
       @estate_id = @wine.estate_id
@@ -46,6 +47,7 @@ class WinesController < ApplicationController
   # PUT /wines/1
   def update
     if @wine.update_attributes(params[:wine])
+      @wine.grape_varieties = params[:wine_grape_varieties].reject(&:blank?).map {|n| GrapeVariety.find_or_create_by_name(n)}
       redirect_to @wine, notice: 'Wine was successfully updated.'
     else
       render action: "edit" 

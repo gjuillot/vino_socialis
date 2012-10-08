@@ -61,6 +61,14 @@ VinoSocialis::Application.routes.draw do
     resources :countries
     resources :regions
     resources :areas
+    
+    resources :grape_varieties do
+      member do
+        post 'validate'
+        get 'replace'
+        post 'do_replace'
+      end
+    end
   
     devise_for :users
     resources :users

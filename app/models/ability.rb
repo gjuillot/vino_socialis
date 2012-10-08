@@ -30,10 +30,10 @@ class Ability
       can :manage, Glossary
     end
     
-    # Estate, Wine
-    can [:create, :read, :search, :taste, :encave, :recommand, :unrecommand], [Estate, Wine]
+    # Estate, Wine, GrapeVariety
+    can [:create, :read, :search, :taste, :encave, :recommand, :unrecommand], [Estate, Wine, GrapeVariety]
     if user.moderator?
-      can :manage, [Estate, Wine]
+      can :manage, [Estate, Wine, GrapeVariety]
     end
     
     # Wine Recommandation

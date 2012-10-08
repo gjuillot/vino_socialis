@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to grape_variety.name, grape_variety %></td>
+  <td><%= grape_variety.wines.size %></td>
+  <td><%= link_to_edit edit_grape_variety_path(grape_variety) %></td>
+  <td><%= link_to_destroy grape_variety if grape_variety.wines.empty? %></td>
+  <td><%= link_to_validate validate_grape_variety_path(grape_variety) %></td>
+  <td><%= content_tag(:a, content_tag(:i, "", class: "icon-refresh") + ' Remplacer', :href => replace_grape_variety_path(grape_variety)) %></td>
+</tr>

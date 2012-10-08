@@ -1,3 +1,5 @@
+<% grape_variety_input = '<input name="wine_grape_varieties[]" type="text" value="" data-provide="typeahead" data-items="10" data-source=\\\'' + raw(GrapeVariety.validated.map {|v| v.name}) + '\\\' autocomplete="off" />' %>
+
 <script type="text/javascript">
     $(document).ready(function(){
         $("select#region_id").change(function(){
@@ -34,6 +36,15 @@
             };
         });
     });
+    
+    $(document).ready(function() {
+      $("a#add_grape_variety").click(function() {
+        $(this).parent().append('<%= raw(grape_variety_input) %>');
+      });
+      
+      $("a#add_grape_variety").click();
+    });
+    
 </script>
 
 <h2><%= @estate_name %></h2>
@@ -62,6 +73,16 @@
 	    <%= f.label :wine_color, :class => 'control-label' %>
 	    <div class="controls">
 	      <%= f.select :wine_color, options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => @wine.wine_color), options = { prompt: ''} %>
+	    </div>
+	  </div>
+	  
+	  <div class="control-group">
+	    <%= f.label :grape_varieties, :class => 'control-label' %>
+	    <div class="controls">
+        <a class="btn btn-primary" id="add_grape_variety" href="#">+</a><br />
+        <% @wine.grape_varieties.each do |gv| %>
+          <%= raw(grape_variety_input.gsub /value=""/, 'value="' + gv.name + '"') %>
+        <% end %>
 	    </div>
 	  </div>
 	

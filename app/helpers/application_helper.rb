@@ -107,4 +107,8 @@ module ApplicationHelper
   def formated_vintage(vintage, short = true)
     vintage > 0 ? vintage : (short ? '-' : t('helpers.label.bottle.no_vintage'))
   end
+
+  def grape_variety_count_unvalidated
+    GrapeVariety.not_validated.count
+  end
 end

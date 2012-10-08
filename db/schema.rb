@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923091745) do
+ActiveRecord::Schema.define(:version => 20121004204046) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -98,6 +98,18 @@ ActiveRecord::Schema.define(:version => 20120923091745) do
     t.text     "definition"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "grape_varieties", :force => true do |t|
+    t.string   "name"
+    t.boolean  "validation", :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "grape_varieties_wines", :id => false, :force => true do |t|
+    t.integer "wine_id"
+    t.integer "grape_variety_id"
   end
 
   create_table "notifications", :force => true do |t|

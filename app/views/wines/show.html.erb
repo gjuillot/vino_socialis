@@ -51,7 +51,14 @@
       <%= t("wine.color." + @wine.wine_color) %>
     </p>
 
-    <% if !@wine.info.blank? %>
+    <% unless @wine.grape_varieties.blank? %>
+      <p>
+        <b><%= t("helpers.label.wine.grape_varieties") %>:</b>
+        <%= @wine.grape_varieties.map(&:name).join(', ') %>
+      </p>
+    <% end %>
+
+    <% unless @wine.info.blank? %>
       <blockquote>
         <%= simple_format @wine.info %>
       </blockquote>

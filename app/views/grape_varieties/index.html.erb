@@ -1,0 +1,25 @@
+<% if @for_replacement %>
+  <h1>Remplacement de <%= @for_replacement.name %></h1>
+<% end %>
+
+<% per_column = (@grape_varieties.size/3.0).ceil %>
+<% first = @grape_varieties.take(per_column) %>
+<% second = (@grape_varieties-first).take(per_column) %>
+<% third = (@grape_varieties-first-second).take(per_column) %>
+<div class="row">
+  <div class="span4">
+    <ul>
+      <%= render first %>
+    </ul>
+  </div>
+  <div class="span4">
+    <ul>
+      <%= render second %>
+    </ul>
+  </div>
+  <div class="span4">
+    <ul>
+      <%= render third %>
+    </ul>
+  </div>
+</div>

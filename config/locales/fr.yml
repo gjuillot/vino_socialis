@@ -6,6 +6,7 @@ fr:
     discover:
       title: "Découvrir"
       countries_regions_areas: "Pays, régions et appellations"
+      grape_varieties: "Cépages"
       wines_estates: "Vins et producteurs"
       latest_tastings: "Dernières dégustations"
       latest_recommandations: "Dernières recommandations"
@@ -318,6 +319,7 @@ fr:
         info: "Informations complémentaires"
         select_country_and_region: "Choisir le pays et la région ..."
         select_area: "... puis choisir l'appellation"
+        grape_varieties: "Cépages"
       wine_rack:
         name: "Nom"
         layout: "Disposition"

@@ -1,0 +1,7 @@
+<% if @for_replacement %>
+  <%= grape_variety.name %>
+  <%= content_tag(:a, content_tag(:i, "", class: "icon-refresh"), :href => do_replace_grape_variety_path(by: grape_variety), 'data-confirm' => 'Remaplacer ' + @for_replacement.name + ' par ' + grape_variety.name + '?', 'data-method' => :post, :rel => 'nofollow') %>
+<% else %>
+  <%= link_to grape_variety.name, grape_variety %>
+<% end %>
+<br />
