@@ -40,11 +40,9 @@
     $(document).ready(function() {
       $("a#add_grape_variety").click(function() {
         $(this).parent().append('<%= raw(grape_variety_input) %>');
+        $("input#grape_varieties").typeahead({source: <%= raw(GrapeVariety.all.map {|gv| gv.name}) %>});
       });
-      
       $("a#add_grape_variety").click();
-      
-      $("input#grape_varieties").typeahead({source: <%= raw(GrapeVariety.all.map {|gv| gv.name}) %>});
     });
     
 </script>
