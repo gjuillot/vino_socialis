@@ -1,4 +1,4 @@
-<% grape_variety_input = '<input name="wine_grape_varieties[]" type="text" value="" data-provide="typeahead" data-items="10" data-source=\\\'' + raw(GrapeVariety.validated.map {|v| v.name}) + '\\\' autocomplete="off" />' %>
+<% grape_variety_input = '<input name="wine_grape_varieties[]" id="grape_varieties" type="text" value="" autocomplete="off" />' %>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -43,6 +43,8 @@
       });
       
       $("a#add_grape_variety").click();
+      
+      $("input#grape_varieties").typeahead({source: <%= raw(GrapeVariety.all.map {|gv| gv.name}) %>});
     });
     
 </script>
