@@ -230,7 +230,7 @@
       'Minervois',
       'Minervois-la-Livinière',
       'Montpeyroux',
-      'Muscat de Frontignon',
+      'Muscat de Frontignan',
       'Muscat de Lunel',
       'Muscat de Mireval',
       'Muscat de Rivesaltes',
