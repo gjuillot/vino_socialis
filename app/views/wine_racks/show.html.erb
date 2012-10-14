@@ -135,6 +135,8 @@
         </tr>
       <% end %>
     </table>
+    <br />
+    <%= link_to t('wine_rack.empty'), empty_wine_rack_path(@wine_rack), confirm: t('wine_rack.empty_confirm'), method: :post, class: 'btn btn-primary' %>
   </div>
 
   <div class="span8">

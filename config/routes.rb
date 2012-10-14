@@ -6,6 +6,7 @@ VinoSocialis::Application.routes.draw do
       member do
         get 'place'
         get 'apply_place'
+        post 'empty'
       end
     end
 

@@ -44,6 +44,11 @@ class WineRacksController < ApplicationController
     redirect_to @wine_rack, notice: 'Bottle was successfully placed.'
   end
   
+  def empty
+    WineRackPosition.where('wine_rack_id = ?', @wine_rack.id).delete_all
+    redirect_to @wine_rack
+  end
+  
   private
   def init_wine_rack_positions
     @positions = Array.new(@wine_rack.total_rows) { Array.new(@wine_rack.total_columns) { Array.new(@wine_rack.rows) { [nil]*@wine_rack.columns } } }

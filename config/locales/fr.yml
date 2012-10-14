@@ -234,6 +234,8 @@ fr:
     bottle: "Bouteille"
     place: "Placer une bouteille dans %{name}"
     place_instruction: "Cliquer sur un emplacement libre"
+    empty: "Vider ce casier"
+    empty_confirm: "Vider ce casier ?"
     layout:
       simple: Simple
       cabinet: Clayette
