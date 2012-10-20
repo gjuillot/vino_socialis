@@ -49,6 +49,11 @@ class WineRacksController < ApplicationController
     redirect_to @wine_rack
   end
   
+  def destroy
+    @wine_rack.destroy
+    redirect_to wine_racks_path
+  end
+  
   private
   def init_wine_rack_positions
     @positions = Array.new(@wine_rack.total_rows) { Array.new(@wine_rack.total_columns) { Array.new(@wine_rack.rows) { [nil]*@wine_rack.columns } } }

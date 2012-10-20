@@ -136,7 +136,11 @@
       <% end %>
     </table>
     <br />
-    <%= link_to t('wine_rack.empty'), empty_wine_rack_path(@wine_rack), confirm: t('wine_rack.empty_confirm'), method: :post, class: 'btn btn-primary' %>
+    <% if @wine_rack.content > 0 %>
+      <%= link_to t('wine_rack.empty'), empty_wine_rack_path(@wine_rack), confirm: t('wine_rack.empty_confirm'), method: :post, class: 'btn btn-primary' %>
+    <% else %>
+      <%= link_to t('wine_rack.destroy'), @wine_rack, confirm: t('wine_rack.destroy_confirm'), method: :delete, class: 'btn btn-primary' %>
+    <% end %>
   </div>
 
   <div class="span8">

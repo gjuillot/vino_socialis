@@ -236,6 +236,8 @@ fr:
     place_instruction: "Cliquer sur un emplacement libre"
     empty: "Vider ce casier"
     empty_confirm: "Vider ce casier ?"
+    destroy: "Supprimer ce casier"
+    destroy_confirm: "Supprimer ce casier ?"
     layout:
       simple: Simple
       cabinet: Clayette
