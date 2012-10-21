@@ -238,6 +238,7 @@ fr:
     empty_confirm: "Vider ce casier ?"
     destroy: "Supprimer ce casier"
     destroy_confirm: "Supprimer ce casier ?"
+    rename: "Renommer"
     layout:
       simple: Simple
       cabinet: Clayette

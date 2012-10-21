@@ -141,6 +141,7 @@
     <% else %>
       <%= link_to t('wine_rack.destroy'), @wine_rack, confirm: t('wine_rack.destroy_confirm'), method: :delete, class: 'btn btn-primary' %>
     <% end %>
+    <%= link_to t('wine_rack.rename'), edit_wine_rack_path(@wine_rack), class: 'btn btn-primary' %>
   </div>
 
   <div class="span8">

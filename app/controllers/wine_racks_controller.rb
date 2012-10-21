@@ -29,6 +29,17 @@ class WineRacksController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    if @wine_rack.update_attributes(params[:wine_rack])
+      redirect_to @wine_rack
+    else
+      render action: "edit"
+    end
+  end
+  
   def place
     init_wine_rack_positions
     @bottle = Bottle.find(params[:bottle])
