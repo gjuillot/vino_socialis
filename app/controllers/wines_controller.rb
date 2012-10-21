@@ -85,21 +85,15 @@ class WinesController < ApplicationController
   # POST /wines/1/validate
   def validate
     @wine.validation = true
-    if @wine.save
-      redirect_to @wine, notice: 'Wine was successfully validated.'
-    else
-      redirect_to @wine, error: 'Wine was not successfully validated.'
-    end
+    @wine.save
+    redirect_to sheets_moderations_path
   end
   
   # POST /wines/1/unvalidate
   def unvalidate
     @wine.validation = false
-    if @wine.save
-      redirect_to @wine, notice: 'Wine was successfully unvalidated.'
-    else
-      redirect_to @wine, error: 'Wine was not successfully unvalidated.'
-    end
+    @wine.save
+    redirect_to sheets_moderations_path
   end
   
   # POST /wines/1/taste

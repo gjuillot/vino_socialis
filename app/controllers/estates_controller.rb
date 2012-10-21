@@ -47,21 +47,15 @@ class EstatesController < ApplicationController
   # POST /estates/1/validate
   def validate
     @estate.validation = true
-    if @estate.save
-      redirect_to @estate, notice: 'estate was successfully validated.'
-    else
-      redirect_to @estate, error: 'estate was not successfully validated.'
-    end
+    @estate.save
+    redirect_to sheets_moderations_path
   end
   
   # POST /estates/1/unvalidate
   def unvalidate
     @estate.validation = false
-    if @estate.save
-      redirect_to @estate, notice: 'estate was successfully unvalidated.'
-    else
-      redirect_to @estate, error: 'estate was not successfully unvalidated.'
-    end
+    @estate.save
+    redirect_to sheets_moderations_path
   end
   
   def replace
