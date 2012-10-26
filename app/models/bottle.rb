@@ -41,15 +41,15 @@ class Bottle < ActiveRecord::Base
   end
   
   def drink_min_year
-    vintage.to_i == 0 ? '-' : vintage.to_i + drink_min.to_i
+    vintage.to_i == 0 ? 0 : vintage.to_i + drink_min.to_i
   end
   
   def drink_max_year
-    vintage.to_i == 0 ? '-' : vintage.to_i + drink_max.to_i
+    vintage.to_i == 0 ? 0 : vintage.to_i + drink_max.to_i
   end
   
   def drink_best_year
-    vintage.to_i == 0 ? '-' : vintage.to_i + drink_best.to_i
+    vintage.to_i == 0 ? 0 : vintage.to_i + drink_best.to_i
   end
   
   def drink
