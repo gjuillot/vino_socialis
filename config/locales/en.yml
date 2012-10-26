@@ -19,6 +19,7 @@ en:
       my_racks: "My racks"
       new_bottle: "Put new bottles into my cellar"
       my_consumptions: "My consumptions"
+      stat: "My statistics"
     share:
       title: "Share"
       users: "Users"

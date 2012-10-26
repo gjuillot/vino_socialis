@@ -72,7 +72,11 @@ VinoSocialis::Application.routes.draw do
     end
   
     devise_for :users
-    resources :users
+    resources :users do
+      member do
+        get 'stat'
+      end
+    end
     
     resources :conversations do
       collection do

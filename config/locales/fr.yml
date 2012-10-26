@@ -19,6 +19,7 @@ fr:
       my_racks: "Mes casiers"
       new_bottle: "Encaver de nouvelles bouteilles"
       my_consumptions: "Mes sorties"
+      stat: "Mes statistiques"
     share:
       title: "Partager"
       users: "Utilisateurs"
