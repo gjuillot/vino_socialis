@@ -1,7 +1,8 @@
 class Bottle < ActiveRecord::Base
   belongs_to :wine
   belongs_to :user
-  has_many :wine_rack_positions
+  has_many :wine_rack_positions, dependent: :restrict
+  has_many :consumptions, dependent: :restrict
   
   validates :initial_quantity, :numericality => { :only_integer => true, :greater_than => 0 }
   validates :price, :numericality => { :greater_than_or_equal_to => 0 }

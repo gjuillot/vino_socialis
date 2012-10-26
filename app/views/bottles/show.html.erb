@@ -37,9 +37,10 @@
 	  <dt><%= t("helpers.label.bottle.comments")%></dt>
 	  <dd><%= @bottle.comments %></dd>
 	  
-	  <br />
+	  <br /><br />
 	  
-	  <dd><%= button_to_edit edit_bottle_path(@bottle) %></dd>
+    <dd><%= button_to_edit edit_bottle_path(@bottle) %></dd><br />
+    <dd><%= button_to_destroy @bottle if @bottle.can_destroy? %></dd>
 	</dl>
   </div>
   
