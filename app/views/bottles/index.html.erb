@@ -59,7 +59,7 @@
   function filter_color(select) {
     var color = $("select#wine_color").val();
     if (color.length > 0) {
-      var pattern6 = new RegExp('.*\/'+color+'\.png');
+      var pattern6 = new RegExp('.*\/'+color+'.*\.png');
       $("td[id*=wine_color] a img").each(function() {
         var color_src = $(this).attr('src');
         if (!(pattern6.test(color_src))) {
