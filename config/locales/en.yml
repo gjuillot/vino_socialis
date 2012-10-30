@@ -184,6 +184,29 @@ en:
     my_profile: "My profile"
     edit_my_profile: "Edit my profile"
     edit_profile: "Edit %{user_name}"
+    stat:
+      areas: "By region"
+      colors: "By color"
+      vintages: "By vintage"
+      summary:
+        title: "Global summary"
+        total_title: "Total"
+        total_count:
+          zero: "No bottle"
+          one: "1 bottle"
+          other: "%{count} bottles"
+        price_title: "Total price"
+        current_value_title: "Total value"
+        oldest_title: "Oldest"
+        most_expensive_title: "Most expensive"
+        recommandations_count:
+          zero: "No recommandation"
+          one: "1 recommandation"
+          other: "%{count} recommandations"
+        consumptions_count:
+          zero: "No bottle out"
+          one: "1 bottle out"
+          other: "%{count} bottles out"
   wine:
     wines: "Wines"
     new: "New wine"

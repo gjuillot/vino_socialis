@@ -31,11 +31,20 @@ class UsersController < ApplicationController
   end
   
   def stat
-    @bottles = @user.remaining_bottles.sum(:remaining_quantity)
+    @bottles = 0
+    @price = 0
+    @current_value = 0
     @countries = {}
     @colors = {}
     @vintages = {}
     @user.remaining_bottles.each do |b|
+      @bottles += b.remaining_quantity
+      @price += b.price
+      @current_value += b.current_value
+      
+      @oldest = b if @oldest.nil? or (b.vintage > 0 and b.vintage < @oldest.vintage)
+      @most_expensive = b if @most_expensive.nil? or b.current_value > @most_expensive.current_value
+      
       if @vintages[b.vintage].nil?
         @vintages[b.vintage] = 0
       end

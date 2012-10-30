@@ -182,6 +182,29 @@ fr:
     my_profile: "Mon profil"
     edit_my_profile: "Modifier mon profil"
     edit_profile: "Modifier %{user_name}"
+    stat:
+      areas: "Par région"
+      colors: "Par couleur"
+      vintages: "Par millésime"
+      summary:
+        title: "Résumé général"
+        total_title: "Total"
+        total_count:
+          zero: "Aucune bouteille"
+          one: "1 bouteille"
+          other: "%{count} bouteilles"
+        price_title: "Prix total"
+        current_value_title: "Cote total"
+        oldest_title: "Plus vieille"
+        most_expensive_title: "Plus chère"
+        recommandations_count:
+          zero: "Aucune recommandation"
+          one: "1 recommandation"
+          other: "%{count} recommandations"
+        consumptions_count:
+          zero: "Aucune bouteille sortie"
+          one: "1 bouteille sortie"
+          other: "%{count} bouteilles sorties"
   wine:
     wines: "Vins"
     new: "Nouveau vin"

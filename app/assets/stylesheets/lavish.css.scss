@@ -185,3 +185,19 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
+
+
+// For d3.js
+rect.background {
+  fill: white;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+}
+

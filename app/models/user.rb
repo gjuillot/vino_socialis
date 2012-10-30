@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   default_scope order: 'name ASC'
   
   has_many :bottles
+  has_many :wine_recommandations
+  has_many :consumptions
   
   ROLES = %w[admin moderator user]
   
