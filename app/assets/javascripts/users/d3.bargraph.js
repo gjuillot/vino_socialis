@@ -1,17 +1,19 @@
-var m = [30, 40, 20, 160], // top right bottom left
+var m = [30, 40, 20, 180], // top right bottom left
     w = 920 - m[1] - m[3], // width
     h = 500 - m[0] - m[2], // height
-    x = d3.scale.linear().range([0, w]),
     y = 20, // bar height
     z = d3.scale.ordinal().range(["#c24641", "#7E2217"]), // bar color
     duration = 750,
     delay = 25;
     
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("top");
-
 function bargraph(datas, div_id) {
+  var x = d3.scale.linear().range([0, w]);
+    
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("top")
+      .tickFormat(d3.format('integer'));
+
   var hierarchy = d3.layout.partition()
       .value(function(d) { return d.size; });
   
@@ -36,14 +38,18 @@ function bargraph(datas, div_id) {
       .attr("y1", "100%");
       
   datas['svg'] = svg;
+  datas['var_x'] = x;
+  datas['xAxis'] = xAxis;
   
   hierarchy.nodes(datas);
   x.domain([0, datas.value]).nice();
-  down(datas, 0, svg);
+  down(datas, 0);
 }
 
 function down(d, i) {
-  var svg = get_svg(d);
+  var svg = find_in_root(d, 'svg');
+  var x = find_in_root(d, 'var_x');
+  var xAxis = find_in_root(d, 'xAxis');
   
   if (!d.children || this.__transition__) return;
   var end = duration + d.children.length * delay;
@@ -58,7 +64,7 @@ function down(d, i) {
   // Enter the new bars for the clicked-on data.
   // Per above, entering bars are immediately visible.
   var enter = bar(d)
-      .attr("transform", stack(i))
+      .attr("transform", stack(x, i))
       .style("opacity", 1);
 
   // Have the text fade-in, even though the bars are visible.
@@ -67,9 +73,15 @@ function down(d, i) {
   enter.select("rect").style("fill", z(true));
 
   // Update the x-scale domain.
-  x.domain([0, d3.max(d.children, function(d) { return d.value; })]).nice();
+  var max = d3.max(d.children, function(d) { return d.value; });
+  x.domain([0, max]).nice();
 
   // Update the x-axis.
+  if (max <= 10) {
+    xAxis.tickValues([1,2,3,4,5,6,7,8,9,10]);
+  } else {
+    xAxis.tickValues(null);
+  }
   svg.selectAll(".x.axis").transition().duration(duration).call(xAxis);
 
   // Transition entering bars to their new position.
@@ -84,7 +96,7 @@ function down(d, i) {
   // Transition entering rects to the new x-scale.
   enterTransition.select("rect")
       .attr("width", function(d) { return x(d.value); })
-      .style("fill", function(d) { return z(!!d.children); });
+      .style("fill", function(d) { return z(!!d.children); })
 
   // Transition exiting bars to fade out.
   var exitTransition = exit.transition()
@@ -100,7 +112,9 @@ function down(d, i) {
 }
 
 function up(d) {
-  var svg = get_svg(d);
+  var svg = find_in_root(d, 'svg');
+  var x = find_in_root(d, 'var_x');
+  var xAxis = find_in_root(d, 'xAxis');
   
   if (!d.parent || this.__transition__) return;
   var end = duration + d.children.length * delay;
@@ -121,9 +135,15 @@ function up(d) {
       .style("fill-opacity", 1e-6);
 
   // Update the x-scale domain.
-  x.domain([0, d3.max(d.parent.children, function(d) { return d.value; })]).nice();
+  var max = d3.max(d.parent.children, function(d) { return d.value; });
+  x.domain([0, max]).nice();
 
   // Update the x-axis.
+  if (max <= 10) {
+    xAxis.tickValues([1,2,3,4,5,6,7,8,9,10]);
+  } else {
+    xAxis.tickValues(null);
+  }
   svg.selectAll(".x.axis").transition().duration(duration).call(xAxis);
 
   // Transition entering bars to fade in over the full duration.
@@ -141,7 +161,7 @@ function up(d) {
   var exitTransition = exit.selectAll("g").transition()
       .duration(duration)
       .delay(function(d, i) { return i * delay; })
-      .attr("transform", stack(d.index));
+      .attr("transform", stack(x, d.index));
 
   // Transition exiting text to fade out.
   exitTransition.select("text")
@@ -161,7 +181,11 @@ function up(d) {
 
 // Creates a set of bars for the given data node, at the specified index.
 function bar(d) {
-  var bar = get_svg(d).insert("svg:g", ".y.axis")
+  var svg = find_in_root(d, 'svg');
+  var x = find_in_root(d, 'var_x');
+  var xAxis = find_in_root(d, 'xAxis');
+
+  var bar = svg.insert("svg:g", ".y.axis")
       .attr("class", "enter")
       .attr("transform", "translate(0,5)")
     .selectAll("g")
@@ -175,17 +199,21 @@ function bar(d) {
       .attr("y", y / 2)
       .attr("dy", ".35em")
       .attr("text-anchor", "end")
-      .text(function(d) { return d.name; });
-
+      .text(function(d) { return d.name; })
+    .append("svg:title")
+      .text(function(d) { return d.name + ': ' + d.value; });
+      
   bar.append("svg:rect")
       .attr("width", function(d) { return x(d.value); })
-      .attr("height", y);
+      .attr("height", y)
+    .append("svg:title")
+      .text(function(d) { return d.name + ': ' + d.value; });
 
   return bar;
 }
 
 // A stateful closure for stacking bars horizontally.
-function stack(i) {
+function stack(x, i) {
   var x0 = 0;
   return function(d) {
     var tx = "translate(" + x0 + "," + y * i * 1.2 + ")";
@@ -194,9 +222,9 @@ function stack(i) {
   };
 }
 
-function get_svg(d) {
-  if (d["svg"])
-    return d["svg"];
+function find_in_root(d, s) {
+  if (d[s])
+    return d[s];
   else
-    return get_svg(d.parent);
+    return find_in_root(d.parent, s);
 }
