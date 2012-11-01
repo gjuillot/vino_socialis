@@ -1,13 +1,5 @@
 <% provide(:title, t("menu.track.my_racks")) %>
 
-<script type="text/javascript">
-$(document).ready(function() {
-  $('tr').click(function() {
-    window.location = $(this).find("input").val();
-  });
-});
-</script>
-
 <h1><%= t("menu.track.my_racks") %></h1>
 
 <table class="table table-condensed table-striped">

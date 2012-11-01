@@ -1,50 +1,13 @@
 <% grape_variety_input = '<input name="wine_grape_varieties[]" id="grape_varieties" type="text" value="" autocomplete="off" />' %>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("select#region_id").change(function(){
-            var id_value_string = $(this).val();
-            if (id_value_string == "") {
-                // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
-                $("select#wine_area_id option").remove();
-                var row = "<option value=\"" + "" + "\">" + "" + "</option>";
-                $(row).appendTo("select#wine_area_id");
-            }
-            else {
-                // Send the request and update sub category dropdown
-                $.ajax({
-                    dataType: "json",
-                    cache: false,
-                    url: '/areas/for_region_id/' + id_value_string,
-                    timeout: 2000,
-                    error: function(XMLHttpRequest, errorTextStatus, error){
-                        alert("Failed to submit : "+ errorTextStatus+" ;"+error);
-                    },
-                    success: function(data){                    
-                        // Clear all options from sub category select
-                        $("select#wine_area_id option").remove();
-                        //put in a empty default line
-                        var row = "<option value=\"\"><%= t('helpers.label.wine.select_area') %></option>";
-                        $(row).appendTo("select#wine_area_id");                        
-                        // Fill sub category select
-                        $.each(data, function(i, j){
-                            row = "<option value=\"" + j.id + "\">" + j.name + "</option>";  
-                            $(row).appendTo("select#wine_area_id");                    
-                        });
-                     }
-                });
-            };
-        });
+  $(document).ready(function() {
+    $("a#add_grape_variety").click(function() {
+      $(this).parent().append('<%= raw(grape_variety_input) %>');
+      $("input#grape_varieties").typeahead({source: <%= raw(GrapeVariety.all.map {|gv| gv.name}) %>});
     });
-    
-    $(document).ready(function() {
-      $("a#add_grape_variety").click(function() {
-        $(this).parent().append('<%= raw(grape_variety_input) %>');
-        $("input#grape_varieties").typeahead({source: <%= raw(GrapeVariety.all.map {|gv| gv.name}) %>});
-      });
-      $("a#add_grape_variety").click();
-    });
-    
+    $("a#add_grape_variety").click();
+  });
 </script>
 
 <h2><%= @estate_name %></h2>
