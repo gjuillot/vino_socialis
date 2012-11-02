@@ -186,6 +186,8 @@ fr:
       areas: "Par région"
       colors: "Par couleur"
       vintages: "Par millésime"
+      purchase_years: "Par année d'achat"
+      consumptions: "Sorties"
       summary:
         title: "Résumé général"
         total_title: "Total"

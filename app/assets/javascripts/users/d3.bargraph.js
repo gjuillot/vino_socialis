@@ -1,12 +1,12 @@
-var m = [30, 40, 20, 180], // top right bottom left
+var m = [30, 40, 0, 180], // top right bottom left
     w = 920 - m[1] - m[3], // width
-    h = 500 - m[0] - m[2], // height
+    h = 380 - m[0] - m[2], // height
     y = 20, // bar height
     z = d3.scale.ordinal().range(["#c24641", "#7E2217"]), // bar color
     duration = 750,
     delay = 25;
     
-function bargraph(datas, div_id) {
+function bargraph(datas, div_id, comparator) {
   var x = d3.scale.linear().range([0, w]);
     
   var xAxis = d3.svg.axis()
@@ -16,6 +16,10 @@ function bargraph(datas, div_id) {
 
   var hierarchy = d3.layout.partition()
       .value(function(d) { return d.size; });
+      
+  if (comparator != null) {
+    hierarchy = hierarchy.sort(comparator);
+  }
   
   var svg = d3.select("body").select(div_id).append("svg:svg")
       .attr("width", w + m[1] + m[3])

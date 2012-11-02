@@ -30,6 +30,14 @@ class UsersController < ApplicationController
   end
   
   def stat
+    respond_to do |format|
+      format.html { stat_html }
+      format.json { stat_json }
+    end
+  end
+  
+  private
+  def stat_html
     @bottles = 0
     @price = 0
     @current_value = 0
@@ -41,41 +49,44 @@ class UsersController < ApplicationController
       @oldest = b if @oldest.nil? or (b.vintage > 0 and b.vintage < @oldest.vintage)
       @most_expensive = b if @most_expensive.nil? or b.current_value > @most_expensive.current_value
     end
+    render 'stat'
   end
   
+  private
   def stat_json
-    @areas = {
-      name: "areas",
+    datas = {
+      name: "root",
       children: []
     }
-    @colors = {
-      name: "colors",
-      children: []
-    }
-    @vintages = {
-      name: "vintages",
-      children: []
-    }
-    @user.remaining_bottles.each do |b|
-      vintage = view_context.formated_vintage(b.vintage, false).to_s
-      color = t(b.wine.wine_color, scope: 'wine.color')
-      area = b.wine.area.name
-      region = b.wine.area.region.name
-      country = b.wine.area.region.country.name
-      
-      get_or_create_leaf(@colors, color)[:size] += b.remaining_quantity
-      get_or_create_leaf(@vintages, vintage)[:size] += b.remaining_quantity
-      
-      country = get_or_create_child @areas, country
-      region = get_or_create_child country, region
-      area = get_or_create_child region, area
-      color = get_or_create_child area, color
-      vintage = get_or_create_leaf color, vintage
-      vintage[:size] += b.remaining_quantity
+    if params['areas'] or params['colors'] or params['vintages'] or params['purchase_years']
+      @user.remaining_bottles.each do |b|
+        vintage = view_context.formated_vintage(b.vintage, false).to_s
+        color = t(b.wine.wine_color, scope: 'wine.color')
+        area = b.wine.area.name
+        region = b.wine.area.region.name
+        country = b.wine.area.region.country.name
+        purchase_year = b.date.year
+        
+        get_or_create_leaf(datas, color)[:size] += b.remaining_quantity if params['colors']
+        get_or_create_leaf(datas, vintage)[:size] += b.remaining_quantity if params['vintages']
+        get_or_create_leaf(datas, purchase_year)[:size] += b.remaining_quantity if params['purchase_years']
+        
+        if params['areas']
+          country = get_or_create_child datas, country
+          region = get_or_create_child country, region
+          area = get_or_create_child region, area
+          color = get_or_create_child area, color
+          vintage = get_or_create_leaf color, vintage
+          vintage[:size] += b.remaining_quantity
+        end
+      end
+    elsif params['consumptions']
+      @user.consumptions.each do |c|
+        reason = t(c.reasons, scope: 'consumptions.reasons')
+        get_or_create_leaf(datas, reason)[:size] += c.quantity unless c.quantity.nil?
+      end
     end
-    respond_to do |format|
-      format.json { render :json => {areas: @areas, colors: @colors, vintages: @vintages} }
-    end
+    render :json => datas
   end
   
   private

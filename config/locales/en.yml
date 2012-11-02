@@ -188,6 +188,8 @@ en:
       areas: "By region"
       colors: "By color"
       vintages: "By vintage"
+      purchase_years: "By year of purchase"
+      consumptions: "Consumptions"
       summary:
         title: "Global summary"
         total_title: "Total"
