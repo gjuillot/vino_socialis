@@ -185,6 +185,7 @@ en:
     edit_my_profile: "Edit my profile"
     edit_profile: "Edit %{user_name}"
     stat:
+      loading: "Loading..."
       areas: "By region"
       colors: "By color"
       vintages: "By vintage"

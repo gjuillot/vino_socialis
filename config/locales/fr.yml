@@ -183,6 +183,7 @@ fr:
     edit_my_profile: "Modifier mon profil"
     edit_profile: "Modifier %{user_name}"
     stat:
+      loading: "Chargement en cours..."
       areas: "Par région"
       colors: "Par couleur"
       vintages: "Par millésime"
