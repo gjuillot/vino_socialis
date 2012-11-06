@@ -97,16 +97,6 @@ function filter_compare(input) {
   }
 }
 
-function column(att) {
-  if ($("input#"+att+"_column").is(':checked')) {
-    $("td[id*="+att+"]").show();
-    $("th#"+att).show();
-  } else {
-    $("th#"+att).hide();
-    $("td[id*="+att+"]").hide();
-  }
-}
-
 var columns = [
   { att: 'name',                displayed: true,  search_class: 'input-medium', filter: 'text_with_link' },
   { att: 'area',                displayed: true,  search_class: 'input-medium', filter: 'text_with_link' },
@@ -121,6 +111,24 @@ var columns = [
   { att: 'chancomm',            displayed: false, search_class: 'input-mini', filter: 'text' },
   { att: 'comments',            displayed: false, search_class: 'input-mini', filter: 'text' }
 ];
+
+function treat_column(att) {
+  if ($("input#"+att+"_column").is(':checked')) {
+    $("td[id*="+att+"]").show();
+    $("th#"+att).show();
+  } else {
+    $("th#"+att).hide();
+    $("td[id*="+att+"]").hide();
+  }
+}
+
+function treat_columns() {
+    for (var i = 0; i < columns.length; i++) {
+      var c = columns[i];
+      treat_column(columns[i]['att']);
+      $("input#"+ c['att'] +"_column").change(treat_columns);
+    }
+}
 
 function filter() {
   $("tr").each(function() {
@@ -156,12 +164,6 @@ $('.bottles.index').ready(function(){
     }
   });
   
-  for (var i = 0; i < columns.length; i++) {
-    var c = columns[i];
-    column(c['att']);
-    $("input#"+ c['att'] +"_column").change(function() {
-      column(c['att']);
-    });
-  }
+  treat_columns();
     
 });
