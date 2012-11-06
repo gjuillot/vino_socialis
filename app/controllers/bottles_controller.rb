@@ -12,6 +12,10 @@ class BottlesController < ApplicationController
       @bottles = @bottles.remaining_as_quantity
     end
     
+    if params[:ids]
+      @bottles = @bottles.find(params[:ids].split(",").map { |s| s.to_i })
+    end
+    
     if params[:search_attribute] == 'wine'
       @bottles = @bottles.name_like(params[:search_value])
     elsif params[:search_attribute] == 'area'

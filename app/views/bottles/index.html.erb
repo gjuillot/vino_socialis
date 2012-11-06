@@ -19,13 +19,15 @@
 <input type="hidden" id="bottles_path" value="<%= bottles_path %>" />
 <input type="hidden" id="not_placed_bottles_path" value="<%= not_placed_bottles_path %>" />
 
-<a href="#" data-toggle="collapse" data-target="#help">Aide pour la recherche</a> - 
-<%= link_to t('bottles.new'), new_bottle_path %> - 
-<select id="racks">
-  <option value="0">Toutes les bouteilles</option>
-  <%= options_for_select(@racks.map {|r| [r.name, r.id]}, :selected => params[:wine_rack_id]) %>
-  <option value="-1"<%= @not_placed ? ' selected="selected"' : '' %>>Non placées</option>
-</select>
+<% unless params[:ids] %>
+  <a href="#" data-toggle="collapse" data-target="#help">Aide pour la recherche</a> - 
+  <%= link_to t('bottles.new'), new_bottle_path %>
+   - <select id="racks">
+    <option value="0">Toutes les bouteilles</option>
+    <%= options_for_select(@racks.map {|r| [r.name, r.id]}, :selected => params[:wine_rack_id]) %>
+    <option value="-1"<%= @not_placed ? ' selected="selected"' : '' %>>Non placées</option>
+  </select>
+<% end %>
 <div class="btn-group pull-right">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> Colonnes <span class="caret"></span> </a>
   <ul class="dropdown-menu">
@@ -34,17 +36,19 @@
     <% end %>
   </ul>
 </div>
-     
-<div id="help" class="collapse">
-  <div class="well well-small">
-    Exemples de recherche pour les champs 'Millésime', 'Reste', 'Prix' et 'Cote':<br />
-    <ul>
-      <li>1981</li>
-      <li>&lt;1981</li>
-      <li>&gt;1981</li>
-    </ul>
+
+<% unless params[:ids] %>
+  <div id="help" class="collapse">
+    <div class="well well-small">
+      Exemples de recherche pour les champs 'Millésime', 'Reste', 'Prix' et 'Cote':<br />
+      <ul>
+        <li>1981</li>
+        <li>&lt;1981</li>
+        <li>&gt;1981</li>
+      </ul>
+    </div>
   </div>
-</div>
+<% end %>
 
 <br />
 
@@ -57,17 +61,19 @@
         <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => c[:att], :order_sens => 'ASC') %>
         <%= t(c[:att], scope: 'helpers.label.bottle') %>
         <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => c[:att], :order_sens => 'DESC') %>
-        <br />
-        <div class="input-prepend">
-          <% if c[:att] == 'wine_color' %>
-            <select id="wine_color" class="input-prepend span2">
-              <option value="">Tous</option>
-              <%= options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
-            </select>
-          <% else %>
-            <span class="add-on"><i class="icon-search"></i></span><input type="text" id="<%= c[:att] %>" autocomplete='off' id="prependedInput" class="<%= c[:search_class] %>"/>
-          <% end %>
-        </div>
+        <% unless params[:ids] %>
+          <br />
+          <div class="input-prepend">
+            <% if c[:att] == 'wine_color' %>
+              <select id="wine_color" class="input-prepend span2">
+                <option value="">Tous</option>
+                <%= options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
+              </select>
+            <% else %>
+              <span class="add-on"><i class="icon-search"></i></span><input type="text" id="<%= c[:att] %>" autocomplete='off' id="prependedInput" class="<%= c[:search_class] %>"/>
+            <% end %>
+          </div>
+        <% end %>
       </th>
 <% end %>
 	    

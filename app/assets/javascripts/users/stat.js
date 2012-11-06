@@ -1,6 +1,7 @@
 $('.users.stat').ready(function() {
   
   $('div.progress').hide();
+  $('a#bottles_path').hide();
   
   var already_done = {};
   

@@ -67,18 +67,20 @@ class UsersController < ApplicationController
         country = b.wine.area.region.country.name
         purchase_year = b.date.year
         
-        get_or_create_leaf(datas, color)[:size] += b.remaining_quantity if params['colors']
-        get_or_create_leaf(datas, vintage)[:size] += b.remaining_quantity if params['vintages']
-        get_or_create_leaf(datas, purchase_year)[:size] += b.remaining_quantity if params['purchase_years']
+        leaf = get_or_create_leaf(datas, color) if params['colors']
+        leaf = get_or_create_leaf(datas, vintage) if params['vintages']
+        leaf = get_or_create_leaf(datas, purchase_year) if params['purchase_years']
         
         if params['areas']
           country = get_or_create_child datas, country
           region = get_or_create_child country, region
           area = get_or_create_child region, area
           color = get_or_create_child area, color
-          vintage = get_or_create_leaf color, vintage
-          vintage[:size] += b.remaining_quantity
+          leaf = get_or_create_leaf color, vintage
         end
+        
+        leaf[:size] += b.remaining_quantity
+        leaf[:bottles] << b.id
       end
     elsif params['consumptions']
       @user.consumptions.each do |c|
@@ -103,7 +105,7 @@ class UsersController < ApplicationController
   
   private
   def get_or_create_leaf(data, new_child)
-    data[:children].push( {name: new_child, size: 0} ) unless children_has?(data, new_child)
+    data[:children].push( {name: new_child, size: 0, bottles: []} ) unless children_has?(data, new_child)
     return data[:children].select {|c| c[:name] == new_child}.first
   end
   

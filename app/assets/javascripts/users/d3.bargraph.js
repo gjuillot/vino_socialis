@@ -55,7 +55,10 @@ function down(d, i) {
   var x = find_in_root(d, 'var_x');
   var xAxis = find_in_root(d, 'xAxis');
   
-  if (!d.children || this.__transition__) return;
+  if (!d.children || this.__transition__) {
+    window.location = $('a#bottles_path').attr('href') + '?ids=' + d.bottles;
+    return;
+  }
   var end = duration + d.children.length * delay;
 
   // Mark any currently-displayed bars as exiting.
