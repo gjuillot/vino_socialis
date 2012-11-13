@@ -113,6 +113,6 @@ module ApplicationHelper
   end
   
   def dishes_array
-    Pairing.group(:dish).map(&:dish)
+    Pairing.select(:dish).group(:dish).map(&:dish)
   end
 end
