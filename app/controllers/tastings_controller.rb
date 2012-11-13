@@ -30,14 +30,12 @@ class TastingsController < ApplicationController
       @vintage = consumption.bottle.vintage
       @date = consumption.date
     end
-    @dishes = Pairing.select(:dish).map { |p| p.dish }
   end
   
   # GET /tastings/1/edit
   def edit
     @wine = @tasting.wine
     @pairing = Pairing.find_by_tasting_id(@tasting.id)
-    @dishes = Pairing.select(:dish).map { |p| p.dish }
   end
 
   # POST /tastings

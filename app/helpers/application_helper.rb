@@ -81,7 +81,7 @@ module ApplicationHelper
   end
   
   def star_rating(note, max)
-    raw "<i class='icon-star'></i>"*(note.round)# + "<i class='icon-star-empty'></i>"*(max-note)
+    raw "<i class='icon-star' style='margin-right:1px;'></i>"*(note.round)
   end
   
   def select_vintage(f, selected = '')
@@ -110,5 +110,9 @@ module ApplicationHelper
 
   def grape_variety_count_unvalidated
     GrapeVariety.not_validated.count
+  end
+  
+  def dishes_array
+    Pairing.group(:dish).map(&:dish)
   end
 end

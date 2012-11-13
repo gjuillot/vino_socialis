@@ -33,7 +33,7 @@
     <div class="control-group">
       <label for="pairing_dish" class="control-label"><%= t('helpers.label.pairing.dish') %></label>
       <div class="controls">
-        <input id="pairing_dish" name="pairing[dish]" size="30" type="text" value="<%= (@pairing ? @pairing.dish : '') %>" data-provide="typeahead" data-items="10" data-source='<%= raw @dishes %>' />
+        <input id="pairing_dish" name="pairing[dish]" size="30" type="text" value="<%= (@pairing ? @pairing.dish : '') %>" data-provide="typeahead" data-items="10" data-source='<%= raw dishes_array %>' autocomplete='off' />
       </div>
     </div>
 

@@ -2,7 +2,6 @@ class PairingsController < ApplicationController
   
   def index
     @pairings = Pairing.order('id DESC').limit(10)
-    @dishes = Pairing.select(:dish).map { |p| p.dish }  
   end
   
   def search
@@ -11,8 +10,25 @@ class PairingsController < ApplicationController
     else
       @searched = params[:q]
       @pairings = Pairing.where('dish = ?', @searched).order('note DESC')
-      @dishes = Pairing.select(:dish).map { |p| p.dish }  
+      @best_matches = best_matches(@pairings, current_user.bottles)
       render action: 'index'
     end
+  end
+  
+  private
+  def best_matches(pairings, bottles)
+    notes = pairing_notes(pairings, bottles.map(&:wine).uniq)
+    notes.sort! {|a,b| b[:note] <=> a[:note]}
+    notes.take(5)
+  end
+  
+  private
+  def pairing_notes(pairings, wines)
+    wines.map { |wine| {wine: wine, note: pairing_note(wine, pairings)}}
+  end
+  
+  private
+  def pairing_note(wine, pairings)
+    pairings.map {|pairing| pairing.note * (1 - wine.dist_euclide(pairing.tasting.wine))}.sum
   end
 end

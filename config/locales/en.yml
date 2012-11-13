@@ -164,6 +164,7 @@ en:
     pairings: 'Wine pairings'
     latest: 'Latest wine pairings'
     search: 'Search'
+    best_matches: 'Best matches in your bottles'
   recommandation:
     recommandations: "Recommandations"
     latest: "Latest recommandations"

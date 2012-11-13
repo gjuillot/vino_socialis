@@ -162,6 +162,7 @@ fr:
     pairings: 'Accords mets-vin'
     latest: 'Derniers accords mets-vin'
     search: 'Rechercher'
+    best_matches: 'Meilleures correspondances en cave'
   recommandation:
     recommandations: "Recommandations"
     latest: "Dernières recommandations"
