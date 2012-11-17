@@ -12,6 +12,7 @@ module ConsumptionsHelper
       
       if can? :manage, consumption
         res += link_to_edit(edit_consumption_path(consumption))
+        res += link_to content_tag(:i, "", class: "icon-trash") + ' ' + t('icon.cancel') , consumption, confirm: 'Are you sure?', method: :delete
       end
       res += '</ul></div>'
       

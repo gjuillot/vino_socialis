@@ -51,6 +51,7 @@ fr:
     consume: "Consommer"
     new_wine: "Nouvelle fiche vin"
     destroy: "Détruire"
+    cancel: "Annuler"
     wine_tastings: "Voir les dégustations"
     recommand: "Recommander"
     unrecommand: "Dé-recommander"

@@ -51,6 +51,7 @@ en:
     consume: "Consume"
     new_wine: "New wine sheet"
     destroy: "Destroy"
+    cancel: "Cancel"
     wine_tastings: "See tastings"
     recommand: "Recommand"
     unrecommand: "Unrecommand"

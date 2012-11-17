@@ -78,4 +78,12 @@ class ConsumptionsController < ApplicationController
     end
   end
   
+  def destroy
+    bottle = @consumption.bottle
+    bottle.remaining_quantity += @consumption.quantity
+    if bottle.save
+      @consumption.destroy
+    end
+    redirect_to consumptions_path
+  end
 end
