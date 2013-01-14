@@ -38,6 +38,7 @@ class Ability
     
     # Estate, Wine, GrapeVariety
     can [:create, :read, :search, :taste, :encave, :recommand, :unrecommand], [Estate, Wine, GrapeVariety]
+    can [:add_label], Wine
     if user.moderator?
       can :manage, [Estate, Wine, GrapeVariety]
     end
