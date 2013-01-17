@@ -2,32 +2,34 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= wine_name @tasting.wine, estate: true, area: true, html: true %>
-</p>
-
-<p>
-  <b><%= t("helpers.label.tasting.vintage") %>:</b>
-  <%= formated_vintage(@tasting.vintage, short = false) %>
-</p>
-
-<p>
-  <b><%= t("helpers.label.tasting.date") %>:</b>
-  <%= formated_date(@tasting.date) %>
-</p>
-
-<p>
-  <b><%= t("helpers.label.tasting.note") %>:</b>
-  <%= @tasting.note %>/5
-</p>
-
-<p>
-  <b><%= t("tasting.user") %>:</b>
-  <%= @tasting.user.name %>
-</p>
-
-<% if @pairing %>
+<div class="white-opacity">
   <p>
-    <b>Accord avec</b> <%= @pairing.dish %> <b>noté</b> <%= @pairing.note %>/5
+    <%= wine_name @tasting.wine, estate: true, area: true, html: true %>
   </p>
-<% end %>
+  
+  <p>
+    <b><%= t("helpers.label.tasting.vintage") %>:</b>
+    <%= formated_vintage(@tasting.vintage, short = false) %>
+  </p>
+  
+  <p>
+    <b><%= t("helpers.label.tasting.date") %>:</b>
+    <%= formated_date(@tasting.date) %>
+  </p>
+  
+  <p>
+    <b><%= t("helpers.label.tasting.note") %>:</b>
+    <%= @tasting.note %>/5
+  </p>
+  
+  <p>
+    <b><%= t("tasting.user") %>:</b>
+    <%= @tasting.user.name %>
+  </p>
+  
+  <% if @pairing %>
+    <p>
+      <b>Accord avec</b> <%= @pairing.dish %> <b>noté</b> <%= @pairing.note %>/5
+    </p>
+  <% end %>
+</div>

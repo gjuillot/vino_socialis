@@ -1,18 +1,18 @@
 <% provide(:title, t("pairing.pairings")) %>
 
 <div class="container">
-  <div clas="row">
-    <div class="span8">
+  <div clas="row-fluid">
+    <div class="span8 white-opacity">
     	<h3><%= @searched.nil? ? t("pairing.latest") : @searched %></h3>
     	<br/>
-    	<table class="table table-striped table-condensed">
+    	<table class="table table-condensed">
     	  <%= render @pairings %>
     	</table>
     	<% unless @best_matches.nil? or @best_matches.empty? %>
     	<br />
         <h3><%= t('pairing.best_matches') %></h3>
         <br/>
-        <table class="table table-striped table-condensed">
+        <table class="table table-condensed">
           <% @best_matches.each do |m| %>
           <tr>
             <td><%= wine_color_image m[:wine] %></td><td><%= wine_name m[:wine], estate: true, area: true, separator: '</td><td>' %></td>

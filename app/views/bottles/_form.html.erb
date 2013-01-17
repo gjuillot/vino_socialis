@@ -2,7 +2,7 @@
 
 <%= form_for(@bottle, html: { class:'form-horizontal'}) do |f| %>
   <%= f.hidden_field :wine_id, value: @wine.id %>
-  <div class="row">
+  <div class="row-fluid white-opacity">
     
     <div class="span6">
       <div class="control-group">
@@ -110,12 +110,13 @@
           </div>
         </div>
       </div>
-	
-    </div>
-  </div>
-  <div class="row">	
-    <div class="span6 offset3 center">
+    
+      <div class="control-group">
+        <div class="controls">
       <%= f.submit class: "btn btn-primary span6" %>
+        </div>
+      </div>
+      
     </div>
   </div>
 <% end %>

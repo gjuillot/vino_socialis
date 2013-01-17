@@ -1,7 +1,7 @@
 
 <%= link_to '', bottles_path, id: "bottles_path" %>
 
-<ul class="nav nav-tabs" id="myTab">
+<ul class="nav nav-tabs white-opacity" id="myTab">
   <li class="active"><a href="#summary" data-toggle="tab"><%= t('user.stat.summary.title') %></a></li>
   <li><a href="#areas" data-toggle="tab"><%= t('user.stat.areas') %></a></li>
   <li><a href="#colors" data-toggle="tab"><%= t('user.stat.colors') %></a></li>
@@ -10,7 +10,7 @@
   <li><a href="#consumptions" data-toggle="tab"><%= t('user.stat.consumptions') %></a></li>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content white-opacity">
   <div class="progress progress-striped active">
     <div class="bar" style="width: 100%;"><%= t('user.stat.loading') %></div>
   </div>

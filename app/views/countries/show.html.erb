@@ -8,7 +8,7 @@
       <%= image_tag @country.image_url, alt: @country.name %><br />
       <%= link_to @country.image_source, @country.image_link, target: "blank" %>
     </div>
-    <div class="span4">
+    <div class="span4 white-opacity">
 <% end %>
 
 <h2><%= link_to t("country.countries"), countries_path %> &gt; <%= @country.name %></h2>

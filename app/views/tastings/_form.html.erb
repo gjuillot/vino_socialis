@@ -2,7 +2,7 @@
 
 <%= form_for(@tasting, html: { class:'form-horizontal'}) do |f| %>
 
-<div class="row">
+<div class="row-fluid white-opacity">
   <div class="span6">
   	
     <%= f.hidden_field :wine_id, value: @wine.id %>
@@ -43,12 +43,13 @@
         <%= select_tag 'pairing[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => (@pairing ? @pairing.note : '')) %>
       </div>
     </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit class: "btn btn-primary span6" %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class = "row">
-  <div class="span12 center">
-      <%= f.submit class: "btn btn-primary span4" %>
-  </div>
-</div>
 <% end %>

@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="row">
+<div class="row-fluid white-opacity">
   <div class="span6">
 	<dl class="dl-horizontal">
 	  <dt><%= t("helpers.label.bottle.vintage")%></dt>
@@ -47,7 +47,7 @@
   
   <div class="span6">
     <!--                                         PLACED BOTTLES                                         -->
-    <table class="table table-condensed table-striped">
+    <table class="table table-condensed">
       <% @wine_racks.each do |rack| %>
         <% unless rack.positions == 0 %>
           <tr>

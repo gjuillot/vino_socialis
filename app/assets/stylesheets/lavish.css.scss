@@ -1,18 +1,35 @@
-$navbar_color: #c24641;
-$navbar_color_2: #7E2217;
+$navbar_color: #c24641; // 194,70,65
+$navbar_color_2: #7E2217; // 126,34,23
 $navbar_submenu_color: #fff;
 
-$navbar_link_color: #fdcd2c;
-$navbar_link_color_hover: #fdfdec;
+$navbar_link_color: #fdcd2c; // 253,205,44
+$navbar_link_color_hover: #fdfdec; // 253,253,236
 
 $input_focus_color: $navbar_link_color;
 
 $btn_primary_color: $navbar_color;
 $btn_primary_color_2: $navbar_color_2;
 
+$opacity: 0.8;
+
+.white-opacity {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, $opacity);
+}
+
+div.white-opacity, dl.white-opacity {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
 body {
   font-family: 'Kotta One', serif;
   font-size: 14px;
+  background: image-url("background.jpg") fixed no-repeat;
+  background-position: center -150px;
+  background-size: 950px;
 }
 
 table {
@@ -47,23 +64,57 @@ h2 {
 
 .navbar-inner {
   font-size: 15px;
-  background-image: -moz-linear-gradient(top, $navbar_color, $navbar_color_2);
-  background-image: -ms-linear-gradient(top, $navbar_color, $navbar_color_2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($navbar_color), to($navbar_color_2));
-  background-image: -webkit-linear-gradient(top, $navbar_color, $navbar_color_2);
-  background-image: -o-linear-gradient(top, $navbar_color, $navbar_color_2);
-  background-image: linear-gradient(top, $navbar_color, $navbar_color_2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc24641', endColorstr='#ff7E2217', GradientType=0);
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 
 .navbar .nav > li > a {
-  color: $navbar_link_color;
   font-size: 16px;
 }
 
-.navbar .nav > li > a:hover {
+.navbar .pull-left > li > a {
+  color: $navbar_link_color;
+}
+
+.navbar .pull-left > li > a:hover {
   color: $navbar_link_color_hover;
 }
+
+.navbar .nav li.dropdown .dropdown-toggle .caret, .navbar .nav li.dropdown.open .caret {
+  opacity: 1;
+  filter: alpha(opacity=1);
+}
+
+.navbar .pull-left li.dropdown .dropdown-toggle .caret, .navbar .nav li.dropdown.open .caret {
+  border-top-color: $navbar_link_color;
+  border-bottom-color: $navbar_link_color;
+}
+
+.navbar .pull-left li.dropdown .dropdown-toggle:hover .caret, .navbar .nav li.dropdown.open .caret {
+  border-top-color: $navbar_link_color_hover;
+  border-bottom-color: $navbar_link_color_hover;
+}
+
+.navbar .pull-right > li > a {
+  color: $navbar_color;
+}
+
+.navbar .pull-right > li > a:hover {
+  color: #000;
+}
+
+.navbar .pull-right li.dropdown .dropdown-toggle .caret, .navbar .nav li.dropdown.open .caret {
+  border-top-color: $navbar_color;
+  border-bottom-color: $navbar_color;
+}
+
+.navbar .pull-right li.dropdown .dropdown-toggle:hover .caret, .navbar .nav li.dropdown.open .caret {
+  border-top-color: #000;
+  border-bottom-color: #000;
+}
+
 
 .dropdown-menu {
   background-color: $navbar_submenu_color;
@@ -140,32 +191,24 @@ input[type="color"]:focus,
 .alert-info {
   color: $navbar_link_color_hover;
   font-size: 15px;
-  background-image: -moz-linear-gradient(left, $navbar_color, $navbar_color_2);
-  background-image: -ms-linear-gradient(left, $navbar_color, $navbar_color_2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($navbar_color), to($navbar_color_2));
-  background-image: -webkit-linear-gradient(left, $navbar_color, $navbar_color_2);
-  background-image: -o-linear-gradient(left, $navbar_color, $navbar_color_2);
-  background-image: linear-gradient(left, $navbar_color, $navbar_color_2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc24641', endColorstr='#ff7E2217', GradientType=0);
+  background-color: rgb(160, 52, 44);
+  background-color: rgba(160, 52, 44, $opacity);
 }
 
 .alert-success {
   color: #000;
   font-size: 15px;
-  background-image: -moz-linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
-  background-image: -ms-linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($navbar_link_color), to($navbar_link_color_hover));
-  background-image: -webkit-linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
-  background-image: -o-linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
-  background-image: linear-gradient(left, $navbar_link_color, $navbar_link_color_hover);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffdcd2c', endColorstr='#fffdfdec', GradientType=0);
+  background-color: rgb(253, 229, 140);
+  background-color: rgba(253, 229, 140, $opacity);
 }
 
 footer {
-  margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
 }
 
 footer a {

@@ -30,7 +30,7 @@
     <% if @estates.empty? %>
       <%= t("estate.no_matching") %><br />
     <% else %>
-      <table class="table table-striped table-condensed">
+      <table class="table table-condensed white-opacity">
         <%= render @estates %>
       </table>
     <% end %>
@@ -46,7 +46,7 @@
     <% if @wines.empty? %>
       <%= t("wine.no_matching") %><br />
     <% else %>
-    <table class="table table-striped table-condensed">
+    <table class="table table-condensed white-opacity">
       <%= render @wines %>
     </table>
   <% end %>

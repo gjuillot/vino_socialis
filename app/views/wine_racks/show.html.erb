@@ -8,15 +8,15 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="white-opacity">
   Cliquez sur une bouteille dans la vue graphique ou le tableau pour la sélectionner.<br />
   Cliquez à nouveau sur la même bouteille pour revenir à l'affichage complet.
-</p>
+</div>
 
 <div class="row">
   
   <div class="span4">
-    <table border="solid" id="graphical">
+    <table border="solid" id="graphical" class="white-opacity">
       <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
         <tr>
           <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
@@ -36,7 +36,7 @@
   </div>
 
   <div class="span8">
-    <table class="table table-condensed table-striped" id="list">
+    <table class="table table-condensed white-opacity" id="list">
       <tbody>
         <% @bottles.each do |p| %>
           <%= render :partial => "table_row", :locals =>  { :bottle => p.bottle, :quantity => p.quantity} %>

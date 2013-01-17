@@ -4,7 +4,7 @@
 
 <h2><%= @estate.name %></h2>
 
-<div class="row">
+<div class="row-fluid white-opacity">
   <div class="span6">
 	<p>
 	  <%= @estate.address %><br />
@@ -43,7 +43,7 @@
 
   <div class="span6">
   	<% if @estate.wines.any? %>
-  	  <table class="table table-striped table-condensed">
+  	  <table class="table table-condensed">
   	  	<% @estate.wines.each do |wine| %>
   	  	  <%= wine_name wine, color: true, area: true, html: true, links: true unless wine.nil? %>
   	  	<% end %>

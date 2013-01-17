@@ -3,7 +3,7 @@
   	      	  <% unread = current_user.unread_messages %>
   	      	  <li id="fat-menu" class="dropdown">
   	      	  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-  	      	      <%= raw '<i class="icon-envelope icon-white"></i> ' if unread > 0 %>
+  	      	      <%= raw '<i class="icon-envelope"></i> ' if unread > 0 %>
   	      	  	  <%= current_user.name %><b class="caret"></b>
   	      	  	</a>
   	      	  	<ul class="dropdown-menu">

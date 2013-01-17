@@ -33,20 +33,22 @@
   	</div>
   </header>
   <div class="container">
-    <% if user_signed_in? and current_user.tutorial %>
-      <%= render "tutorial/#{params[:controller]}/#{params[:action]}" rescue nil %>
-    <% end %>
+    <div style="padding-bottom: 30px;">
+      <% if user_signed_in? and current_user.tutorial %>
+        <%= render "tutorial/#{params[:controller]}/#{params[:action]}" rescue nil %>
+      <% end %>
+      
+      <%= yield %>
+    </div>
     
-    <%= yield %>
-    
-    <footer class="footer">
+    <footer class="container footer">
       <nav>
         <ul class="pull-left">
           <% ['fr', 'en'].each do |l| %>
             <li><%= link_to image_tag("locale/#{l}.png", alt: l), url_for(:locale => l) %></li>
           <% end %>
         </ul>
-        <ul>
+        <ul class="pull-right">
           <li><%= link_to t("footer.bug"), bug_conversations_path(:url => url_for(only_path: false)) %></li>
           <li><%= link_to t("footer.contact_admins"), admins_conversations_path %></li>
           <li><%= link_to t("footer.about"), about_path %></li>

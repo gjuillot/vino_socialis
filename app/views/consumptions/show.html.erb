@@ -1,34 +1,36 @@
-<% if params[:new] %>
-  <p class="well">
-    La consommation de cette bouteille a été créée avec succès.<br />
-    <%= link_to t("consumptions.new_tasting"), new_tasting_path(consumption: @consumption), class: 'btn btn-primary' %>
+<div class="white-opacity">
+  <% if params[:new] %>
+    <p class="well">
+      La consommation de cette bouteille a été créée avec succès.<br />
+      <%= link_to t("consumptions.new_tasting"), new_tasting_path(consumption: @consumption), class: 'btn btn-primary' %>
+    </p>
+  <% end %>
+  
+  <p>
+    <b><%= t("helpers.label.consumption.bottle")%>:</b>
+    <%= bottle_name @consumption.bottle, html: true %>
   </p>
-<% end %>
-
-<p>
-  <b><%= t("helpers.label.consumption.bottle")%>:</b>
-  <%= bottle_name @consumption.bottle, html: true %>
-</p>
-
-<p>
-  <b><%= t("helpers.label.consumption.date")%>:</b>
-  <%= formated_date(@consumption.date) %>
-</p>
-
-<p>
-  <b><%= t("helpers.label.consumption.quantity")%>:</b>
-  <%= @consumption.quantity %>
-</p>
-
-<p>
-  <b><%= t("helpers.label.consumption.reasons")%></b>
-  <%= t @consumption.reasons, scope: 'consumptions.reasons' %>
-</p>
-
-<p>
-  <b><%= t("helpers.label.consumption.comments")%></b>
-  <%= @consumption.comments %>
-</p>
-
-
-<%= link_to t("consumptions.edit"), edit_consumption_path(@consumption), class: 'btn btn-primary' %>
+  
+  <p>
+    <b><%= t("helpers.label.consumption.date")%>:</b>
+    <%= formated_date(@consumption.date) %>
+  </p>
+  
+  <p>
+    <b><%= t("helpers.label.consumption.quantity")%>:</b>
+    <%= @consumption.quantity %>
+  </p>
+  
+  <p>
+    <b><%= t("helpers.label.consumption.reasons")%></b>
+    <%= t @consumption.reasons, scope: 'consumptions.reasons' %>
+  </p>
+  
+  <p>
+    <b><%= t("helpers.label.consumption.comments")%></b>
+    <%= @consumption.comments %>
+  </p>
+  
+  
+  <%= link_to t("consumptions.edit"), edit_consumption_path(@consumption), class: 'btn btn-primary' %>
+</div>

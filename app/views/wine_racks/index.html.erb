@@ -2,7 +2,7 @@
 
 <h1><%= t("menu.track.my_racks") %></h1>
 
-<table class="table table-condensed table-striped">
+<table class="table table-condensed white-opacity">
   <% @wine_racks.each do |r| %>
     <tr>
       <td style="vertical-align:middle;"><%= r.name %><input type="hidden" value="<%= wine_rack_path(r) %>" /></td>

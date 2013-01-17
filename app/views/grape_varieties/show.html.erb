@@ -2,7 +2,7 @@
 
 <h1><%= @grape_variety.name %></h1>
 
-<table class="table table-striped table-condensed">
+<table class="table table-condensed white-opacity">
   <% @wines.each do |wine| %>
     <%= wine_name wine, color: true, estate: true, area:true, html: true, links: true %>
   <% end %>
