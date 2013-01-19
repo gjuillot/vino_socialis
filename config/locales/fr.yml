@@ -84,10 +84,11 @@ fr:
       too_soon: "Attendre"
       too_late: "Dépassé"
   consumptions:
-    edit: "Modifier consommation"
-    my: "Mes consommations"
-    none: "Aucune consommation enregistrée pour le moment"
-    new: "Nouvelle(s) consommation(s)"
+    consumption: "Sortie"
+    edit: "Modifier sortie"
+    my: "Mes sorties"
+    none: "Aucune sortie enregistrée pour le moment"
+    new: "Nouvelle(s) sortie(s)"
     quantity: "Quantité"
     new_tasting: "Créer une fiche dégustation"
     reasons:
@@ -100,6 +101,7 @@ fr:
       exchanged: "Echangée(s)"
       sold: "Vendue(s)"
   conversation:
+    my: "Mes conversations"
     new: "Nouvelle conversation avec %{user}"
     subject: "Sujet"
     body: "Message"
@@ -332,7 +334,7 @@ fr:
       tasting:
         wine: "Vin"
         vintage: "Millésime"
-        date: "Date de la dégustation"
+        date: "Date"
         note: "Note"
       user:
         name: "Pseudo (ou nom)"

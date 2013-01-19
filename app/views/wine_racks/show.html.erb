@@ -1,51 +1,54 @@
 <% provide(:title, @wine_rack.name) %>
 
-<h1><%= @wine_rack.name %></h1>
-
-<% if @highlight %>
-  <input type="hidden" id="highlight" value="<%= @highlight %>" />
-<% end %>
-
-<p id="notice"><%= notice %></p>
-
-<div class="white-opacity">
-  Cliquez sur une bouteille dans la vue graphique ou le tableau pour la sélectionner.<br />
-  Cliquez à nouveau sur la même bouteille pour revenir à l'affichage complet.
-</div>
-
-<div class="row">
+<div class="white-opacity rounded-top">
+  <h1><%= @wine_rack.name %></h1>
   
-  <div class="span4">
-    <table border="solid" id="graphical" class="white-opacity">
-      <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
-        <tr>
-          <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
-          <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
-          <td><%= render :partial => "wine_racks/show/#{@wine_rack.layout}", :locals =>  { :compartment => @positions[total_row][total_column], :total_row => total_row, :total_column => total_column, :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
-    <br />
-    <% if @wine_rack.content > 0 %>
-      <%= link_to t('wine_rack.empty'), empty_wine_rack_path(@wine_rack), confirm: t('wine_rack.empty_confirm'), method: :post, class: 'btn btn-primary' %>
-    <% else %>
-      <%= link_to t('wine_rack.destroy'), @wine_rack, confirm: t('wine_rack.destroy_confirm'), method: :delete, class: 'btn btn-primary' %>
-    <% end %>
-    <%= link_to t('wine_rack.rename'), edit_wine_rack_path(@wine_rack), class: 'btn btn-primary' %>
-  </div>
-
-  <div class="span8">
-    <table class="table table-condensed white-opacity" id="list">
-      <tbody>
-        <% @bottles.each do |p| %>
-          <%= render :partial => "table_row", :locals =>  { :bottle => p.bottle, :quantity => p.quantity} %>
+  <% if @highlight %>
+    <input type="hidden" id="highlight" value="<%= @highlight %>" />
+  <% end %>
+  
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    Cliquez sur une bouteille dans la vue graphique ou le tableau pour la sélectionner.<br />
+    Cliquez à nouveau sur la même bouteille pour revenir à l'affichage complet.
+  </p>
+  
+  <div class="row-fluid">
+    
+    <div class="span4">
+      <table border="solid" id="graphical">
+        <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
+          <tr>
+            <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
+            <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
+            <td><%= render :partial => "wine_racks/show/#{@wine_rack.layout}", :locals =>  { :compartment => @positions[total_row][total_column], :total_row => total_row, :total_column => total_column, :letter => letter, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tbody>
-    </table>
-    <% @bottles.each do |p| %>
-      <%= render :partial => "actions", :locals =>  { :bottle => p.bottle} %>
-    <% end %>
+      </table>
+      <br />
+      <% if @wine_rack.content > 0 %>
+        <%= link_to t('wine_rack.empty'), empty_wine_rack_path(@wine_rack), confirm: t('wine_rack.empty_confirm'), method: :post, class: 'btn btn-primary' %>
+      <% else %>
+        <%= link_to t('wine_rack.destroy'), @wine_rack, confirm: t('wine_rack.destroy_confirm'), method: :delete, class: 'btn btn-primary' %>
+      <% end %>
+      <%= link_to t('wine_rack.rename'), edit_wine_rack_path(@wine_rack), class: 'btn btn-primary' %>
+    </div>
+  
+    <div class="span8">
+      <table class="table table-condensed" id="list">
+        <tbody>
+          <% @bottles.each do |p| %>
+            <%= render :partial => "table_row", :locals =>  { :bottle => p.bottle, :quantity => p.quantity} %>
+          <% end %>
+        </tbody>
+      </table>
+      <% @bottles.each do |p| %>
+        <%= render :partial => "actions", :locals =>  { :bottle => p.bottle} %>
+      <% end %>
+    </div>
+    
   </div>
   
 </div>

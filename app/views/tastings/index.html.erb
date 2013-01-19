@@ -2,8 +2,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= t("tasting.latest") %></h1>
-
-<table class="table table-condensed white-opacity">
-  <%= render @tastings %>
-</table>
+<div class="white-opacity rounded-top">
+  <h1><%= t("tasting.latest") %></h1>
+  
+  <table class="table table-condensed">
+    <%= render @tastings %>
+  </table>
+</div>

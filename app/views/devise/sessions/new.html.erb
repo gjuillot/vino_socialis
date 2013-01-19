@@ -1,41 +1,39 @@
 <% provide(:title, t('menu.profile.sign_in')) %>
 
-<div class="row">
-  <div class="span6 offset3">
-    <h1><%= t('menu.profile.sign_in') %></h1>
+<div class="span6 offset3 white-opacity rounded">
+  <h1><%= t('menu.profile.sign_in') %></h1>
 
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class:'form-horizontal'}) do |f| %>
-      <div class="control-group">
-        <%= f.label :email, :class => 'control-label' %>
-        <div class="controls">
-         <%= f.email_field :email %>
-        </div>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class:'form-horizontal'}) do |f| %>
+    <div class="control-group">
+      <%= f.label :email, :class => 'control-label' %>
+      <div class="controls">
+       <%= f.email_field :email %>
       </div>
-  
-      <div class="control-group">
-        <%= f.label :password, :class => 'control-label' %>
-        <div class="controls">
-         <%= f.password_field :password %>
-        </div>
-      </div>
-  
-      <% if devise_mapping.rememberable? -%>
-        <div class="control-group">
-          <div class="controls">
-            <%= f.label :remember_me, class: "checkbox" do %>
-              <%= f.check_box :remember_me %>
-              Remember me
-            <% end %>
-          </div>
-        </div>
-      <% end -%>
-  
-      <div class="control-group">
-        <div class="controls">
-          <%= f.submit t('menu.profile.sign_in'), class: "btn btn-large btn-primary" %>
-        </div>
-      </div>
+    </div>
 
-    <% end %>
-  </div>
+    <div class="control-group">
+      <%= f.label :password, :class => 'control-label' %>
+      <div class="controls">
+       <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.label :remember_me, class: "checkbox" do %>
+            <%= f.check_box :remember_me %>
+            Remember me
+          <% end %>
+        </div>
+      </div>
+    <% end -%>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit t('menu.profile.sign_in'), class: "btn btn-large btn-primary" %>
+      </div>
+    </div>
+
+  <% end %>
 </div>

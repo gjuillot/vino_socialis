@@ -2,30 +2,32 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h2>
-
-<% if @areas.any? %>
-  <% per_column = (@areas.size/3.0).ceil %>
-  <% first = @areas.take(per_column) %>
-  <% second = (@areas-first).take(per_column) %>
-  <% third = (@areas-first-second).take(per_column) %>
-  <div class="row-fluid white-opacity">
-    <div class="span4">
-      <ul>
-      	<%= render first %>
-      </ul>
+<div class="white-opacity rounded">
+  <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h1>
+  
+  <% if @areas.any? %>
+    <% per_column = (@areas.size/3.0).ceil %>
+    <% first = @areas.take(per_column) %>
+    <% second = (@areas-first).take(per_column) %>
+    <% third = (@areas-first-second).take(per_column) %>
+    <div class="row-fluid">
+      <div class="span4">
+        <ul>
+        	<%= render first %>
+        </ul>
+      </div>
+      <div class="span4">
+        <ul>
+          <%= render second %>
+        </ul>
+      </div>
+      <div class="span4">
+        <ul>
+          <%= render third %>
+        </ul>
+      </div>
     </div>
-    <div class="span4">
-      <ul>
-        <%= render second %>
-      </ul>
-    </div>
-    <div class="span4">
-      <ul>
-        <%= render third %>
-      </ul>
-    </div>
-  </div>
-<% else %>
-  <%= t("region.no_areas") %>
-<% end %>
+  <% else %>
+    <%= t("region.no_areas") %>
+  <% end %>
+</div>

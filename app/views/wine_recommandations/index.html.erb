@@ -2,8 +2,9 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= t("recommandation.latest") %></h1>
-
-<table class="table table-condensed white-opacity">
-  <%= render @recommandations %>
-</table>
+<div class="white-opacity rounded-top">
+  <h1><%= t("recommandation.latest") %></h1>
+  <table class="table table-condensed">
+    <%= render @recommandations %>
+  </table>
+</div>

@@ -2,31 +2,34 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @user.name %></h1>
-
-<div class="row">
-
-  <div class="span3 offset3">
-    <a href="https://en.gravatar.com/" target="_blank"><%= gravatar_for @user %></a>
-  </div>
+<div class="white-opacity rounded">
+  <h1><%= @user.name %></h1>
   
-  <div class="span5 white-opacity">
-
-    <% if can? :update, @user %>
+  <div class="row">
+  
+    <div class="span3 offset3">
+      <a href="https://en.gravatar.com/" target="_blank"><%= gravatar_for @user %></a>
+    </div>
+    
+    <div class="span5">
+      
+      <% if can? :update, @user %>
+        <p>
+  	    <b><%= t("helpers.label.user.email") %>:</b>
+  	    <%= @user.email %>
+        </p>
+      <% end %>
+  
       <p>
-	    <b><%= t("helpers.label.user.email") %>:</b>
-	    <%= @user.email %>
+        <b><%= t("helpers.label.user.role") %>:</b>
+        <%= @user.role.capitalize %>
       </p>
-    <% end %>
-
-    <p>
-      <b><%= t("helpers.label.user.role") %>:</b>
-      <%= @user.role.capitalize %>
-    </p>
-
-    <% if can? :update, @user %>
-      <%= link_to 'Edit', edit_user_path(@user) %>
-    <% end %>
   
+      <% if can? :update, @user %>
+        <%= link_to 'Edit', edit_user_path(@user) %>
+      <% end %>
+    
+    </div>
   </div>
+
 </div>

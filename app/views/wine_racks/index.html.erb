@@ -1,19 +1,21 @@
 <% provide(:title, t("menu.track.my_racks")) %>
 
-<h1><%= t("menu.track.my_racks") %></h1>
-
-<table class="table table-condensed white-opacity">
-  <% @wine_racks.each do |r| %>
-    <tr>
-      <td style="vertical-align:middle;"><%= r.name %><input type="hidden" value="<%= wine_rack_path(r) %>" /></td>
-      <td style="vertical-align:middle;"><%= t 'wine_rack.content_and_capacity', content: r.content, capacity: r.capacity %></td>
-      <td class="span5">
-      	<div class="progress" style="margin-bottom: 0px;">
-          <div class="bar" style="width: <%= 100*r.content/r.capacity %>%;"></div>
-      	</div>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
-<%= link_to t('wine_rack.new'), new_wine_rack_path, class: 'btn btn-primary' %>
+<div class="white-opacity rounded-top">
+  <h1><%= t("menu.track.my_racks") %></h1>
+  
+  <table class="table table-condensed">
+    <% @wine_racks.each do |r| %>
+      <tr>
+        <td style="vertical-align:middle;"><%= r.name %><input type="hidden" value="<%= wine_rack_path(r) %>" /></td>
+        <td style="vertical-align:middle;"><%= t 'wine_rack.content_and_capacity', content: r.content, capacity: r.capacity %></td>
+        <td class="span5">
+        	<div class="progress" style="margin-bottom: 0px;">
+            <div class="bar" style="width: <%= 100*r.content/r.capacity %>%;"></div>
+        	</div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <%= link_to t('wine_rack.new'), new_wine_rack_path, class: 'btn btn-primary' %>
+</div>

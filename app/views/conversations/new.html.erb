@@ -1,15 +1,14 @@
-<h1><%= t('conversation.new', :user => @users.map{|u| u.name}.join(', ')) %></h1>
+<div class="span6 offset3 white-opacity rounded">
 
-<%= form_tag({:action => 'create'}, :class => 'form-horizontal') do %>
-
-<% @users.each do |u| %>
-    <%= hidden_field_tag 'users[]', u.id %>
-<% end %>
-<%= hidden_field_tag 'admin_tag', @admin_tag %>
-
-<div class="row">
-  <div class="span6 offset3 white-opacity">
-
+  <h1><%= t('conversation.new', :user => @users.map{|u| u.name}.join(', ')) %></h1>
+  
+  <%= form_tag({:action => 'create'}, :class => 'form-horizontal') do %>
+  
+  <% @users.each do |u| %>
+      <%= hidden_field_tag 'users[]', u.id %>
+  <% end %>
+  <%= hidden_field_tag 'admin_tag', @admin_tag %>
+  
     <div class="control-group">
       <%= label_tag 'subject', t('conversation.subject'), class: 'control-label' %>
       <div class="controls">
@@ -40,7 +39,7 @@
       </div>
     </div>
     <% end %>
-
+  
     <div class="control-group">
       <%= label_tag 'body', t('conversation.body'), class: 'control-label' %>
       <div class="controls">
@@ -53,8 +52,7 @@
         <%= submit_tag t('conversation.send'), :class => "btn btn-primary" %>
       </div>
     </div>
-  	
-  </div>
-</div>
+  
+  <% end %>
 
-<% end %>
+</div>

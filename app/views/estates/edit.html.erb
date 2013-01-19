@@ -1,5 +1,6 @@
 <% provide(:title, t("estate.edit", :estate_name => @estate.name)) %>
 
-<h1><%= t("estate.edit", :estate_name => @estate.name) %></h1>
-
-<%= render 'form' %>
+<div class="span6 offset3 white-opacity rounded">
+  <h1><%= t("estate.edit", :estate_name => @estate.name) %></h1>
+  <%= render 'form' %>
+</div>

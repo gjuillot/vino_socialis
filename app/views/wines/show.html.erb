@@ -2,10 +2,12 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2><%= wine_name(@wine) %></h2>
+<div class="white-opacity rounded">
+
+<h1><%= wine_name(@wine, estate: true, area: true) %></h1>
 
 <div class="row-fluid">
-  <div class="span6 white-opacity">
+  <div class="span6">
 	<p>
 	  <b><%= link_to @wine.estate.name, @wine.estate %></b><br />
 	  <%= @wine.estate.address %><br />
@@ -41,7 +43,7 @@
 	</p>
   </div>
   
-  <div class="span6 white-opacity">
+  <div class="span6">
     <p>
       <%= full_area_name @wine.area, html: true %>
     </p>

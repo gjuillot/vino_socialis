@@ -1,5 +1,5 @@
 var m = [30, 40, 0, 180], // top right bottom left
-    w = 920 - m[1] - m[3], // width
+    w = 860 - m[1] - m[3], // width
     h = 380 - m[0] - m[2], // height
     y = 20, // bar height
     z = d3.scale.ordinal().range(["#c24641", "#7E2217"]), // bar color

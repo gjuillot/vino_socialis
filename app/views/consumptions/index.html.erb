@@ -1,12 +1,12 @@
-<h1><%= t("consumptions.my")%></h1>
-
-<% if @consumptions.nil? %>
-  <%= t('consumptions.none') %>
-<% else %>
-  <%= paginate @consumptions %>
-  <table class="table table-condensed white-opacity">
-    <%= render @consumptions %>
-  </table>
-<% end %>
-
-<br /><br />
+<div class="white-opacity rounded-top">
+  <h1><%= t("consumptions.my")%></h1>
+  
+  <% if @consumptions.nil? %>
+    <%= t('consumptions.none') %>
+  <% else %>
+    <%= paginate @consumptions %>
+    <table class="table table-condensed">
+      <%= render @consumptions %>
+    </table>
+  <% end %>
+</div>

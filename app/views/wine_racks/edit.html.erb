@@ -1,11 +1,9 @@
 <% provide(:title, t("wine_rack.rename")) %>
 
-<h1><%= t("wine_rack.rename") %></h1>
-
-<%= form_for(@wine_rack, html: { class:'form-horizontal'}) do |f| %>
-<div class="row">
-  <div class="span6 offset3">
-
+<div class="span6 offset3 white-opacity rounded">
+  <h1><%= t("wine_rack.rename") %></h1>
+  
+  <%= form_for(@wine_rack, html: { class:'form-horizontal'}) do |f| %>
     <div class="control-group">
       <%= f.label :name, :class => 'control-label' %>
       <div class="controls">
@@ -18,7 +16,5 @@
         <%= f.submit class: "btn btn-primary" %>
       </div>
     </div>
-
-  </div>
+  <% end %>
 </div>
-<% end %>

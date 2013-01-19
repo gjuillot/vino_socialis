@@ -8,22 +8,24 @@
       <%= image_tag @country.image_url, alt: @country.name %><br />
       <%= link_to @country.image_source, @country.image_link, target: "blank" %>
     </div>
-    <div class="span4 white-opacity">
+    <div class="span4">
 <% end %>
-
-<h2><%= link_to t("country.countries"), countries_path %> &gt; <%= @country.name %></h2>
-
-<p>
-  <% if @regions.any? %>
-    <ul>
-  	  <%= render @regions %>
-    </ul>
-  <% else %>
-    <%= t("country.no_regions") %>
-  <% end %>
-</p>
-
-<% if @country.has_image? %>
+  
+<div class="white-opacity rounded">
+  <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= @country.name %></h1>
+  
+  <p>
+    <% if @regions.any? %>
+      <ul>
+    	  <%= render @regions %>
+      </ul>
+    <% else %>
+      <%= t("country.no_regions") %>
+    <% end %>
+  </p>
+  
+  <% if @country.has_image? %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

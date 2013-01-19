@@ -85,7 +85,17 @@ en:
       best: "Best year"
       too_soon: "Too soon"
       too_late: "Too late"
+  conversation:
+    my: "My conversations"
+    new: "New conversation with %{user}"
+    subject: "Subject"
+    body: "Body"
+    send: "Send"
+    last_sender: "Last sender"
+    date: "Date"
+    reply: "Answer"
   consumptions:
+    consumption: "Consumption"
     edit: "Edit consumption"
     my: "My consumptions"
     none: "No registered consomption yet"

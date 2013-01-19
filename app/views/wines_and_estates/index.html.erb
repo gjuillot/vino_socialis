@@ -24,30 +24,33 @@
 <br />
 
 <% if @display_estate %>
-  <h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
-  <p>
-    <%= paginate @estates, :param_name => "estate_page" unless @searched.nil? %>
-    <% if @estates.empty? %>
-      <%= t("estate.no_matching") %><br />
-    <% else %>
-      <table class="table table-condensed white-opacity">
-        <%= render @estates %>
-      </table>
-    <% end %>
-    <%= link_to t("estate.suggest"), new_estate_path %>
-  </p>
-  
+  <div class="white-opacity rounded-top-less">
+    <%= link_to t("estate.suggest"), new_estate_path, class: "pull-right" %>
+    <h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
+    <p>
+      <%= paginate @estates, :param_name => "estate_page" unless @searched.nil? %>
+      <% if @estates.empty? %>
+        <%= t("estate.no_matching") %><br />
+      <% else %>
+        <table class="table table-condensed">
+          <%= render @estates %>
+        </table>
+      <% end %>
+    </p>
+  </div>
   <br />
 <% end %>
 
 <% if @display_wine %>
-  <h3><%= @searched.nil? ? t("wine.random") : t("wine.matching") %></h3>
+  <div class="white-opacity rounded-top-less">
+    <h3><%= @searched.nil? ? t("wine.random") : t("wine.matching") %></h3>
     <%= paginate @wines, :param_name => "wine_page" unless @searched.nil? %>
     <% if @wines.empty? %>
       <%= t("wine.no_matching") %><br />
     <% else %>
-    <table class="table table-condensed white-opacity">
-      <%= render @wines %>
-    </table>
-  <% end %>
+      <table class="table table-condensed">
+        <%= render @wines %>
+      </table>
+    <% end %>
+  </div>
 <% end %>

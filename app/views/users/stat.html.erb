@@ -1,46 +1,50 @@
 
-<%= link_to '', bottles_path, id: "bottles_path" %>
+<div class="white-opacity rounded">
 
-<ul class="nav nav-tabs white-opacity" id="myTab">
-  <li class="active"><a href="#summary" data-toggle="tab"><%= t('user.stat.summary.title') %></a></li>
-  <li><a href="#areas" data-toggle="tab"><%= t('user.stat.areas') %></a></li>
-  <li><a href="#colors" data-toggle="tab"><%= t('user.stat.colors') %></a></li>
-  <li><a href="#vintages" data-toggle="tab"><%= t('user.stat.vintages') %></a></li>
-  <li><a href="#purchase_years" data-toggle="tab"><%= t('user.stat.purchase_years') %></a></li>
-  <li><a href="#consumptions" data-toggle="tab"><%= t('user.stat.consumptions') %></a></li>
-</ul>
+  <%= link_to '', bottles_path, id: "bottles_path" %>
+  
+  <ul class="nav nav-tabs " id="myTab">
+    <li class="active"><a href="#summary" data-toggle="tab"><%= t('user.stat.summary.title') %></a></li>
+    <li><a href="#areas" data-toggle="tab"><%= t('user.stat.areas') %></a></li>
+    <li><a href="#colors" data-toggle="tab"><%= t('user.stat.colors') %></a></li>
+    <li><a href="#vintages" data-toggle="tab"><%= t('user.stat.vintages') %></a></li>
+    <li><a href="#purchase_years" data-toggle="tab"><%= t('user.stat.purchase_years') %></a></li>
+    <li><a href="#consumptions" data-toggle="tab"><%= t('user.stat.consumptions') %></a></li>
+  </ul>
+  
+  <div class="tab-content ">
+    <div class="progress progress-striped active">
+      <div class="bar" style="width: 100%;"><%= t('user.stat.loading') %></div>
+    </div>
+    <div class="tab-pane active" id="summary">
+      <dl class="dl-horizontal">
+        <dt><%= t('user.stat.summary.total_title') %></dt>
+        <dd><%= t('user.stat.summary.total_count', count: @bottles) %></dd>
+        
+        <dt><%= t('user.stat.summary.price_title')%></dt>
+        <dd><%= formated_price(@price) %></dd>
+        
+        <dt><%= t('user.stat.summary.current_value_title')%></dt>
+        <dd><%= formated_price(@current_value) %></dd>
+        
+        <dt><%= t('user.stat.summary.oldest_title')%></dt>
+        <dd><%= link_to bottle_name(@oldest), @oldest %></dd>
+        
+        <dt><%= t('user.stat.summary.most_expensive_title')%></dt>
+        <dd><%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %></dd>
+        
+        <dt><i class="icon-heart"></i></dt>
+        <dd><%= t('user.stat.summary.recommandations_count', count: @user.wine_recommandations.count) %> </dd>
+        
+        <dt><i class="icon-hand-down"></i></dt>
+        <dd><%= t('user.stat.summary.consumptions_count', count: @user.consumptions.sum(:quantity)) %> </dd>
+      </dl>
+    </div>
+    <div class="tab-pane" id="areas"></div>
+    <div class="tab-pane" id="colors"></div>
+    <div class="tab-pane" id="vintages"></div>
+    <div class="tab-pane" id="purchase_years"></div>
+    <div class="tab-pane" id="consumptions"></div>
+  </div>
 
-<div class="tab-content white-opacity">
-  <div class="progress progress-striped active">
-    <div class="bar" style="width: 100%;"><%= t('user.stat.loading') %></div>
-  </div>
-  <div class="tab-pane active" id="summary">
-    <dl class="dl-horizontal">
-      <dt><%= t('user.stat.summary.total_title') %></dt>
-      <dd><%= t('user.stat.summary.total_count', count: @bottles) %></dd>
-      
-      <dt><%= t('user.stat.summary.price_title')%></dt>
-      <dd><%= formated_price(@price) %></dd>
-      
-      <dt><%= t('user.stat.summary.current_value_title')%></dt>
-      <dd><%= formated_price(@current_value) %></dd>
-      
-      <dt><%= t('user.stat.summary.oldest_title')%></dt>
-      <dd><%= link_to bottle_name(@oldest), @oldest %></dd>
-      
-      <dt><%= t('user.stat.summary.most_expensive_title')%></dt>
-      <dd><%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %></dd>
-      
-      <dt><i class="icon-heart"></i></dt>
-      <dd><%= t('user.stat.summary.recommandations_count', count: @user.wine_recommandations.count) %> </dd>
-      
-      <dt><i class="icon-hand-down"></i></dt>
-      <dd><%= t('user.stat.summary.consumptions_count', count: @user.consumptions.sum(:quantity)) %> </dd>
-    </dl>
-  </div>
-  <div class="tab-pane" id="areas"></div>
-  <div class="tab-pane" id="colors"></div>
-  <div class="tab-pane" id="vintages"></div>
-  <div class="tab-pane" id="purchase_years"></div>
-  <div class="tab-pane" id="consumptions"></div>
 </div>

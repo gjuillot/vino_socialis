@@ -1,4 +1,5 @@
-<div class="white-opacity">
+<dl class="dl-horizontal white-opacity rounded">
+  <h1><%= t('consumptions.consumption') %></h1>
   <% if params[:new] %>
     <p class="well">
       La consommation de cette bouteille a été créée avec succès.<br />
@@ -6,31 +7,22 @@
     </p>
   <% end %>
   
-  <p>
-    <b><%= t("helpers.label.consumption.bottle")%>:</b>
-    <%= bottle_name @consumption.bottle, html: true %>
-  </p>
+  <dt><%= t("helpers.label.consumption.bottle")%></dt>
+  <dd><%= bottle_name @consumption.bottle, html: true %></dd>
+
+  <dt><%= t("helpers.label.consumption.date")%></dt>
+  <dd><%= formated_date(@consumption.date) %></dd>
+
+  <dt><%= t("helpers.label.consumption.quantity")%></dt>
+  <dd><%= @consumption.quantity %></dd>
+
+  <dt><%= t("helpers.label.consumption.reasons")%></dt>
+  <dd><%= t @consumption.reasons, scope: 'consumptions.reasons' %></dd>
+
+  <dt><%= t("helpers.label.consumption.comments")%></dt>
+  <dd><%= @consumption.comments.empty? ? '-' : @consumption.comments %></dd>
   
-  <p>
-    <b><%= t("helpers.label.consumption.date")%>:</b>
-    <%= formated_date(@consumption.date) %>
-  </p>
+  <dt></dt>
+  <dd><%= link_to t("consumptions.edit"), edit_consumption_path(@consumption), class: 'btn btn-primary' %></dd>
   
-  <p>
-    <b><%= t("helpers.label.consumption.quantity")%>:</b>
-    <%= @consumption.quantity %>
-  </p>
-  
-  <p>
-    <b><%= t("helpers.label.consumption.reasons")%></b>
-    <%= t @consumption.reasons, scope: 'consumptions.reasons' %>
-  </p>
-  
-  <p>
-    <b><%= t("helpers.label.consumption.comments")%></b>
-    <%= @consumption.comments %>
-  </p>
-  
-  
-  <%= link_to t("consumptions.edit"), edit_consumption_path(@consumption), class: 'btn btn-primary' %>
-</div>
+</dl>

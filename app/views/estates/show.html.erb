@@ -2,57 +2,59 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2><%= @estate.name %></h2>
-
-<div class="row-fluid white-opacity">
-  <div class="span6">
-	<p>
-	  <%= @estate.address %><br />
-	  <%= @estate.zip_code %> <%= @estate.town %><br />
-	  <%= @estate.country %><br />
-	  <i class="icon-headphones"></i>  <%= @estate.phone %><br />
-	  <i class="icon-print"></i>  <%= @estate.fax %><br />
-	  <i class="icon-envelope"></i>  <%= mail_to @estate.email %><br />
-	  <i class="icon-home"></i>  <%= link_to @estate.www, @estate.www, target: '_blank' %>
-	</p>
-	
-	<p>
-	  <b><%= t("helpers.label.estate.owner") %>:</b>
-	  <%= @estate.owner %>
-	</p>
-	
-	<p>
-    <%= render 'tutorial/validation' %>
-	  <b><%= t("estate.status") %>:</b>
-	  <% if @estate.validated? %>
-	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>
-	  <% else %>
-	    <i class="icon-question-sign"></i> <%= t("estate.not_validated") %>
-	  <% end %>
-	</p>
-	
-	<p>
-	  <b><%= t("estate.user") %>:</b>
-	  <%= @estate.user.name %>
-	</p>
-	
-	<p>
-	  <%= estate_action_button @estate %>
-	</p>
-  </div>
-
-  <div class="span6">
-  	<% if @estate.wines.any? %>
-  	  <table class="table table-condensed">
-  	  	<% @estate.wines.each do |wine| %>
-  	  	  <%= wine_name wine, color: true, area: true, html: true, links: true unless wine.nil? %>
-  	  	<% end %>
-  	  </table>
-  	<% else %>
-  	  <p><%= t("estate.no_wines") %></p>
-  	<% end %>
-  	<% if can? :create, Wine %>
-  	  <%= link_to t("estate.suggest_wine"), new_wine_path(estate_id: @estate.id, estate_name: @estate.name) %>
-  	<% end %>
+<div class="white-opacity rounded-top more-padding">
+  <h1><%= @estate.name %></h1>
+  
+  <div class="row-fluid">
+    <div class="span6">
+  	<p>
+  	  <%= @estate.address %><br />
+  	  <%= @estate.zip_code %> <%= @estate.town %><br />
+  	  <%= @estate.country %><br />
+  	  <i class="icon-headphones"></i>  <%= @estate.phone %><br />
+  	  <i class="icon-print"></i>  <%= @estate.fax %><br />
+  	  <i class="icon-envelope"></i>  <%= mail_to @estate.email %><br />
+  	  <i class="icon-home"></i>  <%= link_to @estate.www, @estate.www, target: '_blank' %>
+  	</p>
+  	
+  	<p>
+  	  <b><%= t("helpers.label.estate.owner") %>:</b>
+  	  <%= @estate.owner %>
+  	</p>
+  	
+  	<p>
+      <%= render 'tutorial/validation' %>
+  	  <b><%= t("estate.status") %>:</b>
+  	  <% if @estate.validated? %>
+  	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>
+  	  <% else %>
+  	    <i class="icon-question-sign"></i> <%= t("estate.not_validated") %>
+  	  <% end %>
+  	</p>
+  	
+  	<p>
+  	  <b><%= t("estate.user") %>:</b>
+  	  <%= @estate.user.name %>
+  	</p>
+  	
+  	<p>
+  	  <%= estate_action_button @estate %>
+  	</p>
+    </div>
+  
+    <div class="span6">
+    	<% if @estate.wines.any? %>
+    	  <table class="table table-condensed">
+    	  	<% @estate.wines.each do |wine| %>
+    	  	  <%= wine_name wine, color: true, area: true, html: true, links: true unless wine.nil? %>
+    	  	<% end %>
+    	  </table>
+    	<% else %>
+    	  <p><%= t("estate.no_wines") %></p>
+    	<% end %>
+    	<% if can? :create, Wine %>
+    	  <%= link_to t("estate.suggest_wine"), new_wine_path(estate_id: @estate.id, estate_name: @estate.name) %>
+    	<% end %>
+    </div>
   </div>
 </div>

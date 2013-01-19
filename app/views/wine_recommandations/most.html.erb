@@ -2,10 +2,11 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= t("recommandation.most") %></h1>
-
-<table class="table table-condensed white-opacity">
-  <% @recommanded.each do |r| %>
-    <%= wine_name r.wine, color: true, estate: true, area: true, html: true, links: true, recommandations: true %>
-  <% end %>
-</table>
+<div class="white-opacity rounded-top">
+  <h1><%= t("recommandation.most") %></h1>
+  <table class="table table-condensed">
+    <% @recommanded.each do |r| %>
+      <%= wine_name r.wine, color: true, estate: true, area: true, html: true, links: true, recommandations: true %>
+    <% end %>
+  </table>
+</div>

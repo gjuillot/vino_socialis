@@ -1,12 +1,12 @@
-<h1><%= t("glossary.glossary")%></h1>
-
-<div class="container">
+<div class="container white-opacity rounded">
+  <h1><%= t("glossary.glossary")%></h1>
+  
   <div clas="row-fluid">
     
     <div class="span8">
       <% if @letters %>
         <div class="pagination pagination-centered">
-          <ul class="white-opacity">
+          <ul>
             <% ('A'..'Z').each do |l| %>
               <% if @letters.include? l %>
                 <li><%= link_to l, glossaries_path(l: l) %></li>
@@ -16,12 +16,12 @@
         </div>
       <% end %>
       
-        <div class="white-opacity">
+        <div>
           <%= render @glossaries %>
         </div>
     </div>
     
-    <div class="span3 white-opacity">
+    <div class="span3">
       <br />
       <br />
       <%= form_tag glossaries_path, method: 'get' do %>

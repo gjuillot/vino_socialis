@@ -1,5 +1,6 @@
 <% provide(:title, t("wine.edit", :wine_name => wine_name(@wine, estate: true, area: true))) %>
 
-<h1><%= t("wine.edit", :wine_name => wine_name(@wine, estate: true, area: true)) %></h1>
-
-<%= render 'form' %>
+<div class="span6 offset3 white-opacity rounded">
+  <h1><%= t("wine.edit", :wine_name => wine_name(@wine, estate: true, area: true)) %></h1>
+  <%= render 'form' %>
+</div>

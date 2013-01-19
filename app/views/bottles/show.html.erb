@@ -1,8 +1,10 @@
-<h2><%= wine_name @bottle.wine, estate: true, area: true, html: true %></h2>
+<div class="white-opacity rounded">
+
+<h1><%= wine_name @bottle.wine, estate: true, area: true, html: true %></h1>
 
 <p id="notice"><%= notice %></p>
 
-<div class="row-fluid white-opacity">
+<div class="row-fluid">
   <div class="span6">
 	<dl class="dl-horizontal">
 	  <dt><%= t("helpers.label.bottle.vintage")%></dt>
@@ -79,4 +81,6 @@
   	
   	<%= button_to_consume consume_bottle_path(@bottle) %>
   </div>
+</div>
+
 </div>

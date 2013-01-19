@@ -1,3 +1,4 @@
+<div class="white-opacity rounded-top">
 <h1><%= t("bottles.my")%></h1>
 
 <% columns = [
@@ -20,39 +21,38 @@
 <input type="hidden" id="not_placed_bottles_path" value="<%= not_placed_bottles_path %>" />
 
 <% unless params[:ids] %>
-  <a href="#" data-toggle="collapse" data-target="#help">Aide pour la recherche</a> - 
-  <%= link_to t('bottles.new'), new_bottle_path %>
-   - <select id="racks">
-    <option value="0">Toutes les bouteilles</option>
-    <%= options_for_select(@racks.map {|r| [r.name, r.id]}, :selected => params[:wine_rack_id]) %>
-    <option value="-1"<%= @not_placed ? ' selected="selected"' : '' %>>Non placées</option>
-  </select>
-<% end %>
-<div class="btn-group pull-right">
-  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> Colonnes <span class="caret"></span> </a>
-  <ul class="dropdown-menu">
-    <% columns.each do |c| %>
-      <label class="checkbox"><input type="checkbox" id="<%= c[:att] %>_column" <%= c[:displayed] ? 'checked="checked"' : '' %>> <%= t(c[:att], scope: 'helpers.label.bottle') %></label>
-    <% end %>
-  </ul>
-</div>
-
-<% unless params[:ids] %>
-  <div id="help" class="collapse">
-    <div class="well well-small">
-      Exemples de recherche pour les champs 'Millésime', 'Reste', 'Prix' et 'Cote':<br />
-      <ul>
-        <li>1981</li>
-        <li>&lt;1981</li>
-        <li>&gt;1981</li>
+  <div style="padding: 0px 20px 0px 20px;">
+    <a href="#" data-toggle="collapse" data-target="#help">Aide pour la recherche</a> - 
+    <%= link_to t('bottles.new'), new_bottle_path %>
+     - <select id="racks">
+      <option value="0">Toutes les bouteilles</option>
+      <%= options_for_select(@racks.map {|r| [r.name, r.id]}, :selected => params[:wine_rack_id]) %>
+      <option value="-1"<%= @not_placed ? ' selected="selected"' : '' %>>Non placées</option>
+    </select>
+    <div class="btn-group pull-right">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> Colonnes <span class="caret"></span> </a>
+      <ul class="dropdown-menu">
+        <% columns.each do |c| %>
+          <label class="checkbox"><input type="checkbox" id="<%= c[:att] %>_column" <%= c[:displayed] ? 'checked="checked"' : '' %>> <%= t(c[:att], scope: 'helpers.label.bottle') %></label>
+        <% end %>
       </ul>
+    </div>
+    <div id="help" class="collapse">
+      <div class="well well-small">
+        Exemples de recherche pour les champs 'Millésime', 'Reste', 'Prix' et 'Cote':<br />
+        <ul>
+          <li>1981</li>
+          <li>&lt;1981</li>
+          <li>&gt;1981</li>
+        </ul>
+      </div>
     </div>
   </div>
 <% end %>
 
 <br />
 
-<table class="table table-condensed white-opacity">
+<table class="table table-condensed">
 	<thead>
 	  <tr>
 	    
@@ -83,3 +83,4 @@
 	  <%= render @bottles %>
   </tbody>
 </table>
+</div>

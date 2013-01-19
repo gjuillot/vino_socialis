@@ -17,11 +17,58 @@ $opacity: 0.8;
   background-color: rgba(255, 255, 255, $opacity);
 }
 
-div.white-opacity, dl.white-opacity {
+.pagination > ul {
+  background-color: rgb(255, 255, 255);
+}
+
+.rounded {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  padding: 10px;
+  
+  -moz-box-shadow: 5px -5px 5px #888;
+  -webkit-box-shadow: 5px -5px 5px #888;
+  box-shadow: 5px 5px 5px #aaa;
+  
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.rounded-top {
+  -webkit-border-radius: 75px 75px 0px 0px;
+  -moz-border-radius: 75px 75px 0px 0px;
+  border-radius: 75px 75px 0px 0px;
+  
+  -moz-box-shadow: 5px -5px 5px #888;
+  -webkit-box-shadow: 5px -5px 5px #888;
+  box-shadow: 5px -5px 5px #aaa;
+
+  padding-top: 20px;
+  padding-bottom: 1px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.rounded-top-less {
+  -webkit-border-radius: 10px 10px 0px 0px;
+  -moz-border-radius: 10px 10px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
+  
+  -moz-box-shadow: 5px -5px 5px #888;
+  -webkit-box-shadow: 5px -5px 5px #888;
+  box-shadow: 5px -5px 5px #aaa;
+
+  padding-top: 20px;
+  padding-bottom: 0px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.rounded-top.more-padding {
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 body {
@@ -47,19 +94,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
   text-align: center;
+  font-weight: bold;
+}
+
+h1 > a {
+  font-weight: normal;
 }
 
 h2 {
-  font-size: 1.7em;
+  font-size: 1.4em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #999;
+  color: #777;
 }
 
 .navbar-inner {
@@ -232,7 +284,7 @@ footer ul li {
 
 // For d3.js
 rect.background {
-  fill: white;
+  opacity: 0;
 }
 
 .axis {
