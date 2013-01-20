@@ -101,9 +101,11 @@ module WinesHelper
       return raw res
   end
   
-  def wine_color_image(wine, tooltip=true, move_left = 0)
+  def wine_color_image(wine, tooltip=true, move_left = 0, text=false)
     if !tooltip
-      return image_tag("wine_colors/#{wine.wine_color}.png", :size => "12x12", :style => "position:relative;left:#{move_left}px")
+      res = image_tag("wine_colors/#{wine.wine_color}.png", :size => "12x12", :style => "position:relative;left:#{move_left}px")
+      res += ' ' + t("wine.color.#{wine.wine_color}") if text
+      return res
     end
     raw '<a href="#" rel="tooltip" title="' + t("wine.color.#{wine.wine_color}") + '">' + wine_color_image(wine, false) + '</a>'
   end

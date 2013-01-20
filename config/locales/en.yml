@@ -139,10 +139,17 @@ en:
     search: "Search"
     all: "Display all"
   home:
-    discover:
-      content: "Here, info about wines, estates, grapes and hints according to your own tastes and meals."
     index:
       learn_more: "Learn more"
+      carousel:
+         t1: Vino Socialis for beginners and amateurs
+         p1: <i class="icon-hand-right icon-white"></i><em>Newbie</em>, get advices from the user community and discover the world of wine.<br /><i class="icon-hand-right icon-white"></i><em>Amateur</em>, enjoy a powerful cellar manager.
+         t2: Discover the world of wine
+         p2: <i class="icon-hand-right icon-white"></i>Journey through the areas from around the world.<br /><i class="icon-hand-right icon-white"></i>Discover the recommended wines according to your taste.<br /><i class="icon-hand-right icon-white"></i>Find the best pairings for your meals.
+         t3: Follow your wines
+         p3: <i class="icon-hand-right icon-white"></i>Note the wines you taste for easy retrieval.<br /><i class="icon-hand-right icon-white"></i>The cellar cellar of your dreams is here. Powerful and practical, it meets all your needs.
+         t4: Share
+         p4: <i class="icon-hand-right icon-white"></i>The wine has an incredible social aspect, then share!<br /><i class="icon-hand-right icon-white"></i>There is nothing like the community to advise on wines, their ageing or on food pairing. Or simply to share. 
       discover:
         p1: "The world of wine is vast and full of obstacles."
         p2: "With <strong>Vino Socialis</strong>, discover this world quietly."
@@ -164,10 +171,6 @@ en:
         l1: "%{c} users"
         l2: "%{c} tastings"
         l3: "%{c} favorite wines"
-    share:
-      content: "Share your opinions on wines, estates, ..."
-    track:
-      content: "Keep track of your bottles"
   languages:
     fr: "French"
     en: "English"

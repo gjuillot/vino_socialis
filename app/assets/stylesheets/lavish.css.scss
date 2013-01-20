@@ -71,6 +71,10 @@ $opacity: 0.8;
   padding-left: 20px;
 }
 
+.carousel > div > div > img {
+  width: 100%;
+}
+
 body {
   font-family: 'Kotta One', serif;
   font-size: 14px;
@@ -112,6 +116,11 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: #777;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
 }
 
 .navbar-inner {
@@ -252,6 +261,10 @@ input[type="color"]:focus,
   font-size: 15px;
   background-color: rgb(253, 229, 140);
   background-color: rgba(253, 229, 140, $opacity);
+}
+
+.carousel-caption {
+  background: rgba(160, 52, 44, 0.75);
 }
 
 footer {
