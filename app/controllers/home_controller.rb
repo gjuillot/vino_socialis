@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
   def index
-    @wines = Wine.validated.last(5)
-    @tastings = Tasting.last(3)
+    if (!current_user.nil?)
+      redirect_to dashboard_user_path(current_user)
+    else
+      @wines = Wine.validated.last(5)
+      @tastings = Tasting.last(3)
+    end
   end
   
   def discover

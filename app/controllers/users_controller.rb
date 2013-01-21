@@ -29,6 +29,16 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
+  def dashboard
+    @bottles = Bottle.remain(@user).select('SUM(remaining_quantity) AS total').first.total
+    @oldest = Bottle.remain(@user).where('vintage > 0').reorder('vintage ASC').first
+    @most_expensive = Bottle.remain(@user).reorder('current_value DESC').first
+    @colors = Bottle.remain(@user).joins(:wine).select('"wines".wine_color AS color, SUM(remaining_quantity) AS total').group('"wines".wine_color').reorder('total DESC')
+    @tastings = Tasting.where('"tastings".user_id = ?', @user.id).count
+    @pairings = Pairing.joins(:tasting).where('"tastings".user_id = ?', @user.id).count
+    @wines = Wine.validated.where('"wines".user_id = ?', @user.id).count
+  end
+  
   def stat
     respond_to do |format|
       format.html { stat_html }

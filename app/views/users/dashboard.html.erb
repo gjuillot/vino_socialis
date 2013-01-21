@@ -1,0 +1,37 @@
+<% provide(:title, @user.name) %>
+
+<p id="notice"><%= notice %></p>
+
+<% height = 60 + 4*25 %>
+
+<div class="row-fluid">
+
+  <div class="span3 white-opacity rounded-top-less" style="height: <%= height %>px;">
+    <h3><%= t('user.stat.summary.total_count', count: @bottles) %></h3>
+    <table class="table table-condensed">
+      <% @colors.each do |c| %>
+        <tr>
+          <td><%= wine_color_image_2(c.color, false, 0, true) %></td>
+          <td><%= c.total %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  
+  <div class="span6 white-opacity rounded-top-less" style="height: <%= height %>px;">
+    <h3><%= t('user.stat.summary.oldest_title')%></h3>
+    <%= link_to bottle_name(@oldest), @oldest %><br /><br /><br />
+    <h3><%= t('user.stat.summary.most_expensive_title')%></h3>
+    <%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %>
+  </div>
+  
+  <div class="span3 white-opacity rounded-top-less" style="height: <%= height %>px;">
+    <h3><%= t('user.dashboard.participation') %></h3>
+    <table class="table table-condensed">
+      <tr><td><%= t('user.dashboard.wines', count: @wines) %></td></tr>
+      <tr><td><%= t('user.dashboard.tastings', count: @tastings) %></td></tr>
+      <tr><td><%= t('user.dashboard.pairings', count: @pairings) %></td></tr>
+    </table>
+  </div>
+
+</div>

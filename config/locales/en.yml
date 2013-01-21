@@ -234,6 +234,20 @@ en:
           zero: "No bottle out"
           one: "1 bottle out"
           other: "%{count} bottles out"
+    dashboard:
+      participation: Participation
+      wines:
+        zero: No validated wine sheet
+        one: One validated wine sheet
+        other: "%{count} validated wine sheets"
+      tastings:
+        zero: No tasting
+        one: One  tasting
+        other: "%{count}  tastings"
+      pairings:
+        zero: No wine pairing
+        one: One wine pairing
+        other: "%{count}  wine pairings"
   wine:
     wines: "Wines"
     new: "New wine"

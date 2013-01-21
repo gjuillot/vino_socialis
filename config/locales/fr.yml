@@ -241,6 +241,20 @@ fr:
           zero: "Aucune bouteille sortie"
           one: "1 bouteille sortie"
           other: "%{count} bouteilles sorties"
+    dashboard:
+      participation: Participation
+      wines:
+        zero: Aucune fiche vin validée
+        one: Une fiche vin validée
+        other: "%{count} fiches vin validées"
+      tastings:
+        zero: Aucune dégustation
+        one: Une dégustation
+        other: "%{count} dégustations"
+      pairings:
+        zero: Aucun accord mets-vins
+        one: Un accord mets-vins
+        other: "%{count} accords mets-vins"
   wine:
     wines: "Vins"
     new: "Nouveau vin"
