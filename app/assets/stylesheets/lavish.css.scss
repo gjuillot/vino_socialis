@@ -256,11 +256,24 @@ input[type="color"]:focus,
   background-color: rgba(160, 52, 44, $opacity);
 }
 
+.alert-info > a {
+  color: $navbar_link_color;
+}
+
+.alert-info > span > a {
+  color: $navbar_link_color;
+}
+
 .alert-success {
   color: #000;
   font-size: 15px;
   background-color: rgb(253, 229, 140);
   background-color: rgba(253, 229, 140, $opacity);
+}
+
+.alert > .more {
+  position: absolute;
+  top: 230px;
 }
 
 .carousel-caption {
@@ -293,7 +306,6 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
-
 
 // For d3.js
 rect.background {

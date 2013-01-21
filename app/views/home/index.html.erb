@@ -44,11 +44,13 @@
   </div>
   
   <div class="span6">
-    <div class="alert alert-info center" style="line-height: 1.30;">
-      <h3><%= t('menu.discover.title') %></h3>
-      <%= raw t('home.index.discover.p1') %><br />
-      <%= raw t('home.index.discover.p2') %>
-    </div>
+    <a href="<%= url_for(controller: 'home', action: 'discover') %>">
+      <div class="alert alert-info center" style="line-height: 1.30;text-decoration: underline;">
+        <h3><%= t('menu.discover.title') %></h3>
+        <%= raw t('home.index.discover.p1') %><br />
+        <%= raw t('home.index.discover.p2') %>
+      </div>
+    </a>
     <div class="alert alert-info center" style="line-height: 1.30;">
       <h3><%= t('menu.track.title') %></h3>
       <%= raw t('home.index.track.p2') %><br />

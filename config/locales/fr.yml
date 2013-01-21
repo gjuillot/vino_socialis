@@ -167,6 +167,26 @@ fr:
         l1: "%{c} utilisateurs"
         l2: "%{c} dégustations"
         l3: "%{c} coups de coeur"
+    discover:
+      more: "En apprendre plus..."
+      areas:
+        title_countries: "%{count} pays"
+        title_areas: "%{count} appellations"
+      grape_varieties:
+        title: "%{count} cépages"
+      glossary:
+        title: "%{count} définitions"
+      recommanded:
+        title: Vins recommandés
+        description: Avec les recommandations des autres utilisateurs, Vino Socialis vous suggère les meilleurs vins du monde.
+      pairings:
+        title: Accords mets-vins
+        description: Trouvez le vin le plus adapté aux mets qui l'accompagnera.
+      community:
+        title: Toujours plus
+        users: "%{count} utilisateurs"
+        wines: "%{count} vins validés"
+        tastings: "%{count} dégustations"
   languages:
     fr: "Français"
     en: "Anglais"

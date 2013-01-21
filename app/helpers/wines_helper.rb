@@ -3,7 +3,7 @@ module WinesHelper
     color ||= options[:color]
     estate ||= options[:estate]
     area ||= options[:area]
-    html ||= options[:html]
+    html ||= options[:html] && !current_user.nil?
     links ||= options[:links]
     recommandations ||= options[:recommandations]
     separator = options[:separator] || ' - '
@@ -59,7 +59,11 @@ module WinesHelper
     
     # ACTION BUTTON
     if links
-      res += '</td><td>' + wine_action_button(wine) + '</td></tr>'
+      if current_user.nil?
+        res += '</td></tr>'
+      else
+        res += '</td><td>' + wine_action_button(wine) + '</td></tr>'
+      end
     end
     
     return raw(res)

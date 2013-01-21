@@ -4,6 +4,17 @@ class Ability
   # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
   def initialize(user)
+    
+    # Country, Region, Area
+    can :read, [Country, Region, Area]
+    can :for_region_id, Area
+    
+    # Glossary
+    can :read, GrapeVariety
+    
+    # Glossary
+    can :read, Glossary
+    
     if (user.nil?)
       return
     end
@@ -20,12 +31,7 @@ class Ability
     can :read, User
     can :update, User, :id => user.id
     
-    # Country, Region, Area
-    can :read, [Country, Region, Area]
-    can :for_region_id, Area
-    
     # Glossary
-    can :read, Glossary
     if user.moderator?
       can :manage, Glossary
     end

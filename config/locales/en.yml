@@ -171,6 +171,15 @@ en:
         l1: "%{c} users"
         l2: "%{c} tastings"
         l3: "%{c} favorite wines"
+    discover:
+      more: "Learn more..."
+      areas:
+        title_countries: "%{count} countries"
+        title_areas: "%{count} areas"
+      grape_varieties:
+        title: "%{count} grape varieties"
+      glossary:
+        title: "%{count} definitions"
   languages:
     fr: "French"
     en: "English"
