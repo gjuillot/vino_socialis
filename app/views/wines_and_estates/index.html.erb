@@ -1,9 +1,5 @@
 <% provide(:title, t("menu.discover.wines_estates")) %>
 
-<% if notice %>
-  <div class="well well-small"><%= notice %></div>
-<% end %>
-
 <% if @replaced_estate %>
   <div class="alert alert-error center"><strong>Replacement du producteur <%= "'#{@replaced_estate.name}' (id:#{@replaced_estate.id})" %></strong></div>
 <% end %>

@@ -38,6 +38,14 @@
         <%= render "tutorial/#{params[:controller]}/#{params[:action]}" rescue nil %>
       <% end %>
       
+      <% if notice %>
+        <div class="alert"><%= t('flash.' + notice) %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-error"><%= t('flash.' + alert) %></div>
+      <% end %>
+
+      
       <%= yield %>
     </div>
     

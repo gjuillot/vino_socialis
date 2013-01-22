@@ -55,7 +55,7 @@ class BottlesController < ApplicationController
   # GET /bottles/new
   def new
     if params[:wine].blank?
-      redirect_to wines_and_estates_path, notice: 'Please use an existing wine or create a new one.'
+      redirect_to wines_and_estates_path, alert: 'select_wine'
     else
       @wine = Wine.find(params[:wine])
     end
@@ -71,7 +71,7 @@ class BottlesController < ApplicationController
     @bottle.user_id = current_user.id
     @bottle.remaining_quantity = @bottle.initial_quantity
     if @bottle.save
-      redirect_to @bottle, notice: 'Bottle was successfully created.'
+      redirect_to @bottle, notice: 'bottle_created'
     else
       @wine = @bottle.wine
       render action: "new"
@@ -81,7 +81,7 @@ class BottlesController < ApplicationController
   # PUT /bottles/1
   def update
     if @bottle.update_attributes(params[:bottle])
-      redirect_to @bottle, notice: 'Bottle was successfully updated.'
+      redirect_to @bottle, notice: 'bottle_updated'
     else
       render action: "edit"
     end
@@ -108,6 +108,6 @@ class BottlesController < ApplicationController
   
   def unplace
     WineRackPosition.find(params[:wine_rack_position_id]).destroy()
-    redirect_to @bottle , :notice => 'Bottle was successfully unplaced.'
+    redirect_to @bottle , notice: 'bottle_unplaced'
   end
 end

@@ -23,7 +23,7 @@ class WineRacksController < ApplicationController
       @wine_rack.total_columns = 2
     end
     if @wine_rack.save
-      redirect_to @wine_rack, notice: 'Rack was successfully created.'
+      redirect_to @wine_rack, notice: 'rack_created'
     else
       render action: "new"
     end
@@ -52,7 +52,7 @@ class WineRacksController < ApplicationController
     row = params[:row]
     column = params[:column]
     WineRackPosition.create(:wine_rack => @wine_rack, :bottle => bottle, :total_row => total_row, :total_column => total_column, :row => row, :column => column)
-    redirect_to @wine_rack, notice: 'Bottle was successfully placed.'
+    redirect_to @wine_rack, notice: 'bottle_placed'
   end
   
   def empty

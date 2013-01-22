@@ -7,7 +7,7 @@ class GlossariesController < ApplicationController
   
   def create
     if @glossary.save
-      redirect_to glossaries_path, notice: 'Definition was successfully created.'
+      redirect_to glossaries_path, notice: 'definition_created'
     else
       render action: "new"
     end
@@ -31,7 +31,7 @@ class GlossariesController < ApplicationController
   
   def update
     if @glossary.update_attributes(params[:glossary])
-      redirect_to glossaries_path, notice: 'Definition was successfully updated.'
+      redirect_to glossaries_path, notice: 'definition_updated'
     else
       render action: "edit"
     end

@@ -23,7 +23,7 @@ class EstatesController < ApplicationController
     @estate.user_id = current_user.id
     @estate.validation = false
     if @estate.save
-      redirect_to @estate, notice: 'estate was successfully created.'
+      redirect_to @estate, notice: 'estate_created'
     else
       render action: "new"
     end
@@ -32,7 +32,7 @@ class EstatesController < ApplicationController
   # PUT /estates/1
   def update
     if @estate.update_attributes(params[:estate])
-      redirect_to @estate, notice: 'estate was successfully updated.'
+      redirect_to @estate, notice: 'estate_updated'
     else
       render action: "edit"
     end

@@ -15,7 +15,7 @@ class GrapeVarietiesController < ApplicationController
 
   def update
     if @grape_variety.update_attributes(params[:grape_variety])
-      redirect_to @grape_variety, notice: 'Grape Variety was successfully updated.'
+      redirect_to @grape_variety, notice: 'grape_variety_updated'
     else
       render action: "edit"
     end

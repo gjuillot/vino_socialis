@@ -314,6 +314,35 @@ en:
       front_back_cellar_2: Other cellar with front and back
   wines_and_estates:
     search: "Search"
+
+  flash:
+    select_estate: Please use an existing estate or create a new one.
+    select_wine: Please use an existing wine or create a new one.
+    select_bottle: Please use an existing bottle.
+    select_at_least_one_bottle: Select at least one bottle.
+    wine_created: Wine was successfully created.
+    wine_updated: Wine was successfully updated.
+    wine_recommanded: Wine was successfully recommanded.
+    wine_not_recommanded: Wine was not successfully recommanded.
+    wine_unrecommanded: Wine was successfully unrecommanded.
+    wine_not_recommanded: Wine was not successfully recommanded.
+    rack_created: Rack was successfully created.
+    bottle_placed: Bottle was successfully placed.
+    user_updated: User was successfully updated.
+    tasting_created: Tasting was successfully created.
+    tasting_pairing_created: Tasting and pairing were successfully created.
+    tasting_created_but_not_pairing: Tasting was successfully created but not the pairing.
+    tasting_updated: Tasting was successfully updated.
+    grape_variety_updated: Grape Variety was successfully updated.
+    definition_created: Definition was successfully created.
+    definition_updated: Definition was successfully updated.
+    estate_created: Estate was successfully created.
+    estate_updated: Estate was successfully updated.
+    message_sent: Message was successfully sent.
+    consumption_created: Consumption was successfully updated.
+    bottle_created: Bottle was successfully created.
+    bottle_updated: Bottle was successfully updated.
+    bottle_unplaced: Bottle was successfully unplaced.
     
   helpers:
     label:

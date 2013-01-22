@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   def update
     if @user.update_attributes(params[:user])
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: 'user_updated'
     else
       render action: "edit"
     end

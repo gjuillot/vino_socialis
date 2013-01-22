@@ -1,7 +1,5 @@
 <% provide(:title, @region.name) %>
 
-<p id="notice"><%= notice %></p>
-
 <div class="white-opacity rounded">
   <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h1>
   

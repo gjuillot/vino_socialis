@@ -14,7 +14,7 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions/new
   def new
     if params[:bottle].blank?
-      redirect_to bottles_path, notice: 'Please use an existing bottle.'
+      redirect_to bottles_path, alert: 'select_bottle'
     else
       @bottle = Bottle.find(params[:bottle])
       @new = true
@@ -50,8 +50,7 @@ class ConsumptionsController < ApplicationController
       @new = true
       @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_rack_positions".id AS position_id, name').where('"wine_rack_positions".bottle_id = ?', @bottle.id)
       @position_id_to_check = Integer(params[:wine_rack_position_id]) if params[:wine_rack_position_id]
-      flash[:alert] = 'select_at_least_one_bottle'
-      render action: "new"
+      render action: "new", alert: 'select_at_least_one_bottle'
       return
     end
     
@@ -72,7 +71,7 @@ class ConsumptionsController < ApplicationController
   # PUT /consumptions/1
   def update
     if @consumption.update_attributes(params[:consumption])
-      redirect_to @consumption, notice: 'Consumption was successfully updated.'
+      redirect_to @consumption, notice: 'consumption_created'
     else
       render action: "edit"
     end

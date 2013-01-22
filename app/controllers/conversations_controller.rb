@@ -48,12 +48,10 @@ class ConversationsController < ApplicationController
     
     if user_signed_in?
       current_user.send_message(@users, params[:body], params[:subject])
-      flash[:notice] = "Message was successfully sent."
-      redirect_to @conversation
+      redirect_to @conversation, notice: 'message_sent'
     else
       User.find(1).send_message(@users, params[:body], params[:subject])
-      flash[:notice] = "Message was successfully sent."
-      redirect_to action: 'index', controller: 'home'
+      redirect_to action: 'index', controller: 'home', notice: 'message_sent'
     end
   end
 

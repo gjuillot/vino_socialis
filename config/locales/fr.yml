@@ -322,6 +322,35 @@ fr:
   wines_and_estates:
     search: "Rechercher"
 
+  flash:
+    select_estate: Veuillez séletionner un producteur existant ou en créer un nouveau.
+    select_wine: Veuillez séletionner un vin existant ou en créer un nouveau.
+    select_bottle: Veuillez séletionner une bouteille existante.
+    select_at_least_one_bottle: Sélectionnez au moins une bouteille.
+    wine_created: Fiche vin créée.
+    wine_updated: Fiche vin mise à jour.
+    wine_recommanded: Vin recommandé.
+    wine_not_recommanded: Echec à la recommandation du vin.
+    wine_unrecommanded: Vous ne recomandez plus ce vin.
+    wine_not_recommanded: Echec, vous recomandez toujours ce vin.
+    rack_created: Casier créé.
+    bottle_placed: Bouteille placée.
+    user_updated: Utilisateur mis à jour.
+    tasting_created: Dégustation enregistrée.
+    tasting_pairing_created: Dégustation et accord enregistrés.
+    tasting_created_but_not_pairing: Dégustation enregistrée mais échec pour l'accord.
+    tasting_updated: Dégustation mise à jour.
+    grape_variety_updated: Cépage mis à jour.
+    definition_created: Définition créée.
+    definition_updated: Définition mise à jour.
+    estate_created: Producteur créé.
+    estate_updated: Producteur mis à jour.
+    message_sent: Message envoyé.
+    consumption_created: Sortie enregistrée.
+    bottle_created: Bouteille créée.
+    bottle_updated: Bouteille mise à jour.
+    bottle_unplaced: Bouteille sortie du casier.
+
   helpers:
     label:
       bottle:

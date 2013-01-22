@@ -9,7 +9,7 @@ class WinesController < ApplicationController
   # GET /wines/new
   def new
     if params[:estate_id].blank?
-      redirect_to wines_and_estates_path, notice: 'Please use an existing estate or create a new one.'
+      redirect_to wines_and_estates_path, alert: 'select_estate'
     else
       @estate_id = params[:estate_id]
       @estate_name = params[:estate_name]
@@ -33,7 +33,7 @@ class WinesController < ApplicationController
     @wine.validation = false
     if @wine.save
       @wine.grape_varieties = params[:wine_grape_varieties].reject(&:blank?).map {|n| GrapeVariety.find_or_create_by_name(n)}
-      redirect_to @wine, notice: 'Wine was successfully created.'
+      redirect_to @wine, notice: 'wine_created'
     else
       @estate_id = @wine.estate_id
       @estate_name = Estate.find(@estate_id).name
@@ -48,7 +48,7 @@ class WinesController < ApplicationController
   def update
     if @wine.update_attributes(params[:wine])
       @wine.grape_varieties = params[:wine_grape_varieties].reject(&:blank?).map {|n| GrapeVariety.find_or_create_by_name(n)}
-      redirect_to @wine, notice: 'Wine was successfully updated.'
+      redirect_to @wine, notice: 'wine_updated'
     else
       render action: "edit" 
     end
@@ -66,9 +66,9 @@ class WinesController < ApplicationController
     recommandation.wine = @wine
     recommandation.user = current_user
     if recommandation.save
-      redirect_to @wine, notice: 'Wine was successfully recommanded.'
+      redirect_to @wine, notice: 'wine_recommanded'
     else
-      redirect_to @wine, error: 'Wine was not successfully recommanded.'
+      redirect_to @wine, alert: 'wine_not_recommanded'
     end
   end
   
@@ -76,9 +76,9 @@ class WinesController < ApplicationController
   def unrecommand
     recommandation = WineRecommandation.where('user_id = ? AND wine_id = ?', current_user.id, @wine.id)
     if recommandation.destroy_all
-      redirect_to @wine, notice: 'Wine was successfully unrecommanded.'
+      redirect_to @wine, notice: 'wine_unrecommanded'
     else
-      redirect_to @wine, error: 'Wine was not successfully unrecommanded.'
+      redirect_to @wine, alert: 'wine_not_unrecommanded'
     end
   end
   

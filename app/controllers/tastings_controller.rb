@@ -19,7 +19,7 @@ class TastingsController < ApplicationController
   # GET /tastings/new
   def new
     if params[:wine].blank? && params[:consumption].blank?
-      redirect_to wines_and_estates_path, notice: 'Please use an existing wine or create a new one.'
+      redirect_to wines_and_estates_path, alert: 'select_wine'
       return
     end
     if params[:consumption].blank?
@@ -43,14 +43,14 @@ class TastingsController < ApplicationController
     @tasting.user_id = current_user.id
     if @tasting.save
       if params[:pairing][:dish].blank?
-        redirect_to @tasting, notice: 'Tasting was successfully created.'
+        redirect_to @tasting, notice: 'tasting_created'
       else
         @pairing = Pairing.new(params[:pairing])
         @pairing.tasting_id = @tasting.id
         if @pairing.save
-          redirect_to @tasting, notice: 'Tasting and pairing were successfully created.'
+          redirect_to @tasting, notice: 'tasting_pairing_created'
         else
-          redirect_to @tasting, warning: 'Tasting was successfully created but not the pairing.'
+          redirect_to @tasting, alert: 'tasting_created_but_not_pairing'
         end
       end
     else
@@ -76,7 +76,7 @@ class TastingsController < ApplicationController
     end
     
     if @tasting.update_attributes(params[:tasting])
-      redirect_to @tasting, notice: 'Tasting was successfully updated.'
+      redirect_to @tasting, notice: 'tasting_updated'
     else
       render action: "edit"
     end
