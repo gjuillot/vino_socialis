@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<% height = 60 + 4*25 %>
+<% height = [160, 60 + @colors.length * 25].max %>
 
 <div class="row-fluid">
 
@@ -19,10 +19,18 @@
   </div>
   
   <div class="span6 white-opacity rounded-top-less" style="height: <%= height %>px;">
-    <h3><%= t('user.stat.summary.oldest_title')%></h3>
-    <%= link_to bottle_name(@oldest), @oldest %><br /><br /><br />
-    <h3><%= t('user.stat.summary.most_expensive_title')%></h3>
-    <%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %>
+    <% if (@bottles == 0) %>
+      <h3><%= t('user.stat.summary.total_count', count: @bottles) %></h3>
+    <% else %>
+      <% unless @oldest.nil? %>
+        <h3><%= t('user.stat.summary.oldest_title')%></h3>
+        <%= link_to bottle_name(@oldest), @oldest %><br /><br /><br />
+      <% end %>
+      <% unless @most_expensive.nil? %>
+        <h3><%= t('user.stat.summary.most_expensive_title')%></h3>
+        <%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %>
+      <% end %>
+    <% end %>
   </div>
   
   <div class="span3 white-opacity rounded-top-less" style="height: <%= height %>px;">

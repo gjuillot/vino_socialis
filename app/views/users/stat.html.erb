@@ -27,11 +27,15 @@
         <dt><%= t('user.stat.summary.current_value_title')%></dt>
         <dd><%= formated_price(@current_value) %></dd>
         
-        <dt><%= t('user.stat.summary.oldest_title')%></dt>
-        <dd><%= link_to bottle_name(@oldest), @oldest %></dd>
+        <% unless @oldest.nil? %>
+          <dt><%= t('user.stat.summary.oldest_title')%></dt>
+          <dd><%= link_to bottle_name(@oldest), @oldest %></dd>
+        <% end %>
         
-        <dt><%= t('user.stat.summary.most_expensive_title')%></dt>
-        <dd><%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %></dd>
+        <% unless @most_expensive.nil? %>
+          <dt><%= t('user.stat.summary.most_expensive_title')%></dt>
+          <dd><%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %></dd>
+        <% end %>
         
         <dt><i class="icon-heart"></i></dt>
         <dd><%= t('user.stat.summary.recommandations_count', count: @user.wine_recommandations.count) %> </dd>

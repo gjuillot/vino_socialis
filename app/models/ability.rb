@@ -29,7 +29,7 @@ class Ability
     
     # User
     can :read, User
-    can :update, User, :id => user.id
+    can [:update, :dashboard, :stat], User, :id => user.id
     
     # Glossary
     if user.moderator?
