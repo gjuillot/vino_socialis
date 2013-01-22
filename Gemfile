@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.11'
 gem 'heroku'
 
 group :development do
@@ -32,3 +32,6 @@ gem 'mailboxer'
 gem 'gravatar_image_tag'
 
 gem 'dynamic_form'
+
+gem 'carrierwave'
+gem 'cloudinary'
