@@ -54,6 +54,7 @@ VinoSocialis::Application.routes.draw do
         get 'recommand'
         get 'unrecommand'
         get 'replace'
+        get 'add_label'
       end
     end
 
@@ -91,12 +92,19 @@ VinoSocialis::Application.routes.draw do
     resources :moderations do
       collection do
         get 'sheets'
+        get 'labels'
       end
     end
     
     resources :wines_and_estates do
       collection do
         get 'search'
+      end
+    end
+    
+    resources :labels do
+      member do
+        post 'validate'
       end
     end
     

@@ -56,6 +56,7 @@ fr:
     recommand: "Recommander"
     unrecommand: "Dé-recommander"
     converse: "Converser"
+    label: Ajouter une nouvelle étiquette
   area:
     areas: "Appellations"
   bottles:
@@ -350,6 +351,8 @@ fr:
     bottle_created: Bouteille créée.
     bottle_updated: Bouteille mise à jour.
     bottle_unplaced: Bouteille sortie du casier.
+    label_created: Etiquette créée avec succès, en attente de validation.
+    label_not_created: Erreur lors de l'ajout de l'étiquette.
 
   helpers:
     label:

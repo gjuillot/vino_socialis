@@ -1,6 +1,7 @@
 <tr id="bottle">
   <input type="hidden" value="<%= bottle_path(bottle) %>" />
   <td id="name_<%= bottle.id %>" style="vertical-align:middle;">
+    <%= image_tag bottle.wine.labels.validated.first.image_url(:micro).to_s, class: 'pull-right' if bottle.wine.labels.validated.any? %>
   	<%= wine_name bottle.wine, estate: true, area: false, html: true, separator: raw('<br />') %> 
   </td>
   <td id="area_<%= bottle.id %>" style="vertical-align:middle;">

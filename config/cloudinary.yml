@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hv9hummsx
+  api_key: '625562711549638'
+  api_secret: QVM91qzKHSe7vmgkPxgqOSMdE5s
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hv9hummsx
+  api_key: '625562711549638'
+  api_secret: QVM91qzKHSe7vmgkPxgqOSMdE5s
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hv9hummsx
+  api_key: '625562711549638'
+  api_secret: QVM91qzKHSe7vmgkPxgqOSMdE5s
+  enhance_image_tag: true
+  static_image_support: false

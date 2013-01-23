@@ -42,6 +42,14 @@
   </div>
   
   <div class="span6">
+    <% if @wine.labels.validated.any? %>
+      <p>
+        <% @wine.labels.validated.each do |label| %>
+          <%= image_tag label.image_url(:small).to_s, style: 'border: 1px solid;' %>
+        <% end %>
+      </p>
+    <% end %>
+    
     <p>
       <%= full_area_name @wine.area, html: true %>
     </p>

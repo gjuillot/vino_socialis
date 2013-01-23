@@ -56,6 +56,7 @@ en:
     recommand: "Recommand"
     unrecommand: "Unrecommand"
     converse: "Converse"
+    label: Add a new label
   area:
     areas: "Area"
     new: "New area"
@@ -343,6 +344,8 @@ en:
     bottle_created: Bottle was successfully created.
     bottle_updated: Bottle was successfully updated.
     bottle_unplaced: Bottle was successfully unplaced.
+    label_created: Label was successfully created and is now waiting for validation.
+    label_not_created: Error during label creation.
     
   helpers:
     label:

@@ -4,7 +4,7 @@ class HomeController < ApplicationController
       redirect_to dashboard_user_path(current_user)
     else
       @wines = Wine.validated.last(5)
-      @tastings = Tasting.last(3)
+      @tastings = Tasting.last(4)
     end
   end
   

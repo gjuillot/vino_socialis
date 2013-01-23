@@ -1,0 +1,16 @@
+
+<% if @labels.any? %>
+  <table class="table table-condensed white-opacity">
+    <theader>
+      <tr>
+        <th style="text-align:center;vertical-align:middle;">Etiquette</th>
+        <th style="text-align:center;vertical-align:middle;">Vin correspondant</th>
+        <th style="text-align:center;vertical-align:middle;">Suppression</th>
+        <th style="text-align:center;vertical-align:middle;">Validation</th>
+      </tr>
+    </theader>
+    <tbody>
+      <%= render :collection => @labels, :partial => 'label' %>
+    </tbody>
+  </table>
+<% end %>

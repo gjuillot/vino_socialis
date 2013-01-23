@@ -80,6 +80,7 @@ module WinesHelper
       res += link_to_show(wine_path(wine))
       res += link_to_wine_tastings(wine)
       res += '<li class="divider"></li>'
+      res += link_to_label(add_label_wine_path(wine))
       res += (wine.recommanded_by?(current_user) ? link_to_unrecommand(wine) : link_to_recommand(wine))
       res += link_to_tasting(taste_wine_path(wine))
       res += link_to_encave(encave_wine_path(wine))

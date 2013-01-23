@@ -1,0 +1,14 @@
+<tr>
+  <td style="text-align:center;vertical-align:middle;"><%= image_tag label.image_url(:big).to_s %></td>
+  <td style="text-align:center;vertical-align:middle;">
+    <%= link_to wine_name(label.wine, estate: true), label.wine %>
+    <% if label.wine.labels.validated.any? %>
+      <br />
+      <% label.wine.labels.validated.each do |l| %>
+        <%= image_tag l.image_url(:mini).to_s %>
+      <% end %>
+    <% end %>
+  </td>
+  <td style="text-align:center;vertical-align:middle;"><%= link_to_destroy label %></td>
+  <td style="text-align:center;vertical-align:middle;"><%= link_to_validate validate_label_path(label) %></td>
+</tr>

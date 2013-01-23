@@ -80,6 +80,10 @@ module ApplicationHelper
     content_tag(:a, content_tag(:i, "", class: "icon-envelope") + ' ' + t('icon.converse'), :href => new_conversation_path(:user => user), :method => :get)
   end
   
+  def link_to_label(path)
+    content_tag(:a, content_tag(:i, "", class: "icon-picture") + ' ' + t('icon.label'), :href => path)
+  end
+  
   def star_rating(note, max)
     raw "<i class='icon-star' style='margin-right:1px;'></i>"*(note.round)
   end

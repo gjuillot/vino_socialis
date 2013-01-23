@@ -1,0 +1,28 @@
+<div class="span6 offset3 white-opacity rounded">
+
+  <%= form_for @label, :html => {:multipart => true, :class =>  'form-horizontal'} do |f| %>
+  
+    <%= f.hidden_field :wine_id, value: @wine.id %>
+
+    <div class="control-group">
+      <%= f.label :local, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :image %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :url, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :remote_image_url %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

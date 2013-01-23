@@ -1,6 +1,11 @@
 <tr id="<%= bottle.id %>">
   <td style="text-align:center;vertical-align:middle;"><%= quantity %></td>
-  <td><%= wine_name bottle.wine, estate: true, html: true, separator: '<br/>' %></td>
+  <td>
+    <% if bottle.wine.labels.validated.any? %>
+      <%= image_tag bottle.wine.labels.validated.first.image_url(:micro).to_s, class: 'pull-right' %>
+    <% end %>
+    <%= wine_name bottle.wine, estate: true, html: true, separator: '<br/>' %>
+  </td>
   <td><%= full_area_name bottle.wine.area, html: true, separator2: raw('<br/>') %></td>
   <td style="text-align:center;vertical-align:middle;"><%= wine_color_image bottle.wine %></td>
   <td style="text-align:center;vertical-align:middle;"><%= formated_vintage(bottle.vintage) %></td>

@@ -1,12 +1,12 @@
   	      	
   	      	<% if can? :manage, Moderation %>
-  	      	  <% unread = current_user.unread_messages %>
   	      	  <li id="fat-menu" class="dropdown">
   	      	  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
   	      	  	  Modération<b class="caret"></b>
   	      	  	</a>
   	      	  	<ul class="dropdown-menu">
-  	      	  	  <li><%= link_to String(grape_variety_count_unvalidated + estate_count_unvalidated + wine_count_unvalidated) + ' fiches à valider', sheets_moderations_path %></li>
+                  <li><%= link_to String(grape_variety_count_unvalidated + estate_count_unvalidated + wine_count_unvalidated) + ' fiches à valider', sheets_moderations_path %></li>
+                  <li><%= link_to String(Label.not_validated.count) + ' étiquettes à valider', labels_moderations_path %></li>
   	      	  	</ul>
   	      	  </li>
   	      	<% end %>

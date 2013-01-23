@@ -7,4 +7,8 @@ class ModerationsController < ApplicationController
     @estates = Estate.not_validated
     @wines = Wine.not_validated
   end
+  
+  def labels
+    @labels = Label.not_validated
+  end
 end

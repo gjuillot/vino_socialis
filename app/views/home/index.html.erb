@@ -63,29 +63,46 @@
 <div class="row">
   <div class="span6">
     <div class="alert alert-success">
-      <h4><%= t('home.index.discover.l3', :c => wine_count_validated) %></h4>
-      <ul>
+      <h3><%= t('home.index.discover.l3', :c => wine_count_validated) %></h3>
+      <table class="table">
         <% @wines.each do |wine| %>
-          <li>
-            <%= wine_name(wine, estate: true) %><br />
-            <%= wine.area.name %> - <%= wine_color_image(wine, false, 0, true) %>
-          </li>
+          <tr>
+            <td>
+              <% if wine.labels.validated.any? %>
+                <%= image_tag wine.labels.validated.first.image_url(:mini).to_s, style: "border: 1px solid;" %>
+              <% end %>
+            </td>
+            <td>
+              <%= wine_name(wine, estate: true) %><br />
+              <%= full_area_name wine.area, html: true %><br />
+              <%= wine_color_image(wine, false, 0, true) %>
+            </td>
+          </tr>
         <% end %>
-      </ul>
+      </table>
     </div>
   </div>
   <div class="span6">
     <div class="alert alert-success">
-      <h4><%= t('home.index.share.l2', :c => Tasting.all.count) %></h4>
-      <ul>
+      <h3><%= t('home.index.share.l2', :c => Tasting.all.count) %></h3>
+      <table class="table">
         <% @tastings.each do |tasting| %>
-          <li>
-            <%= wine_name(tasting.wine, estate: true) %><br />
-            <%= tasting.wine.area.name %> - <%= wine_color_image(tasting.wine, false, 0, true) %><br />
-            <%= tasting.vintage %> - <%= star_rating(tasting.note, 5) %> par <%= tasting.user.name %>
-          </li>
+          <tr>
+            <td>
+              <% if tasting.wine.labels.validated.any? %>
+                <%= image_tag tasting.wine.labels.validated.first.image_url(:mini).to_s, style: "border: 1px solid;" %>
+              <% end %>
+            </td>
+            <td>
+              <%= wine_name(tasting.wine, estate: true) %><br />
+              <%= full_area_name tasting.wine.area, html: true %><br />
+              <%= wine_color_image(tasting.wine, false, 0, true) %><br />
+              <%= formated_vintage tasting.vintage, false %><br />
+              <%= star_rating(tasting.note, 5) %> par <%= tasting.user.name %>
+            </td>
+          </tr>
         <% end %>
-      </ul>
+      </table>
     </div>
   </div>
 </div>
