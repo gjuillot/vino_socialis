@@ -1,39 +1,85 @@
 ---
-!binary "YmFja2dyb3VuZC5qcGc=": background-84ae158a8fdfb0e3f7b0641aef9ff290.jpg
-!binary "bG9jYWxlL2VuLnBuZw==": locale/en-789f8e4ded0f338a4edbb62ff323a4c4.png
-!binary "bG9jYWxlL2ZyLnBuZw==": locale/fr-6cb781d030f9efcb4fe1a78c07d34038.png
-!binary "d2h5L2NvbnN1bXB0aW9ucy5qcGc=": why/consumptions-d8192cdf0474e51811659ed89d1fbffd.jpg
-!binary "d2h5L2dsb3NzYXJ5LmpwZw==": why/glossary-e567f8b5e8fb57fa2ccd6f0960e45daa.jpg
-!binary "d2h5L25ld19ib3R0bGUuanBn": why/new_bottle-4f444ec02c0f7212741d14133dcfc38e.jpg
-!binary "d2h5L3BhaXJpbmcuanBn": why/pairing-11c80f87a5ff89fce010cf85563c2a91.jpg
-!binary "d2h5L3JhY2tfZ3JhcGhpY2FsLmpwZw==": why/rack_graphical-2388fe8994eefcabc356cfcedc8c90ef.jpg
-!binary "d2h5L3JhY2tfdGFidWxhci5qcGc=": why/rack_tabular-4d7b1d1e17fba9e2909ee41964ef4095.jpg
-!binary "d2h5L3JlY29tbWFuZGF0aW9uLmpwZw==": why/recommandation-c6ea1d423efa45b5c53b8c2caa60ae8d.jpg
-!binary "d2h5L3NlYXJjaF9ib3R0bGUuanBn": why/search_bottle-60da4a69f4bfff9005b48517b3a597ba.jpg
-!binary "d2h5L3Rhc3RpbmcuanBn": why/tasting-f5871f266c8670810a49e75c55ce1d65.jpg
-!binary "d2h5L3VzZXJzLmpwZw==": why/users-98cfb11f3d20c0e800363df95aae1d50.jpg
-!binary "d2luZV9jb2xvcnMvYW1iZXIucG5n": wine_colors/amber-8d0dacd5ba63aa0556f979da3a3dd6b3.png
-!binary "d2luZV9jb2xvcnMvY2xhcmV0LnBuZw==": wine_colors/claret-b8201970b37fbf9bb90315473e8c4570.png
-!binary "d2luZV9jb2xvcnMvbW9lbGxldXhfd2hpdGUucG5n": wine_colors/moelleux_white-9dabbfe783392f48ea334205a1b75d36.png
-!binary "d2luZV9jb2xvcnMvbmF0dXJhbF9zd2VldC5wbmc=": wine_colors/natural_sweet-9058180f8337e3598d74f127e26ab2fe.png
-!binary "d2luZV9jb2xvcnMvbmlsLnBuZw==": wine_colors/nil-3ba9a56926013a7e78816be065748ce9.png
-!binary "d2luZV9jb2xvcnMvcmVkLnBuZw==": wine_colors/red-7219a2a527f265eaf2cf2bbf5d560553.png
-!binary "d2luZV9jb2xvcnMvcmVkX3BvcnRfdHlwZS5wbmc=": wine_colors/red_port_type-42a8f6124895d2fdc067310e4883831c.png
-!binary "d2luZV9jb2xvcnMvcm9zZS5wbmc=": wine_colors/rose-c173cf3c341e90ada055bb09750d11ff.png
-!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3JlZC5wbmc=": wine_colors/sparkling_red-4757d683a3414e5d5eac0902e8015c96.png
-!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3Jvc2UucG5n": wine_colors/sparkling_rose-ba9afa893b46d106e52e317532d481be.png
-!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3doaXRlLnBuZw==": wine_colors/sparkling_white-830af480ebcb191a6cf71495b44f9e23.png
-!binary "d2luZV9jb2xvcnMvc3dlZXRfd2hpdGUucG5n": wine_colors/sweet_white-9398ad78e4618e8b6c413ada754b5bc9.png
-!binary "d2luZV9jb2xvcnMvdmluX2phdW5lLnBuZw==": wine_colors/vin_jaune-8428a2e721c8a8daaa559d488a5c27be.png
-!binary "d2luZV9jb2xvcnMvdmluX3BhaWxsZS5wbmc=": wine_colors/vin_paille-8428a2e721c8a8daaa559d488a5c27be.png
-!binary "d2luZV9jb2xvcnMvd2hpdGUucG5n": wine_colors/white-8c4c080c25d3ecf1ab59ea5adc398b68.png
-!binary "d2luZV9jb2xvcnMvd2hpdGVfcG9ydF90eXBlLnBuZw==": wine_colors/white_port_type-48c4cb831d0a30298531ad0d8878440a.png
-!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL2FsdGVybmF0ZWRfY2FiaW5ldC5qcGc=": wine_racks/example/fr/alternated_cabinet-d52a162140a37b5fc5308c8182337bee.jpg
-!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL2NhYmluZXQuanBn": wine_racks/example/fr/cabinet-beed48c984d669e8e0beefb4fc764621.jpg
-!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL2Zyb250X2JhY2tfY2VsbGFyLmpwZw==": wine_racks/example/fr/front_back_cellar-3a7784383c0d4cd57b4425f855d775c7.jpg
-!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3NpbXBsZS5qcGc=": wine_racks/example/fr/simple-3e1c46ab8030a081634c72334f6b52db.jpg
-!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlLmpwZw==": wine_racks/example/fr/template-6262be3a3c4219da7a53dbecc8d9f3a5.jpg
-!binary "YXBwbGljYXRpb24uanM=": application-bace4db161b0bed908056f436ff9addb.js
-!binary "YXBwbGljYXRpb24uY3Nz": application-cdb19dfde9cd6e910be8b948e3382585.css
-!binary "Z2x5cGhpY29ucy1oYWxmbGluZ3Mtd2hpdGUucG5n": glyphicons-halflings-white-13553a5bf21ae3cc374006592488ec64.png
-!binary "Z2x5cGhpY29ucy1oYWxmbGluZ3MucG5n": glyphicons-halflings-f6675c325532ec11a984d58e172b8e2a.png
+!binary "YmFja2dyb3VuZC5qcGc=": background-cd31bd0a930ddd8d1cf4533e6239f4ee.jpg
+!binary "YmFja2dyb3VuZC9pbmRleC5qcGc=": background-cd31bd0a930ddd8d1cf4533e6239f4ee.jpg
+!binary "bG9jYWxlL2VuLnBuZw==": locale/en-e9831ac4d86a68fb1808a9a4a6510e79.png
+!binary "bG9jYWxlL2VuL2luZGV4LnBuZw==": locale/en-e9831ac4d86a68fb1808a9a4a6510e79.png
+!binary "bG9jYWxlL2ZyLnBuZw==": locale/fr-d817d1a2660df5ae296d705d91678973.png
+!binary "bG9jYWxlL2ZyL2luZGV4LnBuZw==": locale/fr-d817d1a2660df5ae296d705d91678973.png
+!binary "d2h5L2NvbnN1bXB0aW9ucy5qcGc=": why/consumptions-12c6557b9c0437d96ba03fbf67b2167d.jpg
+!binary "d2h5L2NvbnN1bXB0aW9ucy9pbmRleC5qcGc=": why/consumptions-12c6557b9c0437d96ba03fbf67b2167d.jpg
+!binary "d2h5L2dsb3NzYXJ5LmpwZw==": why/glossary-0fef35a185e4680a38dee2c72ba1a57e.jpg
+!binary "d2h5L2dsb3NzYXJ5L2luZGV4LmpwZw==": why/glossary-0fef35a185e4680a38dee2c72ba1a57e.jpg
+!binary "d2h5L25ld19ib3R0bGUuanBn": why/new_bottle-4af42166270c85fb9ff98d7898ba2c62.jpg
+!binary "d2h5L25ld19ib3R0bGUvaW5kZXguanBn": why/new_bottle-4af42166270c85fb9ff98d7898ba2c62.jpg
+!binary "d2h5L3BhaXJpbmcuanBn": why/pairing-715e5ddaf91ebcfc479dee2ade6f4547.jpg
+!binary "d2h5L3BhaXJpbmcvaW5kZXguanBn": why/pairing-715e5ddaf91ebcfc479dee2ade6f4547.jpg
+!binary "d2h5L3JhY2tfZ3JhcGhpY2FsLmpwZw==": why/rack_graphical-f2c6d5a2190b8d62a3b2300fed979340.jpg
+!binary "d2h5L3JhY2tfZ3JhcGhpY2FsL2luZGV4LmpwZw==": why/rack_graphical-f2c6d5a2190b8d62a3b2300fed979340.jpg
+!binary "d2h5L3JhY2tfdGFidWxhci5qcGc=": why/rack_tabular-aa35cbc16e7f1b26e74432b1ddd9975c.jpg
+!binary "d2h5L3JhY2tfdGFidWxhci9pbmRleC5qcGc=": why/rack_tabular-aa35cbc16e7f1b26e74432b1ddd9975c.jpg
+!binary "d2h5L3JlY29tbWFuZGF0aW9uLmpwZw==": why/recommandation-ccc4998e3a0f71e746beeae382796ed4.jpg
+!binary "d2h5L3JlY29tbWFuZGF0aW9uL2luZGV4LmpwZw==": why/recommandation-ccc4998e3a0f71e746beeae382796ed4.jpg
+!binary "d2h5L3NlYXJjaF9ib3R0bGUuanBn": why/search_bottle-8a7062cf0e42c24b62703329b1f8e82b.jpg
+!binary "d2h5L3NlYXJjaF9ib3R0bGUvaW5kZXguanBn": why/search_bottle-8a7062cf0e42c24b62703329b1f8e82b.jpg
+!binary "d2h5L3Rhc3RpbmcuanBn": why/tasting-125847628d5add5ce58f5156fc03a2fc.jpg
+!binary "d2h5L3Rhc3RpbmcvaW5kZXguanBn": why/tasting-125847628d5add5ce58f5156fc03a2fc.jpg
+!binary "d2h5L3VzZXJzLmpwZw==": why/users-fb53c2b93119744a087cccecedbf34e4.jpg
+!binary "d2h5L3VzZXJzL2luZGV4LmpwZw==": why/users-fb53c2b93119744a087cccecedbf34e4.jpg
+!binary "d2luZV9jb2xvcnMvYW1iZXIucG5n": wine_colors/amber-16537314c687dcecdcab6d875516355a.png
+!binary "d2luZV9jb2xvcnMvYW1iZXIvaW5kZXgucG5n": wine_colors/amber-16537314c687dcecdcab6d875516355a.png
+!binary "d2luZV9jb2xvcnMvY2xhcmV0LnBuZw==": wine_colors/claret-632e2e0f7eaef398dff6e63139020770.png
+!binary "d2luZV9jb2xvcnMvY2xhcmV0L2luZGV4LnBuZw==": wine_colors/claret-632e2e0f7eaef398dff6e63139020770.png
+!binary "d2luZV9jb2xvcnMvbW9lbGxldXhfd2hpdGUucG5n": wine_colors/moelleux_white-0b1af17320703f1b1dfc888c0f268681.png
+!binary "d2luZV9jb2xvcnMvbW9lbGxldXhfd2hpdGUvaW5kZXgucG5n": wine_colors/moelleux_white-0b1af17320703f1b1dfc888c0f268681.png
+!binary "d2luZV9jb2xvcnMvbmF0dXJhbF9zd2VldC5wbmc=": wine_colors/natural_sweet-52094b82c3de488815741028c7aae4a9.png
+!binary "d2luZV9jb2xvcnMvbmF0dXJhbF9zd2VldC9pbmRleC5wbmc=": wine_colors/natural_sweet-52094b82c3de488815741028c7aae4a9.png
+!binary "d2luZV9jb2xvcnMvbmlsLnBuZw==": wine_colors/nil-dc258646f36078f3eb649cb19e6c8dec.png
+!binary "d2luZV9jb2xvcnMvbmlsL2luZGV4LnBuZw==": wine_colors/nil-dc258646f36078f3eb649cb19e6c8dec.png
+!binary "d2luZV9jb2xvcnMvcmVkLnBuZw==": wine_colors/red-bce7d1f1bfe82ea504fcc577345f0bfe.png
+!binary "d2luZV9jb2xvcnMvcmVkL2luZGV4LnBuZw==": wine_colors/red-bce7d1f1bfe82ea504fcc577345f0bfe.png
+!binary "d2luZV9jb2xvcnMvcmVkX3BvcnRfdHlwZS5wbmc=": wine_colors/red_port_type-bbc6463131e8efccaff5b31c5434082f.png
+!binary "d2luZV9jb2xvcnMvcmVkX3BvcnRfdHlwZS9pbmRleC5wbmc=": wine_colors/red_port_type-bbc6463131e8efccaff5b31c5434082f.png
+!binary "d2luZV9jb2xvcnMvcm9zZS5wbmc=": wine_colors/rose-8bb17b7fa28df43b680b29a15672dca7.png
+!binary "d2luZV9jb2xvcnMvcm9zZS9pbmRleC5wbmc=": wine_colors/rose-8bb17b7fa28df43b680b29a15672dca7.png
+!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3JlZC5wbmc=": wine_colors/sparkling_red-34d08660ad23a043592d027d99cce02c.png
+!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3JlZC9pbmRleC5wbmc=": wine_colors/sparkling_red-34d08660ad23a043592d027d99cce02c.png
+!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3Jvc2UucG5n": wine_colors/sparkling_rose-7731a7576211450da0275bc6a9784575.png
+!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3Jvc2UvaW5kZXgucG5n": wine_colors/sparkling_rose-7731a7576211450da0275bc6a9784575.png
+!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3doaXRlLnBuZw==": wine_colors/sparkling_white-50fa2e557949233c93e3cb5ab1021431.png
+!binary "d2luZV9jb2xvcnMvc3BhcmtsaW5nX3doaXRlL2luZGV4LnBuZw==": wine_colors/sparkling_white-50fa2e557949233c93e3cb5ab1021431.png
+!binary "d2luZV9jb2xvcnMvc3dlZXRfd2hpdGUucG5n": wine_colors/sweet_white-2eb291718ea6e91c1d8e2b99f5ada3f4.png
+!binary "d2luZV9jb2xvcnMvc3dlZXRfd2hpdGUvaW5kZXgucG5n": wine_colors/sweet_white-2eb291718ea6e91c1d8e2b99f5ada3f4.png
+!binary "d2luZV9jb2xvcnMvdmluX2phdW5lLnBuZw==": wine_colors/vin_jaune-7d9f015af58d0ccd45c0f4a6df921c72.png
+!binary "d2luZV9jb2xvcnMvdmluX2phdW5lL2luZGV4LnBuZw==": wine_colors/vin_jaune-7d9f015af58d0ccd45c0f4a6df921c72.png
+!binary "d2luZV9jb2xvcnMvdmluX3BhaWxsZS5wbmc=": wine_colors/vin_paille-7d9f015af58d0ccd45c0f4a6df921c72.png
+!binary "d2luZV9jb2xvcnMvdmluX3BhaWxsZS9pbmRleC5wbmc=": wine_colors/vin_paille-7d9f015af58d0ccd45c0f4a6df921c72.png
+!binary "d2luZV9jb2xvcnMvd2hpdGUucG5n": wine_colors/white-67604ee3acf65ae295156dbd7ae12cc1.png
+!binary "d2luZV9jb2xvcnMvd2hpdGUvaW5kZXgucG5n": wine_colors/white-67604ee3acf65ae295156dbd7ae12cc1.png
+!binary "d2luZV9jb2xvcnMvd2hpdGVfcG9ydF90eXBlLnBuZw==": wine_colors/white_port_type-fbfa5046d60e0da3e089b61219fceab2.png
+!binary "d2luZV9jb2xvcnMvd2hpdGVfcG9ydF90eXBlL2luZGV4LnBuZw==": wine_colors/white_port_type-fbfa5046d60e0da3e089b61219fceab2.png
+!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL2FsdGVybmF0ZWRfY2FiaW5ldC5qcGc=": wine_racks/example/fr/alternated_cabinet-f3865c280c54021d841790c5865a4ee5.jpg
+? !binary |-
+  d2luZV9yYWNrcy9leGFtcGxlL2ZyL2FsdGVybmF0ZWRfY2FiaW5ldC9pbmRl
+  eC5qcGc=
+: wine_racks/example/fr/alternated_cabinet-f3865c280c54021d841790c5865a4ee5.jpg
+!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL2NhYmluZXQuanBn": wine_racks/example/fr/cabinet-d325abfb6588de46ebbb7decd4dd2a88.jpg
+!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL2NhYmluZXQvaW5kZXguanBn": wine_racks/example/fr/cabinet-d325abfb6588de46ebbb7decd4dd2a88.jpg
+!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL2Zyb250X2JhY2tfY2VsbGFyLmpwZw==": wine_racks/example/fr/front_back_cellar-17225fa4fffdef3d1f1607aa531702a2.jpg
+? !binary |-
+  d2luZV9yYWNrcy9leGFtcGxlL2ZyL2Zyb250X2JhY2tfY2VsbGFyL2luZGV4
+  LmpwZw==
+: wine_racks/example/fr/front_back_cellar-17225fa4fffdef3d1f1607aa531702a2.jpg
+!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3NpbXBsZS5qcGc=": wine_racks/example/fr/simple-df0a98661c26ccb3cdfd95d95bf47e61.jpg
+!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3NpbXBsZS9pbmRleC5qcGc=": wine_racks/example/fr/simple-df0a98661c26ccb3cdfd95d95bf47e61.jpg
+!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlLmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
+!binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlL2luZGV4LmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
+!binary "YXBwbGljYXRpb24uanM=": application-6d91cbba048d75cad784580ebf20025f.js
+!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-6d91cbba048d75cad784580ebf20025f.js
+!binary "YXBwbGljYXRpb24uY3Nz": application-8651de9a19c5e539be7ba61a88b57b5e.css
+!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-8651de9a19c5e539be7ba61a88b57b5e.css
+!binary "Y2xvdWRpbmFyeV9jb3JzLmh0bWw=": cloudinary_cors-05f2af4874bd3914c79b03b8d9acd6d1.html
+!binary "Y2xvdWRpbmFyeV9jb3JzL2luZGV4Lmh0bWw=": cloudinary_cors-05f2af4874bd3914c79b03b8d9acd6d1.html
+glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
+glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
+glyphicons-halflings.png: glyphicons-halflings-d63e747535b6b5c589a12cad5d16a401.png
+glyphicons-halflings/index.png: glyphicons-halflings-d63e747535b6b5c589a12cad5d16a401.png

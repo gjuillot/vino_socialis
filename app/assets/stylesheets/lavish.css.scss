@@ -88,8 +88,12 @@ table {
   font-size: 14px;
 }
 
+.middle td {
+  vertical-align: middle
+}
+
 .center{
-  text-align:center
+  text-align: center
 }
 
 
@@ -320,4 +324,3 @@ rect.background {
   fill: none;
   stroke: #000;
 }
-

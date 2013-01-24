@@ -2,9 +2,9 @@
 
 <div class="white-opacity rounded-top">
   <h1><%= t("recommandation.most") %></h1>
-  <table class="table table-condensed">
+  <table class="table table-condensed middle">
     <% @recommanded.each do |r| %>
-      <%= wine_name r.wine, color: true, estate: true, area: true, html: true, links: true, recommandations: true %>
+      <%= wine_name r.wine, color: true, estate: true, area: true, html: true, links: true, recommandations: true, label: true %>
     <% end %>
   </table>
 </div>

@@ -3,9 +3,9 @@
 <div class="white-opacity rounded-top">
   <h1><%= @grape_variety.name %></h1>
   
-  <table class="table table-condensed">
+  <table class="table table-condensed middle">
     <% @wines.each do |wine| %>
-      <%= wine_name wine, color: true, estate: true, area:true, html: true, links: true %>
+      <%= wine_name wine, color: true, estate: true, area:true, html: true, links: true, label: true %>
     <% end %>
   </table>
 </div>

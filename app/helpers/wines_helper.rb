@@ -5,6 +5,8 @@ module WinesHelper
     area ||= options[:area]
     html ||= options[:html] && !current_user.nil?
     links ||= options[:links]
+    label ||= options[:label]
+    do_not_close_tr ||= options[:do_not_close_tr]
     recommandations ||= options[:recommandations]
     separator = options[:separator] || ' - '
     
@@ -34,6 +36,12 @@ module WinesHelper
       end
     end
     
+    # LABEL
+    if (label)
+      res += image_tag(wine.labels.validated.first.image_url(:micro).to_s) if wine.labels.validated.any?
+      res += "</td><td>" if links
+    end
+    
     # WINE
     res += html ? link_to(wine.name, wine) : wine.name
     
@@ -59,11 +67,12 @@ module WinesHelper
     
     # ACTION BUTTON
     if links
-      if current_user.nil?
-        res += '</td></tr>'
+      if current_user.nil? or do_not_close_tr
+        res += '</td>'
       else
-        res += '</td><td>' + wine_action_button(wine) + '</td></tr>'
+        res += '</td><td>' + wine_action_button(wine) + '</td>'
       end
+      res += '</tr>' unless do_not_close_tr
     end
     
     return raw(res)

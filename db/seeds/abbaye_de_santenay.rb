@@ -13,7 +13,7 @@ estate = Estate.find_by_name(estate_name)
 if estate
   [
     {name: 'Bourgogne Aligoté', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Bourgogne Aligoté').id, wine_color: 'white', validation: true, info: ''},
-    {name: '1er Cru - Slos Comme', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Santenay').id, wine_color: 'red', validation: true, info: ''},
+    {name: '1er Cru - Clos Comme', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Santenay').id, wine_color: 'red', validation: true, info: ''},
     {name: '1er Cru - Clos de Tavannes', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Santenay').id, wine_color: 'red', validation: true, info: ''},
     {name: '1er Cru - Gravières', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Santenay').id, wine_color: 'red', validation: true, info: ''},
     {name: 'Clos des Hâtes', estate_id: estate.id, user_id: 1, area_id: Area.find_by_name('Santenay').id, wine_color: 'red', validation: true, info: ''},

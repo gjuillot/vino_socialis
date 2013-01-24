@@ -6,6 +6,9 @@
     <%= consumption.quantity %>
   </td>
   <td>
+    <%= image_tag consumption.bottle.wine.labels.validated.first.image_url(:micro).to_s if consumption.bottle.wine.labels.validated.any? %>
+  </td>
+  <td>
   	<%= wine_name consumption.bottle.wine, estate: true, area: false, html: true %> 
   </td>
   <td>
