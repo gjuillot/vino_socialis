@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     if (!current_user.nil?)
       redirect_to dashboard_user_path(current_user)
     else
-      @wines = Wine.validated.last(5)
+      @wines = Wine.unscoped.validated.last(5)
       @tastings = Tasting.last(4)
     end
   end
@@ -12,6 +12,9 @@ class HomeController < ApplicationController
     @areas = Area.reorder("random()").limit(5)
     @grape_varieties = GrapeVariety.reorder("random()").limit(7)
     @definition = Glossary.reorder("random()").limit(1).first
+  end
+  
+  def track
   end
   
   def about

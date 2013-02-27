@@ -23,7 +23,7 @@ class Wine < ActiveRecord::Base
   scope :on_page, lambda {|page| page(page).per(10)}
   scope :area, lambda {|id| where('"wines".area_id == ?', id)}
   scope :region, lambda {|id| joins(:area).where('"areas".region_id = ?', id)}
-  scope :last, lambda {|count| order('"id DESC"').limit(count) }
+  scope :last, lambda {|count| reorder('"updated_at DESC"').limit(count) }
   
   
   def validated?
