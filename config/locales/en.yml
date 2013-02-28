@@ -143,7 +143,7 @@ en:
     index:
       learn_more: "Learn more"
       carousel:
-         t1: Vino Socialis for beginners and amateurs
+         t1: Vinosus for beginners and amateurs
          p1: <i class="icon-hand-right icon-white"></i><em>Newbie</em>, get advices from the user community and discover the world of wine.<br /><i class="icon-hand-right icon-white"></i><em>Amateur</em>, enjoy a powerful cellar manager.
          t2: Discover the world of wine
          p2: <i class="icon-hand-right icon-white"></i>Journey through the areas from around the world.<br /><i class="icon-hand-right icon-white"></i>Discover the recommended wines according to your taste.<br /><i class="icon-hand-right icon-white"></i>Find the best pairings for your meals.
@@ -153,19 +153,19 @@ en:
          p4: <i class="icon-hand-right icon-white"></i>The wine has an incredible social aspect, then share!<br /><i class="icon-hand-right icon-white"></i>There is nothing like the community to advise on wines, their ageing or on food pairing. Or simply to share. 
       discover:
         p1: "The world of wine is vast and full of obstacles."
-        p2: "With <strong>Vino Socialis</strong>, discover this world quietly."
+        p2: "With <strong>Vinosus</strong>, discover this world quietly."
         p3: "Travel around the areas of the world."
         p4: "Discover wines recommanded <strong>for you</strong> according to your taste."
         l1: "%{c} areas"
         l2: "%{c} validated estates"
         l3: "%{c} validated wines"
       track:
-        p1: "Whether you are a consumer or a moderate fan of wine, <strong>Vino Socialis</strong> is there for you."
+        p1: "Whether you are a consumer or a moderate fan of wine, <strong>Vinosus</strong> is there for you."
         p2: "Registered the bottles that you have and find anytime the wine you'll taste."
         p3: "Keep track of bottles you open every day or during major events."
         l1: "%{c} bottles followed"
       share:
-        p1: "The wine has an incredible social aspect, then share with <strong>Vino Socialis</strong>."
+        p1: "The wine has an incredible social aspect, then share with <strong>Vinosus</strong>."
         p2: "Meet other wine lovers"
         p3: "Share with all your impressions of the wines you taste."
         p4: "Participate in the identification of producers and wines from around the world."

@@ -139,7 +139,7 @@ fr:
     index:
       learn_more: "En savoir plus"
       carousel:
-        t1: Vino Socialis, pour débutants et amateurs
+        t1: Vinosus, pour débutants et amateurs
         p1: <i class="icon-hand-right icon-white"></i><em>Débutant</em>, bénéficiez des conseils de la communauté d'utilisateurs et découvrez le monde du vin.<br /><i class="icon-hand-right icon-white"></i><em>Amateur</em>, profitez d'un gestionnaire de cave puissant.
         t2: Découvrir le monde du vin
         p2: <i class="icon-hand-right icon-white"></i>Voyagez à travers les appellations et cépages du monde entier.<br /><i class="icon-hand-right icon-white"></i>Découvrez les vins recommandés pour vous selon vos goûts.<br /><i class="icon-hand-right icon-white"></i>Trouvez les meilleurs accords pour vos mets.
@@ -149,19 +149,19 @@ fr:
         p4: <i class="icon-hand-right icon-white"></i>Le vin a un incroyable aspect social, alors partagez !<br /><i class="icon-hand-right icon-white"></i>rien ne vaut la communauté pour vous conseiller sur les vins, leur garde ou les accords mets-vins. Ou tout simplement pour échanger. 
       discover:
         p1: "Le monde du vin est vaste et semé d'embûches."
-        p2: "Avec Vino Socialis, découvrez le en toute quiétude."
+        p2: "Avec Vinosus, découvrez le en toute quiétude."
         p3: "Voyagez à travers les appellations du monde entier."
         p4: "Découvrez les vins recommandés pour vous selon vos goûts."
         l1: "%{c} appellations recensées"
         l2: "%{c} producteurs validés"
         l3: "%{c} vins validés"
       track:
-        p1: "Que vous soyez un consommateur modéré ou un fan de vins, Vino Socialis est là pour vous."
+        p1: "Que vous soyez un consommateur modéré ou un fan de vins, Vinosus est là pour vous."
         p2: "Enregistrez les bouteilles que vous possédez pour trouver à tout le moment le vin que vous allez déguster."
         p3: "Gardez une trace des bouteilles que vous ouvrez tous les jours ou lors des grands évènements."
         l1: "%{c} bouteilles suivies"
       share:
-        p1: "Le vin a un incroyable aspect social, alors partagez avec Vino Socialis."
+        p1: "Le vin a un incroyable aspect social, alors partagez avec Vinosus."
         p2: "Découvrez les autres amateurs de vins."
         p3: "Partagez vos impressions sur les vins que vous dégustez."
         p4: "Participez au recensement des producteurs et vins du monde entier."
@@ -179,7 +179,7 @@ fr:
         title: "%{count} définitions"
       recommanded:
         title: Vins recommandés
-        description: Avec les recommandations des autres utilisateurs, Vino Socialis vous suggère les meilleurs vins du monde.
+        description: Avec les recommandations des autres utilisateurs, Vinosus vous suggère les meilleurs vins du monde.
       pairings:
         title: Accords mets-vins
         description: Trouvez le vin le plus adapté aux mets qui l'accompagnera.

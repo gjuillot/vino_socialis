@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def site_name
-    "Vino Socialis"
+    "Vinosus"
   end
   
   def title(page_title)

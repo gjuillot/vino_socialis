@@ -8,7 +8,7 @@
     "Producteur" => "Personne ou société produisant du vin. Le raisin utilisé peut être produit ou acheté à l'extérieur.",
     "Accords mets-vins" => "Science subtile destinée à trouver quel vin accompagne au mieux un plat donné, ou à l'inverse quel plat accompagne au mieux un vin choisi.",
     "Casier" => "Espace de rangement destiné au stockage de bouteilles. Il peut s'agir de cartons, armoire réfrigérée, étagères...",
-    "Encaver" => "Ranger un vin dans une cave. S'utilise dans Vino Socialis pour indiquer une nouvelle bouteille (achetée, reçue...) que l'on souhaite suivre sur le site.",
+    "Encaver" => "Ranger un vin dans une cave. S'utilise dans Vinosus pour indiquer une nouvelle bouteille (achetée, reçue...) que l'on souhaite suivre sur le site.",
     "Bouchonné" => "Le goût de bouchon est un terme assez large décrivant un groupe d'odeurs et de goûts indésirables trouvés dans le vin. On dit alors que le vin, est bouchonné.",
     "Doux" => "Terme s'appliquant à des vins sucrés.",
     "Moëlleux" => "Qualificatif s'appliquant généralement à des vins blancs doux se situant entre les secs et les liquoreux proprement dits. Se dit aussi, à la dégustation, d'un vin à la fois gras et peu acide.",
