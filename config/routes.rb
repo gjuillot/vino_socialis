@@ -77,6 +77,7 @@ VinoSocialis::Application.routes.draw do
       member do
         get 'stat'
         get 'dashboard'
+        get 'become'
       end
     end
     

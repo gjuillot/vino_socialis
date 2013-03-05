@@ -29,6 +29,12 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
+  def become
+    return unless current_user.admin?
+    sign_in(:user, User.find(params[:id]), :bypass => true)
+    redirect_to root_path
+  end
+  
   def dashboard
     @bottles = Bottle.remain(@user).select('SUM(remaining_quantity) AS total').first.total
     @bottles = 0 if (@bottles.nil?)
