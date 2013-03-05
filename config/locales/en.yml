@@ -407,6 +407,9 @@ en:
         locale: "Language"
         date_format: "Date format"
         role: "Role"
+        currency: "Currency"
+        change_password: "Change your password"
+        forgot_password: "Forgot your password?"
       wine:
         estate: "Estate"
         name: "Name"

@@ -6,8 +6,8 @@ fr:
       already_confirmed: "a déjà été validé(e)"
       not_locked: "n'était pas verrouillé(e)"
       not_saved:
-        one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
-        other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+        one: "1 erreur"
+        other: "%{count} erreurs"
 
   devise:
     failure:

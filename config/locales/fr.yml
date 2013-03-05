@@ -418,10 +418,14 @@ fr:
         email_help: "Non visible aux utilisateurs du site"
         password: "Mot de passe"
         password_confirmation: "Confirmation du mot de passe"
+        current_password: "Mot de passe actuel"
         sign_up: "Créer le compte"
         date_format: "Format de date"
         locale: "Langue"
         role: "Rôle"
+        currency: "Monnaie"
+        change_password: "Changer votre mot de passe"
+        forgot_password: "Mot de passe oublié ?"
       wine:
         estate: "Producteur"
         name: "Nom"
@@ -462,6 +466,15 @@ fr:
         greater_than: "Doit être supérieur à %{count}"
         greater_than_or_equal_to: "Doit être supérieur ou égal à %{count}"
         select_at_least_one_bottle: "Sélectioner au minimum une bouteille"
+      models:
+        user:
+          attributes:
+            current_password:
+              invalid: "Non valide"
+    attributes:
+      user:
+        password: "Mot de passe :"
+        current_password: "Mot de passe actuel :"
         
   date:
     formats:
