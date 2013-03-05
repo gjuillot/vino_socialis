@@ -1,6 +1,6 @@
 VinoSocialis::Application.routes.draw do
 
-  scope "/:locale" do
+  scope "/(:locale)" do
     
     resources :wine_racks do
       member do

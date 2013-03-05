@@ -34,6 +34,12 @@
         <%= f.submit t('menu.profile.sign_in'), class: "btn btn-large btn-primary" %>
       </div>
     </div>
+    
+    <div class="control-group">
+      <div class="controls">
+        <%= link_to t('helpers.label.user.forgot_password'), new_password_path(resource_name) %>
+      </div>
+    </div>
 
   <% end %>
 </div>
