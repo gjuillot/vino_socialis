@@ -157,7 +157,7 @@ fr:
         l3: "%{c} vins validés"
       track:
         p1: "Que vous soyez un consommateur modéré ou un fan de vins, Vinosus est là pour vous."
-        p2: "Enregistrez les bouteilles que vous possédez pour trouver à tout le moment le vin que vous allez déguster."
+        p2: "Enregistrez les bouteilles que vous possédez pour trouver à tout moment le vin que vous allez déguster."
         p3: "Gardez une trace des bouteilles que vous ouvrez tous les jours ou lors des grands évènements."
         l1: "%{c} bouteilles suivies"
       share:
@@ -188,6 +188,31 @@ fr:
         users: "%{count} utilisateurs"
         wines: "%{count} vins validés"
         tastings: "%{count} dégustations"
+    track:
+      summary:
+        title: "Un gestionnaire de cave performant et pratique"
+        p1:
+          title: "Enregistrez vos bouteilles"
+          p1: "Profitez des nombreuses fiches détaillées sur plus de %{count} vins."
+          p2: "Ajoutez les infos que vous souhaitez: date et lieu d'achat, prix, côte, commentaires..."
+        p2:
+          title: "Recherche dynamique"
+          p1: "<em>Dynamique</em> : commencez à tapper et vous trouverez le vin que vous cherchez."
+          p2: "<em>Multi-critère</em> : cherchez par nom, appellation, millésime, prix..."
+        p3:
+          title: "Visualisation graphique avancée"
+          p1: "Idéal pour repérer rapidement où une bouteille se trouve dans votre cave."
+          p2: "Nombreuses dispositions différentes pour s'adapter à votre rangement."
+        p4:
+          title: "Historique de dégustations"
+          p1: "Gardez une trace des vins que vous dégustez."
+          p2: "Choisissez de remplir une fiche de dégustation rapide ou complète (à venir)."
+        p5:
+          title: "Aide à la garde"
+          p1: "Vinosus et ses utilisateurs vous aident à trouver la période idéale pour déguster vos bouteilles."
+        p6:
+          title: "Statistiques"
+          p1: "Outils performants pour visualiser de façon synthétique vos bouteilles, consommations..."
   languages:
     fr: "Français"
     en: "Anglais"

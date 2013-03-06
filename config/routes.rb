@@ -114,6 +114,7 @@ VinoSocialis::Application.routes.draw do
     match '/why', :to => "home#why"
     match '/about', :to => "home#about"
     match '/discover', :to => "home#discover"
+    match '/track', :to => "home#track"
   end
 
   match '', :to => redirect { |p, r| p[:locale] ? "/#{p[:locale]}/" : '/fr/' }
