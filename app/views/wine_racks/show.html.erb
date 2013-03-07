@@ -36,7 +36,7 @@
     </div>
   
     <div class="span8">
-      <% if @wine_rack.content %>
+      <% if @wine_rack.content == 0 %>
         <div class="alert alert-error"><%= raw t('wine_rack.rack_is_empty', my_bottles: link_to(raw('<i class="icon-list"></i> ') + t("menu.track.my_bottles"), bottles_path)) %></div>
       <% else %>
         <table class="table table-condensed" id="list">
