@@ -5,6 +5,18 @@
 !binary "bG9jYWxlL2VuL2luZGV4LnBuZw==": locale/en-e9831ac4d86a68fb1808a9a4a6510e79.png
 !binary "bG9jYWxlL2ZyLnBuZw==": locale/fr-d817d1a2660df5ae296d705d91678973.png
 !binary "bG9jYWxlL2ZyL2luZGV4LnBuZw==": locale/fr-d817d1a2660df5ae296d705d91678973.png
+!binary "dHJhY2svcDEuanBn": track/p1-08c4192c88ed02329c2fa2d6e4a5f689.jpg
+!binary "dHJhY2svcDEvaW5kZXguanBn": track/p1-08c4192c88ed02329c2fa2d6e4a5f689.jpg
+!binary "dHJhY2svcDIuanBn": track/p2-ee90bd1d816d2aa7fc64b89b596229b1.jpg
+!binary "dHJhY2svcDIvaW5kZXguanBn": track/p2-ee90bd1d816d2aa7fc64b89b596229b1.jpg
+!binary "dHJhY2svcDMuanBn": track/p3-7345b5df633e7d88cddfe63b92048bbc.jpg
+!binary "dHJhY2svcDMvaW5kZXguanBn": track/p3-7345b5df633e7d88cddfe63b92048bbc.jpg
+!binary "dHJhY2svcDQuanBn": track/p4-6d6d8c88622befe91bced5d4a1d254ff.jpg
+!binary "dHJhY2svcDQvaW5kZXguanBn": track/p4-6d6d8c88622befe91bced5d4a1d254ff.jpg
+!binary "dHJhY2svcDUuanBn": track/p5-4c6f1901689baadbd41db7abd45da6b5.jpg
+!binary "dHJhY2svcDUvaW5kZXguanBn": track/p5-4c6f1901689baadbd41db7abd45da6b5.jpg
+!binary "dHJhY2svcDYuanBn": track/p6-91a36748a8ca4ccc53d312e0b7a7152f.jpg
+!binary "dHJhY2svcDYvaW5kZXguanBn": track/p6-91a36748a8ca4ccc53d312e0b7a7152f.jpg
 !binary "d2h5L2NvbnN1bXB0aW9ucy5qcGc=": why/consumptions-12c6557b9c0437d96ba03fbf67b2167d.jpg
 !binary "d2h5L2NvbnN1bXB0aW9ucy9pbmRleC5qcGc=": why/consumptions-12c6557b9c0437d96ba03fbf67b2167d.jpg
 !binary "d2h5L2dsb3NzYXJ5LmpwZw==": why/glossary-0fef35a185e4680a38dee2c72ba1a57e.jpg
@@ -75,8 +87,8 @@
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlL2luZGV4LmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
 !binary "YXBwbGljYXRpb24uanM=": application-df8060b313b634eb6fd11701b9a5c677.js
 !binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-df8060b313b634eb6fd11701b9a5c677.js
-!binary "YXBwbGljYXRpb24uY3Nz": application-c9d8d53fef5ced0d6425ace4b58a29bb.css
-!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-c9d8d53fef5ced0d6425ace4b58a29bb.css
+!binary "YXBwbGljYXRpb24uY3Nz": application-0b297379c4b18ba0713c00a8eda36d02.css
+!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-0b297379c4b18ba0713c00a8eda36d02.css
 !binary "Y2xvdWRpbmFyeV9jb3JzLmh0bWw=": cloudinary_cors-05f2af4874bd3914c79b03b8d9acd6d1.html
 !binary "Y2xvdWRpbmFyeV9jb3JzL2luZGV4Lmh0bWw=": cloudinary_cors-05f2af4874bd3914c79b03b8d9acd6d1.html
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
