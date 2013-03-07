@@ -58,21 +58,19 @@
 	    
 <% columns.each do |c| %>
       <th style="text-align:center;" id="<%= c[:att] %>">
-        <%= link_to content_tag(:i, "", class: "icon-chevron-up pull-left"), bottles_path(:order_attribute => c[:att], :order_sens => 'ASC') %>
-        <%= t(c[:att], scope: 'helpers.label.bottle') %>
-        <%= link_to content_tag(:i, "", class: "icon-chevron-down pull-right"), bottles_path(:order_attribute => c[:att], :order_sens => 'DESC') %>
+        <%= link_to content_tag(:i, "", class: "icon-chevron-up"), bottles_path(:order_attribute => c[:att], :order_sens => 'ASC') %>
+        <%= t(c[:att], scope: 'helpers.label.bottle') %>&nbsp;&nbsp;&nbsp;
+        <%= link_to content_tag(:i, "", class: "icon-chevron-down"), bottles_path(:order_attribute => c[:att], :order_sens => 'DESC') %>
         <% unless params[:ids] %>
           <br />
-          <div class="input-prepend">
-            <% if c[:att] == 'wine_color' %>
-              <select id="wine_color" class="input-prepend span2">
-                <option value="">Tous</option>
-                <%= options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
-              </select>
-            <% else %>
-              <span class="add-on"><i class="icon-search"></i></span><input type="text" id="<%= c[:att] %>" autocomplete='off' id="prependedInput" class="<%= c[:search_class] %>"/>
-            <% end %>
-          </div>
+          <% if c[:att] == 'wine_color' %>
+            <select id="wine_color" class="span2">
+              <option value="">Tous</option>
+              <%= options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
+            </select>
+          <% else %>
+            <input type="text" id="<%= c[:att] %>" autocomplete='off' class="<%= c[:search_class] %>"/>
+          <% end %>
         <% end %>
       </th>
 <% end %>

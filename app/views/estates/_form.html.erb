@@ -3,7 +3,10 @@
 <div class="control-group">
   <%= f.label :name, :class => 'control-label' %>
   <div class="controls">
-  <%= f.text_field :name %>
+    <%= f.text_field :name %>
+    <% if current_user.tutorial %>
+      <div class="help-inline"><%= t('helpers.label.estate.name_help') %></div>
+    <% end %>
   </div>
 </div>
 
@@ -59,20 +62,21 @@
 <div class="control-group">
   <%= f.label :email, :class => 'control-label' %>
   <div class="controls">
-  <%= f.text_field :email %>
+  <%= f.email_field :email %>
   </div>
 </div>
 
 <div class="control-group">
   <%= f.label :www, :class => 'control-label' %>
   <div class="controls">
-  <%= f.text_field :www %>
+  <%= f.url_field :www %>
   </div>
 </div>
 
 <div class="control-group">
   <div class="controls">
-  <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit class: "btn btn-primary" %>
+    <div class="alert-error"><%= t('helpers.public') %></div>
   </div>
 </div>
 <% end %>

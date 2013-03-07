@@ -32,6 +32,7 @@
   </div>
   <div class="span6">
     <% if @new %>
+      <h4><%= t('helpers.label.consumption.select_bottles') %></h4>
       <% @wine_racks.each do |rack| %>
         <% position = WineRackPosition.find(rack.position_id )%>
         <input type="checkbox" name="rack[<%= position.id %>]" <%= position.id == @position_id_to_check ? 'checked="checked"' : '' %>>
@@ -40,7 +41,8 @@
       <% end %>
       <% @bottle.not_placed.times do |i| %>
         <input type="checkbox" name="unracked[<%= i %>]">
-        Non placée</input>
+          <%= t('helpers.label.consumption.not_placed') %>
+        </input>
         <br />
       <% end %>
       <br />
@@ -54,6 +56,7 @@
 
     <div class="control-group">
       <%= f.submit class: "btn btn-primary" %>
+      <div class="alert"><%= t('helpers.private') %></div>
     </div>
   </div>
 

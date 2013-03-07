@@ -1,18 +1,19 @@
 <% provide(:title, @estate.name) %>
 
 <div class="white-opacity rounded-top more-padding">
-  <h1><%= @estate.name %></h1>
   
   <div class="row-fluid">
     <div class="span6">
+    <h1><%= @estate.name %></h1>
+  
   	<p>
-  	  <%= @estate.address %><br />
-  	  <%= @estate.zip_code %> <%= @estate.town %><br />
-  	  <%= @estate.country %><br />
-  	  <i class="icon-headphones"></i>  <%= @estate.phone %><br />
-  	  <i class="icon-print"></i>  <%= @estate.fax %><br />
-  	  <i class="icon-envelope"></i>  <%= mail_to @estate.email %><br />
-  	  <i class="icon-home"></i>  <%= link_to @estate.www, @estate.www, target: '_blank' %>
+  	  <%= raw "#{@estate.address}<br />" unless @estate.address.empty? %>
+  	  <%= raw "#{@estate.zip_code} #{@estate.town}<br />" unless @estate.zip_code.empty? and @estate.town.empty? %>
+  	  <%= raw "#{@estate.country}<br />" unless @estate.country.empty? %>
+  	  <%= raw "<i class=\"icon-headphones\"></i>  #{@estate.phone}<br />" unless @estate.phone.empty? %>
+  	  <%= raw "<i class=\"icon-print\"></i> #{@estate.fax}<br />" unless @estate.fax.empty? %>
+  	  <%= raw "<i class=\"icon-envelope\"></i>  #{mail_to(@estate.email)}<br />" unless @estate.email.empty? %>
+  	  <%= raw "<i class=\"icon-home\"></i> #{link_to(@estate.www, @estate.www, target: '_blank')}" unless @estate.www.empty? %>
   	</p>
   	
   	<p>
@@ -41,18 +42,23 @@
     </div>
   
     <div class="span6">
-    	<% if @estate.wines.any? %>
-    	  <table class="table table-condensed">
-    	  	<% @estate.wines.each do |wine| %>
-    	  	  <%= wine_name wine, color: true, area: true, html: true, links: true unless wine.nil? %>
-    	  	<% end %>
-    	  </table>
+    	<% if !@estate.wines.any? %>
+        <div<%= current_user.tutorial ? raw(" class=\"alert alert-error\"") : "" %>>
+          <p><%= t("estate.no_wines") %></p>
     	<% else %>
-    	  <p><%= t("estate.no_wines") %></p>
+    	  <h2><%= t('wine.wines') %></h2>
+        <table class="table table-condensed">
+          <% @estate.wines.each do |wine| %>
+            <%= wine_name wine, color: true, area: true, html: true, links: true unless wine.nil? %>
+          <% end %>
+        </table>
     	<% end %>
     	<% if can? :create, Wine %>
     	  <%= link_to t("estate.suggest_wine"), new_wine_path(estate_id: @estate.id, estate_name: @estate.name) %>
     	<% end %>
+      <% if !@estate.wines.any? %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

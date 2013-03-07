@@ -59,6 +59,7 @@ fr:
     label: Ajouter une nouvelle étiquette
   area:
     areas: "Appellations"
+    search: Recherche d'un vin par appellation
   bottles:
     edit: "Modifier bouteille(s)"
     my: "Mes bouteilles"
@@ -287,7 +288,7 @@ fr:
     edit: "Modifier %{wine_name}"
     random: "Vins au hasard"
     matching: "Vins correspondants à la recherche"
-    no_matching: "Aucun vin trouvé"
+    no_matching: "Aucun vin trouvé - Rechercher le producteur pour créer une nouvelle fiche vin ou créer une nouvelle fiche producteur"
     search: "Rechercher"
     suggest: "Proposer une nouvelle fiche vin"
     edit: "Modifier %{wine_name}"
@@ -334,6 +335,7 @@ fr:
     bottle: "Bouteille"
     place: "Placer une bouteille dans %{name}"
     place_instruction: "Cliquer sur un emplacement libre"
+    rack_is_empty: "Ce casier ne contient aucune bouteille actuellement.<br />Sélectionnez une bouteille via &nbsp;  %{my_bottles} &nbsp; pour la placer dans un casier."
     empty: "Vider ce casier"
     empty_confirm: "Vider ce casier ?"
     destroy: "Supprimer ce casier"
@@ -349,8 +351,9 @@ fr:
     search: "Rechercher"
 
   flash:
-    select_estate: Veuillez séletionner un producteur existant ou en créer un nouveau.
-    select_wine: Veuillez séletionner un vin existant ou en créer un nouveau.
+    select_estate: Veuillez rechercher un producteur existant ou en créer un nouveau.
+    select_wine: Veuillez rechercher un vin existant ou en créer un nouveau.
+    select_wine_for_new_bottle: <strong>Vous souhaitez ajouter une nouvelle bouteille à votre cave ?</strong><br />Lancez tout d'abord une recherche:<ul><li>Vous avez trouvé votre vin ? Utilisez le bouton Actions pour le mettre en cave.</li><li>Vous avez trouvé le producteur mais pas le vin ? Commencez par créer une nouvelle fiche vin pour ce producteur avec le bouton Actions.</li><li>Vous n'avez trouvé ni le vin ni le producteur ? Commencez alors par créer une nouvelle fiche producteur.</li></ul>
     select_bottle: Veuillez séletionner une bouteille existante.
     select_at_least_one_bottle: Sélectionnez au moins une bouteille.
     wine_created: Fiche vin créée.
@@ -369,7 +372,7 @@ fr:
     grape_variety_updated: Cépage mis à jour.
     definition_created: Définition créée.
     definition_updated: Définition mise à jour.
-    estate_created: Producteur créé.
+    estate_created: Producteur créé.<br />Vous pouvez désormais créer une fiche vin pour ce producteur avant d'ajouter une bouteille en cave ou d'entrer une dégustation.
     estate_updated: Producteur mis à jour.
     message_sent: Message envoyé.
     consumption_created: Sortie enregistrée.
@@ -380,6 +383,9 @@ fr:
     label_not_created: Erreur lors de l'ajout de l'étiquette.
 
   helpers:
+    not_mandatory: Facultatif
+    public: Toutes les informations renseignées ici seront publiques.
+    private: Toutes les informations renseignées ici seront privées.
     label:
       bottle:
         name: "Nom"
@@ -413,8 +419,11 @@ fr:
         date: "Date"
         reasons: "Raison"
         comments: "Commentaires"
+        not_placed: Bouteille non placée dans un casier
+        select_bottles: Sélectionnez autant de bouteilles que vous souhaitez en sortir
       estate:
         name: "Nom"
+        name_help: "Nom du château, domaine... tel qu'il apparaît sur la bouteille. N'oubliez pas qu'un producteur peut avoir plusieurs vins, et ne vous faites pas de soucis, les fiches sont validées par la suite."
         owner: "Propriétaire"
         address: "Addresse"
         zip_code: "Code postal"
@@ -429,7 +438,8 @@ fr:
         word: "Mot"
         definition: "Définition"
       pairing:
-        dish: 'Mets'
+        help: "Si vous avez vu ce vin avec un plat, vous pouvez noter l'accord ci-dessous. Sinon, laissez le champ 'Mets' vide."
+        dish: "Mets"
         note: "Note de l'accord"
       tasting:
         wine: "Vin"
@@ -454,9 +464,11 @@ fr:
       wine:
         estate: "Producteur"
         name: "Nom"
+        name_help: "Nom du vin (ne pas confondre avec le nom du producteur). Si le vin n'a pas de nom, vous pouvez mettre le nom de l'appellation par exemple."
         area: "Appellation"
         wine_color: "Couleur"
         info: "Informations complémentaires"
+        info_help: "Informations complémentaires visibles pour tous au sujet de ce vin (type de sol, élevage...). Pas d'appréciations personnelles ou de commentaires de dégustation."
         select_country_and_region: "Choisir le pays et la région ..."
         select_area: "... puis choisir l'appellation"
         grape_varieties: "Cépages"

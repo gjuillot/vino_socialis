@@ -5,6 +5,10 @@ class BottlesController < ApplicationController
   # GET /bottles
   def index
     @bottles = Bottle.remain(current_user)
+
+    if (@bottles.empty?)
+      redirect_to new_bottle_path
+    end
     
     if params[:wine_rack_id] && (params[:wine_rack_id] != '0')
       @bottles = @bottles.rack(Integer(params[:wine_rack_id])).in_rack_as_quantity
@@ -55,7 +59,7 @@ class BottlesController < ApplicationController
   # GET /bottles/new
   def new
     if params[:wine].blank?
-      redirect_to wines_and_estates_path, alert: 'select_wine'
+      redirect_to wines_and_estates_path, alert: 'select_wine_for_new_bottle'
     else
       @wine = Wine.find(params[:wine])
     end

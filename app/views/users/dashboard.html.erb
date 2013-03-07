@@ -19,6 +19,7 @@
   <div class="span6 white-opacity rounded-top-less" style="height: <%= height %>px;">
     <% if (@bottles == 0) %>
       <h3><%= t('user.stat.summary.total_count', count: @bottles) %></h3>
+      <%= link_to t('bottles.new'), new_bottle_path %>
     <% else %>
       <% unless @oldest.nil? %>
         <h3><%= t('user.stat.summary.oldest_title')%></h3>

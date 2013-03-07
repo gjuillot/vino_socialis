@@ -39,10 +39,10 @@
       <% end %>
       
       <% if notice %>
-        <div class="alert"><%= t('flash.' + notice) %></div>
+        <div class="alert"><%= raw t('flash.' + notice) %></div>
       <% end %>
       <% if alert %>
-        <div class="alert alert-error"><%= t('flash.' + alert) %></div>
+        <div class="alert alert-error"><%= raw t('flash.' + alert) %></div>
       <% end %>
 
       

@@ -18,6 +18,9 @@
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name %>
+      <% if current_user.tutorial %>
+        <div class="help-inline"><%= t('helpers.label.wine.name_help') %></div>
+      <% end %>
     </div>
   </div>
 
@@ -39,7 +42,7 @@
   <div class="control-group">
     <%= f.label :grape_varieties, :class => 'control-label' %>
     <div class="controls">
-      <a class="btn btn-primary" id="add_grape_variety" href="#">+</a><br />
+      <a class="btn btn-primary" id="add_grape_variety" href="#">+</a>&nbsp;&nbsp;&nbsp;<%= t('helpers.not_mandatory') %><br />
       <% @wine.grape_varieties.each do |gv| %>
         <%= raw(grape_variety_input.gsub /value=""/, 'value="' + gv.name + '"') %>
       <% end %>
@@ -47,15 +50,17 @@
   </div>
 
   <div class="control-group">
-      <%= f.label :info, :class => 'control-label' %>
+    <%= f.label :info, t('helpers.label.wine.info') + " (" + t('helpers.not_mandatory') + ")", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :info, rows: 3 %>
+      <div class="help-block"><%= t('helpers.label.wine.info_help') %></div>
     </div>
   </div>
 
   <div class="control-group">
     <div class="controls">
-    <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "btn btn-primary" %>
+      <div class="alert-error"><%= t('helpers.public') %></div>
     </div>
   </div>
 <% end %>

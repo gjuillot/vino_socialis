@@ -15,6 +15,7 @@
   <div class="row-fluid">
     
     <div class="span4">
+
       <table border="solid" id="graphical">
         <% (0..(@wine_rack.total_rows - 1)).each do |total_row| %>
           <tr>
@@ -35,15 +36,19 @@
     </div>
   
     <div class="span8">
-      <table class="table table-condensed" id="list">
-        <tbody>
-          <% @bottles.each do |p| %>
-            <%= render :partial => "table_row", :locals =>  { :bottle => p.bottle, :quantity => p.quantity} %>
-          <% end %>
-        </tbody>
-      </table>
-      <% @bottles.each do |p| %>
-        <%= render :partial => "actions", :locals =>  { :bottle => p.bottle} %>
+      <% if @wine_rack.content %>
+        <div class="alert alert-error"><%= raw t('wine_rack.rack_is_empty', my_bottles: link_to(raw('<i class="icon-list"></i> ') + t("menu.track.my_bottles"), bottles_path)) %></div>
+      <% else %>
+        <table class="table table-condensed" id="list">
+          <tbody>
+            <% @bottles.each do |p| %>
+              <%= render :partial => "table_row", :locals =>  { :bottle => p.bottle, :quantity => p.quantity} %>
+            <% end %>
+          </tbody>
+        </table>
+        <% @bottles.each do |p| %>
+          <%= render :partial => "actions", :locals =>  { :bottle => p.bottle} %>
+        <% end %>
       <% end %>
     </div>
     

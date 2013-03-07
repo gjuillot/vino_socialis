@@ -5,7 +5,7 @@
   
   <table class="table table-condensed">
     <% @wine_racks.each do |r| %>
-      <tr>
+      <tr style="cursor:pointer;">
         <td style="vertical-align:middle;"><%= r.name %><input type="hidden" value="<%= wine_rack_path(r) %>" /></td>
         <td style="vertical-align:middle;"><%= t 'wine_rack.content_and_capacity', content: r.content, capacity: r.capacity %></td>
         <td class="span5">

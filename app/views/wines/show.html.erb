@@ -8,13 +8,13 @@
   <div class="span6">
 	<p>
 	  <b><%= link_to @wine.estate.name, @wine.estate %></b><br />
-	  <%= @wine.estate.address %><br />
-	  <%= @wine.estate.zip_code %> <%= @wine.estate.town %><br />
-	  <%= @wine.estate.country %><br />
-	  <i class="icon-headphones"></i>  <%= @wine.estate.phone %><br />
-	  <i class="icon-print"></i>  <%= @wine.estate.fax %><br />
-	  <i class="icon-envelope"></i>  <%= mail_to @wine.estate.email %><br />
-	  <i class="icon-home"></i>  <%= link_to @wine.estate.www, @wine.estate.www, target: '_blank' %>
+    <%= raw "#{@wine.estate.address}<br />" unless @wine.estate.address.empty? %>
+    <%= raw "#{@wine.estate.zip_code} #{@wine.estate.town}<br />" unless @wine.estate.zip_code.empty? and @wine.estate.town.empty? %>
+    <%= raw "#{@wine.estate.country}<br />" unless @wine.estate.country.empty? %>
+    <%= raw "<i class=\"icon-headphones\"></i>  #{@wine.estate.phone}<br />" unless @wine.estate.phone.empty? %>
+    <%= raw "<i class=\"icon-print\"></i> #{@wine.estate.fax}<br />" unless @wine.estate.fax.empty? %>
+    <%= raw "<i class=\"icon-envelope\"></i>  #{mail_to(@wine.estate.email)}<br />" unless @wine.estate.email.empty? %>
+    <%= raw "<i class=\"icon-home\"></i> #{link_to(@wine.estate.www, @wine.estate.www, target: '_blank')}" unless @wine.estate.www.empty? %>
 	</p>
 	
 	<p>
@@ -42,6 +42,7 @@
   </div>
   
   <div class="span6">
+    <b><%= @wine.name %></b><br />
     <% if @wine.labels.validated.any? %>
       <p>
         <% @wine.labels.validated.each do |label| %>

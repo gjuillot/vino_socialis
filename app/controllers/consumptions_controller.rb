@@ -50,7 +50,8 @@ class ConsumptionsController < ApplicationController
       @new = true
       @wine_racks = WineRack.joins(:wine_rack_positions).select('"wine_rack_positions".id AS position_id, name').where('"wine_rack_positions".bottle_id = ?', @bottle.id)
       @position_id_to_check = Integer(params[:wine_rack_position_id]) if params[:wine_rack_position_id]
-      render action: "new", alert: 'select_at_least_one_bottle'
+      flash.now[:alert] = 'select_at_least_one_bottle'
+      render action: "new"
       return
     end
     

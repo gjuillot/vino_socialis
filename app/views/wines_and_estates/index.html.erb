@@ -7,26 +7,32 @@
   <div class="alert alert-error center"><strong>Replacement du vin <%= "'#{@replaced_wine.estate.name} - #{@replaced_wine.name}' (id:#{@replaced_wine.id})" %></strong></div>
 <% end %>
 
-<%= form_tag search_wines_and_estates_path, method: 'get', class: 'form-search form-inline center' do %>
+<%= form_tag search_wines_and_estates_path, method: 'get', class: 'form-search form-inline center white-opacity rounded-top-less' do %>
+  <div id="suggest_shorter_search" class="alert alert-error load_hidden">
+    Une recherche courte est préférable. Cherchez par exemple 'beck' plutôt que "beck-hartweg".
+  </div>
   <%= hidden_field_tag 'replaced_estate', @replaced_estate.id if @replaced_estate %>
   <%= hidden_field_tag 'replaced_wine', @replaced_wine.id if @replaced_wine %>
-  <%= text_field_tag :q, @searched, class: 'search-query' %>
+  <%= text_field_tag :q, (@searched.nil? ? 'Nom du vin ou du producteur' : @searched), class: 'search-query' %>
   <%= select_tag "scope", options_for_select([['Producteurs et vins', 'both'], ['Vins uniquement', 'wine'], ['Producteurs uniquement', 'estate']], :selected => params[:scope]), class: (@searched ? 'load_visible' : 'load_hidden') %>
   <%= grouped_collection_select :region, :id, @countries, :regions, :name, :id, :name, options = { prompt: t('helpers.label.wine.select_country_and_region')}, html_options = {selected: @region_name, class: (params[:scope] == 'wine' ? 'load_visible' : 'load_hidden')} %>
   <%= select_tag :area_id, options_for_select(@areas.map{|a| [a.name, a.id]}, :selected => @area_id), options = { prompt: t('helpers.label.wine.select_area'), class: (@area ? 'load_visible' : 'load_hidden') } %>
   <%= submit_tag t("wines_and_estates.search"), class: "btn btn-primary" %>
+  <br /><br />
+  <%= link_to t('area.search'), countries_path %>
+  <br /><br />
 <% end %>
 
-<br />
+<br /><br />
 
 <% if @display_estate %>
   <div class="white-opacity rounded-top-less">
-    <%= link_to t("estate.suggest"), new_estate_path, class: "pull-right" %>
+    <%= link_to(t("estate.suggest"), new_estate_path, class: "pull-right") unless @estates.empty? %>
     <h3><%= @searched.nil? ? t("estate.random") : t("estate.matching") %></h3>
     <p>
       <%= paginate @estates, :param_name => "estate_page" unless @searched.nil? %>
       <% if @estates.empty? %>
-        <%= t("estate.no_matching") %><br />
+        <%= t("estate.no_matching") %> - <%= link_to t("estate.suggest"), new_estate_path %><br /><br />
       <% else %>
         <table class="table table-condensed">
           <%= render @estates %>
@@ -42,7 +48,7 @@
     <h3><%= @searched.nil? ? t("wine.random") : t("wine.matching") %></h3>
     <%= paginate @wines, :param_name => "wine_page" unless @searched.nil? %>
     <% if @wines.empty? %>
-      <%= t("wine.no_matching") %><br />
+      <%= t("wine.no_matching") %><br /><br />
     <% else %>
       <table class="table table-condensed middle">
         <%= render @wines %>

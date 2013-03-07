@@ -3,7 +3,10 @@
     <%= link_to estate.name, estate %>
   </td>
   <td>
-    <%= "#{estate.town} (#{estate.country})" %>
+    <%= estate.town unless estate.town.empty? %>
+    <%= " (" unless estate.town.empty? or estate.country.empty? %>
+    <%= estate.country unless estate.country.empty? %>
+    <%= ")" unless estate.town.empty? or estate.country.empty? %>
   </td>
   
   <td>

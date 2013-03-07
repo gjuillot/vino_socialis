@@ -1,4 +1,4 @@
-<tr id="bottle">
+<tr id="bottle" style="cursor:pointer;">
   <input type="hidden" value="<%= bottle_path(bottle) %>" />
   <td id="name_<%= bottle.id %>" style="vertical-align:middle;">
     <%= image_tag bottle.wine.labels.validated.first.image_url(:micro).to_s, class: 'pull-right' if bottle.wine.labels.validated.any? %>

@@ -3,9 +3,13 @@
 <div class="white-opacity rounded-top">
   <h1><%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area, html: true) %></h1>
   
-  <table class="table table-condensed middle">
-    <% @wines.each do |wine| %>
-    	<%= wine_name wine, color: true, estate: true, html: true, links: true, label: true %>
-    <% end %>
-  </table>
+  <% if @wines.empty? %>
+    <%= t('wine.no_matching') %> - <%= link_to t('wine.suggest'), new_wine_path %>
+  <% else %>
+    <table class="table table-condensed middle">
+      <% @wines.each do |wine| %>
+      	<%= wine_name wine, color: true, estate: true, html: true, links: true, label: true %>
+      <% end %>
+    </table>
+  <% end %>
 </div>

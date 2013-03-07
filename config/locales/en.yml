@@ -181,6 +181,42 @@ en:
         title: "%{count} grape varieties"
       glossary:
         title: "%{count} definitions"
+      recommanded:
+        title: Recommanded wines
+        description: Thanks to the recommandations of the other users, Vinosus suggests you the best wines in the world.
+      pairings:
+        title: Wine pairing
+        description: Find the most appropriate wine for your dish.
+      community:
+        title: Always more
+        users: "%{count} users"
+        wines: "%{count} validated wines"
+        tastings: "%{count} tastings"
+    track:
+      summary:
+        title: "A powerful yet easy-to-user cave tool"
+        p1:
+          title: "Track your bottles"
+          p1: "Enjoy the many detailed sheets on more than %{count} wines."
+          p2: "Add the info you want: date and place of purchase, price, current value, comments ..."
+        p2:
+          title: "Dynamic search"
+          p1: "<em>Dynamic</ em>: start typing and you will find the wine you are looking for."
+          p2: "<em>Multi-criteria</ em>: search by name, area, vintage, price..."
+        p3:
+          title: "Advanced graphic visualization"
+          p1: "Ideal to quickly locate where a bottle is in your cellar."
+          p2: "Many different layouts to suit your storage."
+        p4:
+          title: "Tastings history"
+          p1: "Keep track of wines you taste."
+          p2: "Choose to fill out a quick tasting sheet or complete one (forthcoming)."
+        p5:
+          title: "Ageing assistance"
+          p1: "Vinosus and its users help you find the perfect time to enjoy your bottles."
+        p6:
+          title: "Statistics"
+          p1: "Powerful tools to visually synthesize your bottles, drinks..."
   languages:
     fr: "French"
     en: "English"
@@ -255,7 +291,7 @@ en:
     edit: "Edit %{wine_name}"
     random: "Random wines"
     matching: "Matching wines"
-    no_matching: "No wine found"
+    no_matching: "No wine found - Search for the esate in order to create a new wine sheet or create a new estate sheet"
     search: "Search"
     suggest: "Suggest a new wine sheet"
     edit: "Edit %{wine_name}"
@@ -302,6 +338,7 @@ en:
     bottle: "Bottle"
     place: "Place a bottle into %{name}"
     place_instruction: "Click on a free position"
+    rack_is_empty: "This rack does not contain any bottle for the moment.<br />Select a bottle in &nbsp;  %{my_bottles} &nbsp; in order to place it in a rack."
     empty: "Empty this rack"
     empty_confirm: "Empty this rack?"
     destroy: "Delete this rack"
@@ -319,6 +356,7 @@ en:
   flash:
     select_estate: Please use an existing estate or create a new one.
     select_wine: Please use an existing wine or create a new one.
+    select_wine_for_new_bottle: <strong>You want to add a new bootle into your cave ?</strong><br />First start a search:<ul><li>You found your wine? Use the Actions button to encave it.</li><li>You found the estate but not the wine? Start with the creation of a new wine sheet for this estate with the Actions button.</li><li>You found neither the wine nor the estate? Wstart with the creation of a new estate sheet.</li></ul>
     select_bottle: Please use an existing bottle.
     select_at_least_one_bottle: Select at least one bottle.
     wine_created: Wine was successfully created.
@@ -348,6 +386,9 @@ en:
     label_not_created: Error during label creation.
     
   helpers:
+    not_mandatory: Not mandatory
+    public: All information filled here will be public.
+    private: All information filled here will be private.
     label:
       bottle:
         wine: "Wine"
@@ -378,8 +419,11 @@ en:
         date: "Date"
         reasons: "Reason"
         comments: "Comments"
+        not_placed: Bottle not placed into a wine rack
+        select_bottles: Select as many bottle as you want to consume
       estate:
         name: "Name"
+        name_help: "Name of the château, estate... as it appears on the bottle. Don't forget that an estate may have multiple wines, ans don't you worry, sheets are validated later."
         owner: "Owner"
         address: "Address"
         zip_code: "ZIP code"
@@ -394,6 +438,7 @@ en:
         word: "Word"
         definition: "Definition"
       pairing:
+        help: "If you drunk this wine with a dish, you can rate the pairing below. Otherwise, leave the 'Dish' field empty."
         dish: 'Dish'
         note: 'Pairing note'
       tasting:
@@ -413,9 +458,11 @@ en:
       wine:
         estate: "Estate"
         name: "Name"
+        name_help: "Name of the wine (do not mistake with the name of the estate). If the wine has no name, you may use the area name for example."
         area: "Area"
         wine_color: "Wine color"
         info: "More information"
+        info_help: "More information visible by all about this wine (type of ground...). No personal opinion or tasting comments."
         select_country_and_region: "Select the coutnry and region ..."
         select_area: "... then select the area"
         grape_varieties: "Grape varieties"
