@@ -17,6 +17,13 @@ class HomeController < ApplicationController
   def track
   end
   
+  def share
+    @sheeters = Wine.unscoped.validated.select('user_id, COUNT(id) AS total').group('user_id').order('total DESC').limit(3)
+    @sheeters = @sheeters.map {|wine| {:name => wine.user.name, :count => wine.total}}
+    @tasters = Tasting.unscoped.select('user_id, COUNT(id) AS total').group('user_id').order('total DESC').limit(3)
+    @tasters = @tasters.map {|tasting| {:name => tasting.user.name, :count => tasting.total}}
+  end
+  
   def about
   end
   

@@ -217,6 +217,17 @@ en:
         p6:
           title: "Statistics"
           p1: "Powerful tools to visually synthesize your bottles, drinks..."
+    share:
+      p1:
+        title: Meet
+        text: Meet among more than %{count} users the one with similar taste.
+      p2:
+        title: Hints
+        text: The other users are here to recommand you the best wines according to your tastes and your dishes.
+      p3:
+        title: Most active users
+        sheets: "%{count} wine sheets"
+        tastings: "%{count} tastings"
   languages:
     fr: "French"
     en: "English"

@@ -60,9 +60,11 @@
       </a>
     </div>
     <div class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
-      <h3><%= t('menu.share.title') %></h3>
-      <%= raw t('home.index.share.p2') %><br />
-      <%= raw t('home.index.share.p3') %>
+      <a href="<%= url_for(controller: 'home', action: 'share') %>">
+        <h3><%= t('menu.share.title') %>...</h3>
+        <%= raw t('home.index.share.p2') %><br />
+        <%= raw t('home.index.share.p3') %>
+      </a>
     </div>
   </div>
 </div>

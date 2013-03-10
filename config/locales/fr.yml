@@ -214,6 +214,17 @@ fr:
         p6:
           title: "Statistiques"
           p1: "Outils performants pour visualiser de façon synthétique vos bouteilles, consommations..."
+    share:
+      p1:
+        title: Rencontres
+        text: Rencontrer parmis plus de %{count} utilisateurs ceux aux goûts proche des votres.
+      p2:
+        title: Conseils
+        text: Les autres utilisateurs sont là pour vous conseiller les meilleurs vins pour vous, selon vos goûts et vos mets.
+      p3:
+        title: Utilisateurs les plus actifs
+        sheets: "%{count} fiches vin"
+        tastings: "%{count} dégustations"
   languages:
     fr: "Français"
     en: "Anglais"

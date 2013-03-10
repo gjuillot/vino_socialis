@@ -1,0 +1,31 @@
+<div class="row-fluid">
+  <div class="span4">
+    <div class="alert alert-info" style="height: 230px; text-align: justify;">
+      <h3><%= t('home.share.p1.title') %></h3>
+      <%= t('home.share.p1.text', count: 10*(User.count/10)) %><br /><br />
+      <%= image_tag 'why/users.jpg' %>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="alert alert-success" style="height: 230px; text-align: justify;">
+      <h3><%= t('home.share.p2.title') %></h3>
+      <%= t('home.share.p2.text') %><br /><br />
+      <%= image_tag 'why/recommandation.jpg' %>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="alert alert-info" style="height: 230px; text-align: justify;">
+      <h3><%= t('home.share.p3.title') %></h3>
+      <ul>
+        <% @sheeters.each do |user| %>
+          <li><%= user[:name] %> (<%= t('home.share.p3.sheets', count: user[:count]) %>)</li>
+        <% end %>
+      </ul>
+      <ul>
+        <% @tasters.each do |user| %>
+          <li><%= user[:name] %> (<%= t('home.share.p3.tastings', count: user[:count]) %>)</li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
