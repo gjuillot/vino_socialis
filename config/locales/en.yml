@@ -34,7 +34,7 @@ en:
     profile:
       my: "My profile"
       sign_out: "Log out"
-      sign_up: "Create an account"
+      sign_up: "Create a free account"
       sign_in: "Log in"
       inbox: "Messaging"
   footer:

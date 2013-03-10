@@ -34,7 +34,7 @@ fr:
     profile:
       my: "Mon profil"
       sign_out: "Déconnexion"
-      sign_up: "Créer un compte"
+      sign_up: "Créer un compte gratuitement"
       sign_in: "S'identifier"
       inbox: "Messagerie"
   footer:

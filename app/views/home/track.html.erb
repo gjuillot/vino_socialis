@@ -1,12 +1,13 @@
 <div class="row-fluid">
-  <div class="span4 alert alert-info alert-no-close" style="height: 330px;">
+  <div class="span4 alert alert-info alert-no-close" style="height: 345px; position: relative">
     <h3><%= t('home.track.summary.title')%></h3>
     <br />
     <ul>
       <% ('1'..'6').each do |i| %>
         <li><p><%= t('home.track.summary.p' + i + '.title')%></p></li>
       <% end %>
-    </ul>
+    </ul><br />
+    <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary', style: 'position: absolute; bottom: 15px; right: 15px' %>
   </div>
   <div class="span8">
     <div id="myCarousel" class="carousel slide">
