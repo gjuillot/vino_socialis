@@ -138,7 +138,7 @@ fr:
     all: "Afficher tout"
   home:
     index:
-      learn_more: "En savoir plus"
+      for_all: "Pour amateurs de vin, débutant ou expert"
       carousel:
         t1: Vinosus, pour débutants et amateurs
         p1: <i class="icon-hand-right icon-white"></i><em>Débutant</em>, bénéficiez des conseils de la communauté d'utilisateurs et découvrez le monde du vin.<br /><i class="icon-hand-right icon-white"></i><em>Amateur</em>, profitez d'un gestionnaire de cave puissant.
@@ -158,8 +158,8 @@ fr:
         l3: "%{c} vins validés"
       track:
         p1: "Que vous soyez un consommateur modéré ou un fan de vins, Vinosus est là pour vous."
-        p2: "Enregistrez les bouteilles que vous possédez pour trouver à tout moment le vin que vous allez déguster."
-        p3: "Gardez une trace des bouteilles que vous ouvrez tous les jours ou lors des grands évènements."
+        p2: "Enregistrez vos bouteilles pour trouver à tout moment le vin que vous allez déguster."
+        p3: "Gardez une trace des vins que vous ouvrez."
         l1: "%{c} bouteilles suivies"
       share:
         p1: "Le vin a un incroyable aspect social, alors partagez avec Vinosus."

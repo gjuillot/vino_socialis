@@ -1,6 +1,11 @@
 <div class="row-fluid">
   
   <div class="span6">
+    <div class="alert alert-no-close alert-info center" style="line-height: 1.30">
+      <a href="<%= url_for(controller: 'home', action: 'why') %>">
+        <h3><%= t('home.index.for_all') %>...</h3>
+      </a>
+    </div>
     <div id="myCarousel" class="carousel slide">
       <!-- Carousel items -->
       <div class="carousel-inner">
@@ -40,21 +45,21 @@
   </div>
   
   <div class="span6">
-    <a href="<%= url_for(controller: 'home', action: 'discover') %>">
-      <div class="alert alert-info center" style="line-height: 1.30;text-decoration: underline;">
-        <h3><%= t('menu.discover.title') %></h3>
+    <div class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
+      <a href="<%= url_for(controller: 'home', action: 'discover') %>">
+        <h3><%= t('menu.discover.title') %>...</h3>
         <%= raw t('home.index.discover.p1') %><br />
         <%= raw t('home.index.discover.p2') %>
-      </div>
-    </a>
-    <a href="<%= url_for(controller: 'home', action: 'track') %>">
-      <div class="alert alert-info center" style="line-height: 1.30;text-decoration: underline;">
-        <h3><%= t('menu.track.title') %></h3>
+      </a>
+    </div>
+    <div class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
+      <a href="<%= url_for(controller: 'home', action: 'track') %>">
+        <h3><%= t('menu.track.title') %>...</h3>
         <%= raw t('home.index.track.p2') %><br />
         <%= raw t('home.index.track.p3') %>
-      </div>
-    </a>
-    <div class="alert alert-info center" style="line-height: 1.30;">
+      </a>
+    </div>
+    <div class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
       <h3><%= t('menu.share.title') %></h3>
       <%= raw t('home.index.share.p2') %><br />
       <%= raw t('home.index.share.p3') %>
@@ -64,7 +69,7 @@
 
 <div class="row">
   <div class="span6">
-    <div class="alert alert-success">
+    <div class="alert alert-no-close alert-success">
       <h3><%= t('home.index.discover.l3', :c => wine_count_validated) %></h3>
       <table class="table">
         <% @wines.each do |wine| %>
@@ -85,7 +90,7 @@
     </div>
   </div>
   <div class="span6">
-    <div class="alert alert-success">
+    <div class="alert alert-no-close alert-success">
       <h3><%= t('home.index.share.l2', :c => Tasting.all.count) %></h3>
       <table class="table">
         <% @tastings.each do |tasting| %>

@@ -141,7 +141,7 @@ en:
     all: "Display all"
   home:
     index:
-      learn_more: "Learn more"
+      for_all: "For wine lovers, beginners or experts"
       carousel:
          t1: Vinosus for beginners and amateurs
          p1: <i class="icon-hand-right icon-white"></i><em>Newbie</em>, get advices from the user community and discover the world of wine.<br /><i class="icon-hand-right icon-white"></i><em>Amateur</em>, enjoy a powerful cellar manager.
