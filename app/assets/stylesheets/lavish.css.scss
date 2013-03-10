@@ -127,6 +127,12 @@ h3 {
   margin-bottom: 10px;
 }
 
+.navbar-fixed-top {
+  background: image-url("background.jpg") fixed no-repeat;
+  background-position: center -150px;
+  background-size: 950px;
+}
+
 .navbar-inner {
   font-size: 15px;
   background: none !important;
@@ -265,7 +271,12 @@ input[type="color"]:focus,
 }
 
 .alert-info > a {
+  color: $navbar_link_color_hover;
+}
+
+.alert-info > a:hover {
   color: $navbar_link_color;
+  text-decoration: none;
 }
 
 .alert-info > span > a {
