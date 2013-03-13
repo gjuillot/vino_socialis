@@ -20,6 +20,7 @@ fr:
       new_bottle: "Encaver de nouvelles bouteilles"
       my_consumptions: "Mes sorties"
       stat: "Mes statistiques"
+      my_tastings: Mes dégustations
     share:
       title: "Partager"
       users: "Utilisateurs"
@@ -52,7 +53,7 @@ fr:
     new_wine: "Nouvelle fiche vin"
     destroy: "Détruire"
     cancel: "Annuler"
-    wine_tastings: "Voir les dégustations"
+    wine_tastings: "Voir les dégustations pour ce vin"
     recommand: "Recommander"
     unrecommand: "Dé-recommander"
     converse: "Converser"
@@ -205,9 +206,9 @@ fr:
           p1: "Idéal pour repérer rapidement où une bouteille se trouve dans votre cave."
           p2: "Nombreuses dispositions différentes pour s'adapter à votre rangement."
         p4:
-          title: "Historique de dégustations"
+          title: "Fiches dégustation simples ou avancées"
           p1: "Gardez une trace des vins que vous dégustez."
-          p2: "Choisissez de remplir une fiche de dégustation rapide ou complète (à venir)."
+          p2: "Choisissez de remplir une fiche de dégustation rapide ou complète."
         p5:
           title: "Aide à la garde"
           p1: "Vinosus et ses utilisateurs vous aident à trouver la période idéale pour déguster vos bouteilles."
@@ -245,9 +246,53 @@ fr:
   tasting:
     tastings: "Dégustations"
     new: "Nouvelle dégustation"
+    edit: Modifier dégustation
     latest: "Dernières dégustations"
     show: "Voir la dégustation"
     user: "Dégusté par"
+    tab:
+      basic: Basique
+      comments: Commentaires
+      eye: Oeil
+      nose: Nez
+      mouth: Bouche
+    flavor:
+      animal:
+        name: Animal
+        examples: Jus de viande, cuir, fourrure, gibier, venaison
+      wood: 
+        name: Boisé
+        examples: Chêne, bois neuf, balsa, pin, cèdre, vanille, eucalyptus, bois fumé, bois brûlé
+      chemical:
+        name: Chimique
+        examples: Bonbon anglais, vernis, vernis à ongles, solvant
+      empyreumatic:
+        name: Empyreumatique
+        examples: Cacao, pain grillé, pain d'épices, café, tabac, caramel
+      spice:
+        name: Epicé
+        examples: Poivre, thym, laurier, garrigue, vanille, cannelle, clou de girofle, réglisse, Zan, goudron
+      fermentation: 
+        name: Fermentaire
+        examples: Levure, mie de pain, brioche, biscuit
+      flower:
+        name: Floral
+        examples: Acacia, chèvrefeuille, jasmin, fleur d'oranger, rose, violette, rose
+      fruit:
+        name: Fruité
+        examples: Pomme, pêche, agrumes, fruits exotiques, banane, amande fraîche, fruits rouges, fruits secs
+      milk: 
+        name: Lacté
+        examples: Lait, beurre, yaourt
+      mineral: 
+        name: Minéral
+        examples: Pierre à fusil, craie, iode, silex, pétrole
+      sugar:
+        name: Sucré
+        examples: Miel, prâline, pâte d'amande
+      vegetal: 
+        name: Végétal
+        examples: Foin coupé, herbe, fougère, pipi de chat, thé, menthe, anis, poivron vert, sous-bois, champignon
   user:
     users: "Utilisateurs"
     my_profile: "Mon profil"
@@ -436,7 +481,7 @@ fr:
         name: "Nom"
         name_help: "Nom du château, domaine... tel qu'il apparaît sur la bouteille. N'oubliez pas qu'un producteur peut avoir plusieurs vins, et ne vous faites pas de soucis, les fiches sont validées par la suite."
         owner: "Propriétaire"
-        address: "Addresse"
+        address: "Adresse"
         zip_code: "Code postal"
         town: "Ville"
         country: "Pays"
@@ -457,6 +502,22 @@ fr:
         vintage: "Millésime"
         date: "Date"
         note: "Note"
+        public_comment: Commentaire public
+        private_comment: Commentaire privé
+        eye_intensity: Intensité
+        eye_color: Couleur
+        nose_intensity: Intensité
+        nose_complexity: Complexité
+        nose_flavors: Arômes
+        mouth_acidity: Acidité
+        mouth_bitterness: Amertume
+        mouth_alcohol: Alcool
+        mouth_sweet: Sucré
+        mouth_tanins: Tanins
+        mouth_co2: Bulles
+        mouth_complexity: Complexité
+        mouth_persistence: Persistence aromatique
+        mouth_flavors: Arômes
       user:
         name: "Pseudo (ou nom)"
         name_help: "Visible par tous les utilisateurs du site"

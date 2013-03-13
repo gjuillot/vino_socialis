@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122150817) do
+ActiveRecord::Schema.define(:version => 20130312075637) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -122,6 +122,24 @@ ActiveRecord::Schema.define(:version => 20130122150817) do
 
   add_index "labels", ["wine_id"], :name => "index_labels_on_wine_id"
 
+  create_table "mouth_flavors", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "mouth_flavors_tastings", :id => false, :force => true do |t|
+    t.integer "mouth_flavor_id"
+    t.integer "tasting_id"
+  end
+
+  create_table "nose_flavors", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "nose_flavors_tastings", :id => false, :force => true do |t|
+    t.integer "nose_flavor_id"
+    t.integer "tasting_id"
+  end
+
   create_table "notifications", :force => true do |t|
     t.string   "type"
     t.text     "body"
@@ -179,8 +197,22 @@ ActiveRecord::Schema.define(:version => 20130122150817) do
     t.integer  "vintage"
     t.date     "date"
     t.integer  "note"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.text     "public_comment"
+    t.text     "private_comment"
+    t.integer  "eye_intensity",     :default => 0
+    t.integer  "eye_color",         :default => 0
+    t.integer  "nose_intensity",    :default => 0
+    t.integer  "nose_complexity",   :default => 0
+    t.integer  "mouth_acidity",     :default => 0
+    t.integer  "mouth_bitterness",  :default => 0
+    t.integer  "mouth_alcohol",     :default => 0
+    t.integer  "mouth_sweet",       :default => 0
+    t.integer  "mouth_tanins",      :default => 0
+    t.integer  "mouth_co2",         :default => 0
+    t.integer  "mouth_complexity",  :default => 0
+    t.integer  "mouth_persistence", :default => 0
   end
 
   add_index "tastings", ["user_id"], :name => "index_tastings_on_user_id"

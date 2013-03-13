@@ -51,8 +51,27 @@ class Wine < ActiveRecord::Base
     return false
   end
   
+  RED = %w[red red_port_type sparkling_red]
+  ROSE = %w[rose sparkling_rose claret]
+  WHITE = %w[white sweet_white moelleux_white white_port_type sparkling_white natural_sweet vin_jaune vin_paille amber]
   COLORS = %w[white red rose sweet_white moelleux_white white_port_type sparkling_white natural_sweet red_port_type sparkling_red sparkling_rose claret vin_jaune vin_paille amber]
-
+  
+  def red?
+    RED.include? wine_color
+  end
+  
+  def rose?
+    ROSE.include? wine_color
+  end
+  
+  def white?
+    WHITE.include? wine_color
+  end
+  
+  def sparkling?
+    wine_color.include? 'sparkling'
+  end
+  
   def dist_euclide(other)
     return 0 if self.id == other.id
 

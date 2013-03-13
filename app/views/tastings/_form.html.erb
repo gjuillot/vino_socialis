@@ -1,61 +1,32 @@
-<h2><%= wine_name(@wine, estate: true, area: true) %></h2>
+  <h2><%= wine_name(@wine, estate: true, area: true) %></h2>
 
-<%= form_for(@tasting, html: { class:'form-horizontal'}) do |f| %>
-
-<div class="row-fluid">
-  <div class="span6">
-  	
+  <%= form_for(@tasting, html: { class:'form-horizontal'}) do |f| %>
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active"><a href="#basic" data-toggle="tab"><%= t('tasting.tab.basic') %></a></li>
+      <li><a href="#comments" data-toggle="tab"><%= t('tasting.tab.comments') %>*</a></li>
+      <li><a href="#eye" data-toggle="tab"><%= t('tasting.tab.eye') %>*</a></li>
+      <li><a href="#nose" data-toggle="tab"><%= t('tasting.tab.nose') %>*</a></li>
+      <li><a href="#mouth" data-toggle="tab"><%= t('tasting.tab.mouth') %>*</a></li>
+      <li class="pull-right span2"><%= f.submit class: "btn btn-primary span12" %></li>
+      <li class="pull-right"><a>(* <%= t('helpers.not_mandatory') %>)</a></li>
+    </ul>
+  
     <%= f.hidden_field :wine_id, value: @wine.id %>
-
-    <div class="control-group">
-      <%= f.label :vintage, :class => 'control-label' %>
-      <div class="controls">
-        <%= select_vintage f, @vintage %>
+    <div class="tab-content">
+      <div class="tab-pane active" id="basic">
+        <%= render :partial => 'form_basic', :locals => { :f => f } %>
+      </div>
+      <div class="tab-pane" id="comments">
+        <%= render :partial => 'form_comments', :locals => { :f => f } %>
+      </div>
+      <div class="tab-pane" id="eye">
+        <%= render :partial => 'form_eye', :locals => { :f => f } %>
+      </div>
+      <div class="tab-pane" id="nose">
+        <%= render :partial => 'form_nose', :locals => { :f => f } %>
+      </div>
+      <div class="tab-pane" id="mouth">
+        <%= render :partial => 'form_mouth', :locals => { :f => f } %>
       </div>
     </div>
-
-    <div class="control-group">
-      <%= f.label :date, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.date_select :date, {:order => [:day, :month, :year], :default => @date}, {class: "date"} %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :note, :class => 'control-label' %>
-      <div class="controls">
-        <%= select_tag 'tasting[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.note) %>
-      </div>
-    </div>
-  </div>
-
-  <div class="span6">
-    <div class="control-group">
-      <div class="help-block">
-        <%= t('helpers.label.pairing.help') %>
-      </div>
-    </div>
-    
-    <div class="control-group">
-      <label for="pairing_dish" class="control-label"><%= t('helpers.label.pairing.dish') %></label>
-      <div class="controls">
-        <input id="pairing_dish" name="pairing[dish]" size="30" type="text" value="<%= (@pairing ? @pairing.dish : '') %>" data-provide="typeahead" data-items="10" data-source='<%= raw dishes_array %>' autocomplete='off' />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label for="pairing_note" class="control-label"><%= t('helpers.label.pairing.note') %></label>
-      <div class="controls">
-        <%= select_tag 'pairing[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => (@pairing ? @pairing.note : '')) %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit class: "btn btn-primary span6" %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% end %>
+  <% end %>

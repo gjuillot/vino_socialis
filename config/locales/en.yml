@@ -20,6 +20,7 @@ en:
       new_bottle: "Put new bottles into my cellar"
       my_consumptions: "My consumptions"
       stat: "My statistics"
+      my_tastings: My tastings
     share:
       title: "Share"
       users: "Users"
@@ -52,7 +53,7 @@ en:
     new_wine: "New wine sheet"
     destroy: "Destroy"
     cancel: "Cancel"
-    wine_tastings: "See tastings"
+    wine_tastings: "See tastings for this wine"
     recommand: "Recommand"
     unrecommand: "Unrecommand"
     converse: "Converse"
@@ -208,9 +209,9 @@ en:
           p1: "Ideal to quickly locate where a bottle is in your cellar."
           p2: "Many different layouts to suit your storage."
         p4:
-          title: "Tastings history"
+          title: "Basic or advanced tasting sheets"
           p1: "Keep track of wines you taste."
-          p2: "Choose to fill out a quick tasting sheet or complete one (forthcoming)."
+          p2: "Choose to fill out a quick tasting sheet or a complete one."
         p5:
           title: "Ageing assistance"
           p1: "Vinosus and its users help you find the perfect time to enjoy your bottles."
@@ -248,9 +249,53 @@ en:
   tasting:
     tastings: "Tastings"
     new: "New tasting"
+    edit: Edit tasting
     latest: "Latest tastings"
     show: "Show tasting"
     user: "Tasted by"
+    tab:
+      basic: Basic
+      comments: Comments
+      eye: Eye
+      nose: Nose
+      mouth: Mouth
+    flavor:
+      animal:
+        name: Animal
+        examples: Gravy, leather, fur, game, venison
+      wood:
+        name: Wooded
+        examples: Oak, new wood, balsa, pine, cedar, vanilla, eucalyptus, wood smoke, wood burning
+      chemical:
+        name: Chemical
+        examples: English weet, varnish, polish, solvent
+      empyreumatic:
+        name: Empyreumatic
+        examples: Cocoa, toast, gingerbread, coffee, tobacco, caramel
+      spice:
+        name: Spicy
+        examples: Pepper, thyme, bay leaf, garrigue, vanilla, cinnamon, clove, licorice, Zan, tar
+      fermentation:
+        name: fermentation
+        examples: Yeast, bread, cake, biscuit
+      flower:
+        name: Floral
+        examples: Acacia, honeysuckle, jasmine, orange blossom, rose, violet, pink
+      fruit:
+        name: Fruity
+        examples: Apple, peach, citrus, tropical fruit, banana, fresh almonds, berries, dried fruit
+      milk:
+        name: Milky
+        examples: Milk, butter, yoghurt
+      mineral:
+        name: Mineral
+        examples: Gunflint, chalk, iodine, flint, oil
+      sugar:
+        name: Sweet
+        examples: Honey, praline, marzipan
+      vegetal:
+        name: Plant
+        examples: Hay cut grass, fern, cat pee, tea, mint, anise, green pepper, underbrush, mushroom
   user:
     users: "Users"
     my_profile: "My profile"
@@ -457,6 +502,22 @@ en:
         vintage: "Vintage"
         date: "Date of the tasting"
         note: "Note"
+        public_comment: Public comment
+        private_comment: Private comment
+        eye_intensity: Intensity
+        eye_color: Color
+        nose_intensity: Intensity
+        nose_complexity: Complexity
+        nose_flavors: Flavors
+        mouth_acidity: Acidity
+        mouth_bitterness: Bitterness
+        mouth_alcohol: Alcohol
+        mouth_sweet: Sweet
+        mouth_tanins: Tanins
+        mouth_co2: Bubbles
+        mouth_complexity: Complexity
+        mouth_persistence: Aromatic persistence
+        mouth_flavors: Flavors
       user:
         name: "Name"
         email: "Email"

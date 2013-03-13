@@ -29,7 +29,11 @@ VinoSocialis::Application.routes.draw do
       end
     end
       
-    resources :tastings
+    resources :tastings do
+      collection do
+        get 'me'
+      end
+    end
     
     resources :wine_recommandations do
       collection do

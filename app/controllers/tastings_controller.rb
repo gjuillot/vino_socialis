@@ -11,6 +11,11 @@ class TastingsController < ApplicationController
     end
   end
   
+  def me
+    @tastings = Tasting.user(current_user).order('id DESC')
+    render action: "index"
+  end
+  
   # GET /tastings/1
   def show
     @pairing = Pairing.find_by_tasting_id(@tasting.id)
@@ -35,6 +40,7 @@ class TastingsController < ApplicationController
   # GET /tastings/1/edit
   def edit
     @wine = @tasting.wine
+    @vintage = @tasting.vintage
     @pairing = Pairing.find_by_tasting_id(@tasting.id)
   end
 

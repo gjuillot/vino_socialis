@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="span6">
+    <div class="control-group">
+      <%= f.label :mouth_acidity, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[mouth_acidity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_acidity), :prompt => '-' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :mouth_bitterness, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[mouth_bitterness]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_bitterness), :prompt => '-' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :mouth_alcohol, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[mouth_alcohol]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_alcohol), :prompt => '-' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :mouth_sweet, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[mouth_sweet]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_sweet), :prompt => '-' %>
+      </div>
+    </div>
+    <% if @wine.red? or @wine.rose? %>
+      <div class="control-group">
+        <%= f.label :mouth_tanins, :class => 'control-label' %>
+        <div class="controls">
+          <%= select_tag 'tasting[mouth_tanins]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_tanins), :prompt => '-' %>
+        </div>
+      </div>
+    <% elsif @wine.sparkling? %>
+      <div class="control-group">
+        <%= f.label :mouth_co2, :class => 'control-label' %>
+        <div class="controls">
+          <%= select_tag 'tasting[mouth_co2]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_co2), :prompt => '-' %>
+        </div>
+      </div>
+    <% end %>
+    <div class="control-group">
+      <%= f.label :mouth_complexity, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[mouth_complexity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_complexity), :prompt => '-' %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="span6">
+    <div class="control-group">
+      <%= f.label :mouth_persistence, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[mouth_persistence]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_persistence), :prompt => '-' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :mouth_flavors, :class => 'control-label' %>
+      <div class="controls">
+        <% NoseFlavor.all.each do |f| %>
+          <label class="checkbox" title="<%= t(f.examples) %>, ...">
+            <%= check_box_tag "tasting[mouth_flavor_ids][]", f.id, @tasting.mouth_flavors.map(&:id).include?(f.id) %>
+            <%= t(f.translate) %></label>
+        <% end %>
+      </div>
+  </div>
+</div>

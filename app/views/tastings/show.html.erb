@@ -1,24 +1,116 @@
 <% provide(:title, t("tasting.show")) %>
 
+<%
+def display_note(name, value)
+  unless value.blank? or value==0
+   raw "<dt>" + t('helpers.label.tasting.' + name) + "</dt>\n<dd>" + value.to_s + "/5</dd>"
+  end
+end
+%>
+
 <div class="white-opacity rounded">
   <h1> <%= wine_name @tasting.wine, estate: true, area: true, html: true %> </h1>
 
-  <dl class="dl-horizontal">
-    <dt><%= t("helpers.label.tasting.vintage") %></dt>
-    <dd><%= formated_vintage(@tasting.vintage, short = false) %></dd>
+  <div class="row-fluid">
+    <div class="span6">
+      <dl class="dl-horizontal">
+        <dt><%= t("helpers.label.tasting.vintage") %></dt>
+        <dd><%= formated_vintage(@tasting.vintage, short = false) %></dd>
+      
+        <dt><%= t("helpers.label.tasting.date") %></dt>
+        <dd><%= formated_date(@tasting.date) %></dd>
+      
+        <dt><%= t("helpers.label.tasting.note") %></dt>
+        <dd><%= @tasting.note %>/5</dd>
+      
+        <dt><%= t("tasting.user") %>:</dt>
+        <dd><%= @tasting.user.name %></dd>
+      
+        <% if @pairing %>
+          <dt>Accord avec</dt>
+          <dd><%= @pairing.dish %> <b>noté</b> <%= @pairing.note %>/5</dd>
+        <% end %>
+      </dl>
+    </div>
+    <div class="span6">
+      <% unless @tasting.public_comment.blank? %>
+        <% if @tasting.user==current_user %>
+          <strong><%= t('helpers.label.tasting.public_comment') %></strong><br />
+        <% end %>
+        <blockquote>
+          <%= simple_format @tasting.public_comment %>
+        </blockquote>
+      <% end %>
+      
+      <% if !@tasting.private_comment.blank? and (@tasting.user==current_user) %>
+        <strong><%= t('helpers.label.tasting.private_comment') %></strong><br />
+        <blockquote>
+          <%= simple_format @tasting.private_comment %>
+        </blockquote>
+      <% end %>
+    </div>
+  </div>
   
-    <dt><%= t("helpers.label.tasting.date") %></dt>
-    <dd><%= formated_date(@tasting.date) %></dd>
+  <br />
   
-    <dt><%= t("helpers.label.tasting.note") %></dt>
-    <dd><%= @tasting.note %>/5</dd>
-  
-    <dt><%= t("tasting.user") %>:</dt>
-    <dd><%= @tasting.user.name %></dd>
-  
-    <% if @pairing %>
-      <dt>Accord avec</dt>
-      <dd><%= @pairing.dish %> <b>noté</b> <%= @pairing.note %>/5</dd>
-    <% end %>
-  </dl>
+  <% if @tasting.eye? or @tasting.nose? or @tasting.mouth? %>
+    <div class="row-fluid">
+      <div class="span6">
+        <% if @tasting.eye? %>
+          <h3><%= t('tasting.tab.eye') %></h3>
+          <dl class="dl-horizontal">
+            <%= display_note('eye_intensity', @tasting.eye_intensity) %>
+            
+            <% unless @tasting.eye_color.blank? or @tasting.eye_color==0 %>
+              <% color = tasting_eye_colors(@tasting.wine)[@tasting.eye_color-1] %>
+              <dt><%= t("helpers.label.tasting.eye_color") %></dt>
+              <dd style="background-color: <%= color[:code] %>" class="span3"><%= color[:name] %></dd>
+            <% end %>
+          </dl>
+        <% end %>
+        
+        <% if @tasting.nose? %>
+          <% if @tasting.eye? %>
+            <% if @tasting.mouth? %>
+              <br /><br />
+            <% else %>
+              </div>
+              <div class="span6">
+            <% end %>
+          <% end %>
+          <h3><%= t('tasting.tab.nose') %></h3>
+          <dl class="dl-horizontal">
+            <%= display_note('nose_intensity', @tasting.nose_intensity) %>
+            <%= display_note('nose_complexity', @tasting.nose_complexity) %>
+            <% unless @tasting.nose_flavors.empty? %>
+              <dt><%= t("helpers.label.tasting.nose_flavors") %></dt>
+              <dd><%= @tasting.nose_flavors.map {|f| t(f.translate)}.join(', ') %></dd>
+            <% end %>
+          </dl>
+        <% end %>
+        
+        <% if @tasting.mouth? %>
+          <% if @tasting.eye? or @tasting.nose? %>
+              </div>
+              <div class="span6">
+          <% end %>
+          <h3><%= t('tasting.tab.mouth') %></h3>
+          <dl class="dl-horizontal">
+            <%= display_note('mouth_acidity', @tasting.mouth_acidity) %>
+            <%= display_note('mouth_bitterness', @tasting.mouth_bitterness) %>
+            <%= display_note('mouth_alcohol', @tasting.mouth_alcohol) %>
+            <%= display_note('mouth_sweet', @tasting.mouth_sweet) %>
+            <%= display_note('mouth_tanins', @tasting.mouth_tanins) %>
+            <%= display_note('mouth_co2', @tasting.mouth_co2) %>
+            <%= display_note('mouth_complexity', @tasting.mouth_complexity) %>
+            <%= display_note('mouth_persistence', @tasting.mouth_persistence) %>
+            <% unless @tasting.mouth_flavors.empty? %>
+              <dt><%= t("helpers.label.tasting.mouth_flavors") %></dt>
+              <dd><%= @tasting.mouth_flavors.map {|f| t(f.translate)}.join(', ') %></dd>
+            <% end %>
+          </dl>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

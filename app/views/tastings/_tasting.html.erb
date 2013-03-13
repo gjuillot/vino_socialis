@@ -1,4 +1,7 @@
-  <%= wine_name tasting.wine, color: true, estate: true, area: true, html: true, links: true, label: true, do_not_close_tr: true %>
+<tr>
+  <td>
+    <%= wine_name tasting.wine, color: true, estate: true, area: true, html: true %>
+  </td>
   <td>
     <%= formated_vintage(tasting.vintage) %>
   </td>

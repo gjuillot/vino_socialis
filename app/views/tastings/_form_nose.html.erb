@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="span6">
+    <div class="control-group">
+      <%= f.label :nose_flavors, :class => 'control-label' %>
+      <div class="controls">
+        <% NoseFlavor.all.each do |f| %>
+          <label class="checkbox" title="<%= t(f.examples) %>, ...">
+            <%= check_box_tag "tasting[nose_flavor_ids][]", f.id, @tasting.nose_flavors.map(&:id).include?(f.id) %>
+            <%= t(f.translate) %>
+          </label>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="span6">
+    <div class="control-group">
+      <%= f.label :nose_intensity, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[nose_intensity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.nose_intensity), :prompt => '-' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :nose_complexity, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[nose_complexity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.nose_complexity), :prompt => '-' %>
+      </div>
+    </div>
+  </div>
+</div>

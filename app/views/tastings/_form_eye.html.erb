@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="span6">
+    <div class="control-group">
+      <%= f.label :eye_intensity, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag 'tasting[eye_intensity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.eye_intensity), :prompt => '-' %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :eye_color, :class => 'control-label' %>
+      <div class="controls">
+        <% font_color = (@wine.white? ? 'black' : 'white')%>
+        <% colors = tasting_eye_colors(@wine).map { |c| "<option value='#{c[:value]}' style='background-color:#{c[:code]}; color:#{font_color}'" + (c[:value]==@tasting.eye_color ? ' selected="selected"' : '') + ">#{c[:name]}</option>" }.join('\n') %>
+        <%= select_tag 'tasting[eye_color]', colors, :prompt => '-' %>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
