@@ -4,7 +4,7 @@
 <div class="row-fluid">
   
   <div class="span6">
-    <div class="alert alert-no-close alert-info center" style="line-height: 1.30">
+    <div id="why" class="alert alert-no-close alert-info center" style="line-height: 1.30">
       <a href="<%= url_for(controller: 'home', action: 'why') %>">
         <h3><%= t('home.index.for_all') %>...</h3>
       </a>
@@ -13,32 +13,40 @@
       <!-- Carousel items -->
       <div class="carousel-inner">
         <div class="active item">
-          <%= image_tag 'home/vinosus.jpg' %>
-          <div class="carousel-caption">
-            <h4><%= raw t('home.index.carousel.t1') %></h4>
-            <p><%= raw t('home.index.carousel.p1') %></p>
-          </div>
+          <a href="<%= url_for(controller: 'home', action: 'why') %>">
+            <%= image_tag 'home/vinosus.jpg' %>
+            <div class="carousel-caption">
+              <h4><%= raw t('home.index.carousel.t1') %></h4>
+              <p><%= raw t('home.index.carousel.p1') %></p>
+            </div>
+          </a>
         </div>
         <div class="item">
-          <%= image_tag 'home/discover.jpg' %>
-          <div class="carousel-caption">
-            <h4><%= raw t('home.index.carousel.t2') %></h4>
-            <p><%= raw t('home.index.carousel.p2') %></p>
-          </div>
+          <a href="<%= url_for(controller: 'home', action: 'discover') %>">
+            <%= image_tag 'home/discover.jpg' %>
+            <div class="carousel-caption">
+              <h4><%= raw t('home.index.carousel.t2') %></h4>
+              <p><%= raw t('home.index.carousel.p2') %></p>
+            </div>
+          </a>
         </div>
         <div class="item">
-          <%= image_tag 'home/track.jpg' %>
-          <div class="carousel-caption">
-            <h4><%= raw t('home.index.carousel.t3') %></h4>
-            <p><%= raw t('home.index.carousel.p3') %></p>
-          </div>
+          <a href="<%= url_for(controller: 'home', action: 'track') %>">
+            <%= image_tag 'home/track.jpg' %>
+            <div class="carousel-caption">
+              <h4><%= raw t('home.index.carousel.t3') %></h4>
+              <p><%= raw t('home.index.carousel.p3') %></p>
+            </div>
+          </a>
         </div>
         <div class="item">
-          <%= image_tag 'home/share.jpg' %>
-          <div class="carousel-caption">
-            <h4><%= raw t('home.index.carousel.t4') %></h4>
-            <p><%= raw t('home.index.carousel.p4') %></p>
-          </div>
+          <a href="<%= url_for(controller: 'home', action: 'share') %>">
+            <%= image_tag 'home/share.jpg' %>
+            <div class="carousel-caption">
+              <h4><%= raw t('home.index.carousel.t4') %></h4>
+              <p><%= raw t('home.index.carousel.p4') %></p>
+            </div>
+          </a>
         </div>
       </div>
       <!-- Carousel nav -->
@@ -48,21 +56,21 @@
   </div>
   
   <div class="span6">
-    <div class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
+    <div id="discover" class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
       <a href="<%= url_for(controller: 'home', action: 'discover') %>">
         <h3><%= t('menu.discover.title') %>...</h3>
         <%= raw t('home.index.discover.p1') %><br />
         <%= raw t('home.index.discover.p2') %>
       </a>
     </div>
-    <div class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
+    <div id="track" class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
       <a href="<%= url_for(controller: 'home', action: 'track') %>">
         <h3><%= t('menu.track.title') %>...</h3>
         <%= raw t('home.index.track.p2') %><br />
         <%= raw t('home.index.track.p3') %>
       </a>
     </div>
-    <div class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
+    <div id="share" class="alert alert-no-close alert-info center" style="line-height: 1.30; height: 95px;">
       <a href="<%= url_for(controller: 'home', action: 'share') %>">
         <h3><%= t('menu.share.title') %>...</h3>
         <%= raw t('home.index.share.p2') %><br />
