@@ -70,7 +70,7 @@ module WinesHelper
       if current_user.nil? or do_not_close_tr
         res += '</td>'
       else
-        res += '</td><td>' + wine_action_button(wine) + '</td>'
+        res += '</td><td>' + wine_action_buttons(wine) + '</td>'
       end
       res += '</tr>' unless do_not_close_tr
     end
@@ -78,41 +78,54 @@ module WinesHelper
     return raw(res)
   end
   
-  def wine_action_button(wine)
-      # ACTION LINKS
-    res = '<div class="btn-group">
-              <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-                Actions <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">'
+  def wine_action_buttons(wine)
+    res = '<div class="action-button-group">'
+    
+    res += action_button_show(wine)
+    res += action_button_wine_tasting(wine)
+    res += '|&nbsp;&nbsp;&nbsp;'
+    res += action_button_add_label(wine)
+    res += (wine.recommanded_by?(current_user) ? action_button_unrecommand(wine) : action_button_recommand(wine))
+    res += action_button_taste(wine)
+    res += action_button_encave(wine)
+    
+    if can? :manage, wine
+      res += '|&nbsp;&nbsp;&nbsp;'
+        res += action_button_edit(wine)
       
-      res += link_to_show(wine_path(wine))
-      res += link_to_wine_tastings(wine)
-      res += '<li class="divider"></li>'
-      res += link_to_label(add_label_wine_path(wine))
-      res += (wine.recommanded_by?(current_user) ? link_to_unrecommand(wine) : link_to_recommand(wine))
-      res += link_to_tasting(taste_wine_path(wine))
-      res += link_to_encave(encave_wine_path(wine))
-      
-      # MODERATION
-      if can? :manage, wine
-        res += '<li class="divider"></li>'
-          
-        res += link_to_edit(edit_wine_path(wine))
-        
-        if wine.validated?
-          res += link_to_unvalidate(unvalidate_wine_path(wine))
-        else
-          res += link_to_validate(validate_wine_path(wine))
-        end
-        
-        if can? :replace, Wine and @replaced_wine
-          res += content_tag(:a, content_tag(:i, "", class: "icon-refresh") + ' Remplacer "' + @replaced_wine.name + '"', :href => replace_wine_path(wine, replaced: @replaced_wine.id))
-        end
+      if wine.validated?
+        res += action_button_unvalidate(wine)
+      else
+        res += action_button_validate(wine)
       end
-      res += '</ul></div>'
       
-      return raw res
+      if can? :replace, Wine and @replaced_wine
+        res += action_button_replace(replace_wine_path(wine, replaced: @replaced_wine.id), @replaced_wine.name)
+      end
+    end
+    
+    res += '</div>'
+    return raw res
+  end
+  
+  def action_button_add_label(wine)
+    action_button(add_label_wine_path(wine), "icon-picture", t('icon.label'))
+  end
+  
+  def action_button_recommand(wine)
+    action_button(recommand_wine_path(wine), "icon-heart", t('icon.recommand'))
+  end
+  
+  def action_button_unrecommand(wine)
+    action_button(unrecommand_wine_path(wine), "icon-heart icon-white", t('icon.unrecommand'))
+  end
+  
+  def action_button_taste(wine)
+    action_button(taste_wine_path(wine), "icon-glass", t('icon.taste'))
+  end
+  
+  def action_button_encave(wine)
+    action_button(encave_wine_path(wine), "icon-shopping-cart", t('icon.encave'))
   end
   
   def wine_color_image_2(wine_color, tooltip=true, move_left = 0, text=false)

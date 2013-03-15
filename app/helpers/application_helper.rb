@@ -12,6 +12,37 @@ module ApplicationHelper
     end
   end
   
+  def action_button(href, icon, text)
+    "<a href='#{href}' data-toggle='tooltip' title='#{text}'><i class='#{icon}'></i></a>"
+  end
+  
+  def action_button_show(object)
+    action_button(url_for(object), "icon-eye-open", t('icon.show'))
+  end
+  
+  def action_button_edit(object)
+    action_button(url_for([:edit, object]), "icon-edit", t("icon.edit"))
+  end
+  
+  def action_button_delete(object)
+    id = Random.rand(1000000)
+    "<a id='#{id}' href='#{url_for(object)}' data-method='delete' data-confirm='Are you sure?' rel='nofollow'><i class='icon-trash'></i></a><span id='#{id}' class='pull-right'>#{t('icon.destroy')}</span>"
+  end
+  
+  def action_button_unvalidate(object)
+    action_button(url_for([:unvalidate, object]), 'icon-thumbs-down', t('icon.unvalidate'))
+  end
+  
+  def action_button_validate(object)
+    action_button(url_for([:validate, object]), 'icon-thumbs-up', t('icon.validate'))
+  end
+  
+  def action_button_replace(path, text)
+    action_button(path, "icon-refresh", 'Remplacer "' + text + '"')
+  end
+  
+
+  
   def link_to_show(path)
     content_tag(:a, content_tag(:i, "", class: "icon-eye-open") + ' ' + t('icon.show'), :href => path)
   end
@@ -44,14 +75,6 @@ module ApplicationHelper
     content_tag(:a, content_tag(:i, "", class: "icon-glass") + ' ' + t('icon.taste'), :href => path, :method => :post)
   end
   
-  def link_to_wine_tastings(wine)
-    content_tag(:a, content_tag(:i, "", class: "icon-list") + ' ' + t('icon.wine_tastings'), :href => tastings_path(:wine => wine), :method => :get)
-  end
-  
-  def link_to_encave(path)
-    content_tag(:a, content_tag(:i, "", class: "icon-shopping-cart") + ' ' + t('icon.encave'), :href => path, :method => :post)
-  end
-  
   def link_to_consume(path)
     content_tag(:a, content_tag(:i, "", class: "icon-hand-down") + ' ' + t('icon.consume'), :href => path, :method => :post)
   end
@@ -64,25 +87,11 @@ module ApplicationHelper
     content_tag(:a, content_tag(:i, "", class: "icon-share") + ' ' + t('icon.unplace'), :href => unplace_bottle_path(bottle, :wine_rack_position_id => position), :method => :get)
   end
   
-  def link_to_new_wine(estate)
-    content_tag(:a, content_tag(:i, "", class: "icon-plus") + ' ' + t('icon.new_wine'), :href => new_wine_path(:estate_id => estate.id, :estate_name => estate.name))
-  end
-  
-  def link_to_recommand(wine)
-    content_tag(:a, content_tag(:i, "", class: "icon-heart") + ' ' + t('icon.recommand'), :href => recommand_wine_path(wine), :method => :get)
-  end
-  
-  def link_to_unrecommand(wine)
-    content_tag(:a, content_tag(:i, "", class: "icon-heart icon-white") + ' ' + t('icon.unrecommand'), :href => unrecommand_wine_path(wine), :method => :get)
-  end
-  
   def link_to_message(user)
     content_tag(:a, content_tag(:i, "", class: "icon-envelope") + ' ' + t('icon.converse'), :href => new_conversation_path(:user => user), :method => :get)
   end
-  
-  def link_to_label(path)
-    content_tag(:a, content_tag(:i, "", class: "icon-picture") + ' ' + t('icon.label'), :href => path)
-  end
+
+
   
   def star_rating(note, max)
     raw "<i class='icon-star' style='margin-right:1px;'></i>"*(note.round)

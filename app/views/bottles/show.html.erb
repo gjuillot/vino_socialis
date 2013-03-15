@@ -75,7 +75,7 @@
       	</tr>
     	</table>
   	  <% if @all_wine_racks.empty? %>
-  	    <br /><%= link_to t('wine_rack.new'), new_wine_rack_path %>
+  	    <br /><%= link_to t('wine_rack.new'), new_wine_rack_path %><br /><br />
   	  <% else %>
     	  <%= form_for @bottle, :url => {:action => 'place'}, :html => {:class => 'form-inline', :method => 'get'} do %>
     	    <%= select_tag 'wine_rack_id', options_for_select(@all_wine_racks.map {|r| [r.name, r.id]}) %>

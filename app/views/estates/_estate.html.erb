@@ -11,9 +11,9 @@
   
   <td>
     <% if can? :replace, Estate and @replaced_estate %>
-      <%= estate_action_button estate, @replaced_estate %>
+      <%= estate_action_buttons estate, @replaced_estate %>
     <% else %>
-      <%= estate_action_button estate %>
+      <%= estate_action_buttons estate %>
     <% end %>
   </td>
 </tr>
