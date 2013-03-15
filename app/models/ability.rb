@@ -53,5 +53,8 @@ class Ability
     # Bottles and Racks and Consumptions
     can [:create], [Bottle, WineRack, Consumption]
     can :manage, [Bottle, WineRack, Consumption], :user => user
+    
+    # Labels
+    can [:create, :read], Label
   end
 end
