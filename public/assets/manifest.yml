@@ -9,6 +9,20 @@
 !binary "aG9tZS90cmFjay9pbmRleC5qcGc=": home/track-52591789bde3d2adeef8fae18dd46041.jpg
 !binary "aG9tZS92aW5vc3VzLmpwZw==": home/vinosus-b3cea37eb8b8956808872644fadcc71f.jpg
 !binary "aG9tZS92aW5vc3VzL2luZGV4LmpwZw==": home/vinosus-b3cea37eb8b8956808872644fadcc71f.jpg
+!binary "aWNvbnMvYWRkX2xhYmVsLnBuZw==": icons/add_label-196d6f7ddb8ac0a2c963587a0975b262.png
+!binary "aWNvbnMvYWRkX2xhYmVsL2luZGV4LnBuZw==": icons/add_label-196d6f7ddb8ac0a2c963587a0975b262.png
+!binary "aWNvbnMvYm90dGxlcy5wbmc=": icons/bottles-8fb53ac7f66e04512ef228311304fbb4.png
+!binary "aWNvbnMvYm90dGxlcy9pbmRleC5wbmc=": icons/bottles-8fb53ac7f66e04512ef228311304fbb4.png
+!binary "aWNvbnMvZW5jYXZlLnBuZw==": icons/encave-b9ba742395856f570568e96700e0079c.png
+!binary "aWNvbnMvZW5jYXZlL2luZGV4LnBuZw==": icons/encave-b9ba742395856f570568e96700e0079c.png
+!binary "aWNvbnMvbmV3X3dpbmUucG5n": icons/new_wine-e21987d62d6df950925256f23de67a53.png
+!binary "aWNvbnMvbmV3X3dpbmUvaW5kZXgucG5n": icons/new_wine-e21987d62d6df950925256f23de67a53.png
+!binary "aWNvbnMvdGFzdGUucG5n": icons/taste-40af5e17a0aed62243d5f9a2755dde29.png
+!binary "aWNvbnMvdGFzdGUvaW5kZXgucG5n": icons/taste-40af5e17a0aed62243d5f9a2755dde29.png
+!binary "aWNvbnMvdGFzdGluZ3MucG5n": icons/tastings-edee1e65fe3e093560b30ee4b130467d.png
+!binary "aWNvbnMvdGFzdGluZ3MvaW5kZXgucG5n": icons/tastings-edee1e65fe3e093560b30ee4b130467d.png
+!binary "aWNvbnMvdW5yZWNvbW1hbmQucG5n": icons/unrecommand-bef191f9ee8fa5e2199189dbb67c111c.png
+!binary "aWNvbnMvdW5yZWNvbW1hbmQvaW5kZXgucG5n": icons/unrecommand-bef191f9ee8fa5e2199189dbb67c111c.png
 !binary "bG9jYWxlL2VuLnBuZw==": locale/en-e9831ac4d86a68fb1808a9a4a6510e79.png
 !binary "bG9jYWxlL2VuL2luZGV4LnBuZw==": locale/en-e9831ac4d86a68fb1808a9a4a6510e79.png
 !binary "bG9jYWxlL2ZyLnBuZw==": locale/fr-d817d1a2660df5ae296d705d91678973.png
@@ -93,10 +107,10 @@
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3NpbXBsZS9pbmRleC5qcGc=": wine_racks/example/fr/simple-df0a98661c26ccb3cdfd95d95bf47e61.jpg
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlLmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlL2luZGV4LmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
-!binary "YXBwbGljYXRpb24uanM=": application-9b78e4b491f49b8ca77efacbf6910c12.js
-!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-9b78e4b491f49b8ca77efacbf6910c12.js
-!binary "YXBwbGljYXRpb24uY3Nz": application-63f965d5b9605acd23ae6e826d677cdf.css
-!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-63f965d5b9605acd23ae6e826d677cdf.css
+!binary "YXBwbGljYXRpb24uanM=": application-0770592a4a608042def90822b2643209.js
+!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-0770592a4a608042def90822b2643209.js
+!binary "YXBwbGljYXRpb24uY3Nz": application-6977b46b50b90d3401a1e14e689b053d.css
+!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-6977b46b50b90d3401a1e14e689b053d.css
 !binary "Y2xvdWRpbmFyeV9jb3JzLmh0bWw=": cloudinary_cors-05f2af4874bd3914c79b03b8d9acd6d1.html
 !binary "Y2xvdWRpbmFyeV9jb3JzL2luZGV4Lmh0bWw=": cloudinary_cors-05f2af4874bd3914c79b03b8d9acd6d1.html
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png

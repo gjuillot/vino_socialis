@@ -109,7 +109,7 @@ module WinesHelper
   end
   
   def action_button_add_label(wine)
-    action_button(add_label_wine_path(wine), "icon-picture", t('icon.label'))
+    action_button(add_label_wine_path(wine), "icon-add-label", t('icon.label'))
   end
   
   def action_button_recommand(wine)
@@ -117,15 +117,15 @@ module WinesHelper
   end
   
   def action_button_unrecommand(wine)
-    action_button(unrecommand_wine_path(wine), "icon-heart icon-white", t('icon.unrecommand'))
+    action_button(unrecommand_wine_path(wine), "icon-unrecommand", t('icon.unrecommand'))
   end
   
   def action_button_taste(wine)
-    action_button(taste_wine_path(wine), "icon-glass", t('icon.taste'))
+    action_button(taste_wine_path(wine), "icon-taste", t('icon.taste'))
   end
   
   def action_button_encave(wine)
-    action_button(encave_wine_path(wine), "icon-shopping-cart", t('icon.encave'))
+    action_button(encave_wine_path(wine), "icon-encave", t('icon.encave'))
   end
   
   def wine_color_image_2(wine_color, tooltip=true, move_left = 0, text=false)

@@ -13,7 +13,7 @@ module ApplicationHelper
   end
   
   def action_button(href, icon, text)
-    "<a href='#{href}' data-toggle='tooltip' title='#{text}'><i class='#{icon}'></i></a>"
+    "<a href='#{href}' data-toggle='tooltip' title='#{text}'><i class='icon #{icon}'></i></a>"
   end
   
   def action_button_show(object)

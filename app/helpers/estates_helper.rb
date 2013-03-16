@@ -20,7 +20,7 @@ module EstatesHelper
   end
   
   def action_button_new_wine(estate)
-    action_button(new_wine_path(:estate_id => estate.id, :estate_name => estate.name), "icon-plus", t('icon.new_wine'))
+    action_button(new_wine_path(:estate_id => estate.id, :estate_name => estate.name), "icon-new-wine", t('icon.new_wine'))
   end
   
   def estate_count_total
