@@ -3,14 +3,14 @@
     <div class="control-group">
       <%= f.label :vintage, :class => 'control-label' %>
       <div class="controls">
-        <%= select_vintage f, @vintage %>
+        <%= select_vintage f, @tasting.vintage %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :date, :class => 'control-label' %>
       <div class="controls">
-        <%= f.date_select :date, {:order => [:day, :month, :year], :default => @date}, {class: "date"} %>
+        <%= f.text_field :date, value: l(@tasting.date.nil? ? Date.today : @tasting.date), :locale => I18n.locale %>
       </div>
     </div>
 
@@ -23,11 +23,7 @@
   </div>
 
   <div class="span6">
-    <div class="control-group">
-      <div class="help-block">
-        <%= t('helpers.label.pairing.help') %>
-      </div>
-    </div>
+    <%= t('helpers.label.pairing.help') %><br /><br />
 
     <div class="control-group">
       <label for="pairing_dish" class="control-label"><%= t('helpers.label.pairing.dish') %>*</label>

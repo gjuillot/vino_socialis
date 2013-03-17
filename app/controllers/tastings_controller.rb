@@ -32,8 +32,8 @@ class TastingsController < ApplicationController
     else
       consumption = Consumption.find(params[:consumption])
       @wine = consumption.bottle.wine
-      @vintage = consumption.bottle.vintage
-      @date = consumption.date
+      @tasting.vintage = consumption.bottle.vintage
+      @tasting.date = consumption.date
     end
   end
   

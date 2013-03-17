@@ -52,6 +52,12 @@ function bottles_form_ready() {
   $('#drink_best_hint').popover();
   
   drink_results();
+  
+  $('#bottle_date').datepicker({
+    format: 'dd/mm/yyyy',
+    autoclose: 'true',
+    language: $('#bottle_date').attr('locale')
+  });
 }
 
 $('.bottles.new').ready(bottles_form_ready);

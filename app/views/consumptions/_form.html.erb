@@ -10,7 +10,7 @@
     <div class="control-group">
       <%= f.label :date, :class => 'control-label' %>
       <div class="controls">
-        <%= f.date_select :date, {:order => [:day, :month, :year]}, {class: "date"} %>
+        <%= f.text_field :date, value: l(@consumption.date.nil? ? Date.today : @consumption.date), :locale => I18n.locale %>
       </div>
     </div>
 
