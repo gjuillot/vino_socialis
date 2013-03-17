@@ -3,7 +3,7 @@
 <div class="white-opacity rounded-top more-padding">
   
   <div class="row-fluid">
-    <div class="span6">
+    <div class="span4">
     <h1><%= @estate.name %></h1>
   
   	<p>
@@ -41,7 +41,7 @@
   	</p>
     </div>
   
-    <div class="span6">
+    <div class="span8">
     	<% if !@estate.wines.any? %>
         <div<%= current_user.tutorial ? raw(" class=\"alert alert-error\"") : "" %>>
           <p><%= t("estate.no_wines") %></p>
