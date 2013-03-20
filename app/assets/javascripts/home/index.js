@@ -4,6 +4,15 @@ $('.home.index').ready(function(){
   $("#discover").mouseover(function(){slide(1);});
   $("#track").mouseover(function(){slide(2);});
   $("#share").mouseover(function(){slide(3);});
+  
+  $(".star").each(function() {
+    $(this).raty({
+      score: function() {
+        return $(this).attr('data-score');
+      },
+      readOnly: true
+    });
+  });
 });
 
 function slide(i) {

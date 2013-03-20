@@ -3,46 +3,53 @@
     <div class="control-group">
       <%= f.label :mouth_acidity, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[mouth_acidity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_acidity), :prompt => '-' %>
+        <span id="mouth_acidity_note" <%= @tasting.mouth_acidity.blank? or @tasting.mouth_acidity == 0 ? '' : raw("data-score=\"#{@tasting.mouth_acidity}\"") %> data-hints="<%= t('note_hints.mouth_acidity') %>" class="pull-left"></span>
+        <span id="mouth_acidity_note_hint"></span>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :mouth_bitterness, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[mouth_bitterness]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_bitterness), :prompt => '-' %>
+        <span id="mouth_bitterness_note" <%= @tasting.mouth_bitterness.blank? or @tasting.mouth_bitterness == 0 ? '' : raw("data-score=\"#{@tasting.mouth_bitterness}\"") %> data-hints="<%= t('note_hints.mouth_bitterness') %>" class="pull-left"></span>
+        <span id="mouth_bitterness_note_hint"></span>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :mouth_alcohol, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[mouth_alcohol]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_alcohol), :prompt => '-' %>
+        <span id="mouth_alcohol_note" <%= @tasting.mouth_alcohol.blank? or @tasting.mouth_alcohol == 0 ? '' : raw("data-score=\"#{@tasting.mouth_alcohol}\"") %> data-hints="<%= t('note_hints.mouth_alcohol') %>" class="pull-left"></span>
+        <span id="mouth_alcohol_note_hint"></span>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :mouth_sweet, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[mouth_sweet]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_sweet), :prompt => '-' %>
+        <span id="mouth_sweet_note" <%= @tasting.mouth_sweet.blank? or @tasting.mouth_sweet == 0 ? '' : raw("data-score=\"#{@tasting.mouth_sweet}\"") %> data-hints="<%= t('note_hints.mouth_sweet') %>" class="pull-left"></span>
+        <span id="mouth_sweet_note_hint"></span>
       </div>
     </div>
     <% if @wine.red? or @wine.rose? %>
       <div class="control-group">
         <%= f.label :mouth_tanins, :class => 'control-label' %>
         <div class="controls">
-          <%= select_tag 'tasting[mouth_tanins]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_tanins), :prompt => '-' %>
+        <span id="mouth_tanins_note" <%= @tasting.mouth_tanins.blank? or @tasting.mouth_tanins == 0 ? '' : raw("data-score=\"#{@tasting.mouth_tanins}\"") %> data-hints="<%= t('note_hints.mouth_tanins') %>" class="pull-left"></span>
+        <span id="mouth_tanins_note_hint"></span>
         </div>
       </div>
     <% elsif @wine.sparkling? %>
       <div class="control-group">
         <%= f.label :mouth_co2, :class => 'control-label' %>
         <div class="controls">
-          <%= select_tag 'tasting[mouth_co2]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_co2), :prompt => '-' %>
+        <span id="mouth_co2_note" <%= @tasting.mouth_co2.blank? or @tasting.mouth_co2 == 0 ? '' : raw("data-score=\"#{@tasting.mouth_co2}\"") %> data-hints="<%= t('note_hints.mouth_co2') %>" class="pull-left"></span>
+        <span id="mouth_co2_note_hint"></span>
         </div>
       </div>
     <% end %>
     <div class="control-group">
       <%= f.label :mouth_complexity, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[mouth_complexity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_complexity), :prompt => '-' %>
+        <span id="mouth_complexity_note" <%= @tasting.mouth_complexity.blank? or @tasting.mouth_complexity == 0 ? '' : raw("data-score=\"#{@tasting.mouth_complexity}\"") %> data-hints="<%= t('note_hints.mouth_complexity') %>" class="pull-left"></span>
+        <span id="mouth_complexity_note_hint"></span>
       </div>
     </div>
   </div>
@@ -51,7 +58,8 @@
     <div class="control-group">
       <%= f.label :mouth_persistence, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[mouth_persistence]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.mouth_persistence), :prompt => '-' %>
+        <span id="mouth_persistence_note" <%= @tasting.mouth_persistence.blank? or @tasting.mouth_persistence == 0 ? '' : raw("data-score=\"#{@tasting.mouth_persistence}\"") %> data-hints="<%= t('note_hints.mouth_persistence') %>" class="pull-left"></span>
+        <span id="mouth_persistence_note_hint"></span>
       </div>
     </div>
     <div class="control-group">

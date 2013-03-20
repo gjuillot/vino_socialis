@@ -17,13 +17,15 @@
     <div class="control-group">
       <%= f.label :nose_intensity, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[nose_intensity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.nose_intensity), :prompt => '-' %>
+        <span id="nose_intensity_note" <%= @tasting.nose_intensity.blank? or @tasting.nose_intensity == 0 ? '' : raw("data-score=\"#{@tasting.nose_intensity}\"") %> data-hints="<%= t('note_hints.nose_intensity') %>" class="pull-left"></span>
+        <span id="nose_intensity_note_hint"></span>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :nose_complexity, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[nose_complexity]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.nose_complexity), :prompt => '-' %>
+        <span id="nose_complexity_note" <%= @tasting.nose_complexity.blank? or @tasting.nose_complexity == 0 ? '' : raw("data-score=\"#{@tasting.nose_complexity}\"") %> data-hints="<%= t('note_hints.nose_complexity') %>" class="pull-left"></span>
+        <span id="nose_complexity_note_hint" class="span7"></span>
       </div>
     </div>
   </div>

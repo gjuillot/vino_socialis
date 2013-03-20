@@ -17,7 +17,8 @@
     <div class="control-group">
       <%= f.label :note, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag 'tasting[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => @tasting.note), :prompt => '-' %>
+        <span id="tasting_note" <%= @tasting.note.blank? ? '' : raw("data-score=\"#{@tasting.note}\"") %> data-hints="<%= t('note_hints.tasting') %>" class="pull-left"></span>
+        <span id="tasting_note_hint" class="span7"></span>
       </div>
     </div>
   </div>
@@ -35,7 +36,8 @@
     <div class="control-group">
       <label for="pairing_note" class="control-label"><%= t('helpers.label.pairing.note') %>*</label>
       <div class="controls">
-        <%= select_tag 'pairing[note]', options_for_select((1..5).map {|i| ["#{i}/5", i]}, :selected => (@pairing ? @pairing.note : '')), :prompt => '-' %>
+        <span id="pairing_note" <%= @pairing.nil? or @pairing.note.blank? ? '' : raw("data-score=\"#{@pairing.note}\"") %> data-hints="<%= t('note_hints.pairing') %>" class="pull-left"></span>
+        <span id="pairing_note_hint" class="span7"></span>
       </div>
     </div>
   </div>

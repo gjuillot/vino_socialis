@@ -91,12 +91,6 @@ module ApplicationHelper
     content_tag(:a, content_tag(:i, "", class: "icon-envelope") + ' ' + t('icon.converse'), :href => new_conversation_path(:user => user), :method => :get)
   end
 
-
-  
-  def star_rating(note, max)
-    raw "<i class='icon-star' style='margin-right:1px;'></i>"*(note.round)
-  end
-  
   def select_vintage(f, selected = '')
     years = (1900..(Time.now.year)).to_a.reverse.insert(0, [t('helpers.label.bottle.no_vintage'), 0])
     f.select :vintage, years, selected: selected

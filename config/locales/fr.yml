@@ -516,7 +516,7 @@ fr:
         mouth_tanins: Tanins
         mouth_co2: Bulles
         mouth_complexity: Complexité
-        mouth_persistence: Persistence aromatique
+        mouth_persistence: Finale
         mouth_flavors: Arômes
       user:
         name: "Pseudo (ou nom)"
@@ -554,6 +554,21 @@ fr:
     submit:
       create: "Créer"
       update: "Mettre à jour"
+      
+  note_hints:
+      tasting: ['Vin imbuvable, personne ne peut aimer ça !', 'Je trouve que ce vin a des défauts, je n&#39;aime pas.', 'J&#39;aime bien, je ne détecte pas de défaut', 'J&#39;ai vraiment pris du plaisir à déguster ce vin.', 'Je ne suis pas prêt d&#39;oublier ce vin incroyable !']
+      pairing: ['Ensemble le vin et le plat sont mauvais !', 'Le vin ou le mets est ailleurs seul qu&#39;ensemble.', 'Pas de synergie entre le vin et le mets.', 'Le vin et le mets sont bien mis en valeur ensemble.', 'Le vin et le mets se transcendent ensemble !']
+      eye_intensity: ['Très clair', 'Clair', 'Moyen', 'Foncé', 'Très foncé']
+      nose_intensity: ['Fermé', 'Discret', 'Aromatique', 'Ouvert' , 'Intense']
+      nose_complexity: ['Défaut', 'Douteux', 'Simple', 'Franc', 'Complexe']
+      mouth_acidity: ['Molle', 'Fraîche', 'Vive', 'Pointue', 'Nerveuse']
+      mouth_bitterness: ['Absente', 'Faible', 'Moyenne', 'Forte', 'Désagréable']
+      mouth_alcohol: ['Faible', 'Généreux', 'Gras', 'Capiteux', 'Alcooleux']
+      mouth_sweet: ['Sec', 'Doux', 'Moelleux', 'Liquoreux', 'Sirupeux']
+      mouth_tanins: ['Lisse', 'Fondu', 'Charpenté', 'Chargé', 'Âpre']
+      mouth_co2: ['Bulles très fines', 'Bulles fines', 'Bulles moyennes', 'Bulles grosses', 'Bulles très goresses']
+      mouth_complexity: ['Défaut', 'Douteux', 'Simple', 'Evolué', 'Complexe']
+      mouth_persistence: ['Courte', 'Moyenne', 'Bonne', 'Longue', 'Très longue']
 
   date:
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]

@@ -118,7 +118,7 @@
               <%= full_area_name tasting.wine.area, html: true %><br />
               <%= wine_color_image(tasting.wine, false, 0, true) %><br />
               <%= formated_vintage tasting.vintage, false %><br />
-              <%= star_rating(tasting.note, 5) %> par <%= tasting.user.name %>
+              <span class="star" data-score="<%= tasting.note %>"></span> par <%= tasting.user.name %>
             </td>
           </tr>
         <% end %>

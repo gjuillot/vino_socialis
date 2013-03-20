@@ -3,7 +3,7 @@
 <%
 def display_note(name, value)
   unless value.blank? or value==0
-   raw "<dt>" + t('helpers.label.tasting.' + name) + "</dt>\n<dd>" + value.to_s + "/5</dd>"
+   raw "<dt>" + t('helpers.label.tasting.' + name) + "</dt>\n<dd id='" + name + "_note' data-score='" + value.to_s + "' data-hints='" + raw(t('note_hints.' + name)) + "'></dd>"
   end
 end
 %>
@@ -21,14 +21,15 @@ end
         <dd><%= formated_date(@tasting.date) %></dd>
       
         <dt><%= t("helpers.label.tasting.note") %></dt>
-        <dd><%= @tasting.note %>/5</dd>
+        <dd id="tasting_note" data-score="<%= @tasting.note %>" data-hints="<%= t('note_hints.tasting') %>"></dt>
       
         <dt><%= t("tasting.user") %>:</dt>
         <dd><%= @tasting.user.name %></dd>
       
         <% if @pairing %>
           <dt>Accord avec</dt>
-          <dd><%= @pairing.dish %> <b>noté</b> <%= @pairing.note %>/5</dd>
+          <dd><%= @pairing.dish %></dd>
+          <dd id="pairing_note" data-score="<%= @pairing.note %>" data-hints="<%= t('note_hints.pairing') %>"></dt>
         <% end %>
       </dl>
     </div>
@@ -84,7 +85,7 @@ end
             <%= display_note('nose_complexity', @tasting.nose_complexity) %>
             <% unless @tasting.nose_flavors.empty? %>
               <dt><%= t("helpers.label.tasting.nose_flavors") %></dt>
-              <dd><%= @tasting.nose_flavors.map {|f| t(f.translate)}.join(', ') %></dd>
+              <dd><%= raw(@tasting.nose_flavors.map {|f| t(f.translate)}.join('<br />')) %></dd>
             <% end %>
           </dl>
         <% end %>
@@ -106,7 +107,7 @@ end
             <%= display_note('mouth_persistence', @tasting.mouth_persistence) %>
             <% unless @tasting.mouth_flavors.empty? %>
               <dt><%= t("helpers.label.tasting.mouth_flavors") %></dt>
-              <dd><%= @tasting.mouth_flavors.map {|f| t(f.translate)}.join(', ') %></dd>
+              <dd><%= raw(@tasting.mouth_flavors.map {|f| t(f.translate)}.join('<br />')) %></dd>
             <% end %>
           </dl>
         <% end %>

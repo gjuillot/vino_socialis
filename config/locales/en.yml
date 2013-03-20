@@ -549,6 +549,21 @@ en:
       create: "Create"
       update: "Update"
 
+  note_hints:
+      tasting: ['Undrinkable wine, no one can like that!', 'I think this wine has flaws, I do not like.', 'I like it, I do not detect flaws', 'I really enjoyed tasting this wine.',' I will never forget this amazing wine!']
+      pairing: ['Together the wine and the dish are bad!', 'the wine or the dish is better alone than together.', 'No synergy between the wine and the dish.', 'The wine and the dish are well developed together.', 'The wine and the dish will transcend all!']
+      eye_intensity: ['Very light', 'Light', 'Medium', 'Dark', 'Very Dark']
+      nose_intensity: ['Closed', 'Discreet', 'Aromatic', 'Open', 'Intense']
+      nose_complexity: ['Flaws', 'Doubtful', 'Simple', 'Franc', 'Complex']
+      mouth_acidity: ['Soft', 'Cool', 'Vive', 'Sharp', 'Nervous']
+      mouth_bitterness: ['Absent', 'Low', 'Medium', 'High', 'Unpleasant']
+      mouth_alcohol: ['Low', 'Generous', 'Bold', 'Heady', 'Spirity']
+      mouth_sweet: ['Dry', 'Sweet', 'Soft', 'Liqueur', 'Syrupy']
+      mouth_tanins: ['Smooth', 'Fade', 'bodied', 'Loaded', 'Bitterblossom']
+      mouth_co2: ['Very thin bubbles', 'Thin bubbles', 'Medium bubbles', 'Large bubbles', 'Very large bubbles']
+      mouth_complexity: ['Flaws', 'Doubtful', 'Simple', 'Evolved', 'Complex']
+      mouth_persistence: ['Short', 'Medium', 'Good', 'Long', 'Very long']
+
   date:
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
 
