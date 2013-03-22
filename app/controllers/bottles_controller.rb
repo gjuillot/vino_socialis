@@ -22,6 +22,10 @@ class BottlesController < ApplicationController
       end
     end
     
+    if params[:color]
+      @bottles = @bottles.color(params[:color])
+    end
+    
     if params[:wine_rack_id] && (params[:wine_rack_id] != '0')
       @bottles = @bottles.rack(Integer(params[:wine_rack_id])).in_rack_as_quantity
     else

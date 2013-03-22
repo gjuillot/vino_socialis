@@ -21,6 +21,8 @@ class Bottle < ActiveRecord::Base
   scope :too_late, where('vintage > 0 AND vintage + drink_max < ?', Time.now.year)
   scope :too_soon, where('vintage > 0 AND vintage + drink_min > ?', Time.now.year)
   
+  scope :color, lambda {|color| joins(:wine).where('"wines".wine_color = ?', color)}
+  
   scope :name_like, lambda {|name| joins(:wine => :estate).select('"bottles".*').where('"estates".name ILIKE ? OR "wines".name ILIKE ?', "%#{name}%", "%#{name}%")}
   scope :area_like, lambda {|name| joins(:wine => {:area => {:region => :country}}).select('"bottles".*').where('"countries".name ILIKE ? OR "regions".name ILIKE ? OR "areas".name ILIKE ?', "%#{name}%", "%#{name}%", "%#{name}%")}
   scope :comments_like, lambda {|name| where('comments ILIKE ? OR channel_comments ILIKE ?', "%#{name}%", "%#{name}%")}

@@ -68,9 +68,9 @@
         <% unless params[:ids] %>
           <br />
           <% if c[:att] == 'wine_color' %>
-            <select id="wine_color" class="span2">
+            <select id="wine_color" class="span2" <%= 'disabled' if params[:color] %>>
               <option value="">Tous</option>
-              <%= options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
+              <%= options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => params[:color]) %>
             </select>
           <% else %>
             <input type="text" id="<%= c[:att] %>" autocomplete='off' class="<%= c[:search_class] %>"/>
