@@ -17,7 +17,7 @@
       <tr><td></td><td></td></tr>
       <% @ages.each_pair do |a, c| %>
         <tr>
-          <td><%= c > 0 ? link_to(t('bottles.drink.' + a), bottles_path(:maturity => a)) : t('bottles.drink.' + a) %></td>
+          <td><%= c.to_i > 0 ? link_to(t('bottles.drink.' + a), bottles_path(:maturity => a)) : t('bottles.drink.' + a) %></td>
           <td><%= c %></td>
         </tr>
       <% end %>
