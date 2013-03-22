@@ -10,6 +10,18 @@ class BottlesController < ApplicationController
       redirect_to new_bottle_path
     end
     
+    if params[:maturity]
+      if params[:maturity] == 'best'
+        @bottles = @bottles.best
+      elsif params[:maturity] == 'too_late'
+        @bottles = @bottles.too_late
+      elsif params[:maturity] == 'too_soon'
+        @bottles = @bottles.too_soon
+      elsif params[:maturity] == 'ready'
+        @bottles = @bottles.ready
+      end
+    end
+    
     if params[:wine_rack_id] && (params[:wine_rack_id] != '0')
       @bottles = @bottles.rack(Integer(params[:wine_rack_id])).in_rack_as_quantity
     else

@@ -163,6 +163,11 @@ $('.bottles.index').ready(function(){
       window.location = $('input#bottles_path').attr('value') + '?wine_rack_id=' + rack;
     }
   });
+    
+  $("select#maturity").change(function(){
+    var maturity = $(this).val();
+    window.location = $('input#bottles_path').attr('value') + '?maturity=' + maturity;
+  });
   
   treat_columns();
     

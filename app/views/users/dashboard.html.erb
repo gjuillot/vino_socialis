@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 
-<% height = [160, 50 + @colors.length * 28].max %>
+<% height = [160, 200 + @colors.length * 28].max %>
 
 <div class="row-fluid">
 
@@ -11,6 +11,13 @@
         <tr>
           <td><%= wine_color_image_2(c.color, false, 0, true) %></td>
           <td><%= c.total %></td>
+        </tr>
+      <% end %>
+      <tr><td></td><td></td></tr>
+      <% @ages.each_pair do |a, c| %>
+        <tr>
+          <td><%= link_to t('bottles.drink.' + a), bottles_path(:maturity => a) %></td>
+          <td><%= c %></td>
         </tr>
       <% end %>
     </table>

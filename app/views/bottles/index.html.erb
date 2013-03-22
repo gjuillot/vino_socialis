@@ -29,6 +29,10 @@
       <%= options_for_select(@racks.map {|r| [r.name, r.id]}, :selected => params[:wine_rack_id]) %>
       <option value="-1"<%= @not_placed ? ' selected="selected"' : '' %>>Non placées</option>
     </select>
+    - <select id="maturity">
+      <option value="all">Toutes les bouteilles</option>
+      <%= options_for_select(['best', 'ready', 'too_soon', 'too_late'].map{|a| [t('bottles.drink.' + a), a]}, :selected => params[:maturity])%>
+    </select>
     <div class="btn-group pull-right">
       <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> Colonnes <span class="caret"></span> </a>
       <ul class="dropdown-menu">

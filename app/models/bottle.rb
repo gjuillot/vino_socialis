@@ -16,6 +16,11 @@ class Bottle < ActiveRecord::Base
   scope :remaining_as_quantity, select('*, remaining_quantity AS quantity')
   scope :in_rack_as_quantity, select('bottles.*, count("wine_rack_positions".id) AS quantity')
   
+  scope :best, where('vintage > 0 AND vintage + drink_best = ?', Time.now.year)
+  scope :ready, where('vintage > 0 AND vintage + drink_min <= ? AND vintage + drink_max >= ?', Time.now.year, Time.now.year)
+  scope :too_late, where('vintage > 0 AND vintage + drink_max < ?', Time.now.year)
+  scope :too_soon, where('vintage > 0 AND vintage + drink_min > ?', Time.now.year)
+  
   scope :name_like, lambda {|name| joins(:wine => :estate).select('"bottles".*').where('"estates".name ILIKE ? OR "wines".name ILIKE ?', "%#{name}%", "%#{name}%")}
   scope :area_like, lambda {|name| joins(:wine => {:area => {:region => :country}}).select('"bottles".*').where('"countries".name ILIKE ? OR "regions".name ILIKE ? OR "areas".name ILIKE ?', "%#{name}%", "%#{name}%", "%#{name}%")}
   scope :comments_like, lambda {|name| where('comments ILIKE ? OR channel_comments ILIKE ?', "%#{name}%", "%#{name}%")}
