@@ -45,10 +45,10 @@ class UsersController < ApplicationController
     @pairings = Pairing.joins(:tasting).where('"tastings".user_id = ?', @user.id).count
     @wines = Wine.validated.where('"wines".user_id = ?', @user.id).count
     @ages = {
-      'best' => Bottle.remain(@user).best.select('SUM(remaining_quantity) AS total').first.total,
-      'ready' => Bottle.remain(@user).ready.select('SUM(remaining_quantity) AS total').first.total,
-      'too_late' => Bottle.remain(@user).too_late.select('SUM(remaining_quantity) AS total').first.total,
-      'too_soon' => Bottle.remain(@user).too_soon.select('SUM(remaining_quantity) AS total').first.total,
+      'best' => Bottle.remain(@user).best.select('SUM(remaining_quantity) AS total').first.total || 0,
+      'ready' => Bottle.remain(@user).ready.select('SUM(remaining_quantity) AS total').first.total || 0,
+      'too_late' => Bottle.remain(@user).too_late.select('SUM(remaining_quantity) AS total').first.total || 0,
+      'too_soon' => Bottle.remain(@user).too_soon.select('SUM(remaining_quantity) AS total').first.total || 0,
     }
   end
   

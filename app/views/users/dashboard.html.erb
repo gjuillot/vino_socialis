@@ -6,6 +6,7 @@
 
   <div class="span3 white-opacity rounded-top-less" style="height: <%= height %>px;">
     <h3><%= t('user.stat.summary.total_count', count: @bottles) %></h3>
+    <% if  @bottles > 0 %>
     <table class="table table-condensed">
       <% @colors.each do |c| %>
         <tr>
@@ -16,11 +17,12 @@
       <tr><td></td><td></td></tr>
       <% @ages.each_pair do |a, c| %>
         <tr>
-          <td><%= link_to t('bottles.drink.' + a), bottles_path(:maturity => a) %></td>
+          <td><%= c > 0 ? link_to(t('bottles.drink.' + a), bottles_path(:maturity => a)) : t('bottles.drink.' + a) %></td>
           <td><%= c %></td>
         </tr>
       <% end %>
     </table>
+    <% end %>
   </div>
   
   <div class="span6 white-opacity rounded-top-less" style="height: <%= height %>px;">
