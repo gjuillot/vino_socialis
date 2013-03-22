@@ -6,7 +6,7 @@
 
   <div class="span3 white-opacity rounded-top-less" style="height: <%= height %>px;">
     <h3><%= t('user.stat.summary.total_count', count: @bottles) %></h3>
-    <% if  @bottles > 0 %>
+    <% if  @bottles.to_i > 0 %>
     <table class="table table-condensed">
       <% @colors.each do |c| %>
         <tr>
