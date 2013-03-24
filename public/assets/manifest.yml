@@ -117,10 +117,10 @@
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3NpbXBsZS9pbmRleC5qcGc=": wine_racks/example/fr/simple-df0a98661c26ccb3cdfd95d95bf47e61.jpg
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlLmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlL2luZGV4LmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
-!binary "YXBwbGljYXRpb24uanM=": application-76db58dbb919a31a1e143fb4e65c5327.js
-!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-76db58dbb919a31a1e143fb4e65c5327.js
-!binary "YXBwbGljYXRpb24uY3Nz": application-15a31283ed2eee7373dd7fe6ceb604ad.css
-!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-15a31283ed2eee7373dd7fe6ceb604ad.css
+!binary "YXBwbGljYXRpb24uanM=": application-b6f9d559c399b3bc8c1c96712beea786.js
+!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-b6f9d559c399b3bc8c1c96712beea786.js
+!binary "YXBwbGljYXRpb24uY3Nz": application-2fef4605113823ef5e130a9b294f4f26.css
+!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-2fef4605113823ef5e130a9b294f4f26.css
 !binary "Y2xvdWRpbmFyeV9jb3JzLmh0bWw=": cloudinary_cors-05f2af4874bd3914c79b03b8d9acd6d1.html
 !binary "Y2xvdWRpbmFyeV9jb3JzL2luZGV4Lmh0bWw=": cloudinary_cors-05f2af4874bd3914c79b03b8d9acd6d1.html
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
