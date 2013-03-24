@@ -70,7 +70,5 @@ function bottles_form_ready() {
   });
 }
 
-$(document).ready(function() {
-  $("body.bottles.new").each(bottles_form_ready);
-  $("body.bottles.edit").each(bottles_form_ready);
-});
+$(".bottles.new").ready(bottles_form_ready);
+$(".bottles.edit").ready(bottles_form_ready);
