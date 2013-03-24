@@ -445,6 +445,9 @@ en:
     not_mandatory: Not mandatory
     public: All information filled here will be public.
     private: All information filled here will be private.
+    token_input:
+      hint: Type in a search term
+      searching: Searching...
     label:
       bottle:
         wine: "Wine"
@@ -460,6 +463,7 @@ en:
         price: "Price"
         current_value: "Current value"
         comments: "Comments / suggestions"
+        tag_list: Tags 
         drink: "Drinkability"
         drink_inputs: "between %{min} and %{max} years"
         drink_years: "so between %{min} and %{max}"

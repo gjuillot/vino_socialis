@@ -40,6 +40,7 @@ class UsersController < ApplicationController
     @bottles = 0 if (@bottles.nil?)
     @oldest = Bottle.remain(@user).where('vintage > 0').reorder('vintage ASC').first
     @most_expensive = Bottle.remain(@user).reorder('current_value DESC').first
+    @tags = @user.bottles.tag_counts_on(:tags)
     @colors = Bottle.remain(@user).joins(:wine).select('"wines".wine_color AS color, SUM(remaining_quantity) AS total').group('"wines".wine_color').reorder('total DESC')
     @tastings = Tasting.where('"tastings".user_id = ?', @user.id).count
     @pairings = Pairing.joins(:tasting).where('"tastings".user_id = ?', @user.id).count
@@ -56,6 +57,14 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { stat_html }
       format.json { stat_json }
+    end
+  end
+  
+  def tags
+    respond_to do |format|
+      tags = @user.bottles.tag_counts.where("tags.name LIKE ?", "%#{params[:q]}%").map(&:attributes)
+      tags << {:name => params[:q], :id => "CREATE_#{params[:q]}_END"} unless @user.bottles.tag_counts.where("tags.name = ?", params[:q]).count > 0
+      format.json { render :json => tags }
     end
   end
   

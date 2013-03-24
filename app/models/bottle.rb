@@ -4,6 +4,8 @@ class Bottle < ActiveRecord::Base
   has_many :wine_rack_positions, dependent: :restrict
   has_many :consumptions, dependent: :restrict
   
+  acts_as_taggable
+  
   validates :initial_quantity, :numericality => { :only_integer => true, :greater_than => 0 }
   validates :price, :numericality => { :greater_than_or_equal_to => 0 }
   validates :current_value, :numericality => { :greater_than_or_equal_to => 0 }
@@ -13,7 +15,7 @@ class Bottle < ActiveRecord::Base
   
   scope :remain, lambda {|user| where('bottles.user_id = ? AND remaining_quantity > 0', user.id)}
   scope :rack, lambda {|rack| joins(:wine_rack_positions).where('"wine_rack_positions".wine_rack_id = ?', rack).group('"bottles".id')}
-  scope :remaining_as_quantity, select('*, remaining_quantity AS quantity')
+  scope :remaining_as_quantity, select('bottles.*, remaining_quantity AS quantity')
   scope :in_rack_as_quantity, select('bottles.*, count("wine_rack_positions".id) AS quantity')
   
   scope :best, where('vintage > 0 AND vintage + drink_best = ?', Time.now.year)

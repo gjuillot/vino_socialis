@@ -37,10 +37,11 @@
 	  <dt><%= t("helpers.label.bottle.comments")%></dt>
 	  <dd><%= @bottle.comments %></dd>
 	  
+	  <dd><%= raw @bottle.tag_list.map {|tag| link_to tag, bottles_path(tag: tag)}.join(', ') %></dd>
+	  
 	  <br /><br />
 	  
-    <dd><%= button_to_edit edit_bottle_path(@bottle) %></dd><br />
-    <dd><%= button_to_destroy @bottle if @bottle.can_destroy? %></dd>
+    <dd><%= button_to_edit edit_bottle_path(@bottle) %> <%= button_to_destroy @bottle if @bottle.can_destroy? %></dd>
 	</dl>
   </div>
   

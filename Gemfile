@@ -35,3 +35,5 @@ gem 'dynamic_form'
 
 gem 'carrierwave'
 gem 'cloudinary'
+
+gem 'acts-as-taggable-on'

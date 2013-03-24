@@ -442,6 +442,9 @@ fr:
     not_mandatory: Facultatif
     public: Toutes les informations renseignées ici seront publiques.
     private: Toutes les informations renseignées ici seront privées.
+    token_input:
+      hint: Tappez votre recherche
+      searching: Recherche en cours...
     label:
       bottle:
         name: "Nom"
@@ -460,6 +463,7 @@ fr:
         price: "Prix"
         current_value: "Cote"
         comments: "Commentaires / suggestions"
+        tag_list: Labels
         drink: "Garde"
         drink_inputs: "entre %{min} et %{max} ans"
         drink_years: "soit entre %{min} et %{max}"

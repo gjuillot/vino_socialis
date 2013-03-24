@@ -112,6 +112,15 @@
       </div>
     
       <div class="control-group">
+        <%= f.label :tag_list, :class => 'control-label' %>
+        <div class="controls">
+          <div class="input-prepend">
+            <%= f.text_field :tag_list, :"data-path" => tags_user_path(current_user), :"data-pre" => @bottle.tags.map(&:attributes).to_json, :"data-hint" => t('helpers.token_input.hint'), :"data-searching" => t('helpers.token_input.searching') %>
+          </div>
+        </div>
+      </div>
+    
+      <div class="control-group">
         <div class="controls">
           <%= f.submit class: "btn btn-primary span6" %>
           <div class="alert"><%= t('helpers.private') %></div>

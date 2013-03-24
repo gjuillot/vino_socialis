@@ -36,8 +36,13 @@
       <% end %>
       <% unless @most_expensive.nil? %>
         <h3><%= t('user.stat.summary.most_expensive_title')%></h3>
-        <%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %>
+        <%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %><br /><br /><br />
       <% end %>
+      <div id="tag_cloud">
+        <% tag_cloud(@tags, %w(s m l)) do |tag, css_class| %>
+          <%= link_to tag.name, bottles_path(tag: tag.name), :class => css_class %>
+        <% end %>
+      </div>
     <% end %>
   </div>
   
