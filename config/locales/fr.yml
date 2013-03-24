@@ -442,6 +442,7 @@ fr:
     not_mandatory: Facultatif
     public: Toutes les informations renseignées ici seront publiques.
     private: Toutes les informations renseignées ici seront privées.
+    want_to_learn_more: Vous voulez en savoir plus ?
     token_input:
       hint: Tappez votre recherche
       searching: Recherche en cours...

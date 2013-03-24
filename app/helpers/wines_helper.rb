@@ -3,7 +3,7 @@ module WinesHelper
     color ||= options[:color]
     estate ||= options[:estate]
     area ||= options[:area]
-    html ||= options[:html] && !current_user.nil?
+    html ||= options[:html]
     links ||= options[:links]
     label ||= options[:label]
     do_not_close_tr ||= options[:do_not_close_tr]
@@ -67,11 +67,7 @@ module WinesHelper
     
     # ACTION BUTTON
     if links
-      if current_user.nil? or do_not_close_tr
-        res += '</td>'
-      else
-        res += '</td><td>' + wine_action_buttons(wine) + '</td>'
-      end
+      res += '</td><td>' + wine_action_buttons(wine) + '</td>'
       res += '</tr>' unless do_not_close_tr
     end
     
@@ -81,13 +77,13 @@ module WinesHelper
   def wine_action_buttons(wine)
     res = '<div class="action-button-group">'
     
-    res += action_button_show(wine)
-    res += action_button_wine_tasting(wine)
-    res += '|&nbsp;&nbsp;&nbsp;'
-    res += action_button_add_label(wine)
-    res += (wine.recommanded_by?(current_user) ? action_button_unrecommand(wine) : action_button_recommand(wine))
-    res += action_button_taste(wine)
-    res += action_button_encave(wine)
+    res += action_button_show(wine) if can? :read, wine
+    res += action_button_wine_tasting(wine) if can? :read, Tasting
+    res += '|&nbsp;&nbsp;&nbsp;' if can? :add_label, wine or can? :recommand, wine or can? :taste, wine or can? :encave, wine
+    res += action_button_add_label(wine) if can? :add_label, wine
+    res += (wine.recommanded_by?(current_user) ? action_button_unrecommand(wine) : action_button_recommand(wine)) if can? :recommand, wine
+    res += action_button_taste(wine) if can? :taste, wine
+    res += action_button_encave(wine) if can? :encave, wine
     
     if can? :manage, wine
       res += '|&nbsp;&nbsp;&nbsp;'

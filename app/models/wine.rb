@@ -43,6 +43,7 @@ class Wine < ActiveRecord::Base
   end
   
   def recommanded_by?(user)
+    return false if user.nil?
     recommandations.each do |r|
       if (r.user_id == user.id) 
         return true

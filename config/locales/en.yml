@@ -445,6 +445,7 @@ en:
     not_mandatory: Not mandatory
     public: All information filled here will be public.
     private: All information filled here will be private.
+    want_to_learn_more: You want to learn more ?
     token_input:
       hint: Type in a search term
       searching: Searching...

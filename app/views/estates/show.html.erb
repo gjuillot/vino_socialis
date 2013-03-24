@@ -6,39 +6,48 @@
     <div class="span4">
     <h1><%= @estate.name %></h1>
   
-  	<p>
-  	  <%= raw "#{@estate.address}<br />" unless @estate.address.empty? %>
-  	  <%= raw "#{@estate.zip_code} #{@estate.town}<br />" unless @estate.zip_code.empty? and @estate.town.empty? %>
-  	  <%= raw "#{@estate.country}<br />" unless @estate.country.empty? %>
-  	  <%= raw "<i class=\"icon-headphones\"></i>  #{@estate.phone}<br />" unless @estate.phone.empty? %>
-  	  <%= raw "<i class=\"icon-print\"></i> #{@estate.fax}<br />" unless @estate.fax.empty? %>
-  	  <%= raw "<i class=\"icon-envelope\"></i>  #{mail_to(@estate.email)}<br />" unless @estate.email.empty? %>
-  	  <%= raw "<i class=\"icon-home\"></i> #{link_to(@estate.www, @estate.www, target: '_blank')}" unless @estate.www.empty? %>
-  	</p>
+    <% if user_signed_in? %>
+    	<p>
+    	  <%= raw "#{@estate.address}<br />" unless @estate.address.empty? %>
+    	  <%= raw "#{@estate.zip_code} #{@estate.town}<br />" unless @estate.zip_code.empty? and @estate.town.empty? %>
+    	  <%= raw "#{@estate.country}<br />" unless @estate.country.empty? %>
+    	  <%= raw "<i class=\"icon-headphones\"></i>  #{@estate.phone}<br />" unless @estate.phone.empty? %>
+    	  <%= raw "<i class=\"icon-print\"></i> #{@estate.fax}<br />" unless @estate.fax.empty? %>
+    	  <%= raw "<i class=\"icon-envelope\"></i>  #{mail_to(@estate.email)}<br />" unless @estate.email.empty? %>
+    	  <%= raw "<i class=\"icon-home\"></i> #{link_to(@estate.www, @estate.www, target: '_blank')}" unless @estate.www.empty? %>
+    	</p>
   	
-  	<p>
-  	  <b><%= t("helpers.label.estate.owner") %>:</b>
-  	  <%= @estate.owner %>
-  	</p>
-  	
-  	<p>
-      <%= render 'tutorial/validation' %>
-  	  <b><%= t("estate.status") %>:</b>
-  	  <% if @estate.validated? %>
-  	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>
-  	  <% else %>
-  	    <i class="icon-question-sign"></i> <%= t("estate.not_validated") %>
-  	  <% end %>
-  	</p>
-  	
-  	<p>
-  	  <b><%= t("estate.user") %>:</b>
-  	  <%= @estate.user.name %>
-  	</p>
-  	
-  	<p>
-  	  <%= estate_action_buttons @estate %>
-  	</p>
+    	<p>
+    	  <b><%= t("helpers.label.estate.owner") %>:</b>
+    	  <%= @estate.owner %>
+    	</p>
+    	
+    	<p>
+        <%= render 'tutorial/validation' %>
+    	  <b><%= t("estate.status") %>:</b>
+    	  <% if @estate.validated? %>
+    	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>
+    	  <% else %>
+    	    <i class="icon-question-sign"></i> <%= t("estate.not_validated") %>
+    	  <% end %>
+    	</p>
+    	
+    	<p>
+    	  <b><%= t("estate.user") %>:</b>
+    	  <%= @estate.user.name %>
+    	</p>
+    	
+    	<% if can? :manage, @estate %>
+      	<p>
+      	  <%= estate_action_buttons @estate %>
+      	</p>
+      <% end %>
+    <% else %>
+      <%= raw "#{@estate.zip_code} #{@estate.town}<br />" unless @estate.zip_code.empty? and @estate.town.empty? %>
+      <%= raw "<i class=\"icon-home\"></i> #{link_to(@estate.www, @estate.www, target: '_blank')}" unless @estate.www.empty? %><br /><br />
+      <%= t('helpers.want_to_learn_more') %><br />
+      <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+    <% end %>
     </div>
   
     <div class="span8">

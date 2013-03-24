@@ -6,39 +6,49 @@
 
 <div class="row-fluid">
   <div class="span6">
-	<p>
-	  <b><%= link_to @wine.estate.name, @wine.estate %></b><br />
-    <%= raw "#{@wine.estate.address}<br />" unless @wine.estate.address.empty? %>
-    <%= raw "#{@wine.estate.zip_code} #{@wine.estate.town}<br />" unless @wine.estate.zip_code.empty? and @wine.estate.town.empty? %>
-    <%= raw "#{@wine.estate.country}<br />" unless @wine.estate.country.empty? %>
-    <%= raw "<i class=\"icon-headphones\"></i>  #{@wine.estate.phone}<br />" unless @wine.estate.phone.empty? %>
-    <%= raw "<i class=\"icon-print\"></i> #{@wine.estate.fax}<br />" unless @wine.estate.fax.empty? %>
-    <%= raw "<i class=\"icon-envelope\"></i>  #{mail_to(@wine.estate.email)}<br />" unless @wine.estate.email.empty? %>
-    <%= raw "<i class=\"icon-home\"></i> #{link_to(@wine.estate.www, @wine.estate.www, target: '_blank')}" unless @wine.estate.www.empty? %>
-	</p>
+  	<p>
+  	  <b><%= link_to @wine.estate.name, @wine.estate %></b><br />
+  	  <% if user_signed_in? %>
+        <%= raw "#{@wine.estate.address}<br />" unless @wine.estate.address.empty? %>
+        <%= raw "#{@wine.estate.zip_code} #{@wine.estate.town}<br />" unless @wine.estate.zip_code.empty? and @wine.estate.town.empty? %>
+        <%= raw "#{@wine.estate.country}<br />" unless @wine.estate.country.empty? %>
+        <%= raw "<i class=\"icon-headphones\"></i>  #{@wine.estate.phone}<br />" unless @wine.estate.phone.empty? %>
+        <%= raw "<i class=\"icon-print\"></i> #{@wine.estate.fax}<br />" unless @wine.estate.fax.empty? %>
+        <%= raw "<i class=\"icon-envelope\"></i>  #{mail_to(@wine.estate.email)}<br />" unless @wine.estate.email.empty? %>
+        <%= raw "<i class=\"icon-home\"></i> #{link_to(@wine.estate.www, @wine.estate.www, target: '_blank')}" unless @wine.estate.www.empty? %>
+    	</p>
+    	
+    	<p>
+    	  <b><%= t("helpers.label.estate.owner") %>:</b>
+    	  <%= @wine.estate.owner %>
+    	</p>
+    	
+    	<p>
+    	  <b><%= t("estate.status") %>:</b>
+    	  <% if @wine.estate.validated? %>
+    	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>
+    	  <% else %>
+    	    <i class="icon-question-sign"></i> <%= t("estate.not_validated") %>
+    	  <% end %>
+    	</p>
+    	
+    	<p>
+    	  <b><%= t("estate.user") %>:</b>
+    	  <%= @wine.estate.user.name %>
+    	</p>
 	
-	<p>
-	  <b><%= t("helpers.label.estate.owner") %>:</b>
-	  <%= @wine.estate.owner %>
-	</p>
-	
-	<p>
-	  <b><%= t("estate.status") %>:</b>
-	  <% if @wine.estate.validated? %>
-	    <i class="icon-ok-sign"></i> <%= t("estate.validated") %>
-	  <% else %>
-	    <i class="icon-question-sign"></i> <%= t("estate.not_validated") %>
-	  <% end %>
-	</p>
-	
-	<p>
-	  <b><%= t("estate.user") %>:</b>
-	  <%= @wine.estate.user.name %>
-	</p>
-	
-	<p>
-	  <%= estate_action_buttons @wine.estate %>
-	</p>
+      <% if can? :manage, @estate %>
+        <p>
+          <%= estate_action_buttons @wine.estate %>
+        </p>
+      <% end %>
+    <% else %>
+        <%= raw "#{@wine.estate.zip_code} #{@wine.estate.town}<br />" unless @wine.estate.zip_code.empty? and @wine.estate.town.empty? %>
+        <%= raw "<i class=\"icon-home\"></i> #{link_to(@wine.estate.www, @wine.estate.www, target: '_blank')}" unless @wine.estate.www.empty? %><br /><br />
+        <%= t('helpers.want_to_learn_more') %><br />
+        <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+      </p>
+    <% end %>
   </div>
   
   <div class="span6">
@@ -60,43 +70,46 @@
       <%= t("wine.color." + @wine.wine_color) %>
     </p>
 
-    <% unless @wine.grape_varieties.blank? %>
+    <% if user_signed_in? %>
+      <% unless @wine.grape_varieties.blank? %>
+        <p>
+          <b><%= t("helpers.label.wine.grape_varieties") %>:</b>
+          <%= @wine.grape_varieties.map(&:name).join(', ') %>
+        </p>
+      <% end %>
+  
+      <% unless @wine.info.blank? %>
+        <blockquote>
+          <%= simple_format @wine.info %>
+        </blockquote>
+      <% end %>
+  	
+    	<p>
+    	  <%= render 'tutorial/validation' %>
+    	  <b><%= t("wine.status") %>:</b>
+    	  <% if @wine.validated? %>
+    	    <i class="icon-ok-sign"></i> <%= t("wine.validated") %>
+    	  <% else %>
+    	    <i class="icon-question-sign"></i> <%= t("wine.not_validated") %>
+    	  <% end %>
+    	</p>
+  
       <p>
-        <b><%= t("helpers.label.wine.grape_varieties") %>:</b>
-        <%= @wine.grape_varieties.map(&:name).join(', ') %>
+        <b><%= t("wine.user") %>:</b>
+        <%= @wine.user.name %>
+      </p>
+      
+      <p>
+        <%= wine_action_buttons(@wine) %>
       </p>
     <% end %>
-
-    <% unless @wine.info.blank? %>
-      <blockquote>
-        <%= simple_format @wine.info %>
-      </blockquote>
-    <% end %>
-	
-	<p>
-	  <%= render 'tutorial/validation' %>
-	  <b><%= t("wine.status") %>:</b>
-	  <% if @wine.validated? %>
-	    <i class="icon-ok-sign"></i> <%= t("wine.validated") %>
-	  <% else %>
-	    <i class="icon-question-sign"></i> <%= t("wine.not_validated") %>
-	  <% end %>
-	</p>
-
-    <p>
-      <b><%= t("wine.user") %>:</b>
-      <%= @wine.user.name %>
-    </p>
     
-    <p>
-      <%= wine_action_buttons(@wine) %>
-    </p>
-    
-    <br/></br/>
+    <%= raw "<br /><br />" unless @wine.tastings.empty? and @wine.recommandations.empty? %>
     
     <% unless @wine.tastings.empty? %>
     <p>
-      <%= link_to t("wine.tastings", :count => @wine.tastings.count), tastings_path(:wine => @wine) %>
+      <%= link_to t("wine.tastings", :count => @wine.tastings.count), tastings_path(:wine => @wine) if user_signed_in? %>
+      <%= t("wine.tastings", :count => @wine.tastings.count) unless user_signed_in? %>
     </p>
     <% end %>
     
@@ -105,9 +118,18 @@
       <% if @wine.recommanded_by?(current_user) %>
         <%= link_to t("wine.recommandations.you", :count => (@wine.recommandations.count - 1)), wine_recommandations_path(:wine => @wine) %>
       <% else %>
-        <%= link_to t("wine.recommandations.others", :count => @wine.recommandations.count), wine_recommandations_path(:wine => @wine) %>
+        <%= link_to t("wine.recommandations.others", :count => @wine.recommandations.count), wine_recommandations_path(:wine => @wine) if user_signed_in? %>
+        <%= t("wine.recommandations.others", :count => @wine.recommandations.count) unless user_signed_in? %>
       <% end %>
     </p>
+    <% end %>
+    
+    <% unless user_signed_in? %>
+    <br /><br />
+      <p>
+        <%= t('helpers.want_to_learn_more') %><br />
+        <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+      </p>
     <% end %>
   </div>
 </div>

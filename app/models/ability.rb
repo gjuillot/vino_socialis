@@ -15,6 +15,8 @@ class Ability
     # Glossary
     can :read, Glossary
     
+    can :read, [Estate, Wine]
+    
     if (user.nil?)
       return
     end
