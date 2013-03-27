@@ -30,11 +30,17 @@ module ApplicationHelper
   end
   
   def action_button_unvalidate(object)
-    action_button(url_for([:unvalidate, object]), 'icon-thumbs-down', t('icon.unvalidate'))
+    href = url_for([:unvalidate, object])
+    text = t('icon.unvalidate')
+    icon = 'icon-thumbs-down'
+    "<a href='#{href}' data-toggle='tooltip' title='#{text}' data-method='post' data-confirm='Are you sure?' rel='nofollow'><i class='icon #{icon}'></i></a>"
   end
   
   def action_button_validate(object)
-    action_button(url_for([:validate, object]), 'icon-thumbs-up', t('icon.validate'))
+    href = url_for([:validate, object])
+    text = t('icon.validate')
+    icon = 'icon-thumbs-up'
+    "<a href='#{href}' data-toggle='tooltip' title='#{text}' data-method='post' data-confirm='Are you sure?' rel='nofollow'><i class='icon #{icon}'></i></a>"
   end
   
   def action_button_replace(path, text)
