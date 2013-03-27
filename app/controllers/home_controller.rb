@@ -11,7 +11,8 @@ class HomeController < ApplicationController
   def discover
     @areas = Area.reorder("random()").limit(5)
     @grape_varieties = GrapeVariety.reorder("random()").limit(7)
-    @definition = Glossary.reorder("random()").limit(1).first
+    @definitions = Glossary.reorder("random()").limit(2)
+    @vintages = Vintage.select("area, year, count(user_id) AS users, avg(note) AS note").group("area, year").reorder("random()").limit(8)
   end
   
   def track

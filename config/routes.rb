@@ -114,6 +114,12 @@ VinoSocialis::Application.routes.draw do
       end
     end
     
+    resources :vintages do
+      collection do
+        post 'rate'
+      end
+    end
+    
     root :to => "home#index"
 
     match '/why', :to => "home#why"

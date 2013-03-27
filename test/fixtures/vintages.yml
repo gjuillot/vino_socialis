@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  area: MyString
+  year: 1
+  user: 
+  note: 1
+
+two:
+  area: MyString
+  year: 1
+  user: 
+  note: 1

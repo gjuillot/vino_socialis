@@ -1,0 +1,70 @@
+
+<div class="white-opacity rounded">
+  <h3><%= t('vintages.table') %></h3>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th></th>
+        <%=raw @areas.map {|area, position| "<th>#{area}</th>"}.join('') %>
+      </tr>
+    </thead>
+    <tbody>
+    <% @vintages.each do |year, areas| %>
+      <tr>
+        <td><%= year %></td>
+        <% next_position = 0 %>
+        <% areas.each do |area, note| %>
+          <% position = @areas[area] %>
+          <%=raw "<td></td>" * (position - next_position) %>
+          <% next_position = position + 1 %>
+          <td class="vintage_note" data-score="<%= note[:note] %>"></td>
+        <% end %>
+          <%=raw "<td></td>" * (@areas.count - next_position) %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% unless @current_user_vintages.nil? or @current_user_vintages.empty?%>
+  <br />
+  <div class="white-opacity rounded">
+    <h3><%= t('vintages.yours') %></h3>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th></th>
+          <%=raw @areas.map {|area, position| "<th>#{area}</th>"}.join('') %>
+        </tr>
+      </thead>
+      <tbody>
+      <% @current_user_vintages.each do |year, areas| %>
+        <tr>
+          <td><%= year %></td>
+          <% next_position = 0 %>
+          <% areas.each do |area, note| %>
+            <% position = @areas[area] %>
+            <%=raw "<td></td>" * (position - next_position) %>
+            <% next_position = position + 1 %>
+            <td class="vintage_note" data-score="<%= note[:note] %>"></td>
+          <% end %>
+            <%=raw "<td></td>" * (@areas.count - next_position) %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
+<% if can? :rate, Vintage %>
+<br />
+<div class="white-opacity rounded">
+  <h3><%= t('vintages.rate') %></h3>
+  <%= form_for(Vintage.new, url: rate_vintages_path, html: { class:'form-inline'}) do |f| %>
+    <%= f.select :area, options_for_select(Vintage::AREAS) %>
+    <%= f.select :year, options_for_select((1900..(Time.now.year)).to_a.reverse) %>
+    <span id="vintage_note"></span>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
+<% end %>

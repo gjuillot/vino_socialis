@@ -7,6 +7,7 @@ en:
       title: "Discover"
       countries_regions_areas: "Countries, regions and areas"
       grape_varieties: "Grape varieties"
+      vintages: "Vintages"
       wines_estates: "Wines et estates"
       latest_tastings: "Latest tastings"
       latest_recommandations: "Latest recommandations"
@@ -341,6 +342,11 @@ en:
         zero: No wine pairing
         one: One wine pairing
         other: "%{count}  wine pairings"
+  vintages:
+    vintages: Vintages
+    table: Vintage table build upon user feedbacks
+    yours: Your vintage table
+    rate: Give us your own opinion !
   wine:
     wines: "Wines"
     new: "New wine"

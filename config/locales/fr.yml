@@ -7,6 +7,7 @@ fr:
       title: "Découvrir"
       countries_regions_areas: "Pays, régions et appellations"
       grape_varieties: "Cépages"
+      vintages: "Millésimes"
       wines_estates: "Vins et producteurs"
       latest_tastings: "Dernières dégustations"
       latest_recommandations: "Dernières recommandations"
@@ -338,6 +339,11 @@ fr:
         zero: Aucun accord mets-vins
         one: Un accord mets-vins
         other: "%{count} accords mets-vins"
+  vintages:
+    vintages: Millésimes
+    table: Tableau des millésimes, selon les avis des utilisateurs
+    yours: Votre tableau des millésimes
+    rate: Donnez votre avis !
   wine:
     wines: "Vins"
     new: "Nouveau vin"

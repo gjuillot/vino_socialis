@@ -9,11 +9,7 @@ class Ability
     can :read, [Country, Region, Area]
     can :for_region_id, Area
     
-    # Glossary
-    can :read, GrapeVariety
-    
-    # Glossary
-    can :read, Glossary
+    can :read, [GrapeVariety, Glossary, Vintage]
     
     can :read, [Estate, Wine]
     
@@ -58,5 +54,7 @@ class Ability
     
     # Labels
     can [:create, :read], Label
+    
+    can [:rate], Vintage
   end
 end
