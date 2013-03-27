@@ -20,7 +20,7 @@ class VintagesController < ApplicationController
     
     if user_signed_in?
       @current_user_vintages = {}
-      raw_vintages = Vintage.select("area, year, note").where("user_id = ?", current_user.id).group("area, year").order("year DESC")
+      raw_vintages = Vintage.select("area, year, note").where("user_id = ?", current_user.id).order("year DESC")
       raw_vintages.each do |v|
         @current_user_vintages[v.year] = Hash.new unless @current_user_vintages[v.year]
         @current_user_vintages[v.year]["#{v.area}"] = {note: v.note}
