@@ -3,13 +3,7 @@ class VintagesController < ApplicationController
   authorize_resource
   
   def index
-    @areas = {}
-    raw_areas = Vintage.select("area").group("area").order("area")
-    area_position = 0
-    raw_areas.each do |area|
-      @areas["#{area.area}"] = area_position
-      area_position += 1
-    end
+    @areas = Vintage.group("area").order("area").map(&:area)
     
     @vintages = {}
     raw_vintages = Vintage.select("area, year, count(user_id) AS users, avg(note) AS note").group("area, year").order("year DESC")

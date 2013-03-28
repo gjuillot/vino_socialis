@@ -1,25 +1,23 @@
-
 <div class="white-opacity rounded">
   <h3><%= t('vintages.table') %></h3>
   <table class="table table-condensed">
     <thead>
       <tr>
         <th></th>
-        <%=raw @areas.map {|area, position| "<th>#{area}</th>"}.join('') %>
+        <%=raw @areas.map {|area| "<th>#{area}</th>"}.join('') %>
       </tr>
     </thead>
     <tbody>
     <% @vintages.each do |year, areas| %>
       <tr>
         <td><%= year %></td>
-        <% next_position = 0 %>
-        <% areas.each do |area, note| %>
-          <% position = @areas[area] %>
-          <%=raw "<td></td>" * (position - next_position) %>
-          <% next_position = position + 1 %>
-          <td class="vintage_note" data-score="<%= note[:note] %>"></td>
+        <% @areas.each do |area| %>
+          <% if areas.keys.include? area %>
+            <td class="vintage_note" data-score="<%= areas[area][:note] %>"></td>
+          <% else %>
+            <td></td>
+          <% end %>
         <% end %>
-          <%=raw "<td></td>" * (@areas.count - next_position) %>
       </tr>
     <% end %>
     </tbody>
@@ -34,21 +32,20 @@
       <thead>
         <tr>
           <th></th>
-          <%=raw @areas.map {|area, position| "<th>#{area}</th>"}.join('') %>
+          <%=raw @areas.map {|area| "<th>#{area}</th>"}.join('') %>
         </tr>
       </thead>
       <tbody>
       <% @current_user_vintages.each do |year, areas| %>
         <tr>
           <td><%= year %></td>
-          <% next_position = 0 %>
-          <% areas.each do |area, note| %>
-            <% position = @areas[area] %>
-            <%=raw "<td></td>" * (position - next_position) %>
-            <% next_position = position + 1 %>
-            <td class="vintage_note" data-score="<%= note[:note] %>"></td>
+          <% @areas.each do |area| %>
+            <% if areas.keys.include? area %>
+              <td class="vintage_note" data-score="<%= areas[area][:note] %>"></td>
+            <% else %>
+              <td></td>
+            <% end %>
           <% end %>
-            <%=raw "<td></td>" * (@areas.count - next_position) %>
         </tr>
       <% end %>
       </tbody>
