@@ -3,7 +3,8 @@ class VintagesController < ApplicationController
   authorize_resource
   
   def index
-    @areas = Vintage.group("area").order("area").map(&:area)
+    # 'select' is mandatory, otherwise on Postgres: column "vintages.id" must appear in the GROUP BY clause or be used in an aggregate function
+    @areas = Vintage.select(area).group("area").order("area").map(&:area)
     
     @vintages = {}
     raw_vintages = Vintage.select("area, year, count(user_id) AS users, avg(note) AS note").group("area, year").order("year DESC")
