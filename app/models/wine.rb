@@ -21,7 +21,7 @@ class Wine < ActiveRecord::Base
   scope :not_validated, where('"wines".validation = ?' , false)
   scope :like, lambda {|name| where('"wines".name ILIKE ? OR "estates".name ILIKE ?', "%#{name}%", "%#{name}%").reorder('"wines".validation DESC, "estates".name ASC, "wines".name ASC')}
   scope :on_page, lambda {|page| page(page).per(10)}
-  scope :area, lambda {|id| where('"wines".area_id == ?', id)}
+  scope :area, lambda {|id| where('"wines".area_id = ?', id)}
   scope :region, lambda {|id| joins(:area).where('"areas".region_id = ?', id)}
   scope :last, lambda {|count| reorder('"updated_at DESC"').limit(count) }
   
