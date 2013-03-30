@@ -1,10 +1,11 @@
 <div class="white-opacity rounded">
   <h3><%= t('vintages.table') %></h3>
-  <table class="table table-condensed">
+  <br />
+  <table class="dataTable">
     <thead>
       <tr>
         <th></th>
-        <%=raw @areas.map {|area| "<th>#{area}</th>"}.join('') %>
+        <%=raw @areas.map {|area| "<th class=\"raty\">#{area}</th>"}.join('') %>
       </tr>
     </thead>
     <tbody>
@@ -13,26 +14,28 @@
         <td><%= year %></td>
         <% @areas.each do |area| %>
           <% if areas.keys.include? area %>
-            <td class="vintage_note" data-score="<%= areas[area][:note] %>"></td>
+            <td style="min-width:100px"><span class="vintage_note" data-score="<%= areas[area][:note] %>"></span></td>
           <% else %>
-            <td></td>
+            <td style="min-width:100px"></td>
           <% end %>
         <% end %>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <br />
 </div>
 
 <% unless @current_user_vintages.nil? or @current_user_vintages.empty?%>
   <br />
   <div class="white-opacity rounded">
     <h3><%= t('vintages.yours') %></h3>
-    <table class="table table-condensed">
+    <br />
+    <table class="dataTable">
       <thead>
         <tr>
           <th></th>
-          <%=raw @areas.map {|area| "<th>#{area}</th>"}.join('') %>
+          <%=raw @areas.map {|area| "<th class=\"raty\">#{area}</th>"}.join('') %>
         </tr>
       </thead>
       <tbody>
@@ -41,15 +44,16 @@
           <td><%= year %></td>
           <% @areas.each do |area| %>
             <% if areas.keys.include? area %>
-              <td class="vintage_note" data-score="<%= areas[area][:note] %>"></td>
+              <td style="min-width:100px"><span class="vintage_note" data-score="<%= areas[area][:note] %>"></span></td>
             <% else %>
-              <td></td>
+              <td style="min-width:100px"></td>
             <% end %>
           <% end %>
         </tr>
       <% end %>
       </tbody>
     </table>
+    <br />
   </div>
 <% end %>
 

@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.readyselector
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .

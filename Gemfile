@@ -37,3 +37,5 @@ gem 'carrierwave'
 gem 'cloudinary'
 
 gem 'acts-as-taggable-on'
+
+gem 'jquery-datatables-rails'
