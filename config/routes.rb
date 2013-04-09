@@ -127,6 +127,7 @@ VinoSocialis::Application.routes.draw do
     match '/discover', :to => "home#discover"
     match '/track', :to => "home#track"
     match '/share', :to => "home#share"
+    match '/sitemap', :to => "home#sitemap"
   end
 
   match '', :to => redirect { |p, r| p[:locale] ? "/#{p[:locale]}/" : '/fr/' }

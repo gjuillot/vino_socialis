@@ -30,4 +30,12 @@ class HomeController < ApplicationController
   
   def why
   end
+  
+  def sitemap
+    @estates = Estate.validated
+    @wines = Wine.validated
+    respond_to do |format|
+       format.xml
+    end
+  end
 end
