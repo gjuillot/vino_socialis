@@ -73,15 +73,13 @@ class Wine < ActiveRecord::Base
     wine_color.include? 'sparkling'
   end
   
-  def dist_euclide(other)
-    return 0 if self.id == other.id
-
-    dist = 0
-    dist += 0.1 if (self.estate.id != other.estate.id)
-    dist += 0.1 if (self.area.id != other.area.id)
-    dist += 0.2 if (self.area.region.id != other.area.region.id)
-    dist += 0.5 if (self.wine_color != other.wine_color)
-    return dist
+  def distance(other)
+    return 1 if self.wine_color != other.wine_color
+    return 0.8 if self.area.region.id != other.area.region.id
+    return 0.6 if self.area.id != other.area.id
+    return 0.4 if self.estate.id != other.estate.id
+    return 0.2 if self.id != other.id
+    return 0
   end
   
   def drink_hint
@@ -91,7 +89,7 @@ class Wine < ActiveRecord::Base
       hint[:based_on] = similar.count
       coeffs = 0
       similar.each do |b|
-        coeff = 1 - self.dist_euclide(b.wine)
+        coeff = 1 - self.distance(b.wine)
         coeffs += coeff
         hint[:min] += coeff * b.drink_min
         hint[:max] += coeff * b.drink_max

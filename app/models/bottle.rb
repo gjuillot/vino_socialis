@@ -46,8 +46,15 @@ class Bottle < ActiveRecord::Base
     WineRackPosition.where('bottle_id = ? AND wine_rack_id = ?', id, rack.id)
   end
   
-  def dist_euclide(other)
-    self.wine.dist_euclide(other.wine) + (self.vintage == other.vintage ? 0 : 0.05)
+  def distance(other)
+    return 1 if self.wine.wine_color != other.wine.wine_color
+    return 0.8 if self.wine.area.region.id != other.wine.area.region.id
+    return 0.6 if self.wine.area.id != other.wine.area.id
+    
+    bonus_vintage = (self.vintage == other.vintage ? 0.1 : 0)
+    return 0.4 - bonus_vintage if self.wine.estate.id != other.wine.estate.id
+    return 0.2 - bonus_vintage if self.wine.id != other.wine.id
+    return 0.1 - bonus_vintage
   end
   
   def drink_min_year

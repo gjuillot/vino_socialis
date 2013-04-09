@@ -29,6 +29,6 @@ class PairingsController < ApplicationController
   
   private
   def pairing_note(wine, pairings)
-    pairings.map {|pairing| pairing.note * (1 - wine.dist_euclide(pairing.tasting.wine))}.sum
+    pairings.map {|pairing| pairing.note * (1 - wine.distance(pairing.tasting.wine))}.sum
   end
 end

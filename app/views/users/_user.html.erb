@@ -4,7 +4,7 @@
   </td>
   
   <td>
-    <span class="star" data-score="<%= current_user.sim_euclide_bottles(user) %>"></span>
+    <span class="star" data-score="<%= 5.0 * ( 1.0 - current_user.bottles_distance(user)) %>"></span>
   </td>
   
   <td>
