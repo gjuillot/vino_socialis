@@ -107,6 +107,7 @@ class BottlesController < ApplicationController
     if @bottle.update_attributes(params[:bottle])
       redirect_to @bottle, notice: 'bottle_updated'
     else
+      @wine = @bottle.wine
       render action: "edit"
     end
   end
