@@ -142,7 +142,7 @@ function filter() {
   }
 }
 
-$('.bottles.index').ready(function(){
+function bottles_ready() {
   for (var i = 0; i < columns.length; i++) {
     var c = columns[i];
     $("input#" + c['att']).keyup(filter);
@@ -169,6 +169,8 @@ $('.bottles.index').ready(function(){
     window.location = $('input#bottles_path').attr('value') + '?maturity=' + maturity;
   });
   
-  treat_columns();
-    
-});
+  treat_columns();   
+}
+
+$('.bottles.index').ready(bottles_ready);
+$('.bottles.not_placed').ready(bottles_ready);
