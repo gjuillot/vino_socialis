@@ -45,8 +45,10 @@
     <% else %>
       <%= raw "#{@estate.zip_code} #{@estate.town}<br />" unless @estate.zip_code.empty? and @estate.town.empty? %>
       <%= raw "<i class=\"icon-home\"></i> #{link_to(@estate.www, @estate.www, target: '_blank')}" unless @estate.www.empty? %><br /><br />
-      <%= t('helpers.want_to_learn_more') %><br />
-      <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+      <div class="well">
+        <%= t('helpers.want_to_learn_more') %><br />
+        <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+      </div>
     <% end %>
     
       <div class="social"><div id="sharrre"></div></div>
