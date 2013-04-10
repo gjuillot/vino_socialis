@@ -60,6 +60,9 @@ class TastingsController < ApplicationController
         end
       end
     else
+      @wine = @tasting.wine
+      @vintage = @tasting.vintage
+      @pairing = Pairing.find_by_tasting_id(@tasting.id)
       render action: "new"
     end
   end

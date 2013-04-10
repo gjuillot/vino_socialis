@@ -34,4 +34,6 @@ function tastings_form_ready() {
 }
 
 $('.tastings.new').ready(tastings_form_ready);
+$('.tastings.update').ready(tastings_form_ready);
 $('.tastings.edit').ready(tastings_form_ready);
+$('.tastings.create').ready(tastings_form_ready);
