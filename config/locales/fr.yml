@@ -294,6 +294,32 @@ fr:
       vegetal: 
         name: Végétal
         examples: Foin coupé, herbe, fougère, pipi de chat, thé, menthe, anis, poivron vert, sous-bois, champignon
+  temperature:
+    title: Température du vin
+    introduction:
+      introduction: "A chaque vin correspond une température idéale de dégustation :"
+      cold: Trop froid, le vin ne peut développer pleinement ses arômes et les tannins sont durcis.
+      hot: Trop chaud, l'alcool ressort, rendant le vin déséquilibré. Les vins blancs paraissent plus acide.
+      well: N'oubliez pas que le vin se réchauffe rapidement dans le verre, donc n'hésitez pas à servir le vin avec 1°-2°C de moins.
+    red:
+      title: Les vins rouges
+      light: Vins rouges légers (Beaujolais, Alsace...)
+      middle: Vins rouges de structure moyenne (Bourgogne, Loire...)
+      strong: Vins rouges puissants (Bordeaux, Sud-Ouest...)
+      well1: On parle souvent de <strong>chambrer</strong> les vins rouges. Attention, si cela était parfait auparavant, de nos jours les pièces souvent souvent trop chaudes pour y mettre à température les vins.
+      well2: Les vins exceptionnels ou très évolués gagnent à être servis 1°-2°C de plus qu'habituellement.
+    white:
+      title: Les vins blancs
+      sparkling: Effervescent (Champagne, Crémant...)
+      light: Vins blancs secs et légers ou acides
+      gras: Vins blancs secs "gras"
+      sweeter: Vins doux ou vins liquoreux
+      sweet: Vins moelleux ou Alsace Vendanges Tardives
+      jaune: Vins jaunes, de paille, oxydatifs
+    rose:
+      title: Les vins rosés
+      light: Vins rosés légers ou fruités
+      structured: Vins rosés structurés
   user:
     users: "Utilisateurs"
     my_profile: "Mon profil"

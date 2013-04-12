@@ -125,6 +125,7 @@ VinoSocialis::Application.routes.draw do
     match '/why', :to => "home#why"
     match '/about', :to => "home#about"
     match '/discover', :to => "home#discover"
+    match '/temperature', :to => "home#temperature"
     match '/track', :to => "home#track"
     match '/share', :to => "home#share"
     match '/sitemap', :to => "home#sitemap"

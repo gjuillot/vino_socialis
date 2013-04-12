@@ -15,6 +15,9 @@ class HomeController < ApplicationController
     @vintages = Vintage.select("area, year, count(user_id) AS users, avg(note) AS note").group("area, year").reorder("random()").limit(8)
   end
   
+  def temperature
+  end
+  
   def track
   end
   

@@ -1,0 +1,51 @@
+<% provide(:title, t('temperature.title')) %>
+
+<div class="white-opacity rounded">
+  <h1><%= t('temperature.title') %></h1>
+  
+  <div class="row-fluid">
+    <div class="span6">
+      <%= t('temperature.introduction.introduction') %>
+      <ul>
+        <li><%= t('temperature.introduction.cold') %></li>
+        <li><%= t('temperature.introduction.hot') %></li>
+      </ul>
+    </div>
+    <div class="span6">
+      <div class="well"><%= t('temperature.introduction.well') %></div>
+    </div>
+  </div>
+</div>
+
+<br />
+  
+<div class="row-fluid">
+  <div class="span6 white-opacity rounded">
+    <h2><%= t('temperature.red.title') %></h2>
+    <table class="table table-condensed table-striped">
+      <tr><td><%= t('temperature.red.light') %></td><td>12°-14°C</td></tr>
+      <tr><td><%= t('temperature.red.middle') %></td><td>14°-16°C</td></tr>
+      <tr><td><%= t('temperature.red.strong') %></td><td>16°-18°C</td></tr>
+    </table>
+    <div class="well"><%=raw t('temperature.red.well1') %></div>
+    <div class="well"><%= t('temperature.red.well2') %></div>
+  </div>
+  <div class="span6 white-opacity rounded">
+    <h2><%= t('temperature.white.title') %></h2>
+    <table class="table table-condensed table-striped">
+      <tr><td><%= t('temperature.white.sparkling') %></td><td>8°-10°C</td></tr>
+      <tr><td><%= t('temperature.white.light') %></td><td>8°-10°C</td></tr>
+      <tr><td><%= t('temperature.white.gras') %></td><td>10°-12°C</td></tr>
+      <tr><td><%= t('temperature.white.sweeter') %></td><td>6°-8°C</td></tr>
+      <tr><td><%= t('temperature.white.sweet') %></td><td>8°-10°C</td></tr>
+      <tr><td><%= t('temperature.white.jaune') %></td><td>14°-16°C</td></tr>
+    </table><br />
+    <h2><%= t('temperature.rose.title') %></h2>
+    <table class="table table-condensed table-striped">
+      <tr><td><%= t('temperature.rose.light') %></td><td>8°-10°C</td></tr>
+      <tr><td><%= t('temperature.rose.structured') %></td><td>10°-12°C</td></tr>
+    </table>
+  </div>
+</div>
+
+<br />

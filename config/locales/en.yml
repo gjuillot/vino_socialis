@@ -8,6 +8,7 @@ en:
       countries_regions_areas: "Countries, regions and areas"
       grape_varieties: "Grape varieties"
       vintages: "Vintages"
+      temperature: Température
       wines_estates: "Wines et estates"
       latest_tastings: "Latest tastings"
       latest_recommandations: "Latest recommandations"
@@ -297,6 +298,32 @@ en:
       vegetal:
         name: Plant
         examples: Hay cut grass, fern, cat pee, tea, mint, anise, green pepper, underbrush, mushroom
+  temperature:
+    title: Wine temperature
+    introduction:
+      introduction: "For each wine there is an ideal tasting temperature:"
+      cold: Too cold, the wine can not fully develop its flavors and tannins are stronger.
+      hot: Too hot, alcohol is more present, making the wine unbalanced. White wines appear more acidic.
+      well: Do not forget the wine warms quickly in the glass, so do not hesitate to serve it with 1°-2°C lower.
+    red:
+      title: Red wines
+      light: Light red wines (Beaujolais, Alsace...)
+      middle: Red wines with average structure (Bourgogne, Loire...)
+      strong: Strong red wines (Bordeaux, Sud-Ouest...)
+      well1: We often talk about <strong>chambering</strong> red wines. Be careful, if it was perfect before, nowadays rooms are often too hot to put the wine at the right temperature.
+      well2: The exceptional wines or highly evolved wines deserve to be served 1°-2°C warmer than usual.
+    white:
+      title: White wines
+      sparkling: Sparkling wines (Champagne, Crémant...)
+      light: Dry white wines - light or acidic
+      gras: Dry white wines - "gras"
+      sweeter: Moelleux or natural sweet wines
+      sweet: Sweet wine or Alsace Vendanges Tardives
+      jaune: Vin jaune, wine de paille, oxidative white wines
+    rose:
+      title: Rose wines
+      light: Light or fuity rose wines
+      structured: Structured rose wines
   user:
     users: "Users"
     my_profile: "My profile"

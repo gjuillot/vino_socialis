@@ -21,6 +21,8 @@
 !binary "aWNvbnMvdGFzdGUvaW5kZXgucG5n": icons/taste-40af5e17a0aed62243d5f9a2755dde29.png
 !binary "aWNvbnMvdGFzdGluZ3MucG5n": icons/tastings-edee1e65fe3e093560b30ee4b130467d.png
 !binary "aWNvbnMvdGFzdGluZ3MvaW5kZXgucG5n": icons/tastings-edee1e65fe3e093560b30ee4b130467d.png
+!binary "aWNvbnMvdGVtcGVyYXR1cmUucG5n": icons/temperature-0905c0792065427003fce0ff413f48da.png
+!binary "aWNvbnMvdGVtcGVyYXR1cmUvaW5kZXgucG5n": icons/temperature-0905c0792065427003fce0ff413f48da.png
 !binary "aWNvbnMvdW5yZWNvbW1hbmQucG5n": icons/unrecommand-bef191f9ee8fa5e2199189dbb67c111c.png
 !binary "aWNvbnMvdW5yZWNvbW1hbmQvaW5kZXgucG5n": icons/unrecommand-bef191f9ee8fa5e2199189dbb67c111c.png
 !binary "bG9jYWxlL2VuLnBuZw==": locale/en-e9831ac4d86a68fb1808a9a4a6510e79.png
@@ -119,8 +121,8 @@
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlL2luZGV4LmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
 !binary "YXBwbGljYXRpb24uanM=": application-abcf38a887aa3eaa54ee9ef10c3f1333.js
 !binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-abcf38a887aa3eaa54ee9ef10c3f1333.js
-!binary "YXBwbGljYXRpb24uY3Nz": application-001bb3481b92f2e15afabdd6d7bbd441.css
-!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-001bb3481b92f2e15afabdd6d7bbd441.css
+!binary "YXBwbGljYXRpb24uY3Nz": application-77a7bf62c92cf65ccfe73fbd7a029165.css
+!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-77a7bf62c92cf65ccfe73fbd7a029165.css
 dataTables/back_disabled.png: dataTables/back_disabled-7a902951219d10f938f642f8dcfbd0b2.png
 dataTables/back_disabled/index.png: dataTables/back_disabled-7a902951219d10f938f642f8dcfbd0b2.png
 dataTables/back_enabled.png: dataTables/back_enabled-6eb9125f3bb6cbca38c2f71664f9e000.png
