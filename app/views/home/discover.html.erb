@@ -1,3 +1,5 @@
+<% provide(:title, t("home.index.carousel.t2")) %>
+
 <div class="row-fluid">
   <div class="span4">
     <div class="alert alert-no-close alert-info" style="height: 220px; position: relative">
@@ -22,7 +24,7 @@
         <li><%= t('temperature.introduction.cold') %></li>
         <li><%= t('temperature.introduction.hot') %></li>
       </ul>
-      <%= link_to t('home.discover.more'), grape_varieties_path, class: 'btn btn-primary', style: 'position: absolute; bottom: 15px; right: 15px' %>
+      <%= link_to t('home.discover.more'), temperature_path, class: 'btn btn-primary', style: 'position: absolute; bottom: 15px; right: 15px' %>
     </div>
   </div>
 </div>

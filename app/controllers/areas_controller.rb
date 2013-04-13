@@ -2,11 +2,6 @@ class AreasController < ApplicationController
   
   load_and_authorize_resource
   
-  # GET /areas
-  def index
-  end
-
-  # GET /areas/1
   def show
     @wines = Wine.find_all_by_area_id(@area.id)
   end

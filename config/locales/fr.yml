@@ -140,6 +140,7 @@ fr:
     all: "Afficher tout"
   home:
     index:
+      title: "Le monde du vin : Découvrir - Suivre - Partager"
       for_all: "Pour amateurs de vin, débutant ou expert"
       carousel:
         t1: Vinosus, pour débutants et amateurs

@@ -1,4 +1,4 @@
-<% provide(:title, @region.name) %>
+<% provide(:title, @region.country.name + " > " + @region.name) %>
 
 <div class="white-opacity rounded">
   <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h1>

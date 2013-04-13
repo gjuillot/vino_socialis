@@ -144,6 +144,7 @@ en:
     all: "Display all"
   home:
     index:
+      title: "The world of wine: Discover - Track - Share"
       for_all: "For wine lovers, beginners or experts"
       carousel:
          t1: Vinosus for beginners and amateurs
