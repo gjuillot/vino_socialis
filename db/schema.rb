@@ -11,16 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413122104) do
+ActiveRecord::Schema.define(:version => 20130413233659) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
     t.integer  "region_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
 
   add_index "areas", ["region_id"], :name => "index_areas_on_region_id"
+  add_index "areas", ["slug"], :name => "index_areas_on_slug"
 
   create_table "bottles", :force => true do |t|
     t.integer  "user_id"
@@ -71,7 +73,10 @@ ActiveRecord::Schema.define(:version => 20130413122104) do
     t.string   "image_url"
     t.string   "image_link"
     t.string   "image_source"
+    t.string   "slug"
   end
+
+  add_index "countries", ["slug"], :name => "index_countries_on_slug"
 
   create_table "estates", :force => true do |t|
     t.string   "name"
@@ -187,9 +192,11 @@ ActiveRecord::Schema.define(:version => 20130413122104) do
     t.integer  "country_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
 
   add_index "regions", ["country_id"], :name => "index_regions_on_country_id"
+  add_index "regions", ["slug"], :name => "index_regions_on_slug"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
