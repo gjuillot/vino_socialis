@@ -1,15 +1,68 @@
 <div class="white-opacity rounded">
 
-<h1><%= wine_name @bottle.wine, estate: true, area: true, html: true %></h1>
+<h1><%= bottle_name @bottle %></h1>
 
 <div class="row-fluid">
+  <div class="span5">
+    <b><%= link_to @bottle.wine.estate.name, @bottle.wine.estate %></b><br />
+    <%= raw "<i class=\"icon-home\"></i> #{link_to(@bottle.wine.estate.www, @bottle.wine.estate.www, target: '_blank')}" unless @bottle.wine.estate.www.empty? %>
+    <br /><br />
+    <b><%= link_to @bottle.wine.name, @bottle.wine %></b><br />
+    <%= full_area_name @bottle.wine.area, html: true %><br />
+    <%= wine_color_image(@bottle.wine) %> <%= t("wine.color." + @bottle.wine.wine_color) %><br />
+    <% unless @bottle.wine.grape_varieties.blank? %>
+      <b><%= t("helpers.label.wine.grape_varieties") %>:</b>
+      <%= @bottle.wine.grape_varieties.map(&:name).join(', ') %>
+    <% end %>
+    
+    <br /><br /><br /><br />
+    
+    <!--                                         PLACED BOTTLES                                         -->
+    <table class="table table-condensed">
+      <% @wine_racks.each do |rack| %>
+        <% unless rack.positions == 0 %>
+          <tr>
+            <td><%= link_to rack.name, wine_rack_path(rack, :bottle => @bottle) %></td>
+            <td><%= t('bottles.placed', count: rack.positions) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    
+    <!--                                        UNPLACED BOTTLES                                        -->
+    <% not_placed = @bottle.not_placed %>
+    <% if not_placed == 0 %>
+      </table>
+    <% else %>
+        <tr>
+          <td><%= link_to t('bottles.unplaced'), not_placed_bottles_path %></td>
+          <td><%= t('bottles.placed', count: not_placed) %></td>
+        </tr>
+      </table>
+      <% if @all_wine_racks.empty? %>
+        <br /><%= link_to t('wine_rack.new'), new_wine_rack_path %><br /><br />
+      <% else %>
+        <%= form_for @bottle, :url => {:action => 'place'}, :html => {:class => 'form-inline', :method => 'get'} do %>
+          <%= select_tag 'wine_rack_id', options_for_select(@all_wine_racks.map {|r| [r.name, r.id]}) %>
+          <%= submit_tag t('bottles.place'), class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="span1">
+    <% if @bottle.wine.labels.validated.any? %>
+      <% @bottle.wine.labels.validated.each do |label| %>
+        <%= image_tag label.image_url(:small).to_s, style: 'border: 1px solid;' %><br />
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="span6">
 	<dl class="dl-horizontal">
-	  <dt><%= t("helpers.label.bottle.vintage")%></dt>
-	  <dd><%= formated_vintage(@bottle.vintage, false) %></dd>
-	
-	  <dt><%= t("helpers.label.bottle.quantity")%></dt>
+	  <dt><%= t("helpers.label.bottle.remaining_quantity")%></dt>
 	  <dd><%= t("bottles.remaining_and_initial", :remaining => @bottle.remaining_quantity, :initial => @bottle.initial_quantity) %> (<%= @bottle.volume %>)</dd>
+	  
+	  <br />
 	
     <% min = formated_vintage(@bottle.drink_min_year, true) %>
     <% max = formated_vintage(@bottle.drink_max_year, true) %>
@@ -18,6 +71,8 @@
     
     <dt><%= t("helpers.label.bottle.drink_best")%></dt>
     <dd><%= formated_vintage(@bottle.drink_best_year, true) %></dd>
+    
+    <br />
     
 	  <dt><%= t("helpers.label.bottle.date")%></dt>
 	  <dd><%= formated_date(@bottle.date) %></dd>
@@ -33,59 +88,20 @@
   
     <dt><%= t("helpers.label.bottle.current_value")%></dt>
     <dd><%= formated_price(@bottle.current_value) %></dd>
-	
-	  <dt><%= t("helpers.label.bottle.comments")%></dt>
-	  <dd><%= @bottle.comments %></dd>
-	  
-	  <dd><%= raw @bottle.tag_list.map {|tag| link_to tag, bottles_path(tag: tag)}.join(', ') %></dd>
-	  
-	  <br /><br />
-	  
-    <dd><%= button_to_edit edit_bottle_path(@bottle) %> <%= button_to_destroy @bottle if @bottle.can_destroy? %></dd>
-	</dl>
-  </div>
-  
-  
-  <div class="span6">
-    <% if @bottle.wine.labels.validated.any? %>
-      <% @bottle.wine.labels.validated.each do |label| %>
-        <%= image_tag label.image_url(:small).to_s, style: 'border: 1px solid;' %>
-      <% end %>
-      <br /><br />
-    <% end %>
     
-    <!--                                         PLACED BOTTLES                                         -->
-    <table class="table table-condensed">
-      <% @wine_racks.each do |rack| %>
-        <% unless rack.positions == 0 %>
-          <tr>
-      	    <td><%= link_to rack.name, wine_rack_path(rack, :bottle => @bottle) %></td>
-      	    <td><%= t('bottles.placed', count: rack.positions) %></td>
-      	  </tr>
-    	  <% end %>
-    	<% end %>
-  	
-  	<!--                                        UNPLACED BOTTLES                                        -->
-  	<% not_placed = @bottle.not_placed %>
-  	<% if not_placed == 0 %>
-      </table>
-    <% else %>
-        <tr>
-      	  <td><%= link_to t('bottles.unplaced'), not_placed_bottles_path %></td>
-      	  <td><%= t('bottles.placed', count: not_placed) %></td>
-      	</tr>
-    	</table>
-  	  <% if @all_wine_racks.empty? %>
-  	    <br /><%= link_to t('wine_rack.new'), new_wine_rack_path %><br /><br />
-  	  <% else %>
-    	  <%= form_for @bottle, :url => {:action => 'place'}, :html => {:class => 'form-inline', :method => 'get'} do %>
-    	    <%= select_tag 'wine_rack_id', options_for_select(@all_wine_racks.map {|r| [r.name, r.id]}) %>
-    	    <%= submit_tag t('bottles.place'), class: 'btn btn-primary' %>
-    	  <% end %>
-    	<% end %>
+	  <% unless @bottle.comments.blank? %>
+	    <br />
+  	  <dt><%= t("helpers.label.bottle.comments")%></dt>
+  	  <dd><%= @bottle.comments %></dd>
   	<% end %>
-  	
-  	<%= button_to_consume consume_bottle_path(@bottle) %>
+	</dl>
+	
+	<% unless @bottle.tag_list.empty? %>
+	  <%= raw @bottle.tag_list.map {|tag| link_to tag, bottles_path(tag: tag)}.join(', ') %>
+	  <br /><br />
+	<% end %>
+
+	<%= button_to_consume consume_bottle_path(@bottle) %> <%= button_to_edit edit_bottle_path(@bottle) %> <%= button_to_destroy @bottle if @bottle.can_destroy? %>
   </div>
 </div>
 
