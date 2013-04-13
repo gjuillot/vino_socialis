@@ -85,6 +85,13 @@
           <%= simple_format @wine.info %>
         </blockquote>
       <% end %>
+      
+      <% unless @wine.temperature.blank? %>
+        <p>
+          <b><%= t("helpers.label.wine.temperature") %>:</b>
+          <%= @wine.temperature %>
+        </p>
+      <% end %>
   	
     	<p>
     	  <%= render 'tutorial/validation' %>

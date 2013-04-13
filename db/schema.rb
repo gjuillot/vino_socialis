@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327071230) do
+ActiveRecord::Schema.define(:version => 20130413122104) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -313,10 +313,11 @@ ActiveRecord::Schema.define(:version => 20130327071230) do
     t.integer  "area_id"
     t.text     "info"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.boolean  "validation"
     t.string   "wine_color"
+    t.string   "temperature"
   end
 
   add_index "wines", ["area_id"], :name => "index_wines_on_area_id"

@@ -576,6 +576,7 @@ en:
         select_country_and_region: "Select the coutnry and region ..."
         select_area: "... then select the area"
         grape_varieties: "Grape varieties"
+        temperature: Suggested tasting temperature
       wine_rack:
         name: "Name"
         layout: "Layout"

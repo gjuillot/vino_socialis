@@ -40,12 +40,19 @@
   </div>
   
   <div class="control-group">
-    <%= f.label :grape_varieties, :class => 'control-label' %>
+    <%= f.label :grape_varieties, t('helpers.label.wine.grape_varieties') + " (" + t('helpers.not_mandatory') + ")", :class => 'control-label' %>
     <div class="controls">
-      <a class="btn btn-primary" id="add_grape_variety" href="#">+</a>&nbsp;&nbsp;&nbsp;<%= t('helpers.not_mandatory') %><br />
+      <a class="btn btn-primary" id="add_grape_variety" href="#">+</a><br />
       <% @wine.grape_varieties.each do |gv| %>
         <%= raw(grape_variety_input.gsub /value=""/, 'value="' + gv.name + '"') %>
       <% end %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :temperature, t('helpers.label.wine.temperature') + " (" + t('helpers.not_mandatory') + ")", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :temperature %>
     </div>
   </div>
 

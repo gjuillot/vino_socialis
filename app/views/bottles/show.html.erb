@@ -11,11 +11,13 @@
     <%= full_area_name @bottle.wine.area, html: true %><br />
     <%= wine_color_image(@bottle.wine) %> <%= t("wine.color." + @bottle.wine.wine_color) %><br />
     <% unless @bottle.wine.grape_varieties.blank? %>
-      <b><%= t("helpers.label.wine.grape_varieties") %>:</b>
-      <%= @bottle.wine.grape_varieties.map(&:name).join(', ') %>
+      <%= @bottle.wine.grape_varieties.map(&:name).join(', ') %><br />
+    <% end %>
+    <% unless @bottle.wine.temperature.blank? %>
+      <%= t("helpers.label.wine.temperature") %> : <%= @bottle.wine.temperature %><br />
     <% end %>
     
-    <br /><br /><br /><br />
+    <br /><br /><br />
     
     <!--                                         PLACED BOTTLES                                         -->
     <table class="table table-condensed">

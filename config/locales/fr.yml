@@ -581,6 +581,7 @@ fr:
         select_country_and_region: "Choisir le pays et la région ..."
         select_area: "... puis choisir l'appellation"
         grape_varieties: "Cépages"
+        temperature: Température de dégustation conseillée
       wine_rack:
         name: "Nom"
         layout: "Disposition"
