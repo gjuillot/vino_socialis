@@ -64,6 +64,10 @@ en:
     areas: "Area"
     new: "New area"
     edit: "Edit %{area_name}"
+    wines:
+      zero: No wine registered for this area
+      one: 1 wine registered for this area
+      other: "%{count} wines registered for this area"
   bottles:
     edit: "Edit bottle(s)"
     my: "My bottles"
@@ -119,7 +123,8 @@ en:
     countries: "Countries"
     new: "New country"
     edit: "Edit %{country_name}"
-    no_regions: "No regions for that country."
+    regions: "%{count} wine regions" 
+    description: "%{count} wine countries"
   estate:
     estates: "Estates"
     new: "New estate"
@@ -137,14 +142,25 @@ en:
     no_wines: "No wine sheets for that estate"
     suggest_wine: "Suggest a new wine sheet for that estate"
     db_count: "%{total} estate sheets registered, %{validated} being validated"
+    description:
+      zero: Estate at %{town} (%{country}) - No validated wine
+      one: Estate at %{town} (%{country}) - 1 validated wine
+      other: Estate at %{town} (%{country}) - %{count} validated wines
   glossary:
     glossary: "Glossary"
     new: "New definition"
     search: "Search"
     all: "Display all"
+    description: "Discover the world of wine with %{count} definitions"
+  grape_varieties:
+    wines:
+      zero: No wine registered for this grape variety
+      one: 1 wine registered for this grape variety
+      other: "%{count} wines registered for this grape variety"
   home:
     index:
       title: "The world of wine: Discover - Track - Share"
+      description: For wine lovers, beginners or experts. Fully free. Information about wines, grape varieties, vintages, areas. Advanced tools for tastings and bottles tracking.
       for_all: "For wine lovers, beginners or experts"
       carousel:
          t1: Vinosus for beginners and amateurs
@@ -198,7 +214,7 @@ en:
         tastings: "%{count} tastings"
     track:
       summary:
-        title: "A powerful yet easy-to-user cave tool"
+        title: "A powerful yet easy-to-use cave tool"
         p1:
           title: "Track your bottles"
           p1: "Enjoy the many detailed sheets on more than %{count} wines."
@@ -301,6 +317,7 @@ en:
         examples: Hay cut grass, fern, cat pee, tea, mint, anise, green pepper, underbrush, mushroom
   temperature:
     title: Wine temperature
+    description: Find the ideal tasting temperature for your wines
     introduction:
       introduction: "For each wine there is an ideal tasting temperature:"
       cold: Too cold, the wine can not fully develop its flavors and tannins are stronger.
@@ -375,6 +392,7 @@ en:
     table: Vintage table build upon user feedbacks
     yours: Your vintage table
     rate: Give us your own opinion !
+    description: Discover the opinions of the users about many vintages.
   wine:
     wines: "Wines"
     new: "New wine"
@@ -392,6 +410,9 @@ en:
     moderation: "Moderation"
     actions: "Actions"
     db_count: "%{total} wine sheets registered, %{validated} being validated"
+    labels:
+      one: "1 label"
+      other: "%{count} labels"
     tastings:
       one: "1 tasting available for this wine"
       other: "%{count} tastings available for this wine"

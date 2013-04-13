@@ -1,4 +1,13 @@
-<% provide(:title, t("home.index.carousel.t2")) %>
+<% description = t('home.discover.areas.title_areas', count: Area.count) %>
+<% description += ' - ' + t('home.discover.grape_varieties.title', count: GrapeVariety.count) %>
+<% description += ' - ' + t('temperature.title') %>
+<% description += ' - ' + t('home.discover.glossary.title', count: Glossary.count) %>
+<% description += ' - ' + t('vintages.vintages') %>
+<% description += ' - ' + t('home.discover.recommanded.title') %>
+<% description += ' - ' + t('home.discover.pairings.title') %>
+
+<% set_meta_tags :title => t("home.index.carousel.t2"),
+                 :description => description %>
 
 <div class="row-fluid">
   <div class="span4">

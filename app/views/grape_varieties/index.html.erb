@@ -1,4 +1,5 @@
-<% provide(:title, t("menu.discover.grape_varieties")) %>
+<% set_meta_tags :title => t("menu.discover.grape_varieties"),
+                 :description => t('home.discover.grape_varieties.title', count: @grape_varieties.count) + ' - ' + @grape_varieties.take(5).map(&:name).join(', ') + '...' %>
 
 <div class="white-opacity rounded">
 

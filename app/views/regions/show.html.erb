@@ -1,4 +1,5 @@
-<% provide(:title, @region.country.name + " > " + @region.name) %>
+<% set_meta_tags :title => @region.country.name + " > " + @region.name,
+                 :description => t('home.discover.areas.title_areas', count: @areas.count) + " - " + @areas.take(5).map(&:name).join(', ') + '...' %>
 
 <div class="white-opacity rounded">
   <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h1>

@@ -1,4 +1,5 @@
-<% provide(:title, @country.name) %>
+<% set_meta_tags :title => @country.name,
+                 :description => t('country.regions', count: @regions.count) + " - " + @regions.take(5).map(&:name).join(', ') + '...' %>
 
 <% if @country.has_image? %>
   <div class="row">

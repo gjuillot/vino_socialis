@@ -1,4 +1,5 @@
-<% provide(:title, t("country.countries")) %>
+<% set_meta_tags :title => t("country.countries"),
+                 :description => t('country.description',count: @countries.count) + " - " + @countries.take(5).map(&:name).join(', ') + '...' %>
 
 <div class="span6 offset3 white-opacity rounded">
   <h1><%= t("country.countries")%></h1>

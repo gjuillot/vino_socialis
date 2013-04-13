@@ -1,4 +1,5 @@
-<% provide(:title, @estate.name) %>
+<% set_meta_tags :title => @estate.name,
+                 :description => t('estate.description', town: @estate.town, country: @estate.country, count: @estate.wines.count) %>
 
 <div class="white-opacity rounded-top more-padding">
   

@@ -1,4 +1,5 @@
-<% provide(:title, t("menu.discover.grape_varieties") + " > " + @grape_variety.name) %>
+<% set_meta_tags :title => t("menu.discover.grape_varieties") + " > " + @grape_variety.name,
+                 :description => t('grape_varieties.wines', count: @wines.count) %>
 
 <div class="white-opacity rounded-top">
   <h1><%= @grape_variety.name %></h1>

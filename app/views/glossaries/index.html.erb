@@ -1,4 +1,5 @@
-<% provide(:title, t("glossary.glossary")) %>
+<% set_meta_tags :title => t("glossary.glossary"),
+                 :description => t("glossary.description", count: Glossary.all.count) %>
 
 <div class="container white-opacity rounded">
   <h1><%= t("glossary.glossary")%></h1>

@@ -1,4 +1,5 @@
-<% provide(:title, t("home.index.carousel.t3")) %>
+<% set_meta_tags :title => t("home.track.summary.title"),
+                 :description => ('1'..'6').map {|i| t('home.track.summary.p' + i + '.title')}.join(' - ') %>
 
 <div class="row-fluid">
   <div class="span4 alert alert-info alert-no-close" style="height: 345px; position: relative">

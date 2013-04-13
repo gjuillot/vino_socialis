@@ -62,6 +62,10 @@ fr:
   area:
     areas: "Appellations"
     search: Recherche d'un vin par appellation
+    wines:
+      zero: Aucun vin recensé pour cette appellation
+      one: 1 vin recensé pour cette appellation
+      other: "%{count} vins recensés pour cette appellation"
   bottles:
     edit: "Modifier bouteille(s)"
     my: "Mes bouteilles"
@@ -116,6 +120,8 @@ fr:
   country:
     countries: "Pays"
     no_regions: "Pas de régions pour ce pays."
+    regions: "%{count} régions viticoles"
+    description: "%{count} pays viticoles"
   estate:
     estates: "Producteurs"
     new: "Nouveau producteur"
@@ -133,15 +139,26 @@ fr:
     no_wines: "Pas de fiches vin pour ce producteur"
     suggest_wine: "Proposer une nouvelle fiche vin pour ce producteur"
     db_count: "%{total} fiches producteur enregistrées dont %{validated} validées"
+    description:
+      zero: Producteur à %{town} (%{country}) - Aucun vin validé
+      one: Producteur à %{town} (%{country}) - 1 vin validé
+      other: Producteur à %{town} (%{country}) - %{count} vins validés
   glossary:
     glossary: "Glossaire"
     new: "Nouvelle définition"
     search: "Rechercher"
     all: "Afficher tout"
+    description: "Découvrez le monde du vin avec %{count} définitions"
+  grape_varieties:
+    wines:
+      zero: Aucun vin recensé pour ce cépage
+      one: 1 vin recensé pour ce cépage
+      other: "%{count} vins recensés pour ce cépage"
   home:
     index:
       title: "Le monde du vin : Découvrir - Suivre - Partager"
-      for_all: "Pour amateurs de vin, débutant ou expert"
+      description: Pour amateurs de vin, débutants ou experts. Entièrement gratuit. Informations sur le vin, cépages, millésimes, appellations. Gestionnaire avancé de cave, de dégustations.
+      for_all: "Pour amateurs de vin, débutants ou experts"
       carousel:
         t1: Vinosus, pour débutants et amateurs
         p1: <i class="icon-hand-right icon-white"></i><em>Débutant</em>, bénéficiez des conseils de la communauté d'utilisateurs et découvrez le monde du vin.<br /><i class="icon-hand-right icon-white"></i><em>Amateur</em>, profitez d'un gestionnaire de cave puissant.
@@ -297,6 +314,7 @@ fr:
         examples: Foin coupé, herbe, fougère, pipi de chat, thé, menthe, anis, poivron vert, sous-bois, champignon
   temperature:
     title: Température du vin
+    description: Trouvez la température idéale de dégustation pour vos vins
     introduction:
       introduction: "A chaque vin correspond une température idéale de dégustation :"
       cold: Trop froid, le vin ne peut développer pleinement ses arômes et les tannins sont durcis.
@@ -371,6 +389,7 @@ fr:
     table: Tableau des millésimes, selon les avis des utilisateurs
     yours: Votre tableau des millésimes
     rate: Donnez votre avis !
+    description: Découvrez ce que les utilisateurs pensent de nombreux millésimes.
   wine:
     wines: "Vins"
     new: "Nouveau vin"
@@ -380,7 +399,6 @@ fr:
     no_matching: "Aucun vin trouvé - Rechercher le producteur pour créer une nouvelle fiche vin ou créer une nouvelle fiche producteur"
     search: "Rechercher"
     suggest: "Proposer une nouvelle fiche vin"
-    edit: "Modifier %{wine_name}"
     status: "Status de la fiche"
     validated: "Validé"
     not_validated: "En attente de validation"
@@ -388,17 +406,20 @@ fr:
     moderation: "Modération"
     actions: "Actions"
     db_count: "%{total} fiches vins enregistrées dont %{validated} validées"
+    labels:
+      one: "1 étiquette"
+      other: "%{count} étiquettes"
     tastings:
-      one: "1 dégustation disponible pour ce vin"
-      other: "%{count} dégustations disponibles pour ce vin"
+      one: "1 dégustation"
+      other: "%{count} dégustations"
     recommandations:
       you:
-        zero: "Vous recommandez ce vin."
-        one: "Vous et 1 utilisateur recommandez ce vin."
-        other: "Vous et %{count} utilisateurs recommandez ce vin."
+        zero: "Vous recommandez ce vin"
+        one: "Vous et 1 utilisateur recommandez ce vin"
+        other: "Vous et %{count} utilisateurs recommandez ce vin"
       others:
-        one: "1 utilisateur recommande ce vin."
-        other: "%{count} utilisateurs recommandent ce vin."
+        one: "1 utilisateur recommande ce vin"
+        other: "%{count} utilisateurs recommandent ce vin"
     color:
       white: 'Blanc'
       red: 'Rouge'
