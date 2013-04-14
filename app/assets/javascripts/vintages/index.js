@@ -45,7 +45,6 @@ $('.vintages.index').ready(function() {
     "bInfo": false,
     "bPaginate": false,
     "bAutoWidth": true,
-    "bPaginate": false,
     "aaSorting": [[ 0, "desc" ]],
     "sPaginationType": "bootstrap",
     "sScrollX": "100%",

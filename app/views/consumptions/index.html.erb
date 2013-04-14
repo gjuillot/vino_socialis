@@ -1,12 +1,25 @@
-<div class="white-opacity rounded-top">
+<div class="white-opacity rounded">
   <h1><%= t("consumptions.my")%></h1>
   
   <% if @consumptions.nil? %>
     <%= t('consumptions.none') %>
   <% else %>
-    <%= paginate @consumptions %>
-    <table class="table table-condensed middle">
-      <%= render @consumptions %>
+    <table class="dataTable" data-lang="<%= I18n.locale %>">
+      <thead><tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr></thead>
+      <tbody><%= render @consumptions %></tbody>
     </table>
+    <br />
   <% end %>
 </div>
+
+<br /><br />
