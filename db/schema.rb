@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413233659) do
+ActiveRecord::Schema.define(:version => 20130414091459) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -110,7 +110,10 @@ ActiveRecord::Schema.define(:version => 20130413233659) do
     t.boolean  "validation", :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "slug"
   end
+
+  add_index "grape_varieties", ["slug"], :name => "index_grape_varieties_on_slug"
 
   create_table "grape_varieties_wines", :id => false, :force => true do |t|
     t.integer "wine_id"
