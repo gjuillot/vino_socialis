@@ -1,4 +1,10 @@
 class Wine < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name_for_url, use: :slugged
+  def name_for_url
+    "#{estate.name}_#{name}_#{area.name}_#{wine_color.gsub('_','-')}"
+  end
+
   belongs_to :estate
   belongs_to :area
   has_and_belongs_to_many :grape_varieties
