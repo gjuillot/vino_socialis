@@ -22,7 +22,7 @@ class Ability
     end
     
     if user.moderator?
-      can :manage, Moderation
+      can [:sheets, :labels], Moderation
     end
     
     # User

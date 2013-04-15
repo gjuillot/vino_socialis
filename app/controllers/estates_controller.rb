@@ -40,8 +40,10 @@ class EstatesController < ApplicationController
 
   # DELETE /estates/1
   def destroy
-    @estate.destroy
-    redirect_to estates_url
+    if @estate.destroyable?
+      @estate.destroy
+    end
+    redirect_to clean_moderations_path
   end
   
   # POST /estates/1/validate

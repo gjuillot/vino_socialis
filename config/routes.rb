@@ -99,6 +99,7 @@ VinoSocialis::Application.routes.draw do
       collection do
         get 'sheets'
         get 'labels'
+        get 'clean'
       end
     end
     

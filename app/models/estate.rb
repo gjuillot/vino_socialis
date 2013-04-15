@@ -18,4 +18,8 @@ class Estate < ActiveRecord::Base
     validation
   end
   
+  def destroyable?
+    Wine.where('estate_id = ?', id).count == 0
+  end
+  
 end

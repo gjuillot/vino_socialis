@@ -1,0 +1,32 @@
+<div class="white-opacity rounded">
+  <h2>Vins</h2>
+  <table class="table table-condensed">
+    <% @wines.each do |wine| %>
+    <tr>
+      <td><%= link_to wine.estate.name, wine.estate %></td>
+      <td><%= link_to wine.name, wine %></td>
+      <td><%= wine.area.name %></td>
+      <td><%= wine_color_image wine %></td>
+      <td><%= wine.user.name %></td>
+      <td><%= link_to_destroy wine %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+<br />
+ 
+ <div class="white-opacity rounded">
+  <h2>Producteurs</h2> 
+  <table class="table table-condensed">
+    <% @estates.each do |estate| %>
+    <tr>
+      <td><%= link_to estate.name, estate %></td>
+      <td><%= estate.town %> (<%= estate.country %>)</td>
+      <td><%= link_to estate.www, estate.www %></td>
+      <td><%= estate.user.name %></td>
+      <td><%= link_to_destroy(estate) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

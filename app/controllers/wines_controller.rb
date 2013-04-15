@@ -56,8 +56,10 @@ class WinesController < ApplicationController
 
   # DELETE /wines/1
   def destroy
-    @wine.destroy
-    redirect_to wines_url
+    if @wine.destroyable?
+      @wine.destroy
+    end
+    redirect_to clean_moderations_path
   end
   
   # GET /wines/1/recommand
@@ -125,4 +127,5 @@ class WinesController < ApplicationController
   def add_label
     redirect_to new_label_path(:wine => @wine)
   end
+  
 end

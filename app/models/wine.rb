@@ -36,6 +36,10 @@ class Wine < ActiveRecord::Base
     validation
   end
   
+  def destroyable?
+    not validated? and Bottle.where('wine_id = ?', id).count == 0 and Tasting.where('wine_id = ?', id).count == 0 and WineRecommandation.where('wine_id = ?', id).count == 0
+  end
+  
   def region_id
     area.region_id
   end
