@@ -1,5 +1,7 @@
 <% provide(:title, t("wine_rack.new")) %>
 
+<span id="bottle_img" style="display:none;"><%= image_tag("wine_colors/nil.png") %></span>
+
 <div class="white-opacity rounded">
   <h1><%= t("wine_rack.new") %></h1>
   
@@ -54,8 +56,7 @@
   
     </div>
     
-    <div class="span6">
-      <%= image_tag "wine_racks/example/#{I18n.locale}/simple.jpg", id: 'example', alt: 'No example yet' %>
+    <div class="span6" id="preview">
     </div>
   </div>
   

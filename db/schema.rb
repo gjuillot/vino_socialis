@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414114530) do
+ActiveRecord::Schema.define(:version => 20130420114402) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -298,12 +298,12 @@ ActiveRecord::Schema.define(:version => 20130414114530) do
   create_table "wine_racks", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.integer  "rows"
-    t.integer  "columns"
+    t.integer  "rows",          :default => 4
+    t.integer  "columns",       :default => 5
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
-    t.integer  "total_rows",    :default => 1
-    t.integer  "total_columns", :default => 1
+    t.integer  "total_rows",    :default => 2
+    t.integer  "total_columns", :default => 3
     t.string   "layout",        :default => "simple"
   end
 
