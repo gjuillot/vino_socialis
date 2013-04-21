@@ -384,6 +384,9 @@ fr:
         zero: Aucun accord mets-vins
         one: Un accord mets-vins
         other: "%{count} accords mets-vins"
+  user_mailer:
+    thank_you: "L'équipe de Vinosus vous remercie pour votre participation !"
+    estate_validated: "La fiche producteur que vous avez créée vient d'être validé."
   vintages:
     vintages: Millésimes
     table: Tableau des millésimes, selon les avis des utilisateurs

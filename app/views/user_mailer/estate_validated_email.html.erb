@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1><%= link_to @estate.name, estate_url(@estate, :locale => @estate.user.locale) %></h1>
+    <p><%= t('user_mailer.estate_validated')%></p>
+    <p><%= t('user_mailer.thank_you')%></p>
+  </body>
+</html>

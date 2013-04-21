@@ -49,7 +49,9 @@ class EstatesController < ApplicationController
   # POST /estates/1/validate
   def validate
     @estate.validation = true
-    @estate.save
+    if @estate.save
+      UserMailer.estate_validated_email(@estate).deliver
+    end
     redirect_to sheets_moderations_path
   end
   
