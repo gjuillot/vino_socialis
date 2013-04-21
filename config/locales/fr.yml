@@ -387,6 +387,7 @@ fr:
   user_mailer:
     thank_you: "L'équipe de Vinosus vous remercie pour votre participation !"
     estate_validated: "La fiche producteur que vous avez créée vient d'être validé."
+    wine_validated: "La fiche win que vous avez créée vient d'être validé."
   vintages:
     vintages: Millésimes
     table: Tableau des millésimes, selon les avis des utilisateurs

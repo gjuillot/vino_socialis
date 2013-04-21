@@ -87,7 +87,9 @@ class WinesController < ApplicationController
   # POST /wines/1/validate
   def validate
     @wine.validation = true
-    @wine.save
+    if @wine.save
+      UserMailer.wine_validated_email(@wine).deliver
+    end
     redirect_to sheets_moderations_path
   end
   
