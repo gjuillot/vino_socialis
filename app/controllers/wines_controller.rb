@@ -105,6 +105,11 @@ class WinesController < ApplicationController
     redirect_to new_tasting_path(:wine => @wine)
   end
   
+  def tastings
+    @tastings = Tasting.where('wine_id = ?', @wine.id).order('id DESC')
+    render template: 'tastings/index'
+  end
+  
   def encave
     redirect_to new_bottle_path(:wine => @wine)
   end

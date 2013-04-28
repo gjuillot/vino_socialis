@@ -54,6 +54,7 @@ VinoSocialis::Application.routes.draw do
         post 'validate'
         post 'unvalidate'
         get 'taste'
+        get 'tastings'
         get 'encave'
         get 'recommand'
         get 'unrecommand'

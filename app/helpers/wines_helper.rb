@@ -120,6 +120,10 @@ module WinesHelper
     action_button(taste_wine_path(wine), "icon-taste", t('icon.taste'))
   end
   
+  def action_button_wine_tasting(wine)
+    action_button(tastings_wine_path(wine), 'icon-tastings', t('icon.wine_tastings'))
+  end
+  
   def action_button_encave(wine)
     action_button(encave_wine_path(wine), "icon-encave", t('icon.encave'))
   end

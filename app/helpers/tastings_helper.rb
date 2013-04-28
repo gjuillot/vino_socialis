@@ -11,10 +11,6 @@ module TastingsHelper
     return raw res
   end
   
-  def action_button_wine_tasting(wine)
-    action_button(tastings_path(:wine => wine), 'icon-tastings', t('icon.wine_tastings'))
-  end
-  
   def tasting_eye_colors(wine)
     if wine.white?
       [
