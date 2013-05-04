@@ -1,12 +1,26 @@
-
+<% title = wine_name(@wine, estate:true, area:true) %>
 <% description = @wine.area.name + ", " + t('wine.color.' + @wine.wine_color).downcase %>
 <% description += ' - ' + @wine.grape_varieties.map(&:name).join(', ') unless @wine.grape_varieties.empty? %>
 <% description += ' - ' + t('wine.labels', count: @wine.labels.validated.count) if @wine.labels.validated.any? %>
 <% description += ' - ' + t('wine.tastings', count: @wine.tastings.count) if @wine.tastings.any? %>
 <% description += ' - ' + t('wine.recommandations.others', count: @wine.recommandations.count) if @wine.recommandations.any? %>
 
-<% set_meta_tags :title => wine_name(@wine, estate:true, area:true),
-                 :description => description %>
+<% set_meta_tags :title => title,
+                 :description => description,
+                 :og => {
+                   :url => wine_url(@wine),
+                   :title => title,
+                   :type => "vinosus:wine",
+                   :locale => I18n.locale,
+                   :description => description,
+                   :site_name => site_name
+                 },
+                 :twitter => {
+                   :card => 'summary'
+                 } %>
+<% if @wine.labels.validated.any? %>
+  <% set_meta_tags :og => {:image => @wine.labels.validated.first.image_url(:small)} %>
+<% end %>
 
 <div class="white-opacity rounded">
 

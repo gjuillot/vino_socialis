@@ -1,5 +1,17 @@
+<% description = t('estate.description', town: @estate.town, country: @estate.country, count: @estate.wines.count) %>
 <% set_meta_tags :title => @estate.name,
-                 :description => t('estate.description', town: @estate.town, country: @estate.country, count: @estate.wines.count) %>
+                 :description => description,
+                 :og => {
+                   :url => estate_url(@estate),
+                   :title => @estate.name,
+                   :type => "vinosus:estate",
+                   :locale => I18n.locale,
+                   :description => description,
+                   :site_name => site_name
+                 },
+                 :twitter => {
+                   :card => 'summary'
+                 } %>
 
 <div class="white-opacity rounded-top more-padding">
   
