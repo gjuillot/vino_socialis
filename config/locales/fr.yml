@@ -386,8 +386,10 @@ fr:
         other: "%{count} accords mets-vins"
   user_mailer:
     thank_you: "L'équipe de Vinosus vous remercie pour votre participation !"
-    estate_validated: "La fiche producteur que vous avez créée vient d'être validé."
-    wine_validated: "La fiche win que vous avez créée vient d'être validé."
+    estate_validated: "La fiche producteur que vous avez créée vient d'être validée."
+    estate_replaced_: "La fiche producteur que vous avez créée vient d'être remplacée par %{estate}."
+    wine_validated: "La fiche vin que vous avez créée vient d'être validée."
+    wine_replaced_: "La fiche vin que vous avez créée vient d'être remplacée par %{wine}."
   vintages:
     vintages: Millésimes
     table: Tableau des millésimes, selon les avis des utilisateurs

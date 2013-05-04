@@ -50,7 +50,7 @@ class EstatesController < ApplicationController
   def validate
     @estate.validation = true
     if @estate.save
-      UserMailer.estate_validated_email(@estate).deliver
+      UserMailer.estate_validated(@estate).deliver
     end
     redirect_to sheets_moderations_path
   end
@@ -69,6 +69,7 @@ class EstatesController < ApplicationController
       w.save
     end
     @replaced.destroy
+    UserMail.estate_replaced(@replaced, @estate).deliver
     redirect_to :controller => 'moderations', :action => 'sheets'
   end
 end

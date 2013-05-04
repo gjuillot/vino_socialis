@@ -88,7 +88,7 @@ class WinesController < ApplicationController
   def validate
     @wine.validation = true
     if @wine.save
-      UserMailer.wine_validated_email(@wine).deliver
+      UserMailer.wine_validated(@wine).deliver
     end
     redirect_to sheets_moderations_path
   end
@@ -128,6 +128,7 @@ class WinesController < ApplicationController
     end
     
     @replaced.destroy
+    UserMail.wine_replaced(@replaced, @wine).deliver
     redirect_to :controller => 'moderations', :action => 'sheets'
   end
   

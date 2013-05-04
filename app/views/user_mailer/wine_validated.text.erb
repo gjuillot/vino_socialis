@@ -1,0 +1,7 @@
+<%= wine_name @replaced, estate: true, area: true, html: false %>
+<%= wine_url @replaced, locale: @replaced.user.locale %>
+
+<%= t('user_mailer.wine_replaced', :wine => wine_name(@replaced_by, estate: true, area: true, html: false)) %>
+<%= wine_url @replaced_by, locale: @replaced.user.locale %>
+
+<%= t('user_mailer.thank_you')%>
