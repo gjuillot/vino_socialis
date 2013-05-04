@@ -126,8 +126,9 @@
     <%= raw "<br /><br />" unless @wine.tastings.empty? and @wine.recommandations.empty? %>
     
     <% unless @wine.tastings.empty? %>
+    <br />
     <p>
-      <%= link_to t("wine.tastings", :count => @wine.tastings.count), tastings_path(:wine => @wine) if user_signed_in? %>
+      <%= link_to t("wine.tastings", :count => @wine.tastings.count), tastings_wine_path(@wine) if user_signed_in? %>
       <%= t("wine.tastings", :count => @wine.tastings.count) unless user_signed_in? %>
     </p>
     <% end %>
