@@ -40,20 +40,22 @@ $('.vintages.index').ready(function() {
     return ((x < y) ? -1 : ((x > y) ?  1 : 0));
   }
   
-  var oTable = $('.dataTable').dataTable({
-    "bFilter": false,
-    "bInfo": false,
-    "bPaginate": false,
-    "bAutoWidth": true,
-    "aaSorting": [[ 0, "desc" ]],
-    "sPaginationType": "bootstrap",
-    "sScrollX": "100%",
-    "aoColumnDefs": [{"sType": "raty", "aTargets": ["raty"]}]
-  });
-  new FixedColumns( oTable, {
-    "iLeftColumns": 1,
-    "iLeftWidth": 50
-  });
+  for (var i = 0; i <= 1; i++) {
+    var oTable = $('.dataTable' + i).dataTable({
+      "bFilter": false,
+      "bInfo": false,
+      "bPaginate": false,
+      "bAutoWidth": true,
+      "aaSorting": [[ 0, "desc" ]],
+      "sPaginationType": "bootstrap",
+      "sScrollX": "100%",
+      "aoColumnDefs": [{"sType": "raty", "aTargets": ["raty"]}]
+    });
+    new FixedColumns( oTable, {
+      "iLeftColumns": 1,
+      "iLeftWidth": 50
+    });
+  }
   
 });
 
