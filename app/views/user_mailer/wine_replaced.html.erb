@@ -5,7 +5,9 @@
   </head>
   <body>
     <h1><%= wine_name(@replaced, estate: true, area: true, html: false) %></h1>
-    <p><%=raw t('user_mailer.wine_replaced', :wine => wine_name(@replaced_by, estate: true, area: true, html: false), wine_url(@replaced_by, locale: @replaced.user.locale)) %></p>
-    <p><%= t('user_mailer.thank_you')%></p>
+<% name = wine_name(@replaced_by, estate: true, area: true, html: false) %>
+<% url = wine_url(@replaced_by, locale: @replaced.user.locale) %>
+    <p><%=raw t('user_mailer.wine_replaced', :wine => link_to(name, url)) %></p>
+    <p><%= t('user_mailer.thank_you') %></p>
   </body>
 </html>
