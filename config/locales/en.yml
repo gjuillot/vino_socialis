@@ -453,7 +453,9 @@ en:
     row: "Row"
     column: "Column"
     bottle: "Bottle"
-    place: "Place a bottle into %{name}"
+    place:
+      one: "Place a bottle into %{name}"
+      other: "Place %{count} bottles into %{name}"
     place_instruction: "Click on a free position"
     rack_is_empty: "This rack does not contain any bottle for the moment.<br />Select a bottle in &nbsp;  %{my_bottles} &nbsp; in order to place it in a rack."
     empty: "Empty this rack"
@@ -483,7 +485,7 @@ en:
     wine_unrecommanded: Wine was successfully unrecommanded.
     wine_not_recommanded: Wine was not successfully recommanded.
     rack_created: Rack was successfully created.
-    bottle_placed: Bottle was successfully placed.
+    bottle_placed: Bottle(s) was(were) successfully placed.
     user_updated: User was successfully updated.
     tasting_created: Tasting was successfully created.
     tasting_pairing_created: Tasting and pairing were successfully created.

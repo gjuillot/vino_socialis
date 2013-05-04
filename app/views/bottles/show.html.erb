@@ -44,6 +44,11 @@
         <br /><%= link_to t('wine_rack.new'), new_wine_rack_path %><br /><br />
       <% else %>
         <%= form_for @bottle, :url => {:action => 'place'}, :html => {:class => 'form-inline', :method => 'get'} do %>
+          <% if not_placed > 1 %>
+            <%= select_tag 'quantity', options_for_select((1..not_placed).map {|q| [t('bottles.placed', count: q), q]}) %><br />
+          <% else %>
+            <%= hidden_field_tag 'quantity', 1 %>
+          <% end %>
           <%= select_tag 'wine_rack_id', options_for_select(@all_wine_racks.map {|r| [r.name, r.id]}) %>
           <%= submit_tag t('bottles.place'), class: 'btn btn-primary' %>
         <% end %>

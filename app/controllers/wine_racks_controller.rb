@@ -43,6 +43,7 @@ class WineRacksController < ApplicationController
   def place
     init_wine_rack_positions
     @bottle = Bottle.find(params[:bottle])
+    @quantity = params[:quantity]
   end
   
   def apply_place
@@ -52,7 +53,11 @@ class WineRacksController < ApplicationController
     row = params[:row]
     column = params[:column]
     WineRackPosition.create(:wine_rack => @wine_rack, :bottle => bottle, :total_row => total_row, :total_column => total_column, :row => row, :column => column)
-    redirect_to @wine_rack, notice: 'bottle_placed'
+    if params[:quantity].to_i > 1
+      redirect_to :action => 'place', :id => @wine_rack.id, :bottle => params[:bottle], :quantity => params[:quantity].to_i - 1
+    else
+      redirect_to @wine_rack, notice: 'bottle_placed'
+    end
   end
   
   def empty

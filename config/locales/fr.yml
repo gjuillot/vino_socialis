@@ -449,7 +449,9 @@ fr:
     row: "Ligne"
     column: "Colonne"
     bottle: "Bouteille"
-    place: "Placer une bouteille dans %{name}"
+    place:
+      one: "Placer une bouteille dans %{name}"
+      other: "Placer %{count} bouteilles dans %{name}"
     place_instruction: "Cliquer sur un emplacement libre"
     rack_is_empty: "Ce casier ne contient aucune bouteille actuellement.<br />Sélectionnez une bouteille via &nbsp;  %{my_bottles} &nbsp; pour la placer dans un casier."
     empty: "Vider ce casier"
@@ -479,7 +481,7 @@ fr:
     wine_unrecommanded: Vous ne recomandez plus ce vin.
     wine_not_recommanded: Echec, vous recomandez toujours ce vin.
     rack_created: Casier créé.
-    bottle_placed: Bouteille placée.
+    bottle_placed: Bouteille(s) placée(s).
     user_updated: Utilisateur mis à jour.
     tasting_created: Dégustation enregistrée.
     tasting_pairing_created: Dégustation et accord enregistrés.

@@ -128,7 +128,7 @@ class BottlesController < ApplicationController
   end
   
   def place
-    redirect_to place_wine_rack_path(WineRack.find(params[:wine_rack_id]), :bottle => @bottle)
+    redirect_to place_wine_rack_path(WineRack.find(params[:wine_rack_id]), :bottle => @bottle, :quantity => params[:quantity])
   end
   
   def unplace

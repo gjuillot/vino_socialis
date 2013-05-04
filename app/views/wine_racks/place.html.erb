@@ -1,7 +1,7 @@
 <% provide(:title, t('wine_rack.place', name: @wine_rack.name)) %>
 
 <div class="white-opacity rounded">
-  <h1><%= t 'wine_rack.place', name: @wine_rack.name %></h1>
+  <h1><%= t 'wine_rack.place', name: @wine_rack.name, count: @quantity.to_i %></h1>
   <h2><%= bottle_name @bottle, html: false %></h2>
   
   <p>
@@ -14,7 +14,7 @@
         <% (0..(@wine_rack.total_columns - 1)).each do |total_column| %>
           <td>
             <% letter = compartment_letter(@wine_rack, total_row, total_column) %>
-            <%= render :partial => "wine_racks/place/#{@wine_rack.layout}", :locals =>  { :compartment => @positions[total_row][total_column], :letter => letter, :total_row => total_row, :total_column => total_column, :rows => @wine_rack.rows, :columns => @wine_rack.columns} %>
+            <%= render :partial => "wine_racks/place/#{@wine_rack.layout}", :locals =>  { :compartment => @positions[total_row][total_column], :letter => letter, :total_row => total_row, :total_column => total_column, :rows => @wine_rack.rows, :columns => @wine_rack.columns, :quantity => @quantity} %>
           </td>
         <% end %>
       </tr>
