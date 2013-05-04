@@ -4,7 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1><%= link_to @replaced.name, estate_url(@replaced, :locale => @replaced.user.locale) %></h1>
+    <h1><%= @replaced.name %></h1>
     <p><%=raw t('user_mailer.estate_replaced', :estate => link_to(@replaced_by.name, estate_url(@replaced_by, :locale => @replaced.user.locale))) %></p>
     <p><%= t('user_mailer.thank_you')%></p>
   </body>
