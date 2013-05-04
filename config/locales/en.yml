@@ -387,6 +387,12 @@ en:
         zero: No wine pairing
         one: One wine pairing
         other: "%{count}  wine pairings"
+  user_mailer:
+    thank_you: "Vinosus team thanks you for your participation !"
+    estate_validated: "The estate sheet you created has just been validated."
+    estate_replaced: "The estate sheet you created has just been replaced by %{estate}."
+    wine_validated: "The wine sheet you created has just been validated."
+    wine_replaced: "The wine sheet you created has just been replaced by %{wine}."
   vintages:
     vintages: Vintages
     table: Vintage table build upon user feedbacks
