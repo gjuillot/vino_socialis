@@ -128,7 +128,7 @@ class WinesController < ApplicationController
     end
     
     @replaced.destroy
-    UserMail.wine_replaced(@replaced, @wine).deliver
+    UserMailer.wine_replaced(@replaced, @wine).deliver
     redirect_to :controller => 'moderations', :action => 'sheets'
   end
   

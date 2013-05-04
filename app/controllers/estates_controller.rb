@@ -69,7 +69,7 @@ class EstatesController < ApplicationController
       w.save
     end
     @replaced.destroy
-    UserMail.estate_replaced(@replaced, @estate).deliver
+    UserMailer.estate_replaced(@replaced, @estate).deliver
     redirect_to :controller => 'moderations', :action => 'sheets'
   end
 end

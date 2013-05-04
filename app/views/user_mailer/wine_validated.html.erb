@@ -4,8 +4,8 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1><%= link_to wine_name(@replaced, estate: true, area: true, html: false), wine_url(@replaced, locale: @replaced.user.locale) %></h1>
-    <p><%=raw t('user_mailer.wine_replaced', :wine => wine_name(@replaced_by, estate: true, area: true, html: false), wine_url(@replaced_by, locale: @replaced.user.locale)) %></p>
+    <h1><%= link_to wine_name(@wine, estate: true, area: true, html: false), wine_url(@wine, locale: @wine.user.locale) %></h1>
+    <p><%= t('user_mailer.wine_validated')%></p>
     <p><%= t('user_mailer.thank_you')%></p>
   </body>
 </html>
