@@ -7,7 +7,7 @@
       Pour découvrir le monde du vin :<br />
       <%= link_to raw('<i class="icon-list"></i> ') + t("menu.discover.wines_estates"), wines_and_estates_path %><br />
       <%= link_to raw('<i class="icon-book"></i> ') + t("menu.discover.glossaries"), glossaries_path %><br />
-      <%= link_to raw('<i class="icon-thumbs-up"></i> ') + t("menu.discover.recommmandations_me"), most_wine_recommandations_path %><br />
+      <%= link_to raw('<i class="icon-thumbs-up"></i> ') + t("menu.discover.recommmandations"), recommanded_wines_path %><br />
       <%= link_to raw('<i class="icon-random"></i> ') + t("menu.discover.pairings"), pairings_path %><br />
       et bien plus encore...
     </div>
@@ -48,7 +48,6 @@
         <%=raw action_button_show @wine %> permet de voir la fiche du vin. Vous pouvez également cliquer sur son nom.<br />
         <%=raw action_button_wine_tasting @wine %> permet de voir les dégustations connues pour ce vin.<br />
         <%=raw action_button_add_label @wine %> permet d'ajouter une image (étiquette par exemple).<br />
-        <%=raw action_button_recommand @wine %> permet de recommander ce vin aux autre utilisateurs.<br />
         <%=raw action_button_taste @wine %> permet d'entrer une fiche dégustation si vous avez goûté ce vin.<br />
         <%=raw action_button_encave @wine %> permt d'ajouter ce vin à la liste de vos bouteilles.
       </ul>
@@ -77,7 +76,7 @@
       <%= link_to raw('<i class="icon-tastings"></i> ') + t("menu.track.my_tastings"), me_tastings_path %><br />
       Enregistrez une trace des vins que vous dégustez pour mieux retrouver vos coups de coeur.<br />
       <br />
-      <%= link_to raw('<i class="icon-thumbs-up"></i> ') + t("menu.discover.recommmandations_me"), most_wine_recommandations_path %><%= link_to raw('<i class="icon-random"></i> ') + t("menu.discover.pairings"), pairings_path, :class => 'pull-right' %><br />
+      <%= link_to raw('<i class="icon-thumbs-up"></i> ') + t("menu.discover.recommmandations"), recommanded_wines_path %><%= link_to raw('<i class="icon-random"></i> ') + t("menu.discover.pairings"), pairings_path, :class => 'pull-right' %><br />
       Vos dégustations permettent également de mieux conseiller vous et les autres utilisateurs.
     </div>
   </div>

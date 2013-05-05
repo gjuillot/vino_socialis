@@ -7,7 +7,6 @@ module WinesHelper
     links ||= options[:links]
     label ||= options[:label]
     do_not_close_tr ||= options[:do_not_close_tr]
-    recommandations ||= options[:recommandations]
     separator = options[:separator] || ' - '
     
     res = ""
@@ -55,16 +54,6 @@ module WinesHelper
       res += (html ? link_to(wine.area.name, wine.area) : wine.area.name)
     end
     
-    # RECOMMANDATIONS
-    if recommandations
-      if links
-        res += "</td><td>"
-      else
-        res += separator
-      end
-      res += '<i class="icon-heart"></i>' * wine.recommandations_but(current_user).count
-    end
-    
     # ACTION BUTTON
     if links
       res += '</td><td>' + wine_action_buttons(wine) + '</td>'
@@ -79,9 +68,8 @@ module WinesHelper
     
     res += action_button_show(wine) if can? :read, wine
     res += action_button_wine_tasting(wine) if can? :read, Tasting
-    res += '|&nbsp;&nbsp;&nbsp;' if can? :add_label, wine or can? :recommand, wine or can? :taste, wine or can? :encave, wine
+    res += '|&nbsp;&nbsp;&nbsp;' if can? :add_label, wine or can? :taste, wine or can? :encave, wine
     res += action_button_add_label(wine) if can? :add_label, wine
-    res += (wine.recommanded_by?(current_user) ? action_button_unrecommand(wine) : action_button_recommand(wine)) if can? :recommand, wine
     res += action_button_taste(wine) if can? :taste, wine
     res += action_button_encave(wine) if can? :encave, wine
     
@@ -106,14 +94,6 @@ module WinesHelper
   
   def action_button_add_label(wine)
     action_button(add_label_wine_path(wine), "icon-add-label", t('icon.label'))
-  end
-  
-  def action_button_recommand(wine)
-    action_button(recommand_wine_path(wine), "icon-heart", t('icon.recommand'))
-  end
-  
-  def action_button_unrecommand(wine)
-    action_button(unrecommand_wine_path(wine), "icon-unrecommand", t('icon.unrecommand'))
   end
   
   def action_button_taste(wine)

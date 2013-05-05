@@ -10,8 +10,7 @@ fr:
       vintages: "Millésimes"
       wines_estates: "Vins et producteurs"
       latest_tastings: "Dernières dégustations"
-      latest_recommandations: "Dernières recommandations"
-      recommmandations_me: "Recommandés pour vous"
+      recommmandations: "Recommandés pour vous"
       pairings: "Accords mets-vin"
       glossaries: "Glossaire"
     track:
@@ -57,8 +56,6 @@ fr:
     destroy: "Détruire"
     cancel: "Annuler"
     wine_tastings: "Voir les dégustations pour ce vin"
-    recommand: "Recommander"
-    unrecommand: "Dé-recommander"
     converse: "Converser"
     label: Ajouter une nouvelle étiquette
   area:
@@ -255,10 +252,6 @@ fr:
     latest: 'Derniers accords mets-vin'
     search: 'Rechercher'
     best_matches: 'Meilleures correspondances en cave'
-  recommandation:
-    recommandations: "Recommandations"
-    latest: "Dernières recommandations"
-    most: "Les plus recommandés"
   region:
     regions: "Régions"
     new: "Nouvelle région"
@@ -364,10 +357,6 @@ fr:
         current_value_title: "Cote total"
         oldest_title: "Plus vieille"
         most_expensive_title: "Plus chère"
-        recommandations_count:
-          zero: "Aucune recommandation"
-          one: "1 recommandation"
-          other: "%{count} recommandations"
         consumptions_count:
           zero: "Aucune bouteille sortie"
           one: "1 bouteille sortie"
@@ -420,14 +409,6 @@ fr:
     tastings:
       one: "1 dégustation"
       other: "%{count} dégustations"
-    recommandations:
-      you:
-        zero: "Vous recommandez ce vin"
-        one: "Vous et 1 utilisateur recommandez ce vin"
-        other: "Vous et %{count} utilisateurs recommandez ce vin"
-      others:
-        one: "1 utilisateur recommande ce vin"
-        other: "%{count} utilisateurs recommandent ce vin"
     color:
       white: 'Blanc'
       red: 'Rouge'
@@ -478,10 +459,6 @@ fr:
     select_at_least_one_bottle: Sélectionnez au moins une bouteille.
     wine_created: Fiche vin créée.
     wine_updated: Fiche vin mise à jour.
-    wine_recommanded: Vin recommandé.
-    wine_not_recommanded: Echec à la recommandation du vin.
-    wine_unrecommanded: Vous ne recomandez plus ce vin.
-    wine_not_recommanded: Echec, vous recomandez toujours ce vin.
     rack_created: Casier créé.
     bottle_placed: Bouteille(s) placée(s).
     user_updated: Utilisateur mis à jour.

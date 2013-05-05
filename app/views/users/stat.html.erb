@@ -37,9 +37,6 @@
           <dd><%= link_to bottle_name(@most_expensive), @most_expensive %> - <%= formated_price @most_expensive.current_value %></dd>
         <% end %>
         
-        <dt><i class="icon-heart"></i></dt>
-        <dd><%= t('user.stat.summary.recommandations_count', count: @user.wine_recommandations.count) %> </dd>
-        
         <dt><i class="icon-hand-down"></i></dt>
         <dd><%= t('user.stat.summary.consumptions_count', count: @user.consumptions.sum(:quantity)) %> </dd>
       </dl>

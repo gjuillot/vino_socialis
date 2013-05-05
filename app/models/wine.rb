@@ -13,7 +13,6 @@ class Wine < ActiveRecord::Base
   
   has_many :bottles
   has_many :tastings
-  has_many :wine_recommandations
   has_many :labels
   
   validates :name, :presence => true
@@ -37,29 +36,11 @@ class Wine < ActiveRecord::Base
   end
   
   def destroyable?
-    not validated? and Bottle.where('wine_id = ?', id).count == 0 and Tasting.where('wine_id = ?', id).count == 0 and WineRecommandation.where('wine_id = ?', id).count == 0
+    not validated? and Bottle.where('wine_id = ?', id).count == 0 and Tasting.where('wine_id = ?', id).count == 0
   end
   
   def region_id
     area.region_id
-  end
-  
-  def recommandations
-    wine_recommandations
-  end
-  
-  def recommandations_but(user)
-    WineRecommandation.where('wine_id = ? AND user_id != ?', self.id, user.id)
-  end
-  
-  def recommanded_by?(user)
-    return false if user.nil?
-    recommandations.each do |r|
-      if (r.user_id == user.id) 
-        return true
-      end
-    end
-    return false
   end
   
   RED = %w[red red_port_type sparkling_red]

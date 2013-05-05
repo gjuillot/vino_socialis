@@ -11,8 +11,7 @@ en:
       temperature: Température
       wines_estates: "Wines et estates"
       latest_tastings: "Latest tastings"
-      latest_recommandations: "Latest recommandations"
-      recommmandations_me: "Recommanded for you"
+      recommmandations: "Recommanded for you"
       pairings: "Wine pairings"
       glossaries: "Glossary"
     track:
@@ -58,8 +57,6 @@ en:
     destroy: "Destroy"
     cancel: "Cancel"
     wine_tastings: "See tastings for this wine"
-    recommand: "Recommand"
-    unrecommand: "Unrecommand"
     converse: "Converse"
     label: Add a new label
   area:
@@ -258,10 +255,6 @@ en:
     latest: 'Latest wine pairings'
     search: 'Search'
     best_matches: 'Best matches in your bottles'
-  recommandation:
-    recommandations: "Recommandations"
-    latest: "Latest recommandations"
-    most: "Most recommanded"
   region:
     regions: "Regions"
     new: "New region"
@@ -367,10 +360,6 @@ en:
         current_value_title: "Total value"
         oldest_title: "Oldest"
         most_expensive_title: "Most expensive"
-        recommandations_count:
-          zero: "No recommandation"
-          one: "1 recommandation"
-          other: "%{count} recommandations"
         consumptions_count:
           zero: "No bottle out"
           one: "1 bottle out"
@@ -424,14 +413,6 @@ en:
     tastings:
       one: "1 tasting available for this wine"
       other: "%{count} tastings available for this wine"
-    recommandations:
-      you:
-        zero: "You recommand this wine"
-        one: "You and 1 user are recommanding this wine"
-        other: "You and %{count} users are recommanding this wine"
-      others:
-        one: "1 user is recommanding this wine"
-        other: "%{count} users are recommanding this wine"
     color:
       white: 'White'
       red: 'Red'
@@ -482,10 +463,6 @@ en:
     select_at_least_one_bottle: Select at least one bottle.
     wine_created: Wine was successfully created.
     wine_updated: Wine was successfully updated.
-    wine_recommanded: Wine was successfully recommanded.
-    wine_not_recommanded: Wine was not successfully recommanded.
-    wine_unrecommanded: Wine was successfully unrecommanded.
-    wine_not_recommanded: Wine was not successfully recommanded.
     rack_created: Rack was successfully created.
     bottle_placed: Bottle(s) was(were) successfully placed.
     user_updated: User was successfully updated.

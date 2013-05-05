@@ -35,12 +35,6 @@ VinoSocialis::Application.routes.draw do
       end
     end
     
-    resources :wine_recommandations do
-      collection do
-        get 'most'
-      end
-    end
-
     resources :estates do
       member do
         post 'validate'
@@ -56,10 +50,11 @@ VinoSocialis::Application.routes.draw do
         get 'taste'
         get 'tastings'
         get 'encave'
-        get 'recommand'
-        get 'unrecommand'
         get 'replace'
         get 'add_label'
+      end
+      collection do
+        get 'recommanded'
       end
     end
 

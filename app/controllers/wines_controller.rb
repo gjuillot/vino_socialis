@@ -62,28 +62,6 @@ class WinesController < ApplicationController
     redirect_to clean_moderations_path
   end
   
-  # GET /wines/1/recommand
-  def recommand
-    recommandation = WineRecommandation.new
-    recommandation.wine = @wine
-    recommandation.user = current_user
-    if recommandation.save
-      redirect_to @wine, notice: 'wine_recommanded'
-    else
-      redirect_to @wine, alert: 'wine_not_recommanded'
-    end
-  end
-  
-  # GET /wines/1/unrecommand
-  def unrecommand
-    recommandation = WineRecommandation.where('user_id = ? AND wine_id = ?', current_user.id, @wine.id)
-    if recommandation.destroy_all
-      redirect_to @wine, notice: 'wine_unrecommanded'
-    else
-      redirect_to @wine, alert: 'wine_not_unrecommanded'
-    end
-  end
-  
   # POST /wines/1/validate
   def validate
     @wine.validation = true
@@ -122,11 +100,6 @@ class WinesController < ApplicationController
       b.save
     end
     
-    @replaced.wine_recommandations.each do |b|
-      b.wine_id = @wine.id
-      b.save
-    end
-    
     @replaced.destroy
     UserMailer.wine_replaced(@replaced, @wine).deliver
     redirect_to :controller => 'moderations', :action => 'sheets'
@@ -134,6 +107,11 @@ class WinesController < ApplicationController
   
   def add_label
     redirect_to new_label_path(:wine => @wine)
+  end
+  
+  def recommanded
+    tmp = Tasting.all.inject({}) {|h,(t)| h[t.wine] ||= []; h[t.wine] << t.note; h}
+    @wines = tmp.sort {|a,b| 1000*(a[1].sum.to_f / a[1].size) + a[1].size <=> 1000*(b[1].sum.to_f / b[1].size) + b[1].size}.last(20).reverse
   end
   
 end
