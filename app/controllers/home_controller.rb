@@ -34,6 +34,11 @@ class HomeController < ApplicationController
   def why
   end
   
+  def newcomer
+    @estate = Estate.find(2)
+    @wine = @estate.wines.first
+  end
+  
   def sitemap
     @estates = Estate.validated
     @wines = Wine.validated

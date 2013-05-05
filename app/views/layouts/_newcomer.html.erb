@@ -1,0 +1,5 @@
+<% if user_signed_in? and current_user.tutorial? %>
+  <li class="dropdown">
+  	<a class="dropdown-toggle" href="<%= newcomer_path %>"><%= t('menu.newcomer.title') %></a>
+  </li>
+<% end %>

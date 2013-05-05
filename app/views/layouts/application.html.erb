@@ -23,7 +23,8 @@
             <%= render 'layouts/share' %>
   	      </ul>
   	      <ul class="nav pull-right">
-  	      	<%= render 'layouts/search' %>
+            <%= render 'layouts/newcomer' %>
+            <%= render 'layouts/search' %>
             <%= render 'layouts/moderation' %>
   	      	<%= render 'layouts/profile' %>
   	      </ul>
@@ -46,9 +47,14 @@
 
       
       <%= yield %>
+      
+      <br /><br />
     </div>
     
+    <br />
+    
     <footer class="container footer">
+      <br />
       <nav>
         <ul class="pull-left">
           <% ['fr', 'en'].each do |l| %>

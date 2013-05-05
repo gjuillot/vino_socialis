@@ -8,17 +8,11 @@
   <p>
     <ul>
       <li>
+        Consultez le <%= link_to 'guide du nouvel inscrit', newcomer_path %> pour comprendre les bases de Vinosus.
+      </li>
+      <li>
         Vous pouvez désactiver le tutoriel et changer vos paramètres à l'aide du menu <strong></b><%= current_user.name %></strong> puis en choisissant <strong><i class="icon-user"></i><%= t("menu.profile.my") %>
       </li></strong></li>
-      <li>
-        Pour enregistrez les bouteilles que vous possédez, passez par le menu <strong><%= t("menu.track.title") %></strong> puis <strong><i class="icon-encave"></i><%= t("menu.track.new_bottle") %></strong>
-      </li>
-      <li>
-        C'est aussi dans ce menu <strong><%= t("menu.discover.title") %></strong> que vous trouverez nos vins <strong><i class="icon-thumbs-up"></i><%= t("menu.discover.recommmandations_me") %></strong> ou nos conseils en <strong><i class="icon-random"></i><%= t("menu.discover.pairings") %></strong>
-      </li>
-      <li>
-        Vous retrouverez la liste de vos bouteilles dans <strong><%= t("menu.track.title") %></strong> puis <strong><i class="icon-bottles"></i><%= t("menu.track.my_bottles") %></strong>
-      </li>
     </ul>
   </p>
 </div>

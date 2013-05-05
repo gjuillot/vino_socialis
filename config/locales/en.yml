@@ -28,6 +28,8 @@ en:
       users: "Users"
       new_wine: "Suggest a new wine sheet"
       taste: "Taste a wine"
+    newcomer:
+      title: Newcomer?
     search:
       title: "Quick search"
       estate_wine: "Estate or wine"

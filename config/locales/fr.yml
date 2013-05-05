@@ -27,6 +27,8 @@ fr:
       users: "Utilisateurs"
       new_wine: "Proposer une nouvelle fiche de vin"
       taste: "Déguster un vin"
+    newcomer:
+      title: Nouvel inscrit ?
     search:
       title: "Recherche rapide"
       estate_wine: "Producteur ou vin"

@@ -130,6 +130,7 @@ VinoSocialis::Application.routes.draw do
     match '/temperature', :to => "home#temperature"
     match '/track', :to => "home#track"
     match '/share', :to => "home#share"
+    match '/newcomer', :to => "home#newcomer"
     match '/sitemap', :to => "home#sitemap"
   end
 
