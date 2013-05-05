@@ -121,7 +121,11 @@ module WinesHelper
   end
   
   def action_button_wine_tasting(wine)
-    action_button(tastings_wine_path(wine), 'icon-tastings', t('icon.wine_tastings'))
+    if wine.tastings.any?
+      action_button(tastings_wine_path(wine), 'icon-tastings', t('icon.wine_tastings'))
+    else
+      action_button(tastings_wine_path(wine), 'icon-tastings-white', t('icon.wine_tastings'))
+    end
   end
   
   def action_button_encave(wine)
