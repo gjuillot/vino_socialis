@@ -25,7 +25,7 @@
     <div class="span3">
     	<br/></br/>
     	<%= form_tag search_pairings_path, method: 'get' do %>
-    	  <input id="q" name="q" type="text" value="<%= @searched %>" data-provide="typeahead" data-items="10" data-source='<%= raw dishes_array %>' autocomplete='off' />
+    	  <input id="q" name="q" type="text" value="<%= @searched %>" data-provide="typeahead" data-items="10" data-source='<%= (raw dishes_array).gsub("'", "\'") %>' autocomplete='off' />
     	  <%= submit_tag t('pairing.search'), class: "btn btn-primary" %>
     	<% end %>
     </div>
