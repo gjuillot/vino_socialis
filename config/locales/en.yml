@@ -267,6 +267,10 @@ en:
     latest: "Latest tastings"
     show: "Show tasting"
     user: "Tasted by"
+    count:
+      zero: No tasting
+      one: "1 tasting"
+      other: "%{count} tastings"
     tab:
       basic: Basic
       comments: Comments

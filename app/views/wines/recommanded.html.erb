@@ -4,10 +4,10 @@
     <tr>
       <td><%= wine_color_image wine %></td>
       <td><%= wine_name wine, estate: true, area: true, html: true %></td>
-      <td><%= notes.sum.to_f / notes.size %></td>
+      <td class="star" data-score="<%= notes.sum.to_f / notes.size %>"></td>
       <td>
         <a href='<%= tastings_wine_path(wine) %>' data-toggle='tooltip' title='<%= t('icon.wine_tastings') %>'>
-          <%= notes.size %> dégustations
+          <%= t('tasting.count', count: notes.size) %>
         </a>
       </td>
     </tr>

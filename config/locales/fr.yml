@@ -264,6 +264,10 @@ fr:
     latest: "Dernières dégustations"
     show: "Voir la dégustation"
     user: "Dégusté par"
+    count:
+      zero: Aucune dégustation
+      one: "1 dégustation"
+      other: "%{count} dégustations"
     tab:
       basic: Basique
       comments: Commentaires
