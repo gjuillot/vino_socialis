@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   
   def search
     respond_to do |format|
-      users = User.where("name LIKE ?", "%#{params[:q]}%").map(&:attributes)
+      users = User.where("name ILIKE ?", "%#{params[:q]}%").map(&:attributes)
       format.json { render :json => users }
     end
   end
