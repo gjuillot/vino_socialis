@@ -1,13 +1,19 @@
 <div class="span6 offset3 white-opacity rounded">
-
-  <h1><%= t('conversation.new', :user => @users.map{|u| u.name}.join(', ')) %></h1>
+  
+  <h1><%= t('conversation.new') %></h1>
   
   <%= form_tag({:action => 'create'}, :class => 'form-horizontal') do %>
   
-  <% @users.each do |u| %>
-      <%= hidden_field_tag 'users[]', u.id %>
-  <% end %>
   <%= hidden_field_tag 'admin_tag', @admin_tag %>
+  
+    <div class="control-group">
+      <%= label_tag 'users_list', t('conversation.to'), class: 'control-label' %>
+      <div class="controls">
+        <div class="input-prepend">
+          <input id="users_list" name="users_list" type="text" size="30"  data-path="<%= search_users_path() %>" data-pre="<%= @users.map{|u| {name: u.name}}.to_json %>" data-hint="<%= t('helpers.token_input.hint') %>" data-searching="<%= t('helpers.token_input.searching') %>" />
+        </div>
+      </div>
+    </div>
   
     <div class="control-group">
       <%= label_tag 'subject', t('conversation.subject'), class: 'control-label' %>

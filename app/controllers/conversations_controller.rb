@@ -13,7 +13,7 @@ class ConversationsController < ApplicationController
   end
   
   def new
-    @users = [User.find(params[:user])]
+    @users = params[:user].blank? ? [] : [User.find(params[:user])]
     @admin_tag = ""
     @bug_page = ""
   end
@@ -33,7 +33,7 @@ class ConversationsController < ApplicationController
   end
   
   def create
-    @users = User.find(params[:users])
+    @users = params[:users_list].split(',').map {|name| User.find_by_name(name)}
     
     if params[:admin_tag]
       params[:subject] = params[:admin_tag] + params[:subject]

@@ -1,25 +1,32 @@
 <div class="white-opacity rounded-top">
 
   <h1><%= t('conversation.my') %></h1>
-  <table class="table table-condensed">
-    <thead>
-    	<tr>
-        <th><%= t('conversation.subject') %></th>
-    	  <th><%= t('conversation.last_sender')%></th>
-    	  <th><%= t('conversation.date') %></th>
-    	  <th></th>
-    	</tr>
-    </thead>
-    <tbody>
-    <% @conversations.each do |conversation| %>
-      <tr>
-        <td><% if conversation.is_unread?(current_user) %><i class="icon-envelope"></i><% end %><%= link_to conversation.subject, conversation_path(conversation) %></td>
-        <td><%= link_to conversation.last_sender.name, user_path(conversation.last_sender) %></td>
-        <td><%= formated_date(conversation.updated_at) %></td>
-        <td><%= link_to_destroy conversation %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  </table>
+  
+  <%= link_to t('conversation.new'), new_conversation_path %><br /><br />
+  
+  <% if @conversations.empty? %>
+    <%= t('conversation.none') %>
+  <% else %>
+    <table class="table table-condensed">
+      <thead>
+      	<tr>
+          <th><%= t('conversation.subject') %></th>
+      	  <th><%= t('conversation.last_sender')%></th>
+      	  <th><%= t('conversation.date') %></th>
+      	  <th></th>
+      	</tr>
+      </thead>
+      <tbody>
+      <% @conversations.each do |conversation| %>
+        <tr>
+          <td><% if conversation.is_unread?(current_user) %><i class="icon-envelope"></i><% end %><%= link_to conversation.subject, conversation_path(conversation) %></td>
+          <td><%= link_to conversation.last_sender.name, user_path(conversation.last_sender) %></td>
+          <td><%= formated_date(conversation.updated_at) %></td>
+          <td><%= link_to_destroy conversation %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  <% end %>
 
 </div>

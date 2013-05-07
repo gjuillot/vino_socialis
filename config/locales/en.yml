@@ -94,13 +94,15 @@ en:
       too_late: "Too late"
   conversation:
     my: "My conversations"
-    new: "New conversation with %{user}"
+    none: You have no conversation at that time
+    new: New conversation
     subject: "Subject"
     body: "Body"
     send: "Send"
     last_sender: "Last sender"
     date: "Date"
     reply: "Answer"
+    to: To
   consumptions:
     consumption: "Consumption"
     edit: "Edit consumption"

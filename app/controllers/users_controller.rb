@@ -6,6 +6,13 @@ class UsersController < ApplicationController
     @users = User.where('id != ?', current_user.id)
   end
   
+  def search
+    respond_to do |format|
+      users = User.where("name LIKE ?", "%#{params[:q]}%").map(&:attributes)
+      format.json { render :json => users }
+    end
+  end
+  
   # GET /users/1
   def show
   end

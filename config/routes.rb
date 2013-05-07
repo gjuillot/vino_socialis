@@ -74,6 +74,9 @@ VinoSocialis::Application.routes.draw do
   
     devise_for :users
     resources :users do
+      collection do
+        get 'search'
+      end
       member do
         get 'stat'
         get 'dashboard'

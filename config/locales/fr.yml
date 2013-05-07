@@ -109,13 +109,15 @@ fr:
       sold: "Vendue(s)"
   conversation:
     my: "Mes conversations"
-    new: "Nouvelle conversation avec %{user}"
+    none: "Vous n'avez aucune conversation pour le moment"
+    new: Nouvelle conversation
     subject: "Sujet"
     body: "Message"
     send: "Envoyer"
     last_sender: "Dernier émetteur"
     date: "Date"
     reply: "Répondre"
+    to: Pour
   country:
     countries: "Pays"
     no_regions: "Pas de régions pour ce pays."
