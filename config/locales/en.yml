@@ -35,6 +35,7 @@ en:
       area: "Area, region or country"
       my_bottles: "Search my bottles"
       comments: "My comments / my suggestions"
+      grape_varieties: Grape varieties
     profile:
       my: "My profile"
       sign_out: "Log out"
@@ -502,6 +503,7 @@ en:
     label:
       bottle:
         wine: "Wine"
+        grape_varieties: Grape varieties
         vintage: "Vintage"
         no_vintage: "No vintage"
         volume: "Volume"

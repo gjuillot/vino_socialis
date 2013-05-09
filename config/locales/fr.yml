@@ -34,6 +34,7 @@ fr:
       area: "Appelation, région ou pays"
       my_bottles: "Rechercher dans mes bouteilles"
       comments: "Mes commentaires / mes suggestions"
+      grape_varieties: Cépages
     profile:
       my: "Mon profil"
       sign_out: "Déconnexion"
@@ -500,6 +501,7 @@ fr:
         name: "Nom"
         area: "Appellation"
         wine_color: "Couleur"
+        grape_varieties: Cépages
         wine: "Vin"
         vintage: "Millésime"
         no_vintage: "Non millésimé"

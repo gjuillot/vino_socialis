@@ -37,4 +37,7 @@
   <td id="comments_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
     <%= bottle.comments %>
   </td>
+  <td id="grape_varieties <%= bottle.id %>" style="text-align:center;vertical-align:middle;">
+    <%= bottle.wine.grape_varieties.map(&:name).join(', ') %>
+  </td>
 </tr>

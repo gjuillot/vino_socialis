@@ -109,7 +109,8 @@ var columns = [
   { att: 'date',                displayed: false, search_class: 'input-mini', filter: 'text' },
   { att: 'channel',             displayed: false, search_class: 'input-mini', filter: 'text' },
   { att: 'chancomm',            displayed: false, search_class: 'input-mini', filter: 'text' },
-  { att: 'comments',            displayed: false, search_class: 'input-mini', filter: 'text' }
+  { att: 'comments',            displayed: false, search_class: 'input-mini', filter: 'text' },
+  { att: 'grape_varieties',     displayed: false, search_class: 'input-mini', filter: 'text' }
 ];
 
 function treat_column(att) {
