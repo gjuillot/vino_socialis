@@ -263,6 +263,8 @@ en:
     new: "New region"
     edit: "Edit %{region_name}"
     no_regions: "No areas for that region."
+    superficy: Superficy
+    sources: Sources
   tasting:
     tastings: "Tastings"
     new: "New tasting"

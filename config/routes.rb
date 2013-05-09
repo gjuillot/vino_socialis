@@ -59,6 +59,7 @@ VinoSocialis::Application.routes.draw do
     resources :countries
     resources :regions
     resources :areas
+    resources :superficies
     
     resources :grape_varieties do
       member do

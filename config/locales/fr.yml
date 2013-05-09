@@ -260,6 +260,8 @@ fr:
     new: "Nouvelle région"
     edit: "Modifier %{region_name}"
     no_areas: "Pas d'appellations pour cette région."
+    superficy: Superficie
+    sources: Sources
   tasting:
     tastings: "Dégustations"
     new: "Nouvelle dégustation"

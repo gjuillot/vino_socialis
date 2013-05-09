@@ -29,4 +29,37 @@
   <% else %>
     <%= t("region.no_areas") %>
   <% end %>
+  
+  <br /><br />
+  
+  <% sources = [nil] %>
+  <% unless @region.superficies.empty? %>
+    <div class="row-fluid">
+      <% unless @region.superficies.empty? %>
+        <div class="span4">
+          <h4><%= t('region.superficy') %></h4>
+          <dl class="dl-horizontal">
+            <% @region.superficies.each do |superficy| %>
+              <% sources << superficy.source unless superficy.source.blank? or sources.include? superficy.source %>
+              <dt><%= superficy.year %></dt>
+              <dd><%= number_with_delimiter(superficy.superficy, :delimiter => ' ') %> ha <%= link_to "[#{sources.index(superficy.source)}]", superficy.source unless superficy.source.blank? %></dd>
+            <% end %>
+          </dl>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <% if sources.size > 1 %>
+    <% sources.delete_at(0) %>
+    <% index = 1 %>
+    <div class="row-fluid">
+      <h4><%= t('region.sources') %></h4>
+      <% sources.each do |source| %>
+        <%= link_to "[#{index}] #{source}", source %>
+        <% index += 1 %>
+      <% end %>
+    </div>
+  <% end %>
+  
 </div>

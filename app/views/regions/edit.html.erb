@@ -1,0 +1,15 @@
+<div class="white-opacity rounded">
+  <h2>Superficies</h2>
+  
+  <% superficies = @region.superficies + [Superficy.new] %>
+  <% superficies.each do |superficy| %>
+    <%= form_for(superficy, html: { class:'form-inline'}) do |f| %>
+      <%= f.hidden_field :region_id, :value => @region.id %>
+      <%= f.text_field :year, :value => superficy.year.blank? ? 'Année(s)' : superficy.year %>
+      <%= f.number_field :superficy, :value => superficy.superficy.blank? ? 'Superficie (ha)' : superficy.superficy %>
+      <%= f.text_field :source, :value => superficy.source.blank? ? 'Source' : superficy.source %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  
+</div>

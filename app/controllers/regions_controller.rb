@@ -20,5 +20,8 @@ class RegionsController < ApplicationController
       format.xml { render :xml => @region.to_xml(:include => [:areas]) }
     end
   end
+  
+  def edit
+  end
 
 end

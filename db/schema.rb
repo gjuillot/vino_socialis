@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420114402) do
+ActiveRecord::Schema.define(:version => 20130509152024) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -203,6 +203,17 @@ ActiveRecord::Schema.define(:version => 20130420114402) do
   add_index "regions", ["country_id"], :name => "index_regions_on_country_id"
   add_index "regions", ["slug"], :name => "index_regions_on_slug"
 
+  create_table "superficies", :force => true do |t|
+    t.integer "region_id"
+    t.integer "area_id"
+    t.string  "year"
+    t.integer "superficy"
+    t.string  "source"
+  end
+
+  add_index "superficies", ["area_id"], :name => "index_superficies_on_area_id"
+  add_index "superficies", ["region_id"], :name => "index_superficies_on_region_id"
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -308,16 +319,6 @@ ActiveRecord::Schema.define(:version => 20130420114402) do
   end
 
   add_index "wine_racks", ["user_id"], :name => "index_wine_racks_on_user_id"
-
-  create_table "wine_recommandations", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "wine_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "wine_recommandations", ["user_id"], :name => "index_wine_recommandations_on_user_id"
-  add_index "wine_recommandations", ["wine_id"], :name => "index_wine_recommandations_on_wine_id"
 
   create_table "wines", :force => true do |t|
     t.string   "name"
