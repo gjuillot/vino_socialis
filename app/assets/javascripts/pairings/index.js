@@ -1,4 +1,4 @@
-$('.pairings.index').ready(function(){
+function pairings_ready() {
   $(".star").each(function() {
     $(this).raty({
       score: function() {
@@ -8,4 +8,7 @@ $('.pairings.index').ready(function(){
       readOnly: true
     });
   });
-});
+}
+
+$('.pairings.index').ready(pairings_ready);
+$('.pairings.search').ready(pairings_ready);
