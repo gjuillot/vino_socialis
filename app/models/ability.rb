@@ -26,7 +26,7 @@ class Ability
     end
     
     # User
-    can [:read, :search], User
+    can [:read, :search, :tastings], User
     can [:update, :dashboard, :stat], User, :id => user.id
     
     # Glossary

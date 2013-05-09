@@ -267,6 +267,7 @@ en:
     new: "New tasting"
     edit: Edit tasting
     latest: "Latest tastings"
+    latest_of: "Latest tastings of %{user}"
     show: "Show tasting"
     user: "Tasted by"
     count:
@@ -348,6 +349,7 @@ en:
     my_profile: "My profile"
     edit_my_profile: "Edit my profile"
     edit_profile: "Edit %{user_name}"
+    favorite_wines: His favorite wines
     stat:
       loading: "Loading..."
       areas: "By region"
@@ -580,6 +582,7 @@ en:
         currency: "Currency"
         change_password: "Change your password"
         forgot_password: "Forgot your password?"
+        gravatar: Use Gravatar to configure your avatar
       wine:
         estate: "Estate"
         name: "Name"

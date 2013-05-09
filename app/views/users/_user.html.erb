@@ -1,31 +1,20 @@
 <tr>
-  <td>
-    <%= link_to user.name, user %>
-  </td>
+  <td style="vertical-align:middle;"><%= gravatar_for user, 30 %></td>
+  <td style="vertical-align:middle;"><%= image_tag("locale/#{user.locale}.png", alt: user.locale) %></td>
+  <td style="vertical-align:middle;"><%= link_to user.name, user %></td>
+  <td style="vertical-align:middle;"><span class="star" data-score="<%= 5.0 * ( 1.0 - current_user.bottles_distance(user)) %>"></span></td>
   
-  <td>
-    <span class="star" data-score="<%= 5.0 * ( 1.0 - current_user.bottles_distance(user)) %>"></span>
-  </td>
+  <td style="vertical-align:middle;"><%= link_to_message user %></td>
   
-  <td>
-    <%= link_to_message user %>
-  </td>
-	
   <% if can? :update, user %>
-    <td>
-      <%= link_to_edit(edit_user_path(user)) %>
-    </td>
+    <td style="vertical-align:middle;"><%= link_to_edit(edit_user_path(user)) %></td>
   <% end %>
   
   <% if can? :destroy, user %>
-    <td>
-      <%= link_to_destroy user %>
-    </td>
+    <td style="vertical-align:middle;"><%= link_to_destroy user %></td>
   <% end %>
   
   <% if can? :become, user %>
-    <td>
-      <%= content_tag(:a, content_tag(:i, "", class: "icon-user") + ' Become', :href => become_user_path(user)) %>
-    </td>
+    <td style="vertical-align:middle;"><%= content_tag(:a, content_tag(:i, "", class: "icon-user") + ' Become', :href => become_user_path(user)) %></td>
   <% end %>
 </tr>

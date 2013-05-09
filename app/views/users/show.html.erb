@@ -3,31 +3,55 @@
 <div class="white-opacity rounded">
   <h1><%= @user.name %></h1>
   
-  <div class="row">
+  <div class="row-fluid">
   
-    <div class="span3 offset3">
-      <a href="https://en.gravatar.com/" target="_blank"><%= gravatar_for @user %></a>
-    </div>
-    
-    <div class="span5">
+    <div class="span2">
+      <p><%= gravatar_for @user, 120 %></p>
+  
+      <% if @user.admin? or @user.moderator? %>
+        <p><b><%= @user.role.capitalize %></b></p>
+      <% end %>
       
-      <% if can? :update, @user %>
-        <p>
-  	    <b><%= t("helpers.label.user.email") %>:</b>
-  	    <%= @user.email %>
-        </p>
+      <p><%= link_to_message @user %></p>
+        
+      <% if current_user.admin? %>
+        <p><%= content_tag(:a, content_tag(:i, "", class: "icon-user") + ' Become', :href => become_user_path(@user)) %></p>
+        <p><%= link_to_edit(edit_user_path(@user)) %></p>
+        <p><%= link_to_destroy @user %></p>
+        <p><%= mail_to @user.email, 'Email' %></p>
       <% end %>
-  
-      <p>
-        <b><%= t("helpers.label.user.role") %>:</b>
-        <%= @user.role.capitalize %>
-      </p>
-  
-      <% if can? :update, @user %>
-        <%= link_to 'Edit', edit_user_path(@user) %>
-      <% end %>
-    
     </div>
+      
+    <div class="span10">
+      <% if @tastings.size == 0 %>
+        <%= t('tasting.count', count: 0) %><br />
+      <% else %>
+        <%= link_to t('tasting.count', count: @tastings.size), tastings_user_path(@user) %><br />
+        <table class="table table-condensed table-striped">
+          <% @tastings.limit(5).each do |tasting| %>
+            <tr>
+              <td><%= wine_color_image tasting.wine%></td>
+              <td><%= wine_name tasting.wine, estate: true, area: true, html: true %></td>
+              <td><%= formated_vintage(tasting.vintage) %></td>
+              <td class="star" data-score="<%= tasting.note %>"></td>
+              <td><%= formated_date(tasting.date) %></td>
+              <td><%= tasting_action_buttons tasting %></td>
+            </tr>
+          <% end %>
+        </table>
+        <%= t('user.favorite_wines') %>
+        <table class="table table-condensed table-striped">
+          <% @wines.first(5).each do |wine, notes| %>
+            <tr>
+              <td><%= wine_color_image wine%></td>
+              <td><%= wine_name wine, estate: true, area: true, html: true %></td>
+              <td class="star" data-score="<%= notes.sum.to_f / notes.size %>"></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
+    </div>
+
   </div>
 
 </div>

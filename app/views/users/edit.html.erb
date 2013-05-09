@@ -1,4 +1,4 @@
-<div class="span6 offset3 white-opacity rounded">
+<div class="white-opacity rounded">
   <% if current_user == @user %>
     <% provide(:title, t("user.my_profile")) %>
     <h1><%= t("user.edit_my_profile") %></h1>
@@ -7,5 +7,7 @@
     <h1><%= t("user.edit_profile", :user_name => @user.name) %></h1>
   <% end %>
   
-  <%= render 'form' %>
+  <div class="row-fluid">
+    <%= render 'form' %>
+  </div>
 </div>

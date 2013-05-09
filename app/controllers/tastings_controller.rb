@@ -7,11 +7,6 @@ class TastingsController < ApplicationController
     @tastings = Tasting.order('id DESC').limit(10)
   end
   
-  def me
-    @tastings = Tasting.user(current_user).order('id DESC')
-    render action: "index"
-  end
-  
   # GET /tastings/1
   def show
     @pairing = Pairing.find_by_tasting_id(@tasting.id)

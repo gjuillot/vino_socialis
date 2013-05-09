@@ -29,11 +29,7 @@ VinoSocialis::Application.routes.draw do
       end
     end
       
-    resources :tastings do
-      collection do
-        get 'me'
-      end
-    end
+    resources :tastings
     
     resources :estates do
       member do
@@ -82,6 +78,7 @@ VinoSocialis::Application.routes.draw do
         get 'dashboard'
         get 'become'
         get 'tags'
+        get 'tastings'
       end
     end
     

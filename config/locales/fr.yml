@@ -264,6 +264,7 @@ fr:
     new: "Nouvelle dégustation"
     edit: Modifier dégustation
     latest: "Dernières dégustations"
+    latest_of: "Dernières dégustations de %{user}"
     show: "Voir la dégustation"
     user: "Dégusté par"
     count:
@@ -345,6 +346,7 @@ fr:
     my_profile: "Mon profil"
     edit_my_profile: "Modifier mon profil"
     edit_profile: "Modifier %{user_name}"
+    favorite_wines: Ses vins préférés
     stat:
       loading: "Chargement en cours..."
       areas: "Par région"
@@ -585,6 +587,7 @@ fr:
         currency: "Monnaie"
         change_password: "Changer votre mot de passe"
         forgot_password: "Mot de passe oublié ?"
+        gravatar: Utilisez Gravatar pour configurer votre avatar
       wine:
         estate: "Producteur"
         name: "Nom"

@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   
   # GET /users/1
   def show
+    @tastings = Tasting.user(@user).order('date DESC')
+    tmp = Tasting.user(@user).inject({}) {|h,(t)| h[t.wine] ||= []; h[t.wine] << t.note; h}
+    @wines = tmp.sort {|a,b| 1000*(a[1].sum.to_f / a[1].size) + a[1].size <=> 1000*(b[1].sum.to_f / b[1].size) + b[1].size}.reverse
   end
   
   # GET /users/1/edit
@@ -73,6 +76,11 @@ class UsersController < ApplicationController
       tags << {:name => params[:q], :id => "CREATE_#{params[:q]}_END"} unless @user.bottles.tag_counts.where("tags.name = ?", params[:q]).count > 0
       format.json { render :json => tags }
     end
+  end
+  
+  def tastings
+    @tastings = Tasting.user(@user).order('id DESC')
+    render template: "tastings/index"
   end
   
   private

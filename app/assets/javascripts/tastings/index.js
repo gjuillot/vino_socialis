@@ -11,4 +11,5 @@ function tastings_list_ready() {
 };
 
 $('.tastings.index').ready(tastings_list_ready);
-$('.tastings.me').ready(tastings_list_ready);
+$('.users.tastings').ready(tastings_list_ready);
+$('.users.show').ready(tastings_list_ready);

@@ -1,7 +1,11 @@
 <% provide(:title, t("tasting.latest")) %>
 
 <div class="white-opacity rounded-top">
-  <h1><%= t("tasting.latest") %></h1>
+  <% if @user %>
+    <h1><%= t("tasting.latest_of", user: @user.name) %></h1>
+  <% else %>
+    <h1><%= t("tasting.latest") %></h1>
+  <% end %>
   
   <table class="table table-condensed middle">
     <%= render @tastings %>
