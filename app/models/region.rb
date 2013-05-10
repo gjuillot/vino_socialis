@@ -6,4 +6,6 @@ class Region < ActiveRecord::Base
   belongs_to :country
   has_many :areas, dependent: :destroy
   has_many :superficies, dependent: :destroy
+  has_many :volumes, dependent: :destroy
+  has_many :color_volumes, dependent: :destroy
 end

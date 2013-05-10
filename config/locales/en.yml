@@ -264,6 +264,7 @@ en:
     edit: "Edit %{region_name}"
     no_regions: "No areas for that region."
     superficy: Superficy
+    volume: Volume
     sources: Sources
   tasting:
     tastings: "Tastings"

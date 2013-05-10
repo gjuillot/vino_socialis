@@ -117,10 +117,10 @@
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3NpbXBsZS9pbmRleC5qcGc=": wine_racks/example/fr/simple-df0a98661c26ccb3cdfd95d95bf47e61.jpg
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlLmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlL2luZGV4LmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
-!binary "YXBwbGljYXRpb24uanM=": application-19f0f89e017fc3c810f5ccae8e563dda.js
-!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-19f0f89e017fc3c810f5ccae8e563dda.js
-!binary "YXBwbGljYXRpb24uY3Nz": application-d833d05783dc494987ab8e6ee0b87d38.css
-!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-d833d05783dc494987ab8e6ee0b87d38.css
+!binary "YXBwbGljYXRpb24uanM=": application-b3f11f76a30a7ca7bfcff60478093ad1.js
+!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-b3f11f76a30a7ca7bfcff60478093ad1.js
+!binary "YXBwbGljYXRpb24uY3Nz": application-f6debb2a098efc10daab6375f61b6929.css
+!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-f6debb2a098efc10daab6375f61b6929.css
 dataTables/back_disabled.png: dataTables/back_disabled-7a902951219d10f938f642f8dcfbd0b2.png
 dataTables/back_disabled/index.png: dataTables/back_disabled-7a902951219d10f938f642f8dcfbd0b2.png
 dataTables/back_enabled.png: dataTables/back_enabled-6eb9125f3bb6cbca38c2f71664f9e000.png

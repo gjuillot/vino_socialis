@@ -261,6 +261,7 @@ fr:
     edit: "Modifier %{region_name}"
     no_areas: "Pas d'appellations pour cette région."
     superficy: Superficie
+    volume: Volume
     sources: Sources
   tasting:
     tastings: "Dégustations"

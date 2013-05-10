@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509152024) do
+ActiveRecord::Schema.define(:version => 20130510054041) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,19 @@ ActiveRecord::Schema.define(:version => 20130509152024) do
   end
 
   add_index "bottles", ["wine_id"], :name => "index_bottles_on_wine_id"
+
+  create_table "color_volumes", :force => true do |t|
+    t.integer  "region_id"
+    t.integer  "area_id"
+    t.string   "year"
+    t.decimal  "volume"
+    t.string   "color"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "color_volumes", ["area_id"], :name => "index_color_volumes_on_area_id"
+  add_index "color_volumes", ["region_id"], :name => "index_color_volumes_on_region_id"
 
   create_table "consumptions", :force => true do |t|
     t.integer  "user_id"
@@ -291,6 +304,19 @@ ActiveRecord::Schema.define(:version => 20130509152024) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "volumes", :force => true do |t|
+    t.integer  "region_id"
+    t.integer  "area_id"
+    t.string   "year"
+    t.integer  "volume"
+    t.string   "source"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "volumes", ["area_id"], :name => "index_volumes_on_area_id"
+  add_index "volumes", ["region_id"], :name => "index_volumes_on_region_id"
 
   create_table "wine_rack_positions", :force => true do |t|
     t.integer  "wine_rack_id"
