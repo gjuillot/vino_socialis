@@ -1,5 +1,13 @@
 <div class="white-opacity rounded">
   
+  <h2>Image</h2>
+  <%= form_for(@region, html: { class:'form-inline'}) do |f| %>
+    <%= f.text_field :image_url, :value => @region.image_url.blank? ? 'URL' : @region.image_url %>
+    <%= f.text_field :image_source, :value => @region.image_source.blank? ? 'source' : @region.image_source %>
+    <%= f.text_field :image_link, :value => @region.image_link.blank? ? 'link' : @region.image_link %>
+      <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+  
   <h2>Superficies</h2>
   <% superficies = @region.superficies + [Superficy.new] %>
   <% superficies.each do |superficy| %>

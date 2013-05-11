@@ -4,15 +4,27 @@
 <div class="white-opacity rounded">
   <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h1>
   
-  <% if @areas.any? %>
-    <% per_column = (@areas.size/3.0).ceil %>
+  <% if @region.has_image? %>
+    <div class="row-fluid">
+      <div class="span6">
+        <%= image_tag @region.image_url, alt: @region.name %><br />
+        <%= link_to @region.image_source, @region.image_link, target: "blank" %>
+      </div>
+      <div class="span4">
+        <ul>
+          <%= render @areas %>
+        </ul>
+      </div>
+    </div>
+  <% else %>
+    <% per_column = (@areas.size/columns).ceil %>
     <% first = @areas.take(per_column) %>
     <% second = (@areas-first).take(per_column) %>
     <% third = (@areas-first-second).take(per_column) %>
     <div class="row-fluid">
       <div class="span4">
         <ul>
-        	<%= render first %>
+          <%= render first %>
         </ul>
       </div>
       <div class="span4">
@@ -26,8 +38,6 @@
         </ul>
       </div>
     </div>
-  <% else %>
-    <%= t("region.no_areas") %>
   <% end %>
   
   <br /><br />

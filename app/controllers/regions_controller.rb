@@ -31,5 +31,10 @@ class RegionsController < ApplicationController
   
   def edit
   end
+  
+  def update
+    @region.update_attributes(params[:region])
+    redirect_to @region
+  end
 
 end
