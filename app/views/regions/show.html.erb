@@ -17,7 +17,7 @@
       </div>
     </div>
   <% else %>
-    <% per_column = (@areas.size/columns).ceil %>
+    <% per_column = (@areas.size/3.0).ceil %>
     <% first = @areas.take(per_column) %>
     <% second = (@areas-first).take(per_column) %>
     <% third = (@areas-first-second).take(per_column) %>
