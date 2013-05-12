@@ -5,7 +5,7 @@
   <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h1>
   
   <% if @region.has_image? and @region.image_span != 12%>
-    <% right = @areas.take(@region.image_right_column_length) %>
+    <% right = @areas.take(@region.image_right_column_length.to_i) %>
     <% below = @areas - right %>
   <% else %>
     <% right = [] %>
@@ -19,7 +19,7 @@
         <%= link_to @region.image_source, @region.image_link, target: "blank" %><br /><br />
       </div>
       <% unless right.empty? %>
-        <div class="span<%= 12 - @region.image_span %>">
+        <div class="span<%= 12 - @region.image_span.to_i %>">
           <ul>
             <%= render right %>
           </ul>
