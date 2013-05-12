@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512024806) do
+ActiveRecord::Schema.define(:version => 20130512160511) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -139,8 +139,9 @@ ActiveRecord::Schema.define(:version => 20130512024806) do
     t.integer  "wine_id"
     t.boolean  "validation"
     t.string   "image"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "user_id",    :default => 1
   end
 
   add_index "labels", ["wine_id"], :name => "index_labels_on_wine_id"

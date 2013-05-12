@@ -1,5 +1,6 @@
 class Label < ActiveRecord::Base
   belongs_to :wine
+  belongs_to :user
   attr_accessible :wine_id, :validation, :image, :remote_image_url
   mount_uploader :image, LabelUploader
   

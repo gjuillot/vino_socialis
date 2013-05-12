@@ -12,6 +12,7 @@ class LabelsController < ApplicationController
   
    def create
     @label.validation = false
+    @label.user_id = current_user.id
     if @label.save
       redirect_to @label.wine, notice: 'label_created'
     else
