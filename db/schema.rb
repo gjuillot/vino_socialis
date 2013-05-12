@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130511061406) do
+ActiveRecord::Schema.define(:version => 20130512024806) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -208,12 +208,14 @@ ActiveRecord::Schema.define(:version => 20130511061406) do
   create_table "regions", :force => true do |t|
     t.string   "name"
     t.integer  "country_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "slug"
     t.string   "image_url"
     t.string   "image_source"
     t.string   "image_link"
+    t.integer  "image_span",                :default => 6
+    t.integer  "image_right_column_length", :default => 20
   end
 
   add_index "regions", ["country_id"], :name => "index_regions_on_country_id"

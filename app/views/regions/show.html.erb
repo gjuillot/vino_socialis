@@ -4,23 +4,35 @@
 <div class="white-opacity rounded">
   <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h1>
   
+  <% if @region.has_image? and @region.image_span != 12%>
+    <% right = @areas.take(@region.image_right_column_length) %>
+    <% below = @areas - right %>
+  <% else %>
+    <% right = [] %>
+    <% below = @areas %>
+  <% end %>
+  
   <% if @region.has_image? %>
     <div class="row-fluid">
-      <div class="span6">
+      <div class="span<%= @region.image_span %>">
         <%= image_tag @region.image_url, alt: @region.name %><br />
-        <%= link_to @region.image_source, @region.image_link, target: "blank" %>
+        <%= link_to @region.image_source, @region.image_link, target: "blank" %><br /><br />
       </div>
-      <div class="span4">
-        <ul>
-          <%= render @areas %>
-        </ul>
-      </div>
+      <% unless right.empty? %>
+        <div class="span<%= 12 - @region.image_span %>">
+          <ul>
+            <%= render right %>
+          </ul>
+        </div>
+      <% end %>
     </div>
-  <% else %>
-    <% per_column = (@areas.size/3.0).ceil %>
-    <% first = @areas.take(per_column) %>
-    <% second = (@areas-first).take(per_column) %>
-    <% third = (@areas-first-second).take(per_column) %>
+  <% end %>
+  
+  <% unless below.empty? %>
+    <% per_column = (below.size/3.0).ceil %>
+    <% first = below.take(per_column) %>
+    <% second = (below-first).take(per_column) %>
+    <% third = (below-first-second).take(per_column) %>
     <div class="row-fluid">
       <div class="span4">
         <ul>
@@ -39,11 +51,12 @@
       </div>
     </div>
   <% end %>
-  
-  <br /><br />
-  
+</div>
+
   <% sources = [nil] %>
   <% unless @region.superficies.empty? and @region.volumes.empty? %>
+  <br />
+  <div class="white-opacity rounded">
     <div class="row-fluid">
       <% unless @region.superficies.empty? %>
         <div class="span4">
@@ -76,8 +89,10 @@
               <div class="pie" id="pie<%= id %>" data-json="<%= color_volume.to_json %>" style="height: 300px">
                 <svg id="pie<%= id %>"></svg>
               </div>
+            </div>
+            <% else %>
+            <br />
             <% end %>
-            <%=raw '</div>' if @color_volumes.has_key? volume.year %>
           <% end %>
           <%=raw '</div>' unless @color_volumes.empty? %>
         </div>
@@ -95,6 +110,6 @@
         <% index += 1 %>
       <% end %>
     </div>
+  </div>
   <% end %>
   
-</div>
