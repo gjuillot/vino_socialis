@@ -3,17 +3,21 @@ class AreasController < ApplicationController
   load_and_authorize_resource
   
   def show
-    @wines = Wine.find_all_by_area_id(@area.id)
+    @wines = Wine.validated.find_all_by_area_id(@area.id)
+    
     @estates = {}
     @wines.each do |wine|
-      @estates[wine.estate] = [] unless @estates.has_key? wine.estate
-      @estates[wine.estate] << wine.wine_color unless @estates[wine.estate].include? wine.wine_color
+      @estates[wine.estate] = {:colors => [], :wines => 0} unless @estates.has_key? wine.estate
+      @estates[wine.estate][:wines] += 1
+      @estates[wine.estate][:colors] << wine.wine_color unless @estates[wine.estate][:colors].include? wine.wine_color
     end
+    
     @colors = {}
     @area.area_color_grapes.each do |cg|
       @colors[cg.color] = [] unless @colors.has_key? cg.color
       @colors[cg.color] << cg.grape_variety unless @colors[cg.color].include? cg.grape_variety
     end
+    
     @color_volumes = {}
     @area.color_volumes.each do |color_volume|
       @color_volumes[color_volume.year] = [] unless @color_volumes.has_key? color_volume.year

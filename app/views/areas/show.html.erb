@@ -14,10 +14,11 @@
         <%= link_to t('wine.suggest'), new_wine_path %>
       <% else %>
         <table class="table table-condensed">
-          <% @estates.each do |estate, colors| %>
+          <% @estates.each do |estate, data| %>
             <tr>
-              <td style="width: <%= 15*colors.size %>px"><%=raw colors.sort.map {|c| wine_color_image_2 c}.join(' ') %></td>
+              <td style="width: <%= 15*data[:colors].size %>px"><%=raw data[:colors].sort.map {|c| wine_color_image_2 c}.join(' ') %></td>
               <td><%= link_to estate.name, estate %></td>
+              <td><%= t('area.wines', :count => data[:wines]) %></td>
             </tr>
           <% end %>
         </table>
