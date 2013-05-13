@@ -10,6 +10,15 @@ class GrapeVarietiesController < ApplicationController
     @wines = @grape_variety.wines
   end
   
+  def new
+  end
+  
+  def create
+    @grape_variety.validation = true
+    @grape_variety.save
+    redirect_to @grape_variety, notice: 'grape_variety_created'
+  end
+  
   def edit
   end
 
