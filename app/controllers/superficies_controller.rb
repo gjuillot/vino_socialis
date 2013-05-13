@@ -4,12 +4,21 @@ class SuperficiesController < ApplicationController
   
    def create
     @superficy.save
-    redirect_to edit_region_path(Region.find(@superficy.region_id))
+    redirect
   end
   
    def update
     @superficy.update_attributes(params[:superficy])
-    redirect_to edit_region_path(Region.find(@superficy.region_id))
+    redirect
+  end
+  
+  private
+  def redirect
+    if @superficy.region_id
+      redirect_to edit_region_path(Region.find(@superficy.region_id))
+    else
+      redirect_to edit_area_path(Area.find(@superficy.area_id))
+    end
   end
   
 end

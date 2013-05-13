@@ -1,0 +1,51 @@
+<div class="white-opacity rounded">
+  
+  <h2>Couleur et cépages</h2>
+  <% area_color_grapes = @area.area_color_grapes + [AreaColorGrape.new] %>
+  <% area_color_grapes.each do |area_color_grape| %>
+    <%= form_for(area_color_grape, html: { class:'form-inline'}) do |f| %>
+      <%= f.hidden_field :area_id, :value => @area.id %>
+      <%= f.select :color, options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => area_color_grape.color) %>
+      <%= f.select :grape_variety_id, options_for_select(GrapeVariety.all.map{|a| [a.name, a.id]}, :selected => area_color_grape.grape_variety_id) %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  
+  <h2>Superficies</h2>
+  <% superficies = @area.superficies + [Superficy.new] %>
+  <% superficies.each do |superficy| %>
+    <%= form_for(superficy, html: { class:'form-inline'}) do |f| %>
+      <%= f.hidden_field :area_id, :value => @area.id %>
+      <%= f.text_field :year, :value => superficy.year.blank? ? 'Année(s)' : superficy.year %>
+      <%= f.number_field :superficy, :value => superficy.superficy.blank? ? 'Superficie (ha)' : superficy.superficy %>
+      <%= f.text_field :source, :value => superficy.source.blank? ? 'Source' : superficy.source %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  
+  <br /><br />
+  
+  <h2>Volumes</h2>
+  <% volumes = @area.volumes + [Volume.new] %>
+  <% volumes.each do |volume| %>
+    <%= form_for(volume, html: { class:'form-inline'}) do |f| %>
+      <%= f.hidden_field :area_id, :value => @area.id %>
+      <%= f.text_field :year, :value => volume.year.blank? ? 'Année(s)' : volume.year %>
+      <%= f.number_field :volume, :value => volume.volume.blank? ? 'Volume (hl)' : volume.volume %>
+      <%= f.text_field :source, :value => volume.source.blank? ? 'Source' : volume.source %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  <br />
+  <% colorVolumes = @area.color_volumes + [ColorVolume.new] %>
+  <% colorVolumes.each do |colorVolume| %>
+    <%= form_for(colorVolume, html: { class:'form-inline'}) do |f| %>
+      <%= f.hidden_field :area_id, :value => @area.id %>
+      <%= f.text_field :year, :value => colorVolume.year.blank? ? 'Année(s)' : colorVolume.year %>
+      <%= f.select :color, options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => colorVolume.color) %>
+      <%= f.number_field :volume, :value => colorVolume.volume.blank? ? 'Volume (%)' : colorVolume.volume %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  
+</div>

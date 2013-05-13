@@ -3,14 +3,103 @@
 
 <div class="white-opacity rounded-top">
   <h1><%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area, html: true) %></h1>
+  <br />
   
-  <% if @wines.empty? %>
-    <%= t('wine.no_matching') %> - <%= link_to t('wine.suggest'), new_wine_path %>
-  <% else %>
-    <table class="table table-condensed middle">
-      <% @wines.each do |wine| %>
-      	<%= wine_name wine, color: true, estate: true, html: true, links: true, label: true %>
+  <div class="row-fluid">
+    
+    <div class="span6">
+      <h2><%= t('area.estates') %></h2>
+      <% if @wines.empty? %>
+        <%= t('wine.no_matching') %><br />
+        <%= link_to t('wine.suggest'), new_wine_path %>
+      <% else %>
+        <table class="table table-condensed">
+          <% @estates.each do |estate, colors| %>
+            <tr>
+              <td style="width: <%= 15*colors.size %>px"><%=raw colors.sort.map {|c| wine_color_image_2 c}.join(' ') %></td>
+              <td><%= link_to estate.name, estate %></td>
+            </tr>
+          <% end %>
+        </table>
       <% end %>
-    </table>
-  <% end %>
+    </div>
+    
+    <div class="span6">
+      <h2><%= t('area.color_grapes') %></h2>
+      <% if @colors.empty? %>
+        <%= t('area.no_color_grape') %>
+      <% else %>
+        <table class="table table-condensed">
+          <% @colors.each do |color, grape_varieties| %>
+            <tr>
+              <td><%= wine_color_image_2 color, :tooltip => false, :text => true %></td>
+              <td><%=raw grape_varieties.map {|gv| link_to gv.name, gv}.join(', ') %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
+    </div>
+    
+  </div>
 </div>
+
+<% sources = [nil] %>
+<% unless @area.superficies.empty? and @area.volumes.empty? %>
+<br />
+<div class="white-opacity rounded">
+  <h2><%= t('area.superficy_volume') %></h2>
+  <div class="row-fluid">
+    <% unless @area.superficies.empty? %>
+      <div class="span4">
+        <h4><%= t('region.superficy') %></h4>
+        <dl class="dl-horizontal">
+          <% @area.superficies.each do |superficy| %>
+            <% sources << superficy.source unless superficy.source.blank? or sources.include? superficy.source %>
+            <dt><%= superficy.year %></dt>
+            <dd><%= number_with_delimiter(superficy.superficy, :delimiter => ' ') %> ha <%= link_to "[#{sources.index(superficy.source)}]", superficy.source unless superficy.source.blank? %></dd>
+          <% end %>
+        </dl>
+      </div>
+    <% end %>
+    <% unless @area.volumes.empty? %>
+      <div class="span8">
+        <h4><%= t('region.volume') %></h4>
+        <br />
+        <%=raw '<div class="row-fluid">' unless @color_volumes.empty? %>
+        <% id = 0 %>
+        <% @area.volumes.each do |volume| %>
+          <% id +=1 %>
+          <% sources << volume.source unless volume.source.blank? or sources.include? volume.source %>
+          <%=raw '<div class="span6">' if @color_volumes.has_key? volume.year %>
+          <strong><%= volume.year %></strong> <%= number_with_delimiter(volume.volume, :delimiter => ' ') %> hl <%= link_to "[#{sources.index(volume.source)}]", volume.source unless volume.source.blank? %>
+          <% if @color_volumes.has_key? volume.year %>
+            <% color_volume = @color_volumes[volume.year] %>
+            <% color_volume.each do |hash| %>
+              <% hash[:name] = t("wine.color.#{hash[:name]}") %>
+            <% end %>
+            <div class="pie" id="pie<%= id %>" data-json="<%= color_volume.to_json %>" style="height: 300px">
+              <svg id="pie<%= id %>"></svg>
+            </div>
+          </div>
+          <% else %>
+          <br />
+          <% end %>
+        <% end %>
+        <%=raw '</div>' unless @color_volumes.empty? %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if sources.size > 1 %>
+  <% sources.delete_at(0) %>
+  <% index = 1 %>
+  <div class="row-fluid">
+    <h4><%= t('region.sources') %></h4>
+    <% sources.each do |source| %>
+      <%= link_to "[#{index}] #{source}", source %><br />
+      <% index += 1 %>
+    <% end %>
+  </div>
+</div>
+<% end %>

@@ -64,6 +64,10 @@ en:
     areas: "Area"
     new: "New area"
     edit: "Edit %{area_name}"
+    estates: Known estates
+    color_grapes: Wine colors and grape varieties
+    no_color_grape: No information about wine colors and grape varieties
+    superficy_volume: Superficy and volume
     wines:
       zero: No wine registered for this area
       one: 1 wine registered for this area

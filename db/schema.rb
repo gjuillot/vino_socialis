@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512160511) do
+ActiveRecord::Schema.define(:version => 20130512195654) do
+
+  create_table "area_color_grapes", :force => true do |t|
+    t.integer  "area_id"
+    t.string   "color"
+    t.integer  "grape_variety_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "area_color_grapes", ["area_id"], :name => "index_area_color_grapes_on_area_id"
+  add_index "area_color_grapes", ["grape_variety_id"], :name => "index_area_color_grapes_on_grape_variety_id"
 
   create_table "areas", :force => true do |t|
     t.string   "name"

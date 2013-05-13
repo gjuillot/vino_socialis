@@ -62,6 +62,10 @@ fr:
   area:
     areas: "Appellations"
     search: Recherche d'un vin par appellation
+    estates: Producteurs connus
+    color_grapes: Couleurs de vin et cépages
+    no_color_grape: Aucune information sur les couleurs de vin et les cépages
+    superficy_volume: Superficie et volume
     wines:
       zero: Aucun vin recensé pour cette appellation
       one: 1 vin recensé pour cette appellation
