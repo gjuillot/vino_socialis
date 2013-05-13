@@ -67,6 +67,8 @@ en:
     estates: Known estates
     color_grapes: Wine colors and grape varieties
     no_color_grape: No information about wine colors and grape varieties
+    geology: Geology
+    no_geology: No available information about the geology of this area
     superficy_volume: Superficy and volume
     wines:
       zero: No wine registered for this area

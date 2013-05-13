@@ -11,6 +11,12 @@
     <% end %>
   <% end %>
   
+  <h2>Géologie</h2>
+  <%= form_for(@area, html: { class:'form-inline'}) do |f| %>
+    <%= f.text_field :geology %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+  
   <h2>Superficies</h2>
   <% superficies = @area.superficies + [Superficy.new] %>
   <% superficies.each do |superficy| %>

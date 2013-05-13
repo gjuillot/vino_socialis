@@ -65,6 +65,8 @@ fr:
     estates: Producteurs connus
     color_grapes: Couleurs de vin et cépages
     no_color_grape: Aucune information sur les couleurs de vin et les cépages
+    geology: Sol
+    no_geology: Aucune information disponible pour le sol de cette appellation
     superficy_volume: Superficie et volume
     wines:
       zero: Aucun vin recensé pour cette appellation

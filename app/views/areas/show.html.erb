@@ -1,32 +1,34 @@
 <% set_meta_tags :title => full_area_name(@area, html: false),
                  :description => t('area.wines', count: @wines.count) %>
 
-<div class="white-opacity rounded-top">
+<div class="white-opacity rounded">
   <h1><%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area, html: true) %></h1>
   <br />
   
-  <div class="row-fluid">
-    
-    <div class="span6">
-      <h2><%= t('area.estates') %></h2>
-      <% if @wines.empty? %>
-        <%= t('wine.no_matching') %><br />
-        <%= link_to t('wine.suggest'), new_wine_path %>
-      <% else %>
-        <table class="table table-condensed">
-          <% @estates.each do |estate, data| %>
-            <tr>
-              <td style="width: <%= 15*data[:colors].size %>px"><%=raw data[:colors].sort.map {|c| wine_color_image_2 c}.join(' ') %></td>
-              <td><%= link_to estate.name, estate %></td>
-              <td><%= t('area.wines', :count => data[:wines]) %></td>
-            </tr>
-          <% end %>
-        </table>
+  <h3><%= t('area.estates') %></h3>
+  <% if @wines.empty? %>
+    <%= t('area.wines', :count => 0) %>
+    <% if can? :new, Wine %>
+      - <%= link_to t('wine.suggest'), new_wine_path %>
+    <% end %>
+    <br /><br />
+  <% else %>
+    <table class="table table-condensed">
+      <% @estates.each do |estate, data| %>
+        <tr>
+          <td><%=raw data[:colors].sort.map {|c| wine_color_image_2 c}.join(' ') %></td>
+          <td><%= link_to estate.name, estate %></td>
+          <td><%= t('area.wines', :count => data[:wines]) %></td>
+        </tr>
       <% end %>
-    </div>
-    
+    </table>
+  <% end %>
+
+  <br />
+  
+  <div class="row-fluid">
     <div class="span6">
-      <h2><%= t('area.color_grapes') %></h2>
+      <h3><%= t('area.color_grapes') %></h3>
       <% if @colors.empty? %>
         <%= t('area.no_color_grape') %>
       <% else %>
@@ -41,6 +43,14 @@
       <% end %>
     </div>
     
+    <div class="span6">
+      <h3><%= t('area.geology') %></h3>
+      <% if @area.geology.blank? %>
+        <%= t('area.no_geology') %>
+      <% else %>
+        <%= @area.geology %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -48,7 +58,7 @@
 <% unless @area.superficies.empty? and @area.volumes.empty? %>
 <br />
 <div class="white-opacity rounded">
-  <h2><%= t('area.superficy_volume') %></h2>
+  <h3><%= t('area.superficy_volume') %></h3>
   <div class="row-fluid">
     <% unless @area.superficies.empty? %>
       <div class="span4">
