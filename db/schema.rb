@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513070625) do
+ActiveRecord::Schema.define(:version => 20130513133242) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(:version => 20130513070625) do
   create_table "areas", :force => true do |t|
     t.string   "name"
     t.integer  "region_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "slug"
     t.string   "geology"
+    t.text     "wine_description"
   end
 
   add_index "areas", ["region_id"], :name => "index_areas_on_region_id"

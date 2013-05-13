@@ -67,6 +67,8 @@ fr:
     no_color_grape: Aucune information sur les couleurs de vin et les cépages
     geology: Sol
     no_geology: Aucune information disponible pour le sol de cette appellation
+    wine_description: Les vins de cette appellation
+    no_wine_description: Aucune description disponible pour les vins de cette appellation
     superficy_volume: Superficie et volume
     wines:
       zero: Aucun vin recensé pour cette appellation

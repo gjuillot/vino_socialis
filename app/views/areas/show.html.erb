@@ -54,6 +54,18 @@
   </div>
 </div>
 
+<br />
+
+<div class="white-opacity rounded">
+  <h3><%= t('area.wine_description') %></h3>
+  <% if @area.wine_description.blank? %>
+    <%= t('area.no_wine_description') %>
+  <% else %>
+    <% @area.wine_description = @area.wine_description.truncate(50) unless user_signed_in? %>
+    <%= simple_format @area.wine_description %>
+  <% end %>
+</div>
+
 <% if user_signed_in? %>
   <% sources = [nil] %>
   <% unless @area.superficies.empty? and @area.volumes.empty? %>
