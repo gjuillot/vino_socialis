@@ -54,63 +54,71 @@
   </div>
 </div>
 
-<% sources = [nil] %>
-<% unless @area.superficies.empty? and @area.volumes.empty? %>
-<br />
-<div class="white-opacity rounded">
-  <h3><%= t('area.superficy_volume') %></h3>
-  <div class="row-fluid">
-    <% unless @area.superficies.empty? %>
-      <div class="span4">
-        <h4><%= t('region.superficy') %></h4>
-        <dl class="dl-horizontal">
-          <% @area.superficies.each do |superficy| %>
-            <% sources << superficy.source unless superficy.source.blank? or sources.include? superficy.source %>
-            <dt><%= superficy.year %></dt>
-            <dd><%= number_with_delimiter(superficy.superficy, :delimiter => ' ') %> ha <%= link_to "[#{sources.index(superficy.source)}]", superficy.source unless superficy.source.blank? %></dd>
-          <% end %>
-        </dl>
-      </div>
-    <% end %>
-    <% unless @area.volumes.empty? %>
-      <div class="span8">
-        <h4><%= t('region.volume') %></h4>
-        <br />
-        <%=raw '<div class="row-fluid">' unless @color_volumes.empty? %>
-        <% id = 0 %>
-        <% @area.volumes.each do |volume| %>
-          <% id +=1 %>
-          <% sources << volume.source unless volume.source.blank? or sources.include? volume.source %>
-          <%=raw '<div class="span6">' if @color_volumes.has_key? volume.year %>
-          <strong><%= volume.year %></strong> <%= number_with_delimiter(volume.volume, :delimiter => ' ') %> hl <%= link_to "[#{sources.index(volume.source)}]", volume.source unless volume.source.blank? %>
-          <% if @color_volumes.has_key? volume.year %>
-            <% color_volume = @color_volumes[volume.year] %>
-            <% color_volume.each do |hash| %>
-              <% hash[:name] = t("wine.color.#{hash[:name]}") %>
+<% if user_signed_in? %>
+  <% sources = [nil] %>
+  <% unless @area.superficies.empty? and @area.volumes.empty? %>
+  <br />
+  <div class="white-opacity rounded">
+    <h3><%= t('area.superficy_volume') %></h3>
+    <div class="row-fluid">
+      <% unless @area.superficies.empty? %>
+        <div class="span4">
+          <h4><%= t('region.superficy') %></h4>
+          <dl class="dl-horizontal">
+            <% @area.superficies.each do |superficy| %>
+              <% sources << superficy.source unless superficy.source.blank? or sources.include? superficy.source %>
+              <dt><%= superficy.year %></dt>
+              <dd><%= number_with_delimiter(superficy.superficy, :delimiter => ' ') %> ha <%= link_to "[#{sources.index(superficy.source)}]", superficy.source unless superficy.source.blank? %></dd>
             <% end %>
-            <div class="pie" id="pie<%= id %>" data-json="<%= color_volume.to_json %>" style="height: 300px">
-              <svg id="pie<%= id %>"></svg>
-            </div>
-          </div>
-          <% else %>
+          </dl>
+        </div>
+      <% end %>
+      <% unless @area.volumes.empty? %>
+        <div class="span8">
+          <h4><%= t('region.volume') %></h4>
           <br />
+          <%=raw '<div class="row-fluid">' unless @color_volumes.empty? %>
+          <% id = 0 %>
+          <% @area.volumes.each do |volume| %>
+            <% id +=1 %>
+            <% sources << volume.source unless volume.source.blank? or sources.include? volume.source %>
+            <%=raw '<div class="span6">' if @color_volumes.has_key? volume.year %>
+            <strong><%= volume.year %></strong> <%= number_with_delimiter(volume.volume, :delimiter => ' ') %> hl <%= link_to "[#{sources.index(volume.source)}]", volume.source unless volume.source.blank? %>
+            <% if @color_volumes.has_key? volume.year %>
+              <% color_volume = @color_volumes[volume.year] %>
+              <% color_volume.each do |hash| %>
+                <% hash[:name] = t("wine.color.#{hash[:name]}") %>
+              <% end %>
+              <div class="pie" id="pie<%= id %>" data-json="<%= color_volume.to_json %>" style="height: 300px">
+                <svg id="pie<%= id %>"></svg>
+              </div>
+            </div>
+            <% else %>
+            <br />
+            <% end %>
           <% end %>
-        <% end %>
-        <%=raw '</div>' unless @color_volumes.empty? %>
-      </div>
-    <% end %>
+          <%=raw '</div>' unless @color_volumes.empty? %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <% if sources.size > 1 %>
+    <% sources.delete_at(0) %>
+    <% index = 1 %>
+    <div class="row-fluid">
+      <h4><%= t('region.sources') %></h4>
+      <% sources.each do |source| %>
+        <%= link_to "[#{index}] #{source}", source %><br />
+        <% index += 1 %>
+      <% end %>
+    </div>
   </div>
-<% end %>
-
-<% if sources.size > 1 %>
-  <% sources.delete_at(0) %>
-  <% index = 1 %>
-  <div class="row-fluid">
-    <h4><%= t('region.sources') %></h4>
-    <% sources.each do |source| %>
-      <%= link_to "[#{index}] #{source}", source %><br />
-      <% index += 1 %>
-    <% end %>
+  <% end %>
+<% else %>
+  <br />
+  <div class="well span4 center">
+    <%= t('helpers.want_to_learn_more') %><br />
+    <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
   </div>
-</div>
 <% end %>

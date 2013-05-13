@@ -53,6 +53,7 @@
   <% end %>
 </div>
 
+<% if user_signed_in? %>
   <% sources = [nil] %>
   <% unless @region.superficies.empty? and @region.volumes.empty? %>
   <br />
@@ -112,4 +113,10 @@
     </div>
   </div>
   <% end %>
-  
+<% else %>
+  <br />
+  <div class="well span4 center">
+    <%= t('helpers.want_to_learn_more') %><br />
+    <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+  </div>
+<% end %>
