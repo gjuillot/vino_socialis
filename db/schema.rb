@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514191101) do
+ActiveRecord::Schema.define(:version => 20130514195259) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20130514191101) do
     t.string   "slug"
     t.string   "geology"
     t.text     "wine_description"
+    t.string   "decret_name"
+    t.string   "decret_link"
   end
 
   add_index "areas", ["region_id"], :name => "index_areas_on_region_id"

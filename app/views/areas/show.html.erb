@@ -55,6 +55,11 @@
       <% else %>
         <%= @area.geology %>
       <% end %>
+      <% if @area.has_decret? %>
+        <br /><br />
+        <h3>Décret</h3>
+        <%= link_to @area.decret_name, @area.decret_link, :target => 'blank' %>
+      <% end %>
     </div>
   </div>
 </div>

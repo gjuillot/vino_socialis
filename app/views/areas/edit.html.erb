@@ -16,6 +16,15 @@
   
   <br /><br />
   
+  <h2>Décret</h2>
+  <%= form_for(@area, html: { class:'form-inline'}) do |f| %>
+    <%= f.text_field :decret_name %>
+    <%= f.text_field :decret_link %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+  
+  <br /><br />
+  
   <h2>Géologie</h2>
   <%= form_for(@area, html: { class:'form-inline'}) do |f| %>
     <%= f.text_field :geology %>
