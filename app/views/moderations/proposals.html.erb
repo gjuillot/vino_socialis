@@ -1,0 +1,14 @@
+<% if @proposals.any? %>
+  <table class="table table-condensed white-opacity">
+    <theader>
+      <tr>
+        <th>Page</th>
+        <th>Utilisateur</th>
+        <th>Voir</th>
+      </tr>
+    </theader>
+    <tbody>
+      <%= render :collection => @proposals, :partial => 'proposal' %>
+    </tbody>
+  </table>
+<% end %>

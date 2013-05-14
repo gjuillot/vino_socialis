@@ -16,4 +16,8 @@ class ModerationsController < ApplicationController
     @wines = Wine.unscoped.where('validation = ? AND created_at < ?', false, Date.current().months_ago(1)).select(&:destroyable?)
     @estates = Estate.unscoped.where('validation = ? AND created_at < ?', false, Date.current().months_ago(1)).select(&:destroyable?)
   end
+  
+  def proposals
+    @proposals = Proposal.opened
+  end
 end

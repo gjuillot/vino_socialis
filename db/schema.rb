@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513133242) do
+ActiveRecord::Schema.define(:version => 20130513135130) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -204,6 +204,19 @@ ActiveRecord::Schema.define(:version => 20130513133242) do
   end
 
   add_index "pairings", ["tasting_id"], :name => "index_pairings_on_tasting_id"
+
+  create_table "proposals", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "page"
+    t.text     "text"
+    t.boolean  "opened",     :default => true
+    t.text     "response"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "proposals", ["opened"], :name => "index_proposals_on_opened"
+  add_index "proposals", ["user_id"], :name => "index_proposals_on_user_id"
 
   create_table "receipts", :force => true do |t|
     t.integer  "receiver_id"

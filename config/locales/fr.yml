@@ -263,6 +263,8 @@ fr:
     latest: 'Derniers accords mets-vin'
     search: 'Rechercher'
     best_matches: 'Meilleures correspondances en cave'
+  proposal:
+    give_sources: "N'oubliez pas de mentionner vos sources quand cela est utile"
   region:
     regions: "Régions"
     new: "Nouvelle région"
@@ -498,12 +500,15 @@ fr:
     bottle_unplaced: Bouteille sortie du casier.
     label_created: Etiquette créée avec succès, en attente de validation.
     label_not_created: Erreur lors de l'ajout de l'étiquette.
+    proposal_created: Proposition créée avec succès.
+    proposal_not_created: Erreur lors de l'ajout de la proposition.
 
   helpers:
     not_mandatory: Facultatif
     public: Toutes les informations renseignées ici seront publiques.
     private: Toutes les informations renseignées ici seront privées.
     want_to_learn_more: Vous voulez en savoir plus ?
+    want_to_contribute: Aidez-nous à compléter cette page
     token_input:
       hint: Tappez votre recherche
       searching: Recherche en cours...

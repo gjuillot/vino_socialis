@@ -100,6 +100,7 @@ VinoSocialis::Application.routes.draw do
         get 'sheets'
         get 'labels'
         get 'clean'
+        get 'proposals'
       end
     end
     
@@ -118,6 +119,12 @@ VinoSocialis::Application.routes.draw do
     resources :vintages do
       collection do
         post 'rate'
+      end
+    end
+    
+    resources :proposals do
+      member do
+        post 'close'
       end
     end
     

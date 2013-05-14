@@ -9,5 +9,5 @@ class Area < ActiveRecord::Base
   has_many :superficies, dependent: :destroy
   has_many :volumes, dependent: :destroy
   has_many :color_volumes, dependent: :destroy
-  has_many :area_color_grapes
+  has_many :area_color_grapes, dependent: :destroy
 end

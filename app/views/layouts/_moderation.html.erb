@@ -8,6 +8,7 @@
                   <li><%= link_to String(grape_variety_count_unvalidated + estate_count_unvalidated + wine_count_unvalidated) + ' fiches à valider', sheets_moderations_path %></li>
                   <li><%= link_to String(Label.not_validated.count) + ' étiquettes à valider', labels_moderations_path %></li>
                   <li><%= link_to 'Suppression de fiches', clean_moderations_path if can? :clean, Moderation %></li>
+                  <li><%= link_to 'Proposition des utilisateurs', proposals_moderations_path %></li>
   	      	  	</ul>
   	      	  </li>
   	      	<% end %>

@@ -1,0 +1,19 @@
+<div class="white-opacity rounded">
+  <%= link_to @proposal.page, @proposal.page %>
+  <blockquote>
+    <%= simple_format @proposal.text %>
+    <small><%= link_to @proposal.user.name, @proposal.user %></small>
+  </blockquote>
+  
+  <% if @proposal.opened and can? :close, @proposal %>
+    <%= form_for(@proposal, :url => close_proposal_path, :method => :post) do |f| %>
+      <%= f.text_area :response %>
+      <%= f.submit 'Fermer' %>
+    <% end %>
+  <% elsif !@proposal.opened %>
+    Réponse
+    <blockquote>
+      <%= simple_format @proposal.response %>
+    </blockquote>
+  <% end %>
+</div>

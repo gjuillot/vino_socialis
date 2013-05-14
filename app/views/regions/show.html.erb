@@ -113,6 +113,10 @@
     </div>
   </div>
   <% end %>
+  <br />
+  <div class="well span4 offset4 center">
+    <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false)) %>
+  </div>
 <% else %>
   <br />
   <div class="well span4 center">

@@ -266,6 +266,8 @@ en:
     latest: 'Latest wine pairings'
     search: 'Search'
     best_matches: 'Best matches in your bottles'
+  proposal:
+    give_sources: "Do not forget to mention your sources when usefull"
   region:
     regions: "Regions"
     new: "New region"
@@ -502,12 +504,15 @@ en:
     bottle_unplaced: Bottle was successfully unplaced.
     label_created: Label was successfully created and is now waiting for validation.
     label_not_created: Error during label creation.
+    proposal_created: Proposal was successfully created.
+    proposal_not_created: Error during proposal creation.
     
   helpers:
     not_mandatory: Not mandatory
     public: All information filled here will be public.
     private: All information filled here will be private.
     want_to_learn_more: You want to learn more ?
+    want_to_contribute: Help us completing this page
     token_input:
       hint: Type in a search term
       searching: Searching...

@@ -1,0 +1,27 @@
+<div class="span8 offset2 white-opacity rounded">
+  
+  <%= form_for @proposal, :html => {:class => 'form-horizontal'} do |f| %>
+  
+    <div class="control-group">
+      <%= f.label :page, :class => 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag 'proposal[page]', @proposal.page, :class => 'uneditable-input' %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :text, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :text, :rows => 6 %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+  <%= t('proposal.give_sources') %>
+
+</div>

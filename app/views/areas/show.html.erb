@@ -30,7 +30,8 @@
     <div class="span6">
       <h3><%= t('area.color_grapes') %></h3>
       <% if @colors.empty? %>
-        <%= t('area.no_color_grape') %>
+        <%= t('area.no_color_grape') %><br />
+        <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false), :text => t('area.color_grapes')) if user_signed_in? %>
       <% else %>
         <table class="table table-condensed">
           <% @colors.each do |color, grape_varieties| %>
@@ -46,7 +47,8 @@
     <div class="span6">
       <h3><%= t('area.geology') %></h3>
       <% if @area.geology.blank? %>
-        <%= t('area.no_geology') %>
+        <%= t('area.no_geology') %><br />
+        <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false), :text => t('area.geology')) if user_signed_in? %>
       <% else %>
         <%= @area.geology %>
       <% end %>
@@ -59,7 +61,8 @@
 <div class="white-opacity rounded">
   <h3><%= t('area.wine_description') %></h3>
   <% if @area.wine_description.blank? %>
-    <%= t('area.no_wine_description') %>
+    <%= t('area.no_wine_description') %><br />
+    <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false), :text => t('area.wine_description')) if user_signed_in? %>
   <% else %>
     <% @area.wine_description = @area.wine_description.truncate(50) unless user_signed_in? %>
     <%= simple_format @area.wine_description %>
@@ -127,6 +130,10 @@
     </div>
   </div>
   <% end %>
+  <br />
+  <div class="well span4 offset4 center">
+    <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false)) %>
+  </div>
 <% else %>
   <br />
   <div class="well span4 center">
