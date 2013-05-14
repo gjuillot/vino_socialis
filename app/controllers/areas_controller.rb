@@ -15,7 +15,7 @@ class AreasController < ApplicationController
     @colors = {}
     @area.area_color_grapes.each do |cg|
       @colors[cg.color] = [] unless @colors.has_key? cg.color
-      @colors[cg.color] << cg.grape_variety unless @colors[cg.color].include? cg.grape_variety
+      @colors[cg.color] << cg unless @colors[cg.color].include? cg.grape_variety
     end
     
     @color_volumes = {}

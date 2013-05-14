@@ -34,10 +34,10 @@
         <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false), :text => t('area.color_grapes')) if user_signed_in? %>
       <% else %>
         <table class="table table-condensed">
-          <% @colors.each do |color, grape_varieties| %>
+          <% @colors.each do |color, color_grape_varieties| %>
             <tr>
               <td><%= wine_color_image_2 color, :tooltip => false, :text => true %></td>
-              <td><%=raw grape_varieties.map {|gv| link_to gv.name, gv}.join(', ') %></td>
+              <td><%=raw color_grape_varieties.map {|cg| cg.main ? '<strong>' + link_to(cg.grape_variety.name, cg.grape_variety) + '</strong>' : link_to(cg.grape_variety.name, cg.grape_variety)}.join(', ') %></td>
             </tr>
           <% end %>
         </table>
