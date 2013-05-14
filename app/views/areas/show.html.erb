@@ -2,7 +2,10 @@
                  :description => t('area.wines', count: @wines.count) %>
 
 <div class="white-opacity rounded">
-  <h1><%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area, html: true) %></h1>
+  <h1>
+    <%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area, html: true) %>
+    <%=raw action_button_edit @area if can? :manage, @area %>
+  </h1>
   <br />
   
   <h3><%= t('area.estates') %></h3>

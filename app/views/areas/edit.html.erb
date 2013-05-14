@@ -1,5 +1,7 @@
 <div class="white-opacity rounded">
   
+  <h1><%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area, html: true) %></h1>
+  
   <h2>Couleur et cépages</h2>
   <% area_color_grapes = @area.area_color_grapes + [AreaColorGrape.new] %>
   <% area_color_grapes.each do |area_color_grape| %>
