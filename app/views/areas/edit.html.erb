@@ -3,8 +3,29 @@
   <h1><%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area, html: true) %></h1>
   
   <h2>Couleur et cépages</h2>
-  <% area_color_grapes = @area.area_color_grapes + [AreaColorGrape.new] %>
-  <% area_color_grapes.each do |area_color_grape| %>
+  <%= form_for(AreaColorGrape.new, html: { class:'form-inline'}) do |f| %>
+    <%= f.hidden_field :area_id, :value => @area.id %>
+    <%= f.select :color, options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
+    <%= f.submit class: "btn btn-primary" %><br />
+    <% grape_varities = GrapeVariety.all %>
+    <% size = grape_varities.size %>
+    <div class="row-fluid">
+    <% (1..4).each do %>
+     <% taken = grape_varities.take(size/4.0) %>
+      <div class="span3">
+        <% taken.each do |g| %>
+          <%= check_box_tag "main[#{g.id}]" %>
+          <%= check_box_tag "second[#{g.id}]" %>
+          <%= g.name %> (<%= g.id %>)
+          <br />
+        <% end %>
+      </div>
+      <% grape_varities = grape_varities - taken %>
+    <% end %>
+    </div>
+  <% end %>
+  
+  <% @area.area_color_grapes.each do |area_color_grape| %>
     <%= form_for(area_color_grape, html: { class:'form-inline'}) do |f| %>
       <%= f.hidden_field :area_id, :value => @area.id %>
       <%= f.select :color, options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}, :selected => area_color_grape.color) %>
