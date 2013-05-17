@@ -1,6 +1,10 @@
+<% description = '' %>
+<% description += @colors.keys.map {|c| t("wine.color.#{c}")}.join(', ') + ' - ' unless @colors.empty? %>
+<% description += t('area.wines', count: @wines.count) %>
+<% description += ' - ' + @area.wine_description.truncate(40) unless @area.wine_description.blank? or I18n.locale != :fr %>
 <% set_meta_tags :title => full_area_name(@area, html: false),
-                 :description => t('area.wines', count: @wines.count) %>
-
+                 :description => description %>
+                 
 <div class="white-opacity rounded">
   <h1>
     <%= link_to(t('country.countries'), countries_path) + ' > ' + full_area_name(@area, html: true) %>
