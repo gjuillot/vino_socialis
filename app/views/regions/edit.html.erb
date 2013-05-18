@@ -47,5 +47,14 @@
     <% end %>
   <% end %>
   
+  <br /><br />
+  
+  <h2>Nouvelle appellation</h2>
+  <%= form_for(Area.new, html: { class:'form-inline'}) do |f| %>
+    <%= f.hidden_field :region_id, :value => @region.id %>
+    <%= f.text_field :name %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+  
   
 </div>

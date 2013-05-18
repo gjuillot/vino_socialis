@@ -36,4 +36,9 @@ class AreasController < ApplicationController
     @area.update_attributes(params[:area])
     redirect_to @area
   end
+  
+  def create
+    @area.save
+    redirect_to @area
+  end
 end
