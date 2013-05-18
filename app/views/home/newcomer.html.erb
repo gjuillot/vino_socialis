@@ -18,7 +18,7 @@
       Pour suivre vos bouteilles et vos dégustations :<br />
       <%= link_to raw('<i class="icon-bottles"></i> ') + t("menu.track.my_bottles"), bottles_path %><br />
       <%= link_to raw('<i class="icon-th"></i> ') + t("menu.track.my_racks"), wine_racks_path %><br />
-      <%= link_to raw('<i class="icon-tastings"></i> ') + t("menu.track.my_tastings"), me_tastings_path %>
+      <%= link_to raw('<i class="icon-tastings"></i> ') + t("menu.track.my_tastings"), tastings_user_path(current_user) %>
     </div>
   </div>
   <div class="span4">
@@ -73,7 +73,7 @@
   <div class="span6">
     <div class="white-opacity rounded" style="height: 200px">
       <h1><%= t("menu.track.my_tastings") %></h1>
-      <%= link_to raw('<i class="icon-tastings"></i> ') + t("menu.track.my_tastings"), me_tastings_path %><br />
+      <%= link_to raw('<i class="icon-tastings"></i> ') + t("menu.track.my_tastings"), tastings_user_path(current_user) %><br />
       Enregistrez une trace des vins que vous dégustez pour mieux retrouver vos coups de coeur.<br />
       <br />
       <%= link_to raw('<i class="icon-thumbs-up"></i> ') + t("menu.discover.recommmandations"), recommanded_wines_path %><%= link_to raw('<i class="icon-random"></i> ') + t("menu.discover.pairings"), pairings_path, :class => 'pull-right' %><br />
