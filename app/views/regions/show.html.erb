@@ -20,9 +20,9 @@
       </div>
       <% unless right.empty? %>
         <div class="span<%= 12 - @region.image_span.to_i %>">
-          <ul>
+          <table class="table table-condensed">
             <%= render right %>
-          </ul>
+          </table>
         </div>
       <% end %>
     </div>
@@ -35,19 +35,19 @@
     <% third = (below-first-second).take(per_column) %>
     <div class="row-fluid">
       <div class="span4">
-        <ul>
+        <table class="table table-condensed">
           <%= render first %>
-        </ul>
+        </table>
       </div>
       <div class="span4">
-        <ul>
+        <table class="table table-condensed">
           <%= render second %>
-        </ul>
+        </table>
       </div>
       <div class="span4">
-        <ul>
+        <table class="table table-condensed">
           <%= render third %>
-        </ul>
+        </table>
       </div>
     </div>
   <% end %>

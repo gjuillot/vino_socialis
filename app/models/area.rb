@@ -14,4 +14,13 @@ class Area < ActiveRecord::Base
   def has_decret?
     !decret_name.blank? and !decret_link.blank?
   end
+  
+  def colors
+    colors = {}
+    self.area_color_grapes.each do |cg|
+      colors[cg.color] = [] unless colors.has_key? cg.color
+      colors[cg.color] << cg unless colors[cg.color].include? cg.grape_variety
+    end
+    return colors
+  end
 end

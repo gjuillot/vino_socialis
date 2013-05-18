@@ -12,12 +12,6 @@ class AreasController < ApplicationController
       @estates[wine.estate][:colors] << wine.wine_color unless @estates[wine.estate][:colors].include? wine.wine_color
     end
     
-    @colors = {}
-    @area.area_color_grapes.each do |cg|
-      @colors[cg.color] = [] unless @colors.has_key? cg.color
-      @colors[cg.color] << cg unless @colors[cg.color].include? cg.grape_variety
-    end
-    
     @color_volumes = {}
     @area.color_volumes.each do |color_volume|
       @color_volumes[color_volume.year] = [] unless @color_volumes.has_key? color_volume.year
