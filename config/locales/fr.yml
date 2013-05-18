@@ -476,7 +476,7 @@ fr:
   flash:
     select_estate: Veuillez rechercher un producteur existant ou en créer un nouveau.
     select_wine: Veuillez rechercher un vin existant ou en créer un nouveau.
-    select_wine_for_new_bottle: <strong>Vous souhaitez ajouter une nouvelle bouteille à votre cave ?</strong><br />Lancez tout d'abord une recherche:<ul><li>Vous avez trouvé votre vin ? Utilisez le bouton Actions pour le mettre en cave.</li><li>Vous avez trouvé le producteur mais pas le vin ? Commencez par créer une nouvelle fiche vin pour ce producteur avec le bouton Actions.</li><li>Vous n'avez trouvé ni le vin ni le producteur ? Commencez alors par créer une nouvelle fiche producteur.</li></ul>
+    select_wine_for_new_bottle: <strong>Vous souhaitez ajouter une nouvelle bouteille à votre cave ?</strong><br />Lancez tout d'abord une recherche:<ul><li>Vous avez trouvé votre vin ? Utilisez <i class="icon-encave"></i> pour le mettre en cave.</li><li>Vous avez trouvé le producteur mais pas le vin ? Commencez par créer une nouvelle fiche vin pour ce producteur avec <i class='icon icon-new-wine'></i>.</li><li>Vous n'avez trouvé ni le vin ni le producteur ? Commencez alors par créer une nouvelle fiche producteur.</li></ul>
     select_bottle: Veuillez séletionner une bouteille existante.
     select_at_least_one_bottle: Sélectionnez au moins une bouteille.
     wine_created: Fiche vin créée.

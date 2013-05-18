@@ -480,7 +480,7 @@ en:
   flash:
     select_estate: Please use an existing estate or create a new one.
     select_wine: Please use an existing wine or create a new one.
-    select_wine_for_new_bottle: <strong>You want to add a new bootle into your cave ?</strong><br />First start a search:<ul><li>You found your wine? Use the Actions button to encave it.</li><li>You found the estate but not the wine? Start with the creation of a new wine sheet for this estate with the Actions button.</li><li>You found neither the wine nor the estate? Wstart with the creation of a new estate sheet.</li></ul>
+    select_wine_for_new_bottle: <strong>You want to add a new bootle into your cave ?</strong><br />First start a search:<ul><li>You found your wine? Use <i class="icon-encave"></i> to encave it.</li><li>You found the estate but not the wine? Start with the creation of a new wine sheet for this estate with <i class='icon icon-new-wine'></i>.</li><li>You found neither the wine nor the estate? Wstart with the creation of a new estate sheet.</li></ul>
     select_bottle: Please use an existing bottle.
     select_at_least_one_bottle: Select at least one bottle.
     wine_created: Wine was successfully created.
