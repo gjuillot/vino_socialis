@@ -167,6 +167,10 @@ en:
       zero: No wine registered for this grape variety
       one: 1 wine registered for this grape variety
       other: "%{count} wines registered for this grape variety"
+    areas:
+      main: Main grape variety for the areas
+      second: Secondary grape variety for the areas
+    wines_list: Grape variety found in the wines
   home:
     index:
       title: "The world of wine: Discover - Track - Share"

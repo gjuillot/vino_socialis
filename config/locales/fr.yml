@@ -164,6 +164,10 @@ fr:
       zero: Aucun vin recensé pour ce cépage
       one: 1 vin recensé pour ce cépage
       other: "%{count} vins recensés pour ce cépage"
+    areas:
+      main: Cépage principal pour les appellations
+      second: Cépage secondaire pour les appellations
+    wines_list: Cépages présent dans les vins
   home:
     index:
       title: "Le monde du vin : Découvrir - Suivre - Partager"

@@ -3,4 +3,5 @@ class AreaColorGrape < ActiveRecord::Base
   default_scope order: 'color ASC, main DESC, id ASC'
   
   belongs_to :grape_variety
+  belongs_to :area
 end
