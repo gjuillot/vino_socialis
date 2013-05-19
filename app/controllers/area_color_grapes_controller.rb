@@ -25,4 +25,8 @@ class AreaColorGrapesController < ApplicationController
     redirect_to edit_area_path(Area.find(@area_color_grape.area_id))
   end
 
+  def destroy
+    @area_color_grape.destroy
+    redirect_to Area.find(@area_color_grape.area_id)
+  end
 end

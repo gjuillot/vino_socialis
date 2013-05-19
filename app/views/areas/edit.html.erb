@@ -32,6 +32,7 @@
       <%= f.select :grape_variety_id, options_for_select(GrapeVariety.all.map{|a| [a.name, a.id]}, :selected => area_color_grape.grape_variety_id) %>
       <%= f.check_box :main %>Cépage principal
       <%= f.submit class: "btn btn-primary" %>
+      <%= button_to_destroy area_color_grape %>
     <% end %>
   <% end %>
   
