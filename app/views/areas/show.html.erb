@@ -34,7 +34,8 @@
   <br />
   
   <div class="row-fluid">
-    <div class="span6">
+  
+    <div class="<%= user_signed_in? ? 'span6' : 'span4' %>">
       <h3><%= t('area.color_grapes') %></h3>
       <% if @area.colors.empty? %>
         <%= t('area.no_color_grape') %><br />
@@ -44,49 +45,69 @@
           <% @area.colors.each do |color, color_grape_varieties| %>
             <tr>
               <td><%= wine_color_image_2 color, :tooltip => false, :text => true %></td>
-              <td><%=raw color_grape_varieties.map {|cg| cg.main ? '<strong>' + link_to(cg.grape_variety.name, cg.grape_variety) + '</strong>' : link_to(cg.grape_variety.name, cg.grape_variety)}.join(', ') %></td>
+              <% if user_signed_in? %>
+                <td><%=raw color_grape_varieties.map {|cg| cg.main ? '<strong>' + link_to(cg.grape_variety.name, cg.grape_variety) + '</strong>' : link_to(cg.grape_variety.name, cg.grape_variety)}.join(', ') %></td>
+              <% else %>
+                <td><%= t('home.discover.grape_varieties.title', count: color_grape_varieties.size) %></td>
+              <% end %>
             </tr>
           <% end %>
         </table>
       <% end %>
     </div>
     
-    <div class="span6">
+    <div class="<%= user_signed_in? ? 'span6' : 'span4' %>">
       <h3><%= t('area.geology') %></h3>
       <% if @area.geology.blank? %>
         <%= t('area.no_geology') %><br />
         <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false), :text => t('area.geology')) if user_signed_in? %>
       <% else %>
+        <% @area.geology = @area.geology.truncate(10) unless user_signed_in? %>
         <%= @area.geology %>
       <% end %>
-      <% if @area.has_decret? %>
+      <% if @area.has_decret? and user_signed_in? %>
         <br /><br />
         <h3>Décret</h3>
         <%= link_to @area.decret_name, @area.decret_link, :target => 'blank' %>
       <% end %>
     </div>
+    
+    <% unless user_signed_in? %>
+      <div class="well span4 center">
+        <%= t('helpers.want_to_learn_more') %><br />
+        <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+    
   </div>
 </div>
 
 <br />
 
 <div class="white-opacity rounded">
+  <% unless user_signed_in? %>
+    <div class="well span4 center pull-right">
+      <%= t('helpers.want_to_learn_more') %><br />
+      <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
   <h3><%= t('area.wine_description') %></h3>
   <% if @area.wine_description.blank? %>
     <%= t('area.no_wine_description') %><br />
     <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false), :text => t('area.wine_description')) if user_signed_in? %>
   <% else %>
-    <% @area.wine_description = @area.wine_description.truncate(50) unless user_signed_in? %>
+    <% @area.wine_description = @area.wine_description.truncate(100) unless user_signed_in? %>
     <%= simple_format @area.wine_description %>
+    <br />
   <% end %>
 </div>
 
-<% if user_signed_in? %>
-  <% sources = [nil] %>
-  <% unless @area.superficies.empty? and @area.volumes.empty? %>
-  <br />
-  <div class="white-opacity rounded">
-    <h3><%= t('area.superficy_volume') %></h3>
+<% sources = [nil] %>
+<% unless @area.superficies.empty? and @area.volumes.empty? %>
+<br />
+<div class="white-opacity rounded">
+  <h3><%= t('area.superficy_volume') %></h3>
+  <% if user_signed_in? %>
     <div class="row-fluid">
       <% unless @area.superficies.empty? %>
         <div class="span4">
@@ -128,28 +149,27 @@
         </div>
       <% end %>
     </div>
-  <% end %>
   
-  <% if sources.size > 1 %>
-    <% sources.delete_at(0) %>
-    <% index = 1 %>
-    <div class="row-fluid">
-      <h4><%= t('region.sources') %></h4>
-      <% sources.each do |source| %>
-        <%= link_to "[#{index}] #{source}", source %><br />
-        <% index += 1 %>
-      <% end %>
-    </div>
-  </div>
+    <% if sources.size > 1 %>
+      <% sources.delete_at(0) %>
+      <% index = 1 %>
+      <div class="row-fluid">
+        <h4><%= t('region.sources') %></h4>
+        <% sources.each do |source| %>
+          <%= link_to "[#{index}] #{source}", source %><br />
+          <% index += 1 %>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= t('helpers.want_to_learn_more') %> <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
   <% end %>
-  <br />
+</div>
+<% end %>
+<br />
+<% if user_signed_in? %>
   <div class="well span4 offset4 center">
-    <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false)) %>
+    <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false)), class: 'btn btn-primary' %>
   </div>
-<% else %>
-  <br />
-  <div class="well span4 center">
-    <%= t('helpers.want_to_learn_more') %><br />
-    <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
-  </div>
+  <br /><br />
 <% end %>
