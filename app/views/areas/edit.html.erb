@@ -8,10 +8,10 @@
     <%= f.select :color, options_for_select(Wine::COLORS.map {|c| [t("wine.color.#{c}"), c]}) %>
     <%= f.submit class: "btn btn-primary" %><br />
     <% grape_varities = GrapeVariety.all %>
-    <% size = grape_varities.size %>
+    <% size = (grape_varities.size/4.0).ceil %>
     <div class="row-fluid">
     <% (1..4).each do %>
-     <% taken = grape_varities.take(size/4.0) %>
+     <% taken = grape_varities.take(size) %>
       <div class="span3">
         <% taken.each do |g| %>
           <%= check_box_tag "main[#{g.id}]" %>

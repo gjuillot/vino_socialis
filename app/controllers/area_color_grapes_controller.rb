@@ -3,11 +3,13 @@ class AreaColorGrapesController < ApplicationController
   load_and_authorize_resource
   
   def create
-    params[:main].each_key do |main|
-      acg = AreaColorGrape.new(params[:area_color_grape])
-      acg.grape_variety_id = main.to_i
-      acg.main = true
-      acg.save
+    unless params[:main].nil?
+      params[:main].each_key do |main|
+        acg = AreaColorGrape.new(params[:area_color_grape])
+        acg.grape_variety_id = main.to_i
+        acg.main = true
+        acg.save
+      end
     end
     unless params[:second].nil?
       params[:second].each_key do |second|
