@@ -2,7 +2,10 @@
                  :description => t('home.discover.areas.title_areas', count: @areas.count) + " - " + @areas.take(5).map(&:name).join(', ') + '...' %>
 
 <div class="white-opacity rounded">
-  <h1><%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %></h1>
+  <h1>
+    <%= link_to t("country.countries"), countries_path %> &gt; <%= link_to @region.country.name, @region.country %> &gt; <%= @region.name %>
+    <%=raw action_button_edit @region if can? :manage, @region %>
+  </h1>
   
   <% if @region.has_image? and @region.image_span != 12%>
     <% right = @areas.take(@region.image_right_column_length.to_i) %>
