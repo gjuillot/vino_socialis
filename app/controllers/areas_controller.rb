@@ -41,4 +41,9 @@ class AreasController < ApplicationController
     @area.save
     redirect_to @area
   end
+  
+  def destroy
+    @area.destroy
+    redirect_to @area.region
+  end
 end

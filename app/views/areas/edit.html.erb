@@ -100,4 +100,17 @@
     <% end %>
   <% end %>
   
+  <h2>Renommage</h2>
+  <%= form_for(@area, html: { class:'form-inline'}) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+  
+  <h2>Suppression</h2>
+  <% if Wine.area(@area.id).count == 0 %>
+    <%= button_to_destroy @area %>
+  <% else %>
+    Suppression impossible
+  <% end %>
+  
 </div>
