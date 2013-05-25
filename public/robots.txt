@@ -5,4 +5,6 @@
 User-Agent: *
 Disallow: /*/sign_*
 Disallow: /*/conversations/*
-Sitemap: http://www.vinosus/fr/sitemap.xml
+Disallow: */new
+Sitemap: http://www.vinosus.fr/fr/sitemap.xml
+Sitemap: http://www.vinosus.fr/en/sitemap.xml
