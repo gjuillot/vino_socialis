@@ -1,18 +1,20 @@
+<% column_width = 14 %>
+<% column_offset = 2 %>
+<% circle_size = 3 %>
+<% row_height = 14 %>
+<% circles_offset = 12 %>
 
-<table>
-  <tr>
-    <%= @wine_rack.compartment_letter(0, total_column) %>
-  </tr>
+<%= @wine_rack.compartment_letter(0, total_column) %>.
+<svg width="<%= column_width * (columns+1) + column_offset + circles_offset %>" height="<%= row_height*rows + circle_size %>" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width:<%= column_width * (columns+1) + column_offset + circles_offset %>px; height:<%= row_height * rows + circle_size %>px">
   <% (0..(rows - 1)).each do |row| %>
-    <% shorten_row = !(rows - row + total_column).even? %> 
-    <tr>
-      <td>
-        <%= row %>.&nbsp;
-      </td>
-      <% (0..(columns - (shorten_row ? 2 : 1))).each do |column| %>
-        <% position = compartment[row][column] %>
-        <%= render :partial => 'wine_racks/show/img', :locals => {:position => position, :move => (shorten_row ? '7' : '0')} %>
-      <% end %>
-    </tr>
+    <text x="<%= column_offset %>" y="<%= row_height*(row+1) %>"><%= row %>.</text>
   <% end %>
-</table>
+  <% (0..(rows - 1)).each do |row| %>
+    <% shorten_row = !(rows - row + total_column).even? %>
+	<% shoten_row_offet = shorten_row ? column_width/2 : 0 %>
+    <% (0..(columns - (shorten_row ? 2 : 1))).each do |column| %>
+	  <% position = compartment[row][column] %>
+	  <%= render :partial => 'wine_racks/show/img', :locals => {:position => position, :x => column_width*(column+1) + circle_size + column_offset + circles_offset + shoten_row_offet, :y => row_height*(row+1) - circle_size} %>
+	<% end %>
+  <% end %>
+</svg>

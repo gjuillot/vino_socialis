@@ -9,7 +9,7 @@
     <br /><br />
     <b><%= link_to @bottle.wine.name, @bottle.wine %></b><br />
     <%= full_area_name @bottle.wine.area, html: true %><br />
-    <%= wine_color_image(@bottle.wine) %> <%= t("wine.color." + @bottle.wine.wine_color) %><br />
+    <%= wine_icon @bottle.wine, text: true %><br />
     <% unless @bottle.wine.grape_varieties.blank? %>
       <%= @bottle.wine.grape_varieties.map(&:name).join(', ') %><br />
     <% end %>

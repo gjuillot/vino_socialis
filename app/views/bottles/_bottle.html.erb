@@ -7,8 +7,8 @@
   <td id="area_<%= bottle.id %>" style="vertical-align:middle;">
   	<%= full_area_name bottle.wine.area, html: true, separator2: raw('<br />') %>
   </td>
-  <td id="wine_color_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
-    <%= wine_color_image bottle.wine %>
+  <td id="wine_color_<%= bottle.id %>" style="vertical-align:middle;">
+    <%= wine_icon bottle.wine, text: true %>
   </td>
   <td id="vintage_<%= bottle.id %>" style="text-align:center;vertical-align:middle;">
     <span><%= formated_vintage(bottle.vintage) %></span>

@@ -16,7 +16,7 @@
         <table class="table table-condensed">
           <% @best_matches.each do |m| %>
           <tr>
-            <td><%= wine_color_image m[:wine] %></td><td><%= wine_name m[:wine], estate: true, area: true, separator: '</td><td>' %></td>
+            <td><%= wine_icon m[:wine] %></td><td><%= wine_name m[:wine], estate: true, area: true, separator: '</td><td>' %></td>
           <% end %>
           </tr>
         </table>

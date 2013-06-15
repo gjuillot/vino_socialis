@@ -1,5 +1,5 @@
 <% if position %>
-  <td id="<%= position.bottle.id %>"><%= wine_color_image(position.bottle.wine, false, move) %></td>
+  <%=raw wine_color_circle position.bottle.wine.wine_color, x, y, position.bottle.id.to_s %>
 <% else %>
-  <td><%= no_wine_color_image move %></td>
+  <%=raw wine_color_circle nil, x, y, nil %>
 <% end %>

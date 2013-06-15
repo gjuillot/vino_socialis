@@ -10,7 +10,7 @@
     <table class="table table-condensed">
       <% @colors.each do |c| %>
         <tr>
-          <td><%= link_to wine_color_image_2(c.color, false, 0, true), bottles_path(:color => c.color) %></td>
+          <td><%= link_to wine_color_icon(c.color, text: true), bottles_path(:color => c.color) %></td>
           <td><%= c.total %></td>
         </tr>
       <% end %>

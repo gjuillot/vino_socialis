@@ -2,7 +2,7 @@
   <table class="table table-condensed table-striped">
     <% @wines.each do |wine, notes| %>
     <tr>
-      <td><%= wine_color_image wine %></td>
+      <td><%= wine_icon wine %></td>
       <td><%= wine_name wine, estate: true, area: true, html: true %></td>
       <td class="star" data-score="<%= notes.sum.to_f / notes.size %>"></td>
       <td>

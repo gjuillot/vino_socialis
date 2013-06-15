@@ -23,7 +23,7 @@
     <table class="table table-condensed">
       <% @estates.each do |estate, data| %>
         <tr>
-          <td><%=raw data[:colors].sort.map {|c| wine_color_image_2 c}.join(' ') %></td>
+          <td><%=raw data[:colors].sort.map {|c| wine_color_icon c}.join(' ') %></td>
           <td><%= link_to estate.name, estate %></td>
           <td><%= t('area.wines', :count => data[:wines]) %></td>
         </tr>
@@ -44,7 +44,7 @@
         <table class="table table-condensed">
           <% @area.colors.each do |color, color_grape_varieties| %>
             <tr>
-              <td><%= wine_color_image_2 color, :tooltip => false, :text => true %></td>
+              <td><%= wine_color_icon color %></td>
               <% if user_signed_in? %>
                 <td><%=raw color_grape_varieties.map {|cg| cg.main ? '<strong>' + link_to(cg.grape_variety.name, cg.grape_variety) + '</strong>' : link_to(cg.grape_variety.name, cg.grape_variety)}.join(', ') %></td>
               <% else %>

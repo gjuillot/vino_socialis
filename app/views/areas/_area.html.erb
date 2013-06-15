@@ -1,4 +1,4 @@
 <tr>
-  <td><%=raw area.colors.keys.map {|color| wine_color_image_2 color, :tooltip => false, :text => true}.join unless area.colors.empty? %></td>
+  <td><%=raw area.colors.keys.map {|color| wine_color_icon color, text: false}.join unless area.colors.empty? %></td>
   <td><%= link_to area.name, area %></td>
 </tr>

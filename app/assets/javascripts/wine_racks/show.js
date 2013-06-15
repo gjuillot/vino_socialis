@@ -1,15 +1,21 @@
-blinkId = '';
 
-function highlight_img(id) {
+lastFill = '';
+green = '';
+
+function highlight_circle(id) {
+  console.log('highlight ' + id);
   if (!id) { return; }
-  window.clearInterval(blinkId);
-  blinkId = window.setInterval("$('table#graphical td#" + id + " img').toggle();", 500);
+  if ($("svg circle." + id).css('fill') != green) {
+    lastFill = $("svg circle." + id).css('fill');
+  }
+  $("svg circle." + id).css('fill', 'green');
+  green = $("svg circle." + id).css('fill');
 }
 
 function highlight_all(id) {
   if (!id) { return; }
   
-  highlight_img(id);
+  highlight_circle(id);
   
   $("table#list tr").each(function() {
     if ($(this).attr('id') == id) {
@@ -21,10 +27,10 @@ function highlight_all(id) {
 }
 
 function unhighlight(id) {
+  console.log('unhighlight ' + id);
   if (!id) { return; }
   
-  window.clearInterval(blinkId);
-  $("table#graphical td#" + id + " img").show();
+  $("svg circle." + id).css('fill', lastFill);
   
   $("table#list tr").each(function() {
     $(this).show();
@@ -33,7 +39,7 @@ function unhighlight(id) {
 
 function tr_hover_in() {
   if (one_bottle_selected()) { return; }
-  highlight_img($(this).attr('id'));
+  highlight_circle($(this).attr('id'));
 }
 
 function tr_hover_out() {
@@ -41,14 +47,22 @@ function tr_hover_out() {
   unhighlight($(this).attr('id'));
 }
 
-function img_hover_in() {
-  if (one_bottle_selected()) { return; }
-  highlight_all($(this).attr('id'));
+function tr_click() {
+  bottle_click($(this), 'id');
 }
 
-function img_hover_out() {
+function circle_hover_in() {
   if (one_bottle_selected()) { return; }
-  unhighlight($(this).attr('id'));
+  highlight_all($(this).attr('class'));
+}
+
+function circle_hover_out() {
+  if (one_bottle_selected()) { return; }
+  unhighlight($(this).attr('class'));
+}
+
+function circle_click() {
+  bottle_click($(this), 'class');
 }
 
 function actions_show(id) {
@@ -61,19 +75,18 @@ function actions_show(id) {
     });
 }
 
-function bottle_click() {
+function bottle_click(obj, param) {
   if (selected_bottle == '') {
     // no bottle was previous selected, so selected this one
-    selected_bottle = $(this).attr('id');
+    selected_bottle = obj.attr(param);
     highlight_all(selected_bottle);
     actions_show(selected_bottle);
-  } else {
+  } else if (selected_bottle == obj.attr(param)) {
     // one bottle was previsous selected, unselect only if same has been clicked
-    if (selected_bottle == $(this).attr('id')) {
-      unhighlight(selected_bottle);
-      $("div[class=well]").hide();
-      selected_bottle = '';
-    }
+    unhighlight(selected_bottle);
+    $("div[class=well]").hide();
+    highlight_circle(selected_bottle);
+    selected_bottle = '';
   }
 }
 
@@ -88,13 +101,13 @@ $('.wine_racks.show').ready(function() {
   $("table#list tr").hover(tr_hover_in, tr_hover_out);
   
   // hover bottle image
-  $("table#graphical td").hover(img_hover_in, img_hover_out);
-  
+  $("svg circle").hover(circle_hover_in, circle_hover_out);
+
   // click bottle image
-  $("table#graphical table td").click(bottle_click);
+  $("svg circle").click(circle_click);
   
   // click table row
-  $("table#list tr").click(bottle_click);
+  $("table#list tr").click(tr_click);
   
   $("div[class=well]").hide();
   

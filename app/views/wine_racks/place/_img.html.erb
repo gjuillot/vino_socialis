@@ -1,7 +1,7 @@
-<td>
-  <% if position %>
-    <%= wine_color_image(position.bottle.wine, false, move) %>
-  <% else %>
-    <%= link_to no_wine_color_image(move), apply_place_wine_rack_path(@wine_rack, :bottle => @bottle, :total_row => total_row, :total_column => total_column, :row => row, :column => column, :quantity => quantity) %>
-  <% end %>
-</td>
+<% if position %>
+  <%=raw wine_color_circle position.bottle.wine.wine_color, x, y, position.bottle.id.to_s %>
+<% else %>
+  <a xlink:href="<%= apply_place_wine_rack_path(@wine_rack, :bottle => @bottle, :total_row => total_row, :total_column => total_column, :row => row, :column => column, :quantity => quantity) %>">
+    <%= raw wine_color_circle nil, x, y, nil %>
+  </a>
+<% end %>

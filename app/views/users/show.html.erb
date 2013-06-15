@@ -30,7 +30,7 @@
         <table class="table table-condensed table-striped">
           <% @tastings.limit(5).each do |tasting| %>
             <tr>
-              <td><%= wine_color_image tasting.wine%></td>
+              <td><%= wine_icon tasting.wine%></td>
               <td><%= wine_name tasting.wine, estate: true, area: true, html: true %></td>
               <td><%= formated_vintage(tasting.vintage) %></td>
               <td class="star" data-score="<%= tasting.note %>"></td>
@@ -43,7 +43,7 @@
         <table class="table table-condensed table-striped">
           <% @wines.first(5).each do |wine, notes| %>
             <tr>
-              <td><%= wine_color_image wine%></td>
+              <td><%= wine_icon wine %></td>
               <td><%= wine_name wine, estate: true, area: true, html: true %></td>
               <td class="star" data-score="<%= notes.sum.to_f / notes.size %>"></td>
             </tr>

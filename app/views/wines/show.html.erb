@@ -89,8 +89,7 @@
     </p>
 
     <p>
-      <%= wine_color_image(@wine) %>
-      <%= t("wine.color." + @wine.wine_color) %>
+      <%= wine_icon @wine, text: true %>
     </p>
 
     <% if user_signed_in? %>

@@ -10,7 +10,7 @@
       <table class="table table-condensed">
         <% @grape_variety.areas[:main].each do |area, colors| %>
           <tr>
-            <td><%=raw colors.map {|color| wine_color_image_2 color, :tooltip => false, :text => true}.join %></td>
+            <td><%=raw colors.map {|color| wine_color_icon color}.join %></td>
             <td><%= full_area_name(area, html: true) %></td>
           </tr>
         <% end %>
@@ -21,7 +21,7 @@
       <table class="table table-condensed">
         <% @grape_variety.areas[:second].each do |area, colors| %>
           <tr>
-            <td><%=raw colors.map {|color| wine_color_image_2 color, :tooltip => false, :text => true}.join %></td>
+            <td><%=raw colors.map {|color| wine_color_icon color}.join %></td>
             <td><%= full_area_name(area, html: true) %></td>
           </tr>
         <% end %>

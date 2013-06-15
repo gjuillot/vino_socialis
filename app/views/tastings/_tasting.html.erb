@@ -1,5 +1,5 @@
 <tr>
-  <td><%= wine_color_image tasting.wine%></td>
+  <td><%= wine_icon tasting.wine%></td>
   <td><%= wine_name tasting.wine, estate: true, area: true, html: true %></td>
   <td><%= formated_vintage(tasting.vintage) %></td>
   <td class="star" data-score="<%= tasting.note %>"></td>

@@ -39,7 +39,7 @@
   La fiche producteur contient les informations utiles dans sa partie gauche.<br /><br />
   Elle regroupe également les fiches vins de ce producteur dans la partie de droite :
   <ul>
-    <li><%= wine_color_image @wine %> représente le type de vin, ici un vin blanc.</li>
+    <li><%= wine_icon @wine %> représente le type de vin, ici un vin blanc.</li>
     <li><%= link_to @wine.name, @wine %> est le nom du vin. Cliquez dessus pour ouvrir la fiche de ce vin.</li>
     <li><%= link_to @wine.area.name, @wine.area %> est l'appellation de ce vin. Cliquez dessus pour avoir plus d'informations sur cette appellation.</li>
     <li>

@@ -1,24 +1,19 @@
-
-<table>
-  <tr>
-    <td>
-      <%= letter %>
-    </td>
-    <% (0..(columns - 1)).each do |column| %>
-      <td>
-      	<%= column %>
-      </td>
-    <% end %>
-  </tr>
-  <% (0..(rows - 1)).each do |row| %>
-    <tr align="middle">
-      <td>
-        <%= row %>
-      </td>
-      <% (0..(columns - 1)).each do |column| %>
-        <% position = compartment[row][column] %>
-        <%= render :partial => 'wine_racks/place/img', :locals => {:position => position, :move => '0', :total_row => total_row, :total_column => total_column, :row => row, :column => column, :quantity => quantity} %>
-      <% end %>
-    </tr>
+<% column_width = 14 %>
+<% column_offset = 2 %>
+<% circle_size = 3 %>
+<% row_height = 14 %>
+<svg width="<%= column_width * (columns+1) + column_offset %>" height="<%= row_height * (rows+1) + circle_size %>" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width:<%= column_width * (columns+1) + column_offset %>px; height:<%= row_height * (rows+1) + circle_size %>px">
+  <text x="<%= column_offset %>" y="<%= row_height %>"><%= letter %>.</text>
+  <% (0..(columns - 1)).each do |column| %>
+    <text x="<%= column_width*(column+1) + column_offset %>" y="<%= row_height %>"><%= column %></text>
   <% end %>
-</table>
+  <% (1..rows).each do |row| %>
+    <text x="<%= column_offset %>" y="<%= row_height*(row+1) %>"><%= row - 1 %>.</text>
+  <% end %>
+  <% (0..(rows - 1)).each do |row| %>
+    <% (0..(columns - 1)).each do |column| %>
+	  <% position = compartment[row][column] %>
+	  <%= render :partial => 'wine_racks/place/img', :locals => {:position => position, :x => column_width*(column+1) + circle_size + column_offset, :y => row_height*(row+2) - circle_size, :total_row => total_row, :total_column => total_column, :row => row, :column => column, :quantity => quantity} %>
+	<% end %>
+  <% end %>
+</svg>
