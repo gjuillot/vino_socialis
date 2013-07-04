@@ -26,4 +26,10 @@ class UserMailer < ActionMailer::Base
     mail(:to => replaced.user.email, :subject => "#{replaced.estate.name} - #{replaced.name} - #{replaced.area.name}")
   end
   
+  def book_validated(book)
+    return if !book.validated?
+    @book = book
+    mail(:to => book.user.email, :subject => book.title)
+  end
+  
 end

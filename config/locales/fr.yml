@@ -13,6 +13,7 @@ fr:
       recommmandations: "Recommandés pour vous"
       pairings: "Accords mets-vin"
       glossaries: "Glossaire"
+      books: Livres
     track:
       title: "Suivre"
       my_bottles: "Mes bouteilles"
@@ -99,6 +100,17 @@ fr:
       best: "Apogée"
       too_soon: "Attendre"
       too_late: "Dépassé"
+  book:
+    new: Nouveau livre
+    buy: "Cliquez sur l'image pour acheter ce livre sur Amazon"
+    category:
+      general: Généralités sur le vin
+      tasting: Art de la dégustation
+      pairing: Accord mets-vins
+      france: Vins de France
+      world: Vins du monde
+      guide: Guide de vin
+      other: Autres
   consumptions:
     consumption: "Sortie"
     edit: "Modifier sortie"
@@ -407,6 +419,7 @@ fr:
     estate_replaced: "La fiche producteur que vous avez créée vient d'être remplacée par %{estate}."
     wine_validated: "La fiche vin que vous avez créée vient d'être validée."
     wine_replaced: "La fiche vin que vous avez créée vient d'être remplacée par %{wine}."
+    book_validated: "La fiche livre que vous avez créée vient d'être validée."
   vintages:
     vintages: Millésimes
     table: Tableau des millésimes, selon les avis des utilisateurs
@@ -506,6 +519,7 @@ fr:
     label_not_created: Erreur lors de l'ajout de l'étiquette.
     proposal_created: Proposition créée avec succès.
     proposal_not_created: Erreur lors de l'ajout de la proposition.
+    book_created: Fiche livre créée.
 
   helpers:
     not_mandatory: Facultatif
@@ -545,6 +559,15 @@ fr:
         hint_title:
           one: "Conseil basé sur 1 entrée"
           other: "Conseil basé sur %{count} entrées"
+      book:
+        title: Titre
+        authors: Auteurs
+        description: Description
+        editor: Editeur
+        isbn: ISBN
+        pages: Nombre de pages
+        amazon: Lien Amazon
+        category: Catégorie
       consumption:
         bottle: "Bouteille"
         quantity: "Quantité"

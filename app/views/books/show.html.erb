@@ -1,0 +1,56 @@
+<% title = @book.title + " - " + @book.authors %>
+<% set_meta_tags :title => title,
+                 :description => @book.description,
+                 :og => {
+                   :url => book_url(@book),
+                   :title => title,
+                   :type => "vinosus:book",
+                   :locale => I18n.locale,
+                   :description => @book.description,
+                   :site_name => site_name
+                 },
+                 :twitter => {
+                   :card => 'summary'
+                 } %>
+
+<div class="white-opacity rounded">
+  <h1><%= @book.title %></h1>
+  
+  <div class="row-fluid">
+    <div class="span4">
+      <p>
+        <b><%= t("helpers.label.book.authors")%>:</b>
+        <%= @book.authors %>
+      </p>
+      
+      <p>
+        <b><%= t("helpers.label.book.editor")%>:</b>
+        <%= @book.editor %>
+      </p>
+      
+      <p>
+        <b><%= t("helpers.label.book.category")%>:</b>
+        <%= t(@book.category, scope: "book.category") %>
+      </p>
+      
+      <p>
+        <b><%= t("helpers.label.book.isbn")%>:</b>
+        <%= @book.isbn %>
+      </p>
+      
+      <p>
+        <b><%= t("helpers.label.book.pages")%>:</b>
+        <%= @book.pages %>
+      </p>
+    </div>
+    <div class="span4">
+      <blockquote><%= @book.description %></blockquote>
+    </div>
+    <% unless @book.amazon.blank? %>
+      <div class="span4">
+        <%= raw @book.amazon %><br />
+        <em><%= t('book.buy') %></em>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -12,6 +12,10 @@ class ModerationsController < ApplicationController
     @labels = Label.not_validated
   end
   
+  def books
+    @books = Book.not_validated
+  end
+  
   def clean
     @wines = Wine.unscoped.where('validation = ? AND created_at < ?', false, Date.current().months_ago(1)).select(&:destroyable?)
     @estates = Estate.unscoped.where('validation = ? AND created_at < ?', false, Date.current().months_ago(1)).select(&:destroyable?)

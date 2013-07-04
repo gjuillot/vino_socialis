@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514195259) do
+ActiveRecord::Schema.define(:version => 20130620171413) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -39,6 +39,25 @@ ActiveRecord::Schema.define(:version => 20130514195259) do
 
   add_index "areas", ["region_id"], :name => "index_areas_on_region_id"
   add_index "areas", ["slug"], :name => "index_areas_on_slug"
+
+  create_table "books", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.string   "authors"
+    t.text     "description"
+    t.string   "editor"
+    t.string   "isbn"
+    t.integer  "pages"
+    t.string   "amazon"
+    t.integer  "user_id"
+    t.string   "category"
+    t.boolean  "validation",  :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "books", ["slug"], :name => "index_books_on_slug"
+  add_index "books", ["user_id"], :name => "index_books_on_user_id"
 
   create_table "bottles", :force => true do |t|
     t.integer  "user_id"

@@ -22,7 +22,7 @@ class Ability
     end
     
     if user.moderator?
-      can [:sheets, :labels, :proposals], Moderation
+      can [:sheets, :labels, :books, :proposals], Moderation
     end
     
     # User
@@ -60,5 +60,8 @@ class Ability
     if user.moderator?
       can :close, Proposal
     end
+    
+    # Books
+    can [:create, :read], Tasting
   end
 end

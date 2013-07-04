@@ -1,0 +1,18 @@
+
+<% if @books.any? %>
+  <table class="table table-condensed white-opacity">
+    <theader>
+      <tr>
+        <th style="text-align:center;vertical-align:middle;">Titre</th>
+        <th style="text-align:center;vertical-align:middle;">Auteur</th>
+        <th style="text-align:center;vertical-align:middle;">Utilisateur</th>
+        <th style="text-align:center;vertical-align:middle;">Editer</th>
+        <th style="text-align:center;vertical-align:middle;">Suppression</th>
+        <th style="text-align:center;vertical-align:middle;">Validation</th>
+      </tr>
+    </theader>
+    <tbody>
+      <%= render :collection => @books, :partial => 'book' %>
+    </tbody>
+  </table>
+<% end %>

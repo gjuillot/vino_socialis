@@ -14,6 +14,7 @@ en:
       recommmandations: "Recommanded for you"
       pairings: "Wine pairings"
       glossaries: "Glossary"
+      books: Books
     track:
       title: "Track"
       my_bottles: "My bottles"
@@ -101,6 +102,17 @@ en:
       best: "Best year"
       too_soon: "Too soon"
       too_late: "Too late"
+  book:
+    new: New book
+    buy: Click on the image to buy this book on Amazon
+    category:
+      general: General information about wine
+      tasting: Art of tasting
+      pairing: Wine pairings
+      france: French wines
+      world: World wines
+      guide: Wine guide
+      other: Other
   conversation:
     my: "My conversations"
     none: You have no conversation at that time
@@ -410,6 +422,7 @@ en:
     estate_replaced: "The estate sheet you created has just been replaced by %{estate}."
     wine_validated: "The wine sheet you created has just been validated."
     wine_replaced: "The wine sheet you created has just been replaced by %{wine}."
+    book_validated: "The book sheet you created has just been validated."
   vintages:
     vintages: Vintages
     table: Vintage table build upon user feedbacks
@@ -510,6 +523,7 @@ en:
     label_not_created: Error during label creation.
     proposal_created: Proposal was successfully created.
     proposal_not_created: Error during proposal creation.
+    book_created: Book was successfully created.
     
   helpers:
     not_mandatory: Not mandatory
@@ -546,6 +560,15 @@ en:
         hint_title:
           one: "Hint based on 1 entry"
           other: "Hint based on %{count} entries"
+      book:
+        title: Title
+        authors: Authors
+        description: Description
+        editor: Editor
+        isbn: ISBN
+        pages: Number of pages
+        amazon: Amazon link
+        category: Category
       consumption:
         bottle: "Bottle"
         quantity: "Quantity"

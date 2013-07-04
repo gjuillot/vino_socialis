@@ -1,0 +1,8 @@
+<tr>
+  <td style="text-align:center;vertical-align:middle;"><%= link_to book.title, book %></td>
+  <td style="text-align:center;vertical-align:middle;"><%= book.authors %></td>
+  <td style="text-align:center;vertical-align:middle;"><%= book.user.name %></td>
+  <td style="text-align:center;vertical-align:middle;"><%= link_to_edit edit_book_path(book) %></td>
+  <td style="text-align:center;vertical-align:middle;"><%= link_to_destroy book %></td>
+  <td style="text-align:center;vertical-align:middle;"><%= link_to_validate validate_book_path(book) %></td>
+</tr>
