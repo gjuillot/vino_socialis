@@ -9,6 +9,7 @@
       <li class="divider"></li>
       <li><%= link_to raw('<i class="icon-tastings"></i> ') + t("menu.track.my_tastings"), tastings_user_path(current_user) %></li>
   	  <li><%= link_to raw('<i class="icon-hand-down"></i> ') + t("menu.track.my_consumptions"), consumptions_path %></li>
+      <li><%= link_to raw('<i class="icon-book"></i> ') + t("menu.track.my_books"), books_user_path(current_user) %></li>
       <li class="divider"></li>
       <li><%= link_to raw('<i class="icon-tasks"></i> ') + t("menu.track.stat"), stat_user_path(current_user) %></li>
       <li class="divider"></li>

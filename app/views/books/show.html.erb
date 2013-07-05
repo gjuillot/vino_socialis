@@ -42,6 +42,14 @@
         <b><%= t("helpers.label.book.pages")%>:</b>
         <%= @book.pages %>
       </p>
+      
+      <p>
+        <% if current_user.own_book? @book %>
+          <%= t('book.owned') %>
+        <% else %>
+          <%= link_to t('book.own'), own_book_path(@book) %>
+        <% end %>
+      </p>
     </div>
     <div class="span4">
       <blockquote><%= @book.description %></blockquote>

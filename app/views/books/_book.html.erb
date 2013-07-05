@@ -1,0 +1,5 @@
+<% amazon_img_start = '<img border="0" src="' %>
+<% amazon_img_end = '" ></a>' %>
+<% amazon_img = book.amazon[amazon_img_start.length+book.amazon.index(amazon_img_start)..-1] %>
+<% amazon_img = amazon_img[0..amazon_img.index(amazon_img_end)-1] %>
+<%= link_to image_tag(amazon_img, :alt => book.title), book %>

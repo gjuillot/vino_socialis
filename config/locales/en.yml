@@ -23,6 +23,7 @@ en:
       my_consumptions: "My consumptions"
       stat: "My statistics"
       my_tastings: My tastings
+      my_books: My books
     share:
       title: "Share"
       users: "Users"
@@ -105,6 +106,8 @@ en:
   book:
     new: New book
     buy: Click on the image to buy this book on Amazon
+    own: Do you own this book?
+    owned: You own this book!
     category:
       general: General information about wine
       tasting: Art of tasting

@@ -39,4 +39,12 @@ class BooksController < ApplicationController
     end
     redirect_to books_moderations_path
   end
+  
+  def own
+    library = Library.new
+    library.book_id = @book.id
+    library.user_id = current_user.id
+    library.save
+    redirect_to books_user_path(current_user)
+  end
 end

@@ -83,6 +83,7 @@ VinoSocialis::Application.routes.draw do
         get 'become'
         get 'tags'
         get 'tastings'
+        get 'books'
       end
     end
     
@@ -132,6 +133,7 @@ VinoSocialis::Application.routes.draw do
     resources :books do
       member do
         post 'validate'
+        get 'own'
       end
     end
     

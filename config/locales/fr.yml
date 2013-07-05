@@ -22,6 +22,7 @@ fr:
       my_consumptions: "Mes sorties"
       stat: "Mes statistiques"
       my_tastings: Mes dégustations
+      my_books: Mes livres
     share:
       title: "Partager"
       users: "Utilisateurs"
@@ -103,6 +104,8 @@ fr:
   book:
     new: Nouveau livre
     buy: "Cliquez sur l'image pour acheter ce livre sur Amazon"
+    own: Vous possédez ce livre ?
+    owned: Vous possédez ce livre !
     category:
       general: Généralités sur le vin
       tasting: Art de la dégustation

@@ -83,6 +83,10 @@ class UsersController < ApplicationController
     render template: "tastings/index"
   end
   
+  def books
+    @books = @user.books
+  end
+  
   private
   def stat_html
     @bottles = 0

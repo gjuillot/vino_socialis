@@ -3,6 +3,7 @@ class Book < ActiveRecord::Base
   friendly_id :title, use: :slugged
   
   belongs_to :user
+  has_many :libraries
   
   validates :title, :length => { :minimum => 5 }
   validates :authors, :length => { :minimum => 5 }

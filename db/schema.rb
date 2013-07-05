@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620171413) do
+ActiveRecord::Schema.define(:version => 20130704034123) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -180,6 +180,14 @@ ActiveRecord::Schema.define(:version => 20130620171413) do
   end
 
   add_index "labels", ["wine_id"], :name => "index_labels_on_wine_id"
+
+  create_table "libraries", :force => true do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+  end
+
+  add_index "libraries", ["book_id"], :name => "index_libraries_on_book_id"
+  add_index "libraries", ["user_id"], :name => "index_libraries_on_user_id"
 
   create_table "mouth_flavors", :force => true do |t|
     t.string "name"

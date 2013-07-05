@@ -59,4 +59,12 @@ class User < ActiveRecord::Base
     distances = self.remaining_bottles.product(other.remaining_bottles).map {|b1, b2| b1.distance(b2)}
     return (0.8 ** common_estates) * (distances.sum.to_f / distances.size)
   end
+  
+  def books
+    Book.joins(:libraries).where("libraries.user_id = ?", self.id)
+  end
+  
+  def own_book?(book)
+    not Library.where('book_id = ? AND user_id = ?', book.id, self.id).empty?
+  end
 end

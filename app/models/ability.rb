@@ -27,7 +27,7 @@ class Ability
     
     # User
     can [:read, :search, :tastings], User
-    can [:update, :dashboard, :stat], User, :id => user.id
+    can [:update, :dashboard, :stat, :books], User, :id => user.id
     
     # Glossary
     if user.moderator?
@@ -62,6 +62,6 @@ class Ability
     end
     
     # Books
-    can [:create, :read], Tasting
+    can [:create, :read, :own], Book
   end
 end
