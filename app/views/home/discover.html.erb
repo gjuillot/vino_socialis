@@ -82,6 +82,7 @@
         <li><%= t('home.discover.community.users', count: User.count) %></li>
         <li><%= t('home.discover.community.wines', count: Wine.validated.count) %></li>
         <li><%= t('home.discover.community.tastings', count: Tasting.count) %></li>
+        <li><%= t('book.sheets', count: Book.validated.count) %></li>
       </ul>
       <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary', style: 'position: absolute; bottom: 15px; right: 15px' %>
     </div>

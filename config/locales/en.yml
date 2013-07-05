@@ -108,6 +108,11 @@ en:
     buy: Click on the image to buy this book on Amazon
     own: Do you own this book?
     owned: You own this book!
+    new: Suggest a new book
+    sheets:
+      zero: No validated book sheet
+      one: 1 validated book sheet
+      other: "%{count} validated book sheets"
     category:
       general: General information about wine
       tasting: Art of tasting

@@ -55,6 +55,7 @@ class UsersController < ApplicationController
     @tastings = Tasting.where('"tastings".user_id = ?', @user.id).count
     @pairings = Pairing.joins(:tasting).where('"tastings".user_id = ?', @user.id).count
     @wines = Wine.validated.where('"wines".user_id = ?', @user.id).count
+    @books = Book.validated.where('user_id = ?', @user.id).count
     @ages = {
       'best' => Bottle.remain(@user).best.select('SUM(remaining_quantity) AS total').first.total || 0,
       'ready' => Bottle.remain(@user).ready.select('SUM(remaining_quantity) AS total').first.total || 0,
