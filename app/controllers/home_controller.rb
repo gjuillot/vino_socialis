@@ -42,6 +42,7 @@ class HomeController < ApplicationController
   def sitemap
     @estates = Estate.validated
     @wines = Wine.validated
+    @books = Book.validated
     respond_to do |format|
        format.xml
     end

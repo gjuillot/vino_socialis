@@ -22,5 +22,11 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
       xml.loc "http://www.vinosus.fr" + wine_path(wine)
     end
   end
+  
+  @books.each do |book|
+    xml.url do
+      xml.loc "http://www.vinosus.fr" + book_path(book)
+    end
+  end
 
 end
