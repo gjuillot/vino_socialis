@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704034123) do
+ActiveRecord::Schema.define(:version => 20130705180255) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -44,16 +44,16 @@ ActiveRecord::Schema.define(:version => 20130704034123) do
     t.string   "title"
     t.string   "slug"
     t.string   "authors"
-    t.text     "description"
+    t.text     "description", :limit => 500
     t.string   "editor"
     t.string   "isbn"
     t.integer  "pages"
     t.string   "amazon"
     t.integer  "user_id"
     t.string   "category"
-    t.boolean  "validation",  :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "validation",                 :default => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "books", ["slug"], :name => "index_books_on_slug"
