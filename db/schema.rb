@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705180255) do
+ActiveRecord::Schema.define(:version => 20130706055043) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20130705180255) do
     t.string   "editor"
     t.string   "isbn"
     t.integer  "pages"
-    t.string   "amazon"
+    t.text     "amazon",      :limit => 255
     t.integer  "user_id"
     t.string   "category"
     t.boolean  "validation",                 :default => false
