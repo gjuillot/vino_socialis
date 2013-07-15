@@ -121,6 +121,10 @@ en:
       world: World wines
       guide: Wine guide
       other: Other
+    ratings:
+      zero: No rating
+      one: 1 rating
+      other: "%{count} ratings"
   conversation:
     my: "My conversations"
     none: You have no conversation at that time
@@ -532,6 +536,10 @@ en:
     proposal_created: Proposal was successfully created.
     proposal_not_created: Error during proposal creation.
     book_created: Book was successfully created.
+    book_rating_created: The book was successfully rated.
+    book_rating_not_created: Error during book rating.
+    book_rating_updated: Your book rating was successfully updated.
+    book_rating_not_updated: Error during book rating update.
     
   helpers:
     not_mandatory: Not mandatory

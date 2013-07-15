@@ -15,9 +15,18 @@
 
 <div class="white-opacity rounded">
   <h1><%= @book.title %></h1>
+  <br />
   
   <div class="row-fluid">
-    <div class="span4">
+    <div class="span5">
+      <% unless @book.amazon.blank? %>
+        <p>
+          <%= raw @book.amazon %><br />
+          <em><%= t('book.buy') %></em>
+        </p>
+        <br />
+      <% end %>
+      
       <p>
         <b><%= t("helpers.label.book.authors")%>:</b>
         <%= @book.authors %>
@@ -51,14 +60,38 @@
         <% end %>
       </p>
     </div>
-    <div class="span4">
+    <div class="span7">
       <blockquote><%= @book.description %></blockquote>
     </div>
-    <% unless @book.amazon.blank? %>
-      <div class="span4">
-        <%= raw @book.amazon %><br />
-        <em><%= t('book.buy') %></em>
-      </div>
-    <% end %>
+
+  </div>
+</div>
+
+<br />
+
+<div class="white-opacity rounded-top-less">
+  <div class="row-fluid">
+    <div class="span6">
+      <%= t('book.ratings', count: @book.ratings.count) %><br /><br />
+      <table class="table">
+        <% @book.ratings.each do |rating| %>
+          <tr><td>
+            <% unless rating.comment.blank? %>
+              <blockquote><%= rating.comment %></blockquote>
+            <% end %>
+            <span class="star" data-score="<%= rating.note %>"></span> par <%= rating.user.name %><br /><br />
+          </td></tr>
+        <% end %>
+      </table>
+    </div>
+    
+    <div class="span6">
+      <%= form_for @book_rating, html: { class:'form-horizontal'} do |f| %>
+        <%= f.hidden_field :book_id, :value => @book.id%>
+        <%= f.text_area :comment, :rows => 4, :class => "span11" %><br />
+        <span id="book_rating_note" data-score="<%= @book_rating.note %>"></span>&nbsp;&nbsp;
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book_rating = BookRating.where('book_id = ? AND user_id = ?', @book.id, current_user.id).first || BookRating.new
   end
   
   def new

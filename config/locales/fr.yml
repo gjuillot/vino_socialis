@@ -119,6 +119,10 @@ fr:
       world: Vins du monde
       guide: Guide de vin
       other: Autres
+    ratings:
+      zero: Aucun avis
+      one: 1 avis
+      other: "%{count} avis"
   consumptions:
     consumption: "Sortie"
     edit: "Modifier sortie"
@@ -528,6 +532,10 @@ fr:
     proposal_created: Proposition créée avec succès.
     proposal_not_created: Erreur lors de l'ajout de la proposition.
     book_created: Fiche livre créée.
+    book_rating_created: Avis créé.
+    book_rating_not_created: Erreur lors de la création de votre avis.
+    book_rating_updated: Avis mis à jour.
+    book_rating_not_updated: Erreur lors de la mise à jour de votre avis.
 
   helpers:
     not_mandatory: Facultatif

@@ -136,6 +136,7 @@ VinoSocialis::Application.routes.draw do
         get 'own'
       end
     end
+    resources :book_ratings
     
     root :to => "home#index"
 
