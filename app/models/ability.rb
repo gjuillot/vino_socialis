@@ -26,8 +26,8 @@ class Ability
     end
     
     # User
-    can [:read, :search, :tastings], User
-    can [:update, :dashboard, :stat, :books], User, :id => user.id
+    can [:read, :search, :tastings, :follow, :unfollow], User
+    can [:update, :dashboard, :stat, :books, :friends], User, :id => user.id
     
     # Glossary
     if user.moderator?

@@ -11,6 +11,7 @@ class Tasting < ActiveRecord::Base
   
   scope :last, lambda {|count| order("id DESC").limit(count) }
   scope :user, lambda {|user| where('user_id = ?', user.id)}
+  scope :users, lambda {|users| where('user_id IN (?)', users)}
   
   def eye?
     note?(eye_intensity) or note?(eye_color) 

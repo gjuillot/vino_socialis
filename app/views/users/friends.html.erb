@@ -1,0 +1,36 @@
+<% provide(:title, t('menu.share.friends')) %>
+
+<div class="row-fluid">
+  <div class="span6 white-opacity rounded">
+    <h1><%= t('user.dashboard.followed_users', count: @user.followed_users.count) %></h1>
+    <% @user.followed_users.each do |followed| %>
+      <p>
+        <%= gravatar_for followed, 120 %>
+        &nbsp;
+        <%= link_to followed.name, followed %>
+         - 
+        <% if Tasting.user(followed).size == 0 %>
+          <%= t('tasting.count', count: 0) %><br />
+        <% else %>
+          <%= link_to t('tasting.count', count: Tasting.user(followed).size), tastings_user_path(followed) %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+  <div class="span6 white-opacity rounded">
+    <h1><%= t('user.dashboard.followers', count: @user.followers.count) %></h1>
+    <% @user.followers.each do |follower| %>
+      <p>
+        <%= gravatar_for follower, 120 %>
+        &nbsp;
+        <%= link_to follower.name, follower %>
+         - 
+        <% if Tasting.user(follower).size == 0 %>
+          <%= t('tasting.count', count: 0) %><br />
+        <% else %>
+          <%= link_to t('tasting.count', count: Tasting.user(follower).size), tastings_user_path(follower) %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>

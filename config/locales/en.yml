@@ -27,6 +27,7 @@ en:
     share:
       title: "Share"
       users: "Users"
+      friends: My friends
       new_wine: "Suggest a new wine sheet"
       taste: "Taste a wine"
     newcomer:
@@ -62,6 +63,8 @@ en:
     wine_tastings: "See tastings for this wine"
     converse: "Converse"
     label: Add a new label
+    follow: Follow
+    unfollow: Unfollow
   area:
     areas: "Area"
     new: "New area"
@@ -392,6 +395,14 @@ en:
     edit_my_profile: "Edit my profile"
     edit_profile: "Edit %{user_name}"
     favorite_wines: His favorite wines
+    followed_by:
+      zero: Followed by nabody
+      one: Followed by one person
+      other: "Followed by %{count} persons"
+    follows:
+      zero: Follows nobody
+      one: Follows one person
+      other: "Follows %{count} persons"
     stat:
       loading: "Loading..."
       areas: "By region"
@@ -428,6 +439,16 @@ en:
         zero: No wine pairing
         one: One wine pairing
         other: "%{count}  wine pairings"
+      relationships: My friends
+      followed_users:
+        zero: You are not following anybody
+        one: 1 person followed
+        other: "%{count} persons followed"
+      followers:
+        zero: No followers
+        one: 1 follower
+        other: "%{count} followers"
+      followed_tastings: The tastings of my friends
   user_mailer:
     thank_you: "Vinosus team thanks you for your participation !"
     estate_validated: "The estate sheet you created has just been validated."

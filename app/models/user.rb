@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   
   has_many :bottles
   has_many :consumptions
+
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id", class_name:  "Relationship", dependent:   :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
   
   ROLES = %w[admin moderator user]
   
@@ -66,5 +71,17 @@ class User < ActiveRecord::Base
   
   def own_book?(book)
     not Library.where('book_id = ? AND user_id = ?', book.id, self.id).empty?
+  end
+  
+  def following?(other_user)
+    not relationships.where('followed_id = ?', other_user.id).empty?
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+  
+  def unfollow!(other_user)
+    relationships.where('followed_id = ?', other_user.id).delete_all
   end
 end

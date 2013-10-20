@@ -15,6 +15,8 @@
 !binary "aWNvbnMvYm90dGxlcy9pbmRleC5wbmc=": icons/bottles-8fb53ac7f66e04512ef228311304fbb4.png
 !binary "aWNvbnMvZW5jYXZlLnBuZw==": icons/encave-b9ba742395856f570568e96700e0079c.png
 !binary "aWNvbnMvZW5jYXZlL2luZGV4LnBuZw==": icons/encave-b9ba742395856f570568e96700e0079c.png
+!binary "aWNvbnMvZnJpZW5kcy5wbmc=": icons/friends-b2534f025491f7b4494bdd05867830a3.png
+!binary "aWNvbnMvZnJpZW5kcy9pbmRleC5wbmc=": icons/friends-b2534f025491f7b4494bdd05867830a3.png
 !binary "aWNvbnMvbmV3X3dpbmUucG5n": icons/new_wine-e21987d62d6df950925256f23de67a53.png
 !binary "aWNvbnMvbmV3X3dpbmUvaW5kZXgucG5n": icons/new_wine-e21987d62d6df950925256f23de67a53.png
 !binary "aWNvbnMvdGFzdGUucG5n": icons/taste-40af5e17a0aed62243d5f9a2755dde29.png
@@ -117,10 +119,10 @@
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3NpbXBsZS9pbmRleC5qcGc=": wine_racks/example/fr/simple-df0a98661c26ccb3cdfd95d95bf47e61.jpg
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlLmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
 !binary "d2luZV9yYWNrcy9leGFtcGxlL2ZyL3RlbXBsYXRlL2luZGV4LmpwZw==": wine_racks/example/fr/template-88c300e61d0c293ae6a969c10b52d006.jpg
-!binary "YXBwbGljYXRpb24uanM=": application-c590c616a1d3b453ab5143bf0d81a22e.js
-!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-c590c616a1d3b453ab5143bf0d81a22e.js
-!binary "YXBwbGljYXRpb24uY3Nz": application-f6debb2a098efc10daab6375f61b6929.css
-!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-f6debb2a098efc10daab6375f61b6929.css
+!binary "YXBwbGljYXRpb24uanM=": application-a1a4ff0ce2490c5b3a29e4670438c04c.js
+!binary "YXBwbGljYXRpb24vaW5kZXguanM=": application-a1a4ff0ce2490c5b3a29e4670438c04c.js
+!binary "YXBwbGljYXRpb24uY3Nz": application-5dd1587125c0a6a09790f0b1ba950d94.css
+!binary "YXBwbGljYXRpb24vaW5kZXguY3Nz": application-5dd1587125c0a6a09790f0b1ba950d94.css
 dataTables/back_disabled.png: dataTables/back_disabled-7a902951219d10f938f642f8dcfbd0b2.png
 dataTables/back_disabled/index.png: dataTables/back_disabled-7a902951219d10f938f642f8dcfbd0b2.png
 dataTables/back_enabled.png: dataTables/back_enabled-6eb9125f3bb6cbca38c2f71664f9e000.png

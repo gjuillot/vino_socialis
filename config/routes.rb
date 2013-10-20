@@ -84,6 +84,9 @@ VinoSocialis::Application.routes.draw do
         get 'tags'
         get 'tastings'
         get 'books'
+        get 'follow'
+        get 'unfollow'
+        get 'friends'
       end
     end
     

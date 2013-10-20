@@ -5,6 +5,11 @@
   <td style="vertical-align:middle;"><span class="star" data-score="<%= 5.0 * ( 1.0 - current_user.bottles_distance(user)) %>"></span></td>
   
   <td style="vertical-align:middle;"><%= link_to_message user %></td>
+  <% if current_user.following? user %>
+    <td style="vertical-align:middle;"><%= link_to_unfollow user %></td>
+  <% else %>
+    <td style="vertical-align:middle;"><%= link_to_follow user %></td>
+  <% end %>
   
   <% if can? :update, user %>
     <td style="vertical-align:middle;"><%= link_to_edit(edit_user_path(user)) %></td>

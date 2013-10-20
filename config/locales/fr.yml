@@ -26,6 +26,7 @@ fr:
     share:
       title: "Partager"
       users: "Utilisateurs"
+      friends: Mes amis
       new_wine: "Proposer une nouvelle fiche de vin"
       taste: "Déguster un vin"
     newcomer:
@@ -61,6 +62,8 @@ fr:
     wine_tastings: "Voir les dégustations pour ce vin"
     converse: "Converser"
     label: Ajouter une nouvelle étiquette
+    follow: Suivre
+    unfollow: Ne plus suivre
   area:
     areas: "Appellations"
     search: Recherche d'un vin par appellation
@@ -389,6 +392,14 @@ fr:
     edit_my_profile: "Modifier mon profil"
     edit_profile: "Modifier %{user_name}"
     favorite_wines: Ses vins préférés
+    followed_by:
+      zero: Suivi par personne
+      one: Suivi par une personne
+      other: "Suivi par %{count} personnes"
+    follows:
+      zero: Ne suit personne
+      one: Suit une personne
+      other: "Suit %{count} personnes"
     stat:
       loading: "Chargement en cours..."
       areas: "Par région"
@@ -425,6 +436,16 @@ fr:
         zero: Aucun accord mets-vins
         one: Un accord mets-vins
         other: "%{count} accords mets-vins"
+      relationships: Mes amis
+      followed_users:
+        zero: Vous ne suivez personne
+        one: 1 personne suivie
+        other: "%{count} personnes suivies"
+      followers:
+        zero: Personne ne vous suit
+        one: 1 personne vous suit
+        other: "%{count} personnes vous suit"
+      followed_tastings: Les dégustations de mes amis
   user_mailer:
     thank_you: "L'équipe de Vinosus vous remercie pour votre participation !"
     estate_validated: "La fiche producteur que vous avez créée vient d'être validée."

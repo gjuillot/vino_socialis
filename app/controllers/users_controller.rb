@@ -62,6 +62,7 @@ class UsersController < ApplicationController
       'too_late' => Bottle.remain(@user).too_late.select('SUM(remaining_quantity) AS total').first.total || 0,
       'too_soon' => Bottle.remain(@user).too_soon.select('SUM(remaining_quantity) AS total').first.total || 0,
     }
+    @followed_tastings = Tasting.users(@user.followed_users).last(10)
   end
   
   def stat
@@ -86,6 +87,19 @@ class UsersController < ApplicationController
   
   def books
     @books = @user.books
+  end
+  
+  def follow
+    current_user.follow!(@user)
+    redirect_to root_path
+  end
+  
+  def unfollow
+    current_user.unfollow!(@user)
+    redirect_to root_path
+  end
+  
+  def friends
   end
   
   private

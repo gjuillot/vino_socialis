@@ -96,6 +96,15 @@ module ApplicationHelper
   def link_to_message(user)
     content_tag(:a, content_tag(:i, "", class: "icon-envelope") + ' ' + t('icon.converse'), :href => new_conversation_path(:user => user), :method => :get)
   end
+  
+  def link_to_follow(user)
+    content_tag(:a, content_tag(:i, "", class: "icon-star") + ' ' + t('icon.follow'), :href => follow_user_path(user), :method => :get)
+  end
+  
+  def link_to_unfollow(user)
+    content_tag(:a, content_tag(:i, "", class: "icon-star-empty") + ' ' + t('icon.unfollow'), :href => unfollow_user_path(user), :method => :get)
+  end
+  
 
   def select_vintage(f, selected = '')
     years = (1900..(Time.now.year)).to_a.reverse.insert(0, [t('helpers.label.bottle.no_vintage'), 0])

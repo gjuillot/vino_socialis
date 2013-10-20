@@ -57,3 +57,29 @@
   </div>
 
 </div>
+
+<div class="row-fluid">
+  <div class="span3 white-opacity rounded-top-less">
+    <h3><%= t('user.dashboard.relationships') %></h3>
+    <table class="table table-condensed">
+      <tr><td><%= t('user.dashboard.followed_users', count: @user.followed_users.count) %></td></tr>
+      <tr><td><%= t('user.dashboard.followers', count: @user.followers.count) %></td></tr>
+    </table>
+  </div>
+  
+  <div class="span9 white-opacity rounded-top-less">
+    <h3><%= t('user.dashboard.followed_tastings') %></h3>
+    <table class="table table-condensed table-striped">
+      <% @followed_tastings.reverse.each do |tasting| %>
+        <tr>
+          <td><%= wine_icon tasting.wine%></td>
+          <td><%= wine_name tasting.wine, estate: true, area: true, html: true %></td>
+          <td><%= formated_vintage(tasting.vintage) %></td>
+          <td class="star" data-score="<%= tasting.note %>"></td>
+          <td><%= link_to tasting.user.name, tasting.user %></td>
+          <td><%= tasting_action_buttons tasting %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

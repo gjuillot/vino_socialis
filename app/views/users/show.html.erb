@@ -13,6 +13,8 @@
       <% end %>
       
       <p><%= link_to_message @user %></p>
+      
+      <p><%= current_user.following?(@user) ? link_to_unfollow(@user) : link_to_follow(@user) %></p>
         
       <% if current_user.admin? %>
         <p><%= content_tag(:a, content_tag(:i, "", class: "icon-user") + ' Become', :href => become_user_path(@user)) %></p>
@@ -49,6 +51,14 @@
             </tr>
           <% end %>
         </table>
+      <% end %>
+      <%= t('user.follows', :count => @user.followed_users.count) %><br />
+      <% @user.followed_users.each do |followed| %>
+        <%= link_to gravatar_for(followed, 60), followed %>
+      <% end %><br /><br />
+      <%= t('user.followed_by', :count => @user.followers.count) %><br />
+      <% @user.followers.each do |follower| %>
+        <%= link_to gravatar_for(follower, 60), follower %>
       <% end %>
     </div>
 
