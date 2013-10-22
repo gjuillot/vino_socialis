@@ -94,6 +94,7 @@ VinoSocialis::Application.routes.draw do
       collection do
         get 'admins'
         get 'bug'
+        delete 'destroy_multiple'
       end
     end
     

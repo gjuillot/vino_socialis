@@ -67,4 +67,11 @@ class ConversationsController < ApplicationController
      @conversation.move_to_trash current_user
      redirect_to conversations_path
   end
+  
+  def destroy_multiple
+    params[:conversations].each_key do |id|
+      Conversation.find(id).move_to_trash current_user
+    end
+    redirect_to conversations_path
+  end
 end
