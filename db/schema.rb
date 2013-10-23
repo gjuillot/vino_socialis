@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131020112546) do
+ActiveRecord::Schema.define(:version => 20131023103742) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -105,6 +105,17 @@ ActiveRecord::Schema.define(:version => 20131020112546) do
 
   add_index "color_volumes", ["area_id"], :name => "index_color_volumes_on_area_id"
   add_index "color_volumes", ["region_id"], :name => "index_color_volumes_on_region_id"
+
+  create_table "comments", :force => true do |t|
+    t.string   "commented_type"
+    t.integer  "commented_id"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "consumptions", :force => true do |t|
     t.integer  "user_id"

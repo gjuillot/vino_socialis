@@ -114,4 +114,11 @@ class WinesController < ApplicationController
     @wines = tmp.sort {|a,b| 1000*(a[1].sum.to_f / a[1].size) + a[1].size <=> 1000*(b[1].sum.to_f / b[1].size) + b[1].size}.last(20).reverse
   end
   
+  def comment
+    comment = @wine.comments.new
+    comment.comment = params[:comment][:comment]
+    comment.user = current_user
+    comment.save
+    redirect_to @wine
+  end
 end

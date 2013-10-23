@@ -1,0 +1,6 @@
+<p>
+  <%= gravatar_for comment.user, 24 %> <%= comment.user.name %> - <%= formated_date(comment.created_at) %>
+  <blockquote>
+    <%= simple_format comment.comment %>
+  </blockquote>
+</p>

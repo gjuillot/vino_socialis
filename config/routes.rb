@@ -48,6 +48,7 @@ VinoSocialis::Application.routes.draw do
         get 'encave'
         get 'replace'
         get 'add_label'
+        post 'comment'
       end
       collection do
         get 'recommanded'

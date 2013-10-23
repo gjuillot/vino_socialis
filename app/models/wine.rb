@@ -14,6 +14,7 @@ class Wine < ActiveRecord::Base
   has_many :bottles
   has_many :tastings
   has_many :labels
+  has_many :comments, as: :commented
   
   validates :name, :presence => true
   validates :area_id, :presence => true

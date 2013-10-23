@@ -605,6 +605,8 @@ fr:
         pages: Nombre de pages
         amazon: Lien Amazon
         category: Catégorie
+      comment:
+        create: "Laisser un message / poser une question"
       consumption:
         bottle: "Bouteille"
         quantity: "Quantité"
