@@ -25,6 +25,9 @@ class Ability
       can [:sheets, :labels, :books, :proposals], Moderation
     end
     
+    #Everybody logged in can comment everything
+    can :comment, :all
+    
     # User
     can [:read, :search, :tastings, :follow, :unfollow], User
     can [:update, :dashboard, :stat, :books, :friends], User, :id => user.id
