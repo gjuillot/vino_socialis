@@ -3,6 +3,8 @@
 <div class="white-opacity rounded-top">
   <h1><%= t("menu.discover.books") %></h1>
   <%= render @books %>
-  <br /><br />
-  <%= link_to t('book.new'), new_book_path %>
+  <% if can? :new, Book %>
+    <br /><br />
+    <%= link_to t('book.new'), new_book_path %>
+  <% end %>
 </div>

@@ -52,13 +52,15 @@
         <%= @book.pages %>
       </p>
       
-      <p>
-        <% if current_user.own_book? @book %>
-          <%= t('book.owned') %>
-        <% else %>
-          <%= link_to t('book.own'), own_book_path(@book) %>
-        <% end %>
-      </p>
+      <% if user_signed_in? %>
+        <p>
+          <% if current_user.own_book? @book %>
+            <%= t('book.owned') %>
+          <% else %>
+            <%= link_to t('book.own'), own_book_path(@book) %>
+          <% end %>
+        </p>
+      <% end %>
     </div>
     <div class="span7">
       <blockquote><%= @book.description %></blockquote>
@@ -85,13 +87,15 @@
       </table>
     </div>
     
-    <div class="span6">
-      <%= form_for @book_rating, html: { class:'form-horizontal'} do |f| %>
-        <%= f.hidden_field :book_id, :value => @book.id%>
-        <%= f.text_area :comment, :rows => 4, :class => "span11" %><br />
-        <span id="book_rating_note" data-score="<%= @book_rating.note %>"></span>&nbsp;&nbsp;
-        <%= f.submit class: "btn btn-primary" %>
-      <% end %>
-    </div>
+    <% if can? :update, @book_rating %>
+      <div class="span6">
+        <%= form_for @book_rating, html: { class:'form-horizontal'} do |f| %>
+          <%= f.hidden_field :book_id, :value => @book.id%>
+          <%= f.text_area :comment, :rows => 4, :class => "span11" %><br />
+          <span id="book_rating_note" data-score="<%= @book_rating.note %>"></span>&nbsp;&nbsp;
+          <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
