@@ -9,10 +9,11 @@ class HomeController < ApplicationController
   end
   
   def discover
-    @areas = Area.reorder("random()").limit(5)
-    @grape_varieties = GrapeVariety.reorder("random()").limit(7)
+    @areas = Area.reorder("random()").limit(7)
+    @grape_varieties = GrapeVariety.reorder("random()").limit(9)
     @definitions = Glossary.reorder("random()").limit(2)
-    @vintages = Vintage.select("area, year, count(user_id) AS users, avg(note) AS note").group("area, year").reorder("random()").limit(8)
+    @vintages = Vintage.select("area, year, count(user_id) AS users, avg(note) AS note").group("area, year").reorder("random()").limit(9)
+    @book = Book.reorder("random()").limit(1)
   end
   
   def temperature
