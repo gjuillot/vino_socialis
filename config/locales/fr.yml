@@ -202,13 +202,13 @@ fr:
       for_all: "Pour amateurs de vin, débutants ou experts"
       carousel:
         t1: Vinosus, pour débutants et amateurs
-        p1: <i class="icon-hand-right icon-white"></i><em>Débutant</em>, bénéficiez des conseils de la communauté d'utilisateurs et découvrez le monde du vin.<br /><i class="icon-hand-right icon-white"></i><em>Amateur</em>, profitez d'un gestionnaire de cave puissant.
+        p1: <i class="icon-hand-right"></i><em>Débutant</em>, bénéficiez des conseils de la communauté d'utilisateurs et découvrez le monde du vin.<br /><br /><i class="icon-hand-right"></i><em>Amateur</em>, profitez d'un gestionnaire de cave puissant.
         t2: Découvrir le monde du vin
-        p2: <i class="icon-hand-right icon-white"></i>Voyagez à travers les appellations et cépages du monde entier.<br /><i class="icon-hand-right icon-white"></i>Découvrez les vins recommandés pour vous selon vos goûts.<br /><i class="icon-hand-right icon-white"></i>Trouvez les meilleurs accords pour vos mets.
+        p2: <i class="icon-hand-right"></i>Voyagez à travers les appellations et cépages du monde entier.<br /><i class="icon-hand-right"></i>Découvrez les vins recommandés pour vous selon vos goûts.<br /><i class="icon-hand-right"></i>Trouvez les meilleurs accords pour vos mets.
         t3: Suivre vos vins
-        p3: <i class="icon-hand-right icon-white"></i>Notez les vins que vous dégustez pour les retrouver facilement.<br /><i class="icon-hand-right icon-white"></i>Le gestionnaire de cave de vos rêves est ici. Performant et pratique, il répond à tous vos besoins.
+        p3: <i class="icon-hand-right"></i>Notez les vins que vous dégustez pour les retrouver facilement.<br /><i class="icon-hand-right"></i>Le gestionnaire de cave de vos rêves est ici. Performant et pratique, il répond à tous vos besoins.
         t4: Partager
-        p4: <i class="icon-hand-right icon-white"></i>Le vin a un incroyable aspect social, alors partagez !<br /><i class="icon-hand-right icon-white"></i>rien ne vaut la communauté pour vous conseiller sur les vins, leur garde ou les accords mets-vins. Ou tout simplement pour échanger. 
+        p4: <i class="icon-hand-right"></i>Le vin a un incroyable aspect social, alors partagez !<br /><i class="icon-hand-right"></i>Rien ne vaut la communauté pour vous conseiller sur les vins, leur garde ou les accords mets-vins. Ou tout simplement pour échanger. 
       discover:
         p1: "Le monde du vin est vaste et semé d'embûches."
         p2: "Avec Vinosus, découvrez le en toute quiétude."

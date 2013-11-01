@@ -205,13 +205,13 @@ en:
       for_all: "For wine lovers, beginners or experts"
       carousel:
          t1: Vinosus for beginners and amateurs
-         p1: <i class="icon-hand-right icon-white"></i><em>Newbie</em>, get advices from the user community and discover the world of wine.<br /><i class="icon-hand-right icon-white"></i><em>Amateur</em>, enjoy a powerful cellar manager.
+         p1: <i class="icon-hand-right"></i><em>Newbie</em>, get advices from the user community and discover the world of wine.<br /><br /><i class="icon-hand-right"></i><em>Amateur</em>, enjoy a powerful cellar manager.
          t2: Discover the world of wine
-         p2: <i class="icon-hand-right icon-white"></i>Journey through the areas from around the world.<br /><i class="icon-hand-right icon-white"></i>Discover the recommended wines according to your taste.<br /><i class="icon-hand-right icon-white"></i>Find the best pairings for your meals.
+         p2: <i class="icon-hand-right"></i>Journey through the areas from around the world.<br /><i class="icon-hand-right"></i>Discover the recommended wines according to your taste.<br /><i class="icon-hand-right"></i>Find the best pairings for your meals.
          t3: Follow your wines
-         p3: <i class="icon-hand-right icon-white"></i>Note the wines you taste for easy retrieval.<br /><i class="icon-hand-right icon-white"></i>The cellar cellar of your dreams is here. Powerful and practical, it meets all your needs.
+         p3: <i class="icon-hand-right"></i>Note the wines you taste for easy retrieval.<br /><i class="icon-hand-right"></i>The cellar cellar of your dreams is here. Powerful and practical, it meets all your needs.
          t4: Share
-         p4: <i class="icon-hand-right icon-white"></i>The wine has an incredible social aspect, then share!<br /><i class="icon-hand-right icon-white"></i>There is nothing like the community to advise on wines, their ageing or on food pairing. Or simply to share. 
+         p4: <i class="icon-hand-right"></i>The wine has an incredible social aspect, then share!<br /><i class="icon-hand-right"></i>There is nothing like the community to advise on wines, their ageing or on food pairing. Or simply to share. 
       discover:
         p1: "The world of wine is vast and full of obstacles."
         p2: "With <strong>Vinosus</strong>, discover this world quietly."
