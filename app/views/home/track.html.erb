@@ -2,84 +2,78 @@
                  :description => ('1'..'6').map {|i| t('home.track.summary.p' + i + '.title')}.join(' - ') %>
 
 <div class="row-fluid">
-  <div class="span4 alert alert-info alert-no-close" style="height: 345px; position: relative">
-    <h3><%= t('home.track.summary.title')%></h3>
-    <br />
-    <ul>
-      <% ('1'..'6').each do |i| %>
-        <li><p><%= t('home.track.summary.p' + i + '.title')%></p></li>
-      <% end %>
-    </ul><br />
-    <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary', style: 'position: absolute; bottom: 15px; right: 15px' %>
-  </div>
-  <div class="span8">
-    <div id="myCarousel" class="carousel slide">
-      <!-- Carousel items -->
-      <div class="carousel-inner">
-        <% ('1'..'6').each do |i| %>
-          <div class="<%= i=='1' ? 'active item' : 'item' %>">
-            <%= image_tag('track/p'+ i + '.jpg') %>
-            <div class="carousel-caption">
-              <h4><%= raw t('home.track.summary.p' + i + '.title') %></h4>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
+  <div class="span12 alert alert-success alert-no-close">
+    <h1><%= t('home.track.summary.title')%></h1>
   </div>
 </div>
 
 <div class="row-fluid">
-  <div id="p1" class="span4">
-    <div class="alert alert-success alert-no-close" style="height: 110px;">
-      <h4><%= raw t('home.track.summary.p1.title') %></h4>
-      <p></p>
-      <p><%= raw t('home.track.summary.p1.p1', count: 100*(Wine.validated.count/100)) %></p>
-      <p><%= raw t('home.track.summary.p1.p2') %></p>
+  <div class="span6 alert alert-success alert-no-close">
+    <div style="height: 360px; position: relative">
+      <h3><%= raw t('home.track.summary.p1.title') %></h3>
+      <p>
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p1.p1', count: 100*(Wine.validated.count/100)) %><br />
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p1.p2') %>
+      </p>
+      <%= image_tag('track/p1.jpg', style: 'position: absolute; bottom: 15px;') %>
     </div>
   </div>
-  <div id="p2" class="span4">
-    <div class="alert alert-success alert-no-close" style="height: 110px;">
-      <h4><%= raw t('home.track.summary.p2.title') %></h4>
-      <p></p>
-      <p><%= raw t('home.track.summary.p2.p1') %></p>
-      <p><%= raw t('home.track.summary.p2.p2') %></p>
-    </div>
-  </div>
-  <div id="p4" class="span4">
-    <div class="alert alert-success alert-no-close" style="height: 110px;">
-      <h4><%= raw t('home.track.summary.p4.title') %></h4>
-      <p></p>
-      <p><%= raw t('home.track.summary.p4.p1', count: 100*(Wine.validated.count/100)) %></p>
-      <p><%= raw t('home.track.summary.p4.p2') %></p>
+  <div class="span6 alert alert-success alert-no-close">
+    <div style="height: 360px; position: relative">
+      <h3><%= raw t('home.track.summary.p2.title') %></h3>
+      <p>
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p2.p1') %><br />
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p2.p2') %>
+      </p>
+      <%= image_tag('track/p2.jpg', style: 'position: absolute; bottom: 15px;') %>
     </div>
   </div>
 </div>
 
+<br />
+
 <div class="row-fluid">
-  <div id="p5" class="span4">
-    <div class="alert alert-success alert-no-close" style="height: 110px;">
-      <h4><%= raw t('home.track.summary.p5.title') %></h4>
-      <p></p>
-      <p><%= raw t('home.track.summary.p5.p1') %></p>
+  <div class="span6 alert alert-success alert-no-close">
+    <div style="height: 360px; position: relative">
+      <h3><%= raw t('home.track.summary.p3.title') %></h3>
+      <p>
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p3.p1') %><br />
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p3.p2') %>
+      </p>
+      <%= image_tag('track/p3.jpg', style: 'position: absolute; bottom: 15px;') %>
     </div>
   </div>
-  <div id="p3" class="span4">
-    <div class="alert alert-success alert-no-close" style="height: 110px;">
-      <h4><%= raw t('home.track.summary.p3.title') %></h4>
-      <p></p>
-      <p><%= raw t('home.track.summary.p3.p1') %></p>
-      <p><%= raw t('home.track.summary.p3.p2') %></p>
+  <div class="span6 alert alert-success alert-no-close">
+    <div style="height: 360px; position: relative">
+      <h3><%= raw t('home.track.summary.p4.title') %></h3>
+      <p>
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p4.p1') %><br />
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p4.p2') %>
+      </p>
+      <%= image_tag('track/p4.jpg', style: 'position: absolute; bottom: 15px;') %>
     </div>
   </div>
-  <div id="p6" class="span4">
-    <div class="alert alert-success alert-no-close" style="height: 110px;">
-      <h4><%= raw t('home.track.summary.p6.title') %></h4>
-      <p></p>
-      <p><%= raw t('home.track.summary.p6.p1') %></p>
+</div>
+
+<br />
+
+<div class="row-fluid">
+  <div class="span6 alert alert-success alert-no-close">
+    <div style="height: 360px; position: relative">
+      <h3><%= raw t('home.track.summary.p5.title') %></h3>
+      <p>
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p5.p1') %>
+      </p>
+      <%= image_tag('track/p5.jpg', style: 'position: absolute; bottom: 15px;') %>
+    </div>
+  </div>
+  <div class="span6 alert alert-success alert-no-close">
+    <div style="height: 360px; position: relative">
+      <h3><%= raw t('home.track.summary.p6.title') %></h3>
+      <p>
+        <i class="icon-hand-right"></i><%= raw t('home.track.summary.p6.p1') %>
+      </p>
+      <%= image_tag('track/p6.jpg', style: 'position: absolute; bottom: 15px;') %>
     </div>
   </div>
 </div>

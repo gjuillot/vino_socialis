@@ -262,8 +262,8 @@ en:
           p2: "Add the info you want: date and place of purchase, price, current value, comments ..."
         p2:
           title: "Dynamic search"
-          p1: "<em>Dynamic</ em>: start typing and you will find the wine you are looking for."
-          p2: "<em>Multi-criteria</ em>: search by name, area, vintage, price..."
+          p1: "<em>Dynamic</em>: start typing and you will find the wine you are looking for."
+          p2: "<em>Multi-criteria</em>: search by name, area, vintage, price..."
         p3:
           title: "Advanced graphic visualization"
           p1: "Ideal to quickly locate where a bottle is in your cellar."
