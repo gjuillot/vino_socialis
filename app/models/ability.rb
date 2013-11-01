@@ -9,9 +9,7 @@ class Ability
     can :read, [Country, Region, Area]
     can :for_region_id, Area
     
-    can :read, [GrapeVariety, Glossary, Vintage]
-    
-    can :read, [Estate, Wine]
+    can :read, [GrapeVariety, Glossary, Vintage, Estate, Wine, Book]
     
     if (user.nil?)
       return
