@@ -36,5 +36,13 @@ class RegionsController < ApplicationController
     @region.update_attributes(params[:region])
     redirect_to @region
   end
+  
+  def comment
+    comment = @region.comments.new
+    comment.comment = params[:comment][:comment]
+    comment.user = current_user
+    comment.save
+    redirect_to @region
+  end
 
 end

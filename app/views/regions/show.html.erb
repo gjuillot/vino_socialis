@@ -117,13 +117,24 @@
   </div>
   <% end %>
   <br />
+  <div class="white-opacity rounded">
+    <% unless @region.comments.empty? %>
+      <%= render :partial => 'comments/comment', :collection => @region.comments %><br />
+    <% end %>
+    <%= form_for Comment.new, url: comment_region_path(@region), html: { class:'form-horizontal row-fluid'} do |f| %>
+      <%= f.text_area :comment, rows: 4, class: 'span12' %><br />
+      <%= f.submit t('helpers.label.comment.create'), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <br />
   <div class="well span4 offset4 center">
     <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false)) %>
   </div>
 <% else %>
   <br />
-  <div class="well span4 center">
+  <div class="well span4 offset4 center">
     <%= t('helpers.want_to_learn_more') %><br />
     <%= link_to t("menu.profile.sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
   </div>
 <% end %>
+<br /><br /><br /><br />

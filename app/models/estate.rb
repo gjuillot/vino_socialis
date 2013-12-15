@@ -4,6 +4,7 @@ class Estate < ActiveRecord::Base
 
   belongs_to :user
   has_many :wines
+  has_many :comments, as: :commented
   
   validates :name, :length => { :minimum => 5 }
   

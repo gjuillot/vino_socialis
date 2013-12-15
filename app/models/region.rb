@@ -8,6 +8,7 @@ class Region < ActiveRecord::Base
   has_many :superficies, dependent: :destroy
   has_many :volumes, dependent: :destroy
   has_many :color_volumes, dependent: :destroy
+  has_many :comments, as: :commented
   
   def has_image?
     !image_url.blank?

@@ -89,4 +89,16 @@
   </div>
 </div>
 
-<br /><br />
+<% if user_signed_in? %>
+  <br />
+  
+  <div class="white-opacity rounded">
+    <% unless @estate.comments.empty? %>
+      <%= render :partial => 'comments/comment', :collection => @estate.comments %><br />
+    <% end %>
+    <%= form_for Comment.new, url: comment_estate_path(@estate), html: { class:'form-horizontal row-fluid'} do |f| %>
+      <%= f.text_area :comment, rows: 4, class: 'span12' %><br />
+      <%= f.submit t('helpers.label.comment.create'), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>

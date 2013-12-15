@@ -21,4 +21,11 @@ class CountriesController < ApplicationController
     end
   end
 
+  def comment
+    comment = @country.comments.new
+    comment.comment = params[:comment][:comment]
+    comment.user = current_user
+    comment.save
+    redirect_to @country
+  end
 end

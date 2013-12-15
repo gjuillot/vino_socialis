@@ -50,4 +50,12 @@ class BooksController < ApplicationController
     library.save
     redirect_to books_user_path(current_user)
   end
+  
+  def comment
+    comment = @book.comments.new
+    comment.comment = params[:comment][:comment]
+    comment.user = current_user
+    comment.save
+    redirect_to @book
+  end
 end

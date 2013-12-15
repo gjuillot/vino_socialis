@@ -72,4 +72,12 @@ class EstatesController < ApplicationController
     UserMailer.estate_replaced(@replaced, @estate).deliver
     redirect_to :controller => 'moderations', :action => 'sheets'
   end
+  
+  def comment
+    comment = @estate.comments.new
+    comment.comment = params[:comment][:comment]
+    comment.user = current_user
+    comment.save
+    redirect_to @estate
+  end
 end

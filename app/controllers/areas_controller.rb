@@ -46,4 +46,12 @@ class AreasController < ApplicationController
     @area.destroy
     redirect_to @area.region
   end
+  
+  def comment
+    comment = @area.comments.new
+    comment.comment = params[:comment][:comment]
+    comment.user = current_user
+    comment.save
+    redirect_to @area
+  end
 end

@@ -36,6 +36,7 @@ VinoSocialis::Application.routes.draw do
         post 'validate'
         post 'unvalidate'
         get 'replace'
+        post 'comment'
       end
     end
 
@@ -57,9 +58,21 @@ VinoSocialis::Application.routes.draw do
 
     resources :wine_colors
 
-    resources :countries
-    resources :regions
-    resources :areas
+    resources :countries do
+      member do
+        post 'comment'
+      end
+    end
+    resources :regions do
+      member do
+        post 'comment'
+      end
+    end
+    resources :areas do
+      member do
+        post 'comment'
+      end
+    end
     resources :superficies
     resources :volumes
     resources :color_volumes
@@ -139,6 +152,7 @@ VinoSocialis::Application.routes.draw do
       member do
         post 'validate'
         get 'own'
+        post 'comment'
       end
     end
     resources :book_ratings

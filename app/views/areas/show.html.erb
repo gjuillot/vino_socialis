@@ -93,7 +93,7 @@
   <% end %>
   <h3><%= t('area.wine_description') %></h3>
   <% if @area.wine_description.blank? %>
-    <%= t('area.no_wine_description') %><br />
+    <%= t('area.no_wine_description') %><br /><br /><br />
     <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false), :text => t('area.wine_description')) if user_signed_in? %>
   <% else %>
     <% @area.wine_description = @area.wine_description.truncate(100) unless user_signed_in? %>
@@ -166,8 +166,24 @@
   <% end %>
 </div>
 <% end %>
-<br />
+
 <% if user_signed_in? %>
+  <br />
+  
+  <div class="white-opacity rounded">
+    <% unless @area.comments.empty? %>
+      <%= render :partial => 'comments/comment', :collection => @area.comments %><br />
+    <% end %>
+    <%= form_for Comment.new, url: comment_area_path(@area), html: { class:'form-horizontal row-fluid'} do |f| %>
+      <%= f.text_area :comment, rows: 4, class: 'span12' %><br />
+      <%= f.submit t('helpers.label.comment.create'), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>
+
+
+<% if user_signed_in? %>
+  <br />
   <div class="well span4 offset4 center">
     <%= link_to t("helpers.want_to_contribute"), new_proposal_path(:page => url_for(only_path: false)), class: 'btn btn-primary' %>
   </div>

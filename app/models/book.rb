@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
   belongs_to :user
   has_many :libraries
   has_many :book_ratings
+  has_many :comments, as: :commented
   
   validates :title, :length => { :minimum => 5 }
   validates :authors, :length => { :minimum => 5 }

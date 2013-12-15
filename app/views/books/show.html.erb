@@ -99,3 +99,17 @@
     <% end %>
   </div>
 </div>
+
+<% if user_signed_in? %>
+  <br />
+  
+  <div class="white-opacity rounded">
+    <% unless @book.comments.empty? %>
+      <%= render :partial => 'comments/comment', :collection => @book.comments %><br />
+    <% end %>
+    <%= form_for Comment.new, url: comment_book_path(@book), html: { class:'form-horizontal row-fluid'} do |f| %>
+      <%= f.text_area :comment, rows: 4, class: 'span12' %><br />
+      <%= f.submit t('helpers.label.comment.create'), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>

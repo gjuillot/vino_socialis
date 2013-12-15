@@ -10,6 +10,7 @@ class Area < ActiveRecord::Base
   has_many :volumes, dependent: :destroy
   has_many :color_volumes, dependent: :destroy
   has_many :area_color_grapes, dependent: :destroy
+  has_many :comments, as: :commented
   
   def has_decret?
     !decret_name.blank? and !decret_link.blank?
