@@ -1,4 +1,5 @@
 json.countries @countries do |json, country|
-  json.extract! country, :slug, :name
+  json.slug country.slug
+  json.name country.name
   json.regions country.regions.count
 end
