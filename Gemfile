@@ -43,3 +43,5 @@ gem 'jquery-datatables-rails'
 gem 'meta-tags', :require => 'meta_tags'
 
 gem 'friendly_id'
+
+gem 'jbuilder'

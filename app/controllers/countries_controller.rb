@@ -6,19 +6,14 @@ class CountriesController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render :json => @countries }
-      format.xml { render :xml => @countries }
+      format.json { render :json => {"countries" => @countries.select([:name, :slug])} }
+      format.xml { render :xml => {"countries" => @countries.select([:name, :slug])} }
     end
   end
 
   # GET /countries/1
   def show
     @regions = @country.regions
-    respond_to do |format|
-      format.html
-      format.json { render :json => @country.to_json(:include => [:regions]) }
-      format.xml { render :xml => @country.to_xml(:include => [:regions]) }
-    end
   end
 
   def comment

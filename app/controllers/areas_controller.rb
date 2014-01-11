@@ -11,7 +11,7 @@ class AreasController < ApplicationController
       @estates[wine.estate][:wines] += 1
       @estates[wine.estate][:colors] << wine.wine_color unless @estates[wine.estate][:colors].include? wine.wine_color
     end
-    
+
     @color_volumes = {}
     @area.color_volumes.each do |color_volume|
       @color_volumes[color_volume.year] = [] unless @color_volumes.has_key? color_volume.year
