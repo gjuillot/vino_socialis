@@ -4,11 +4,6 @@ class CountriesController < ApplicationController
   
   # GET /countries
   def index
-    respond_to do |format|
-      format.html
-      format.json { render :json => {"countries" => @countries.select([:name, :slug])} }
-      format.xml { render :xml => {"countries" => @countries.select([:name, :slug])} }
-    end
   end
 
   # GET /countries/1

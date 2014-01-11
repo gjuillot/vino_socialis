@@ -10,6 +10,7 @@ xml.country do
       xml.region do
         xml.slug region.slug
         xml.name region.name
+        xml.areas region.areas.count
       end
     end
   end
