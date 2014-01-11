@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+rubt '2.0'
+gem 'rails', '3.2.15'
 gem 'heroku'
 
 group :development do
