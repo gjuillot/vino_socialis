@@ -11,6 +11,11 @@ xml.region do
         xml.slug area.slug
         xml.name area.name
         xml.wines area.wines.count
+        xml.colors do
+          area.colors.keys.each do |color|
+            xml.color color
+          end
+        end
       end
     end
   end
