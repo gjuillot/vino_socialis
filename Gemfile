@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
 gem 'rails', '3.2.15'
 gem 'heroku'
 
@@ -45,4 +44,4 @@ gem 'meta-tags', :require => 'meta_tags'
 
 gem 'friendly_id'
 
-gem 'jbuilder'
+gem 'jbuilder', '1.5.2'
