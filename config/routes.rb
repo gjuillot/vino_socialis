@@ -173,4 +173,13 @@ VinoSocialis::Application.routes.draw do
   
   match '/areas/for_region_id/:region_id' => 'areas#for_region_id'
   
+  namespace :api do
+    namespace :v1 do
+      devise_scope :user do
+        post 'sessions' => 'sessions#create', :as => 'login'
+        delete 'sessions' => 'sessions#destroy', :as => 'logout'
+      end
+    end
+  end
+  
 end

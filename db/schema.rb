@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131023103742) do
+ActiveRecord::Schema.define(:version => 20140227102417) do
 
   create_table "area_color_grapes", :force => true do |t|
     t.integer  "area_id"
@@ -386,8 +386,10 @@ ActiveRecord::Schema.define(:version => 20131023103742) do
     t.boolean  "tutorial",               :default => true
     t.string   "date_format",            :default => "default"
     t.string   "currency",               :default => "€"
+    t.string   "authentication_token"
   end
 
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
