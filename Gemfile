@@ -22,7 +22,7 @@ end
 
 gem 'jquery-rails'
 
-gem 'devise', '> 3.0'
+gem 'devise', '> 3.2'
 gem 'cancan'
 
 gem 'kaminari'

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :trackable, :validatable, :recoverable, :token_authenticatable
+  devise :database_authenticatable, :registerable, :trackable, :validatable, :recoverable
   before_save :ensure_authentication_token
          
   acts_as_messageable
@@ -39,6 +39,21 @@ class User < ActiveRecord::Base
     end
     if self.locale.nil?
       self.locale = I18n.locale
+    end
+  end
+  
+  # https://gist.github.com/josevalim/fb706b1e933ef01e4fb6
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+   
+  private
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
     end
   end
 
