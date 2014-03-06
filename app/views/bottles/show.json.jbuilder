@@ -1,4 +1,5 @@
-json.extract! @bottle, :id, :vintage, :volume, :date, :channel, :price, :channel_comments, :remaining_quantity, :initial_quantity, :comments, :current_value, :drink_min, :drink_max, :drink_best
+json.extract! @bottle, :id, :volume, :date, :channel, :price, :channel_comments, :remaining_quantity, :initial_quantity, :comments, :current_value, :drink_min, :drink_max, :drink_best
+json.vintage formated_vintage(@bottle.vintage)
 json.wine do
   json.extract! @bottle.wine, :id, :name, :wine_color
   json.estate do

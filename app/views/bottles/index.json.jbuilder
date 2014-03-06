@@ -1,9 +1,6 @@
 json.bottles @bottles do |json, bottle|
-  json.id bottle.id
-  json.color bottle.wine.wine_color
+  json.extract! bottle, :id, :volume, :remaining_quantity
   json.vintage formated_vintage(bottle.vintage)
-  json.quantity bottle.quantity
-  json.volume bottle.volume
   json.wine do
     json.extract! bottle.wine, :name, :wine_color
     json.estate do
