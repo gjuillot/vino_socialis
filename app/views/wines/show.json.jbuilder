@@ -1,4 +1,7 @@
 json.extract! @wine, :id, :name, :wine_color, :info, :temperature, :validated?
+json.estate do
+  json.extract! @wine.estate, :id, :name, :address, :zip_code, :town, :country, :phone, :fax, :email, :www, :owner
+end
 json.user do
   json.extract! @wine.user, :id, :name
 end
