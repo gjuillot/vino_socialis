@@ -14,6 +14,6 @@ json.area do
     end
   end
 end
-json.grape_varieries @wine.grape_varieties do |json, grape_variety|
+json.grape_varieties @wine.grape_varieties do |json, grape_variety|
   json.extract! grape_variety, :id, :name
 end
