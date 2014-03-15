@@ -1,4 +1,4 @@
-json.extract! @estate, :address, :zip_code, :town, :country, :phone, :fax, :email, :www, :owner, :validated?
+json.extract! @estate, :id, :name, :address, :zip_code, :town, :country, :phone, :fax, :email, :www, :owner, :validated?
 json.user do
   json.extract! @estate.user, :id, :name
 end
